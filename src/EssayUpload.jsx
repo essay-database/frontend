@@ -6,27 +6,19 @@ import { acceptedFileTypes } from "./constants";
 export default class EssayUpload extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { fileName: "", isParsing: false };
     this.progressRef = React.createRef();
   }
 
   static parseFile(file) {
     // set parsing true
-    console.log("parsing file", file);
+    const data = new FormData();
+    data.append("file", document);
+    console.log(data);
     // set parsing false
   }
 
   handleUpload = e => {
     const bar = this.progressRef.current;
-    // let essayFile, fileName;
-    // try {
-    //   essayFile = e.target.files[0];
-    //   fileName = essayFile.name;
-    //   this.setState({ fileName }, EssayUpload.parseFile(essayFile));
-    //   console.log(e.target);
-    // } catch (error) {
-    //   console.log("upload failed");
-    // }
 
     UIkit.upload(".js-upload", {
       url: "",
@@ -36,7 +28,9 @@ export default class EssayUpload extends React.Component {
       //   console.log("beforeSend", arguments);
       // },
       beforeAll: function() {
-        console.log("beforeAll", arguments[1][0]);
+        const file = arguments[1][0];
+        EssayUpload.parseFile(file);
+        console.log("beforeAll", arguments);
       },
       // load: function() {
       //   console.log("load", arguments);
@@ -49,7 +43,6 @@ export default class EssayUpload extends React.Component {
       // },
 
       // progressbar
-
       loadStart: function(e) {
         bar.removeAttribute("hidden");
         bar.max = e.total;
@@ -88,11 +81,7 @@ export default class EssayUpload extends React.Component {
           />
           <span className="uk-text-middle">Drag and Drop or </span>
           <div uk-form-custom="">
-            <input
-              type="file"
-              accept={acceptedFileTypes}
-              value={this.state.fileName}
-            />
+            <input type="file" accept={acceptedFileTypes} />
             <span className="uk-link"> Select </span>
             <span>file </span>
           </div>
