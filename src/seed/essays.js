@@ -1,9 +1,17 @@
 import essay from "./essay";
-import { numGridArticles, statuses, tags, imageIDs } from "../constants";
+import {
+  numGridArticles,
+  statuses,
+  tags,
+  imageIDs
+} from "../constants";
 
 import momentRandom from "moment-random";
 
-import { ID, selectRandom } from "../utils";
+import {
+  ID,
+  selectRandom
+} from "../utils";
 
 export default Array.from(Array(numGridArticles), () =>
   Object.assign({}, essay, {

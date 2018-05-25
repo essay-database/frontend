@@ -21,7 +21,6 @@ export default () => (
           </li>
         ))}
       </ul>
-
       <a
         class="uk-position-center-left uk-position-small uk-hidden-hover"
         href="#"

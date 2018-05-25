@@ -1,7 +1,6 @@
 import React from "react";
 
 const setHeight = height => ({ height });
-
 export default () => (
   <div
     className="uk-child-width-1-2@s uk-child-width-1-3@m"
