@@ -54,7 +54,7 @@ export const countriesOptions = countriesData()
 
 // TODO
 
-export const years = (function() {
+export const years = (function () {
   const yearCount = 12;
   const years = [];
   let y = new Date().getFullYear();
@@ -68,14 +68,18 @@ export const yearsOptions = convertToOptions(years);
 
 export function searchCollegeOptions(name) {
   if (!name) {
-    return Promise.resolve({ options: [] });
+    return Promise.resolve({
+      options: []
+    });
   }
   return axios
     .get(`https://universities.hipolabs.com/search?name=${name}`)
     .then(res => JSON.parse(res))
     .then(data => data.data.map(c => c.name))
     .then(colleges => convertToOptions(colleges))
-    .then(options => ({ options }))
+    .then(options => ({
+      options
+    }))
     .catch(err => console.log(err));
 }
 
@@ -83,7 +87,7 @@ export const imageIDs = axios
   .get("https://picsum.photos/list")
   .then(res => res.data)
   .then(images => images.map(i => i.id))
-  .catch(function() {
+  .catch(function () {
     console.error("error");
   });
 
