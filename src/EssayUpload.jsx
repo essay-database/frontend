@@ -2,6 +2,7 @@ import React from "react";
 import UIkit from "uikit";
 
 import { acceptedFileTypes } from "./constants";
+const uploadURL = "/essays/upload";
 
 export default class EssayUpload extends React.Component {
   constructor(props) {

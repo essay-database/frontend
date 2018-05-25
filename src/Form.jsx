@@ -21,11 +21,19 @@ export default class Form extends React.PureComponent {
     this.formRef = React.createRef();
   }
 
-  handleUpload(file) {}
+  handleUpload(file) {
+    console.log("handling upload");
+  }
+
+  submit() {}
 
   handleSubmit = e => {
     e.preventDefault();
-    UIkit.modal(this.formRef.current).hide();
+
+    if (this.state.isUploadComplete) {
+      this.submit();
+      UIkit.modal(this.formRef.current).hide();
+    }
   };
 
   handleSelect = name => ({ _, value }) => {
@@ -94,7 +102,7 @@ export default class Form extends React.PureComponent {
           </InputWrapper>
 
           <InputWrapper label="Upload Essay">
-            <EssayUpload />
+            <EssayUpload handleUpload={this.handleUpload} />
           </InputWrapper>
 
           <InputWrapper label="Prompt">
