@@ -1,6 +1,6 @@
 import React from "react";
 import UIkit from "uikit";
-// no render
+
 import FormModal from "./FormModal";
 import EssayUpload from "./EssayUpload";
 import InputWrapper from "./InputWrapper";
@@ -21,10 +21,12 @@ export default class Form extends React.PureComponent {
     this.formRef = React.createRef();
   }
 
+  handleUpload(file) {}
+
   handleSubmit = e => {
     e.preventDefault();
+
     UIkit.modal(this.formRef.current).hide();
-    console.log(this.state);
   };
 
   handleSelect = name => ({ _, value }) => {

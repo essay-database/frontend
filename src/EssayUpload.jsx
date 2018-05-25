@@ -9,14 +9,6 @@ export default class EssayUpload extends React.Component {
     this.progressRef = React.createRef();
   }
 
-  static parseFile(file) {
-    // set parsing true
-    const data = new FormData();
-    data.append("file", document);
-    console.log(data);
-    // set parsing false
-  }
-
   handleUpload = e => {
     const bar = this.progressRef.current;
 
@@ -29,8 +21,7 @@ export default class EssayUpload extends React.Component {
       // },
       beforeAll: function() {
         const file = arguments[1][0];
-        EssayUpload.parseFile(file);
-        console.log("beforeAll", arguments);
+        console.log("beforeAll", file);
       },
       // load: function() {
       //   console.log("load", arguments);
@@ -42,7 +33,7 @@ export default class EssayUpload extends React.Component {
       //   console.log("complete", arguments);
       // },
 
-      // progressbar
+      // progress bar
       loadStart: function(e) {
         bar.removeAttribute("hidden");
         bar.max = e.total;

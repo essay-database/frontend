@@ -5,20 +5,15 @@ import EssayContainer from "./EssayContainer";
 import Grid from "./Grid";
 import Nav from "./Nav";
 
-import Contact from "./static/Contact";
-import About from "./static/About";
-import Advertise from "./static/Advertise";
-import Privacy from "./static/Privacy";
-import Terms from "./static/Terms";
-import Help from "./static/Help";
+import StaticPages from "./static";
 
 import essays from "./seed/essays";
 import "./styles/app.css";
 
 const TermsAndPrivacy = () => (
   <div>
-    <Terms />
-    <Privacy />
+    <StaticPages.Terms />
+    <StaticPages.Privacy />
   </div>
 );
 
@@ -50,11 +45,11 @@ export default () => (
         <Switch>
           <Route exact path="/" render={() => <Grid essays={essays} />} />
           <Route exact path="/essays/:id" component={WrappedEssayContainer} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
-          <Route exact path="/advertise" component={Advertise} />
-          <Route exact path="/terms" component={TermsAndPrivacy} />
-          <Route exact path="/help" component={Help} />
+          <Route exact path="/about" component={StaticPages.About} />
+          <Route exact path="/contact" component={StaticPages.Contact} />
+          <Route exact path="/advertise" component={StaticPages.Advertise} />
+          <Route exact path="/terms" component={StaticPages.TermsAndPrivacy} />
+          <Route exact path="/help" component={StaticPages.Help} />
         </Switch>
       </div>
     </div>
