@@ -2,9 +2,9 @@ import React from "react";
 import UIkit from "uikit";
 // no render
 import FormModal from "./FormModal";
+import EssayUpload from "./EssayUpload";
 import InputWrapper from "./InputWrapper";
 import { Prompts, Statuses, Countries, Years, Colleges } from "./Selects";
-import { acceptedFileTypes } from "./constants";
 
 export default class Form extends React.PureComponent {
   constructor(props) {
@@ -13,14 +13,11 @@ export default class Form extends React.PureComponent {
       name: "",
       email: "",
       country: "",
-      essay: "",
-      file: "",
       prompt: "",
       status: "",
       college: "",
       year: -1
     };
-    this.progressRef = React.createRef();
     this.formRef = React.createRef();
   }
 
@@ -38,82 +35,8 @@ export default class Form extends React.PureComponent {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  parseFile() {
-    console.log("parsing file", this.state.file);
-  }
-
-  handleUpload = e => {
-    const bar = this.progressRef.current;
-
-    const file = e.target.files[0];
-
-    this.setState({ file }, this.parseFile());
-
-    UIkit.upload(".js-upload", {
-      url: "",
-      multiple: true,
-
-      beforeSend: function() {
-        console.log("beforeSend", arguments);
-      },
-      beforeAll: function() {
-        console.log("beforeAll", arguments);
-      },
-      load: function() {
-        console.log("load", arguments);
-      },
-      error: function() {
-        console.log("error", arguments);
-      },
-      complete: function() {
-        console.log("complete", arguments);
-      },
-
-      loadStart: function(e) {
-        console.log("loadStart", arguments);
-
-        bar.removeAttribute("hidden");
-        bar.max = e.total;
-        bar.value = e.loaded;
-      },
-
-      progress: function(e) {
-        console.log("progress", arguments);
-
-        bar.max = e.total;
-        bar.value = e.loaded;
-      },
-
-      loadEnd: function(e) {
-        console.log("loadEnd", arguments);
-
-        bar.max = e.total;
-        bar.value = e.loaded;
-      },
-
-      completeAll: function() {
-        console.log("completeAll", arguments);
-
-        setTimeout(function() {
-          bar.setAttribute("hidden", "hidden");
-        }, 1000);
-
-        alert("Upload Completed");
-      }
-    });
-  };
-
   render() {
-    const {
-      name,
-      email,
-      country,
-      essay,
-      prompt,
-      status,
-      college,
-      year
-    } = this.state;
+    const { name, email, country, prompt, status, college, year } = this.state;
 
     return (
       <FormModal
@@ -155,29 +78,7 @@ export default class Form extends React.PureComponent {
           </InputWrapper>
 
           <InputWrapper label="Upload Essay">
-            <div
-              className="js-upload uk-placeholder uk-text-center"
-              onClick={this.handleUpload}
-            >
-              <span
-                uk-icon="icon: cloud-upload"
-                className="uk-margin-small-right"
-              />
-              <span className="uk-text-middle">Drag and Drop or </span>
-              <div uk-form-custom="">
-                <input type="file" accept={acceptedFileTypes} value={essay} />
-                <span className="uk-link"> Select </span>
-                <span>file </span>
-              </div>
-            </div>
-            <progress
-              ref={this.progressRef}
-              id="js-progressbar"
-              className="uk-progress"
-              value="0"
-              max="100"
-              hidden
-            />
+            <EssayUpload />
           </InputWrapper>
 
           <InputWrapper label="Prompt">

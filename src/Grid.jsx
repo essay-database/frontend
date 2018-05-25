@@ -5,7 +5,7 @@ import Filter from "./Filter";
 
 const ToTop = () => (
   <div className="uk-text-right">
-    <a href="#" uk-totop="" uk-scroll="" />
+    <button uk-totop="" uk-scroll="" />
   </div>
 );
 
@@ -18,20 +18,20 @@ const FilterAndSort = () => (
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li className="uk-active" uk-filter-control="">
-            <a href="#">All</a>
+            <a>All</a>
           </li>
           <li uk-filter-control="[data-tag='new']">
-            <a href="#">New</a>
+            <a>New</a>
           </li>
           <li uk-filter-control="[data-tag='trending']">
-            <a href="#">Trending</a>
+            <a>Trending</a>
           </li>
           <li uk-filter-control="[data-tag='popular']">
-            <a href="#">Popular</a>
+            <a>Popular</a>
           </li>
 
           <li uk-filter-control="[data-tag='editors\' pick']">
-            <a href="#">Editors' Pick</a>
+            <a>Editors' Pick</a>
           </li>
           <li>
             <a uk-toggle="target: #modal-filter">Advanced</a>
@@ -48,10 +48,10 @@ const FilterAndSort = () => (
             className="uk-active"
             uk-filter-control="sort: data-date; order: desc"
           >
-            <a href="#">Most recent</a>
+            <a>Most recent</a>
           </li>
           <li uk-filter-control="sort: data-date">
-            <a href="#">Least recent</a>
+            <a>Least recent</a>
           </li>
         </ul>
       </div>
