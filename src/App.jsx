@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import EssayContainer from "./EssayContainer";
 import Grid from "./Grid";
 import Nav from "./Nav";
-
 import StaticPages from "./static";
 
 import essays from "./seed/essays";
@@ -48,7 +47,7 @@ export default () => (
           <Route exact path="/about" component={StaticPages.About} />
           <Route exact path="/contact" component={StaticPages.Contact} />
           <Route exact path="/advertise" component={StaticPages.Advertise} />
-          <Route exact path="/terms" component={StaticPages.TermsAndPrivacy} />
+          <Route exact path="/terms" component={TermsAndPrivacy} />
           <Route exact path="/help" component={StaticPages.Help} />
         </Switch>
       </div>

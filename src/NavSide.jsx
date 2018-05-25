@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import UIkit from "uikit";
-// render violation ok
+
 import { copyright } from "./constants";
 import "./styles/nav_side.css";
 

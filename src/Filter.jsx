@@ -1,5 +1,5 @@
 import React from "react";
-// no render
+
 import FilterModal from "./FilterModal";
 import InputWrapper from "./InputWrapper";
 import UIkit from "uikit";

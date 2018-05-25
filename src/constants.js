@@ -12,11 +12,10 @@ const convertToOptions = arr =>
 // app info
 export const logo = "essayDB";
 export const copyright = `© ${new Date().getFullYear()} essayDB`;
-export const slogan2 = "a college essay database";
 export const slogan = "A Global Collection of College Essays";
 
 // options
-export const tags = ["new", "trending", "popular", `editors' pick`, null];
+export const tags = ["new", "trending", "popular", `editors' pick`, ''];
 
 export const statuses = [
   "Pending",
@@ -97,7 +96,6 @@ export const emptyObj = {};
 export const dateFormat = "MMM D YYYY";
 export const numGridArticles = 30;
 export const maxImages = 1084;
-
 export const acceptedFileTypes = [
   ".doc",
   ".docx",

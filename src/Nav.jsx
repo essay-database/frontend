@@ -1,5 +1,4 @@
 import React from "react";
-// render violation ok
 import Form from "./Form";
 import NavSide from "./NavSide";
 import { logo, slogan } from "./constants";
@@ -7,7 +6,6 @@ import { logo, slogan } from "./constants";
 import "./styles/nav.css";
 
 const mainNavIconSize = 1.2;
-
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
   <a
     className={iconClass}

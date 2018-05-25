@@ -25,7 +25,6 @@ export default class Form extends React.PureComponent {
 
   handleSubmit = e => {
     e.preventDefault();
-
     UIkit.modal(this.formRef.current).hide();
   };
 
@@ -36,10 +35,8 @@ export default class Form extends React.PureComponent {
   handleChange = e => {
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
     this.setState({
-      [name]: value
+      [target.name]: value
     });
   };
 

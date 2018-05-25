@@ -1,5 +1,5 @@
 import React from "react";
-// no render
+
 const FilterModal = ({ id, title, children, onProceedText, forwardRef }) => (
   <div
     id={id}
