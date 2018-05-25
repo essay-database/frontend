@@ -32,7 +32,13 @@ export default class Form extends React.PureComponent {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const target = e.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
@@ -45,18 +51,29 @@ export default class Form extends React.PureComponent {
         ref={this.formRef}
       >
         <form id="essay-form" onSubmit={this.handleSubmit}>
-          <InputWrapper label="Name">
-            <input
-              className="uk-input"
-              type="text"
-              required
-              autoFocus
-              placeholder="Name"
-              value={name}
-              onChange={this.handleChange}
-              name="name"
-            />
-          </InputWrapper>
+          <div className="uk-child-width-1-2">
+            <InputWrapper label="Name">
+              <input
+                className="uk-input"
+                type="text"
+                required
+                autoFocus
+                placeholder="Name"
+                value={name}
+                onChange={this.handleChange}
+                name="name"
+              />
+            </InputWrapper>
+
+            <InputWrapper label="Anonymous">
+              <input
+                className="uk-checkbox"
+                type="checkbox"
+                onChange={this.handleChange}
+                name="anonymous"
+              />
+            </InputWrapper>
+          </div>
 
           <InputWrapper label="Email">
             <input

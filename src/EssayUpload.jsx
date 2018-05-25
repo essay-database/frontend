@@ -13,56 +13,55 @@ export default class EssayUpload extends React.Component {
   static parseFile(file) {
     // set parsing true
     console.log("parsing file", file);
-
-    // release
+    // set parsing false
   }
 
   handleUpload = e => {
     const bar = this.progressRef.current;
-    let essayFile, fileName;
-    try {
-      essayFile = e.target.files[0];
-      fileName = essayFile.name;
-      this.setState({ fileName }, EssayUpload.parseFile(essayFile));
-    } catch (error) {
-      console.log("upload failed");
-    }
+    // let essayFile, fileName;
+    // try {
+    //   essayFile = e.target.files[0];
+    //   fileName = essayFile.name;
+    //   this.setState({ fileName }, EssayUpload.parseFile(essayFile));
+    //   console.log(e.target);
+    // } catch (error) {
+    //   console.log("upload failed");
+    // }
 
     UIkit.upload(".js-upload", {
       url: "",
-      multiple: true,
+      multiple: false,
 
-      beforeSend: function() {
-        console.log("beforeSend", arguments);
-      },
+      // beforeSend: function() {
+      //   console.log("beforeSend", arguments);
+      // },
       beforeAll: function() {
-        console.log("beforeAll", arguments);
+        console.log("beforeAll", arguments[1][0]);
       },
-      load: function() {
-        console.log("load", arguments);
-      },
-      error: function() {
-        console.log("error", arguments);
-      },
-      complete: function() {
-        console.log("complete", arguments);
-      },
+      // load: function() {
+      //   console.log("load", arguments);
+      // },
+      // error: function() {
+      //   console.log("error", arguments);
+      // },
+      // complete: function() {
+      //   console.log("complete", arguments);
+      // },
+
+      // progressbar
 
       loadStart: function(e) {
-        console.log("loadStart", arguments);
         bar.removeAttribute("hidden");
         bar.max = e.total;
         bar.value = e.loaded;
       },
 
       progress: function(e) {
-        console.log("progress", arguments);
         bar.max = e.total;
         bar.value = e.loaded;
       },
 
       loadEnd: function(e) {
-        console.log("loadEnd", arguments);
         bar.max = e.total;
         bar.value = e.loaded;
       },
@@ -72,7 +71,7 @@ export default class EssayUpload extends React.Component {
         setTimeout(function() {
           bar.setAttribute("hidden", "hidden");
         }, 1000);
-        alert("Upload Completed");
+        // alert("Upload Completed");
       }
     });
   };
