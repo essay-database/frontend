@@ -97,3 +97,13 @@ export const emptyObj = {};
 export const dateFormat = "MMM D YYYY";
 export const numGridArticles = 30;
 export const maxImages = 1084;
+
+export const acceptedFileTypes = [
+  ".doc",
+  ".docx",
+  ".xml",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "text/plain",
+  "application/pdf"
+].join(",");

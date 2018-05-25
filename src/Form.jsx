@@ -4,6 +4,7 @@ import UIkit from "uikit";
 import FormModal from "./FormModal";
 import InputWrapper from "./InputWrapper";
 import { Prompts, Statuses, Countries, Years, Colleges } from "./Selects";
+import { acceptedFileTypes } from "./constants";
 
 export default class Form extends React.PureComponent {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Form extends React.PureComponent {
       email: "",
       country: "",
       essay: "",
+      file: "",
       prompt: "",
       status: "",
       college: "",
@@ -36,8 +38,16 @@ export default class Form extends React.PureComponent {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  parseFile() {
+    console.log("parsing file", this.state.file);
+  }
+
   handleUpload = e => {
     const bar = this.progressRef.current;
+
+    const file = e.target.files[0];
+
+    this.setState({ file }, this.parseFile());
 
     UIkit.upload(".js-upload", {
       url: "",
@@ -155,7 +165,7 @@ export default class Form extends React.PureComponent {
               />
               <span className="uk-text-middle">Drag and Drop or </span>
               <div uk-form-custom="">
-                <input type="file" multiple />
+                <input type="file" accept={acceptedFileTypes} value={essay} />
                 <span className="uk-link"> Select </span>
                 <span>file </span>
               </div>
