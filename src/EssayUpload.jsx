@@ -2,7 +2,7 @@ import React from "react";
 import UIkit from "uikit";
 
 import { acceptedFileTypes } from "./constants";
-const uploadURL = "/essays/upload";
+const uploadURL = "http://localhost:4000/upload";
 
 export default class EssayUpload extends React.Component {
   constructor(props) {
@@ -14,26 +14,25 @@ export default class EssayUpload extends React.Component {
     const bar = this.progressRef.current;
 
     UIkit.upload(".js-upload", {
-      url: "",
+      url: uploadURL,
       multiple: false,
 
-      // beforeSend: function() {
-      //   console.log("beforeSend", arguments);
-      // },
+      beforeSend: function() {
+        console.log("beforeSend", arguments);
+      },
       beforeAll: function() {
         const file = arguments[1][0];
         console.log("beforeAll", file);
       },
-      // load: function() {
-      //   console.log("load", arguments);
-      // },
-      // error: function() {
-      //   console.log("error", arguments);
-      // },
-      // complete: function() {
-      //   console.log("complete", arguments);
-      // },
-
+      load: function() {
+        console.log("load", arguments);
+      },
+      error: function() {
+        console.log("error", arguments);
+      },
+      complete: function() {
+        console.log("complete", arguments);
+      },
       // progress bar
       loadStart: function(e) {
         bar.removeAttribute("hidden");

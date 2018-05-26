@@ -11,6 +11,7 @@ export default class Form extends React.PureComponent {
     super(props);
     this.state = {
       name: "",
+      isAnonymous: false,
       email: "",
       country: "",
       prompt: "",
@@ -29,7 +30,6 @@ export default class Form extends React.PureComponent {
 
   handleSubmit = e => {
     e.preventDefault();
-
     if (this.state.isUploadComplete) {
       this.submit();
       UIkit.modal(this.formRef.current).hide();
@@ -48,8 +48,31 @@ export default class Form extends React.PureComponent {
     });
   };
 
+  handleAnonymous = e => {
+    this.setState(prevState => {
+      const isAnonymous = !prevState.isAnonymous;
+      let name = prevState.name;
+      if (isAnonymous) {
+        name = "";
+      }
+      return {
+        name,
+        isAnonymous
+      };
+    });
+  };
+
   render() {
-    const { name, email, country, prompt, status, college, year } = this.state;
+    const {
+      name,
+      email,
+      country,
+      prompt,
+      status,
+      college,
+      year,
+      isAnonymous
+    } = this.state;
 
     return (
       <FormModal
@@ -58,28 +81,30 @@ export default class Form extends React.PureComponent {
         ref={this.formRef}
       >
         <form id="essay-form" onSubmit={this.handleSubmit}>
-          <div className="uk-child-width-1-2">
-            <InputWrapper label="Name">
-              <input
-                className="uk-input"
-                type="text"
-                required
-                autoFocus
-                placeholder="Name"
-                value={name}
-                onChange={this.handleChange}
-                name="name"
-              />
-            </InputWrapper>
+          <InputWrapper label="Name">
+            <input
+              className="uk-input"
+              type="text"
+              required
+              autoFocus
+              placeholder="Name"
+              value={name}
+              onChange={this.handleChange}
+              name="name"
+              disabled={isAnonymous}
+            />
+          </InputWrapper>
 
-            <InputWrapper label="Anonymous">
+          <div class="uk-margin">
+            <label>
               <input
                 className="uk-checkbox"
                 type="checkbox"
-                onChange={this.handleChange}
-                name="anonymous"
-              />
-            </InputWrapper>
+                onChange={this.handleAnonymous}
+                name="isAnonymous"
+                checked={isAnonymous}
+              />Anonymous
+            </label>
           </div>
 
           <InputWrapper label="Email">
