@@ -95,10 +95,10 @@ export default class Form extends React.PureComponent {
             />
           </InputWrapper>
 
-          <div class="uk-margin">
+          <div className="uk-margin">
             <label>
               <input
-                className="uk-checkbox"
+                className="uk-checkbox uk-margin-small-right"
                 type="checkbox"
                 onChange={this.handleAnonymous}
                 name="isAnonymous"
