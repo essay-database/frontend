@@ -1,13 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import EssayContainer from "./EssayContainer";
-import Grid from "./Grid";
-import Nav from "./Nav";
-import StaticPages from "./static";
+import EssayContainer from './EssayContainer';
+import Grid from './Grid';
+import Nav from './Nav';
+import StaticPages from './static';
 
-import essays from "./seed/essays";
-import "./styles/app.css";
+import essays from './seed/essays';
+import './styles/app.css';
 
 const TermsAndPrivacy = () => (
   <div>
@@ -17,7 +17,7 @@ const TermsAndPrivacy = () => (
 );
 
 function WrappedEssayContainer({ match }) {
-  const essay = essays.find(e => e.id == match.params.id);
+  const essay = essays.find(e => e.id === match.params.id);
   if (!essay) {
     console.error(`could not find essay`);
   }
