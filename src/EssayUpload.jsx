@@ -1,8 +1,8 @@
-import React from "react";
-import UIkit from "uikit";
+import React from 'react';
+import UIkit from 'uikit';
 
-import { acceptedFileTypes } from "./constants";
-const uploadURL = "http://localhost:4000/upload";
+import { acceptedFileTypes } from './constants';
+const uploadURL = 'http://localhost:4000/upload';
 
 export default class EssayUpload extends React.Component {
   constructor(props) {
@@ -13,29 +13,29 @@ export default class EssayUpload extends React.Component {
   handleUpload = e => {
     const bar = this.progressRef.current;
 
-    UIkit.upload(".js-upload", {
+    UIkit.upload('.js-upload', {
       url: uploadURL,
       multiple: false,
 
       beforeSend: function() {
-        console.log("beforeSend", arguments);
+        console.log('beforeSend', arguments);
       },
       beforeAll: function() {
         const file = arguments[1][0];
-        console.log("beforeAll", file);
+        console.log('beforeAll', file);
       },
       load: function() {
-        console.log("load", arguments);
+        console.log('load', arguments);
       },
       error: function() {
-        console.log("error", arguments);
+        console.log('error', arguments);
       },
       complete: function() {
-        console.log("complete", arguments);
+        console.log('complete', arguments);
       },
       // progress bar
       loadStart: function(e) {
-        bar.removeAttribute("hidden");
+        bar.removeAttribute('hidden');
         bar.max = e.total;
         bar.value = e.loaded;
       },
@@ -51,9 +51,9 @@ export default class EssayUpload extends React.Component {
       },
 
       completeAll: function() {
-        console.log("completeAll", arguments);
+        console.log('completeAll', arguments);
         setTimeout(function() {
-          bar.setAttribute("hidden", "hidden");
+          bar.setAttribute('hidden', 'hidden');
         }, 1000);
         // alert("Upload Completed");
       }

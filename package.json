@@ -29,10 +29,11 @@
     "type": "git",
     "url": "https://github.com/essayDB/client.git"
   },
-  "author": "Samuel K. Mbaabu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/essayDB/client/issues"
+  "author": {
+    "email": "info@uaprivacy.com",
+    "name": "uaprivacy",
+    "url": "https://www.uaprivacy.com"
   },
-  "homepage": "https://github.com/essayDB/client#readme"
+  "private": true,
+  "license": "UNLICENCED"
 }
