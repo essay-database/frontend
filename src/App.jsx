@@ -21,8 +21,7 @@ const TermsAndPrivacy = () => (
 function WrappedEssayContainer({ match }) {
   const essay = essays.find(e => e.id === parseInt(match.params.id, 10));
   if (!essay) {
-    // TODO handle 404 with page?
-    throw new Error(`could not find essay`);
+    return <StaticPages.PageNotFound />;
   }
 
   const relatedArticles = essays.slice(0, 3);
