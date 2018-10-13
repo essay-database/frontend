@@ -1,16 +1,16 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
-import UIkit from "uikit";
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import UIkit from 'uikit';
 
-import { copyright } from "./constants";
-import "./styles/nav_side.css";
+import { COPYRIGHT } from './constants';
+import './styles/nav_side.css';
 
 const LinkCustom = ({ to, exact, children, ...restProps }) => (
   <Route
     path={to}
     exact={exact}
     children={({ match }) => (
-      <li className={match ? "uk-active" : null}>
+      <li className={match ? 'uk-active' : null}>
         <Link to={to} {...restProps}>
           {children}
         </Link>
@@ -62,7 +62,7 @@ export default class NavSide extends React.PureComponent {
 
             <li className="uk-nav-divider" />
             <li className="uk-margin-small">
-              <p id="copyright">{copyright}</p>
+              <p id="copyright">{COPYRIGHT}</p>
             </li>
           </ul>
         </div>

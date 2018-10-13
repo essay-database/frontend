@@ -1,23 +1,23 @@
-import React from "react";
-import SelectVirtualized from "react-virtualized-select";
-import "react-select/dist/react-select.css";
-import "react-virtualized/styles.css";
-import "react-virtualized-select/styles.css";
+import React from 'react';
+import SelectVirtualized from 'react-virtualized-select';
+import 'react-select/dist/react-select.css';
+import 'react-virtualized/styles.css';
+import 'react-virtualized-select/styles.css';
 
 import {
-  searchCollegeOptions,
-  yearsOptions,
-  countriesOptions,
-  promptsOptions,
-  statusesOptions,
-  authorsOptions
-} from "./constants";
-import "./styles/selects.css";
+  SEARCH_COLLEGE_OPTIONS,
+  YEARS_OPTIONS,
+  COUNTRIES_OPTIONS,
+  PROMPTS_OPTIONS,
+  STATUSES_OPTIONS,
+  AUTHORS_OPTIONS
+} from './constants';
+import './styles/selects.css';
 
 const smallWidthBoundary = 640;
 
 export const SelectWrapper = ({
-  options = [{ value: 1, label: "One" }, { value: 2, label: "Two" }],
+  options = [{ value: 1, label: 'One' }, { value: 2, label: 'Two' }],
   name,
   required = false,
   placeholder,
@@ -63,11 +63,11 @@ export class Prompts extends React.PureComponent {
 
   componentDidMount() {
     this.handleResize();
-    window.addEventListener("resize", this.handleResize);
+    window.addEventListener('resize', this.handleResize);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   render() {
@@ -77,7 +77,7 @@ export class Prompts extends React.PureComponent {
         name="prompt"
         placeholder={placeholder}
         optionHeight={this.state.optionHeight}
-        options={promptsOptions}
+        options={PROMPTS_OPTIONS}
         selected={selected}
         handler={handler}
         multi={multi}
@@ -98,7 +98,7 @@ export const Countries = ({
     name="country"
     handler={handler}
     placeholder={placeholder}
-    options={countriesOptions}
+    options={COUNTRIES_OPTIONS}
     selected={selected}
     multi={multi}
     clearable={clearable}
@@ -109,7 +109,7 @@ export const Years = ({ handler, selected, multi, clearable, placeholder }) => (
   <SelectWrapper
     name="year"
     placeholder={placeholder}
-    options={yearsOptions}
+    options={YEARS_OPTIONS}
     selected={selected}
     handler={handler}
     multi={multi}
@@ -127,7 +127,7 @@ export const Statuses = ({
   <SelectWrapper
     name="statuses"
     placeholder={placeholder}
-    options={statusesOptions}
+    options={STATUSES_OPTIONS}
     selected={selected}
     handler={handler}
     multi={multi}
@@ -145,7 +145,7 @@ export const Authors = ({
   <SelectWrapper
     name="author"
     placeholder={placeholder}
-    options={authorsOptions}
+    options={AUTHORS_OPTIONS}
     selected={selected}
     handler={handler}
     multi={multi}
@@ -166,7 +166,7 @@ export const Colleges = ({
     placeholder={placeholder}
     selected={selected}
     handler={handler}
-    loadOptions={searchCollegeOptions}
+    loadOptions={SEARCH_COLLEGE_OPTIONS}
     multi={multi}
     clearable={clearable}
   />

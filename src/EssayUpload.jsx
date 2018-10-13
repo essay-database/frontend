@@ -1,7 +1,7 @@
 import React from 'react';
 import UIkit from 'uikit';
 
-import { acceptedFileTypes } from './constants';
+import { ACCEPTED_FILE_TYPES } from './constants';
 const uploadURL = 'http://localhost:4000/upload';
 
 export default class EssayUpload extends React.Component {
@@ -72,7 +72,7 @@ export default class EssayUpload extends React.Component {
           />
           <span className="uk-text-middle">Drag and Drop or </span>
           <div uk-form-custom="">
-            <input type="file" accept={acceptedFileTypes} />
+            <input type="file" accept={ACCEPTED_FILE_TYPES} />
             <span className="uk-link"> Select </span>
             <span>file </span>
           </div>

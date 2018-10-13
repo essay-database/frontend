@@ -1,9 +1,9 @@
-import React from "react";
-import Form from "./Form";
-import NavSide from "./NavSide";
-import { logo, slogan } from "./constants";
+import React from 'react';
+import Form from './Form';
+import NavSide from './NavSide';
+import { LOGO, SLOGAN } from './constants';
 
-import "./styles/nav.css";
+import './styles/nav.css';
 
 const mainNavIconSize = 1.2;
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
@@ -40,11 +40,11 @@ export default () => (
           <div className="uk-flex uk-flex-column uk-flex-middle">
             <div>
               <a href="/" className="uk-logo">
-                {logo}
+                {LOGO}
               </a>
             </div>
             <div className="uk-visible@s">
-              <p className="uk-text-meta"> {slogan} </p>
+              <p className="uk-text-meta"> {SLOGAN} </p>
             </div>
           </div>
         </div>
