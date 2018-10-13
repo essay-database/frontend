@@ -20,11 +20,9 @@ function WrappedEssayContainer({ match }) {
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
-
   const relatedArticles = essays.slice(0, 3);
   const mostViewedArticles = essays.slice(0, 3);
   const mostCommentedArticles = essays.slice(0, 3);
-
   return (
     <EssayContainer
       essay={essay}

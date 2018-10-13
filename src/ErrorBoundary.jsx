@@ -12,7 +12,11 @@ export default class ErrorBoundary extends React.PureComponent {
 
   render() {
     if (this.state.hasError) {
-      return <h1 className="uk-text-center">Something went wrong.</h1>;
+      return (
+        <div className="uk-text-center">
+          <h1>Something went wrong.</h1>
+        </div>
+      );
     }
     return this.props.children;
   }

@@ -1,6 +1,6 @@
 import React from 'react';
-import ClampLines from 'react-clamp-lines';
 import PropTypes from 'prop-types';
+import ClampLines from 'react-clamp-lines';
 import Icons from './Icons';
 import Image from './Image';
 import './styles/card.css';
@@ -63,7 +63,7 @@ Card.propTypes = {
   text: PropTypes.string.isRequired,
   views: PropTypes.number.isRequired,
   readMoreLink: PropTypes.string.isRequired,
-  imageNo: PropTypes.number.isRequired
+  imageNo: PropTypes.object.isRequired
 };
 
 export default Card;

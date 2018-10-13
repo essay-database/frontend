@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { DATE_FORMAT } from './constants';
 import './styles/details.css';
 
-export default ({
+const Details = ({
   name = 'author',
   country = 'country',
   dateUploaded = moment(),
@@ -58,3 +59,19 @@ export default ({
     </div>
   </div>
 );
+
+Details.propTypes = {
+  name: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  dateUploaded: PropTypes.object.isRequired,
+  applicationStatus: PropTypes.string.isRequired,
+  yearApplied: PropTypes.number.isRequired,
+  college: PropTypes.string.isRequired,
+  linkBasedOnAuthor: PropTypes.string.isRequired,
+  linkBasedOnCollege: PropTypes.string.isRequired,
+  linkBasedOnCountry: PropTypes.string.isRequired,
+  linkBasedOnYearApplied: PropTypes.string.isRequired,
+  linkBasedOnApplicationStatus: PropTypes.string.isRequired
+};
+
+export default Details;
