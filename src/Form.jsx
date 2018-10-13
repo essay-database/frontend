@@ -1,29 +1,29 @@
-import React from "react";
-import UIkit from "uikit";
+import React from 'react';
+import UIkit from 'uikit';
 
-import FormModal from "./FormModal";
-import EssayUpload from "./EssayUpload";
-import InputWrapper from "./InputWrapper";
-import { Prompts, Statuses, Countries, Years, Colleges } from "./Selects";
+import FormModal from './FormModal';
+import EssayUpload from './EssayUpload';
+import InputWrapper from './InputWrapper';
+import { Prompts, Statuses, Countries, Years, Colleges } from './Selects';
 
 export default class Form extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      name: '',
       isAnonymous: false,
-      email: "",
-      country: "",
-      prompt: "",
-      status: "",
-      college: "",
+      email: '',
+      country: '',
+      prompt: '',
+      status: '',
+      college: '',
       year: -1
     };
     this.formRef = React.createRef();
   }
 
   handleUpload(file) {
-    console.log("handling upload");
+    // console.log("handling upload");
   }
 
   submit() {}
@@ -42,7 +42,7 @@ export default class Form extends React.PureComponent {
 
   handleChange = e => {
     const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [target.name]: value
     });
@@ -53,7 +53,7 @@ export default class Form extends React.PureComponent {
       const isAnonymous = !prevState.isAnonymous;
       let name = prevState.name;
       if (isAnonymous) {
-        name = "";
+        name = '';
       }
       return {
         name,
@@ -103,7 +103,8 @@ export default class Form extends React.PureComponent {
                 onChange={this.handleAnonymous}
                 name="isAnonymous"
                 checked={isAnonymous}
-              />Anonymous
+              />
+              Anonymous
             </label>
           </div>
 
@@ -121,7 +122,7 @@ export default class Form extends React.PureComponent {
 
           <InputWrapper label="Country">
             <Countries
-              handler={this.handleSelect("country")}
+              handler={this.handleSelect('country')}
               selected={country}
             />
           </InputWrapper>
@@ -131,22 +132,22 @@ export default class Form extends React.PureComponent {
           </InputWrapper>
 
           <InputWrapper label="Prompt">
-            <Prompts handler={this.handleSelect("prompt")} selected={prompt} />
+            <Prompts handler={this.handleSelect('prompt')} selected={prompt} />
           </InputWrapper>
 
           <InputWrapper label="Application Status">
-            <Statuses handler={this.handleSelect("status")} selected={status} />
+            <Statuses handler={this.handleSelect('status')} selected={status} />
           </InputWrapper>
 
           <InputWrapper label="College submitted">
             <Colleges
-              handler={this.handleSelect("college")}
+              handler={this.handleSelect('college')}
               selected={college}
             />
           </InputWrapper>
 
           <InputWrapper label="Year submitted">
-            <Years handler={this.handleSelect("year")} selected={year} />
+            <Years handler={this.handleSelect('year')} selected={year} />
           </InputWrapper>
         </form>
       </FormModal>

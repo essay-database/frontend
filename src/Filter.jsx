@@ -1,9 +1,7 @@
-import React from "react";
-
-import FilterModal from "./FilterModal";
-import InputWrapper from "./InputWrapper";
-import UIkit from "uikit";
-
+import React, { PureComponent, createRef } from 'react';
+import FilterModal from './FilterModal';
+import InputWrapper from './InputWrapper';
+import UIkit from 'uikit';
 import {
   Countries,
   Authors,
@@ -11,9 +9,9 @@ import {
   Prompts,
   Colleges,
   Statuses
-} from "./Selects";
+} from './Selects';
 
-export default class Filter extends React.PureComponent {
+export default class Filter extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +22,7 @@ export default class Filter extends React.PureComponent {
       authors: [],
       prompts: []
     };
-    this.filterRef = React.createRef();
+    this.filterRef = createRef();
   }
 
   handleSelect = name => valueArray => {
@@ -34,7 +32,6 @@ export default class Filter extends React.PureComponent {
   handleSubmit = e => {
     e.preventDefault();
     UIkit.modal(this.filterRef.current).hide();
-    console.log(this.state);
   };
 
   render() {
@@ -57,7 +54,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Countries">
             <Countries
               multi
-              handler={this.handleSelect("countries")}
+              handler={this.handleSelect('countries')}
               selected={countries}
               clearable
             />
@@ -66,7 +63,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Colleges">
             <Colleges
               multi
-              handler={this.handleSelect("colleges")}
+              handler={this.handleSelect('colleges')}
               selected={colleges}
               clearable={true}
             />
@@ -74,7 +71,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Years">
             <Years
               multi
-              handler={this.handleSelect("years")}
+              handler={this.handleSelect('years')}
               selected={years}
               clearable={true}
             />
@@ -83,7 +80,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Authors">
             <Authors
               multi
-              handler={this.handleSelect("authors")}
+              handler={this.handleSelect('authors')}
               selected={authors}
               clearable={true}
             />
@@ -92,7 +89,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Statuses">
             <Statuses
               multi
-              handler={this.handleSelect("statuses")}
+              handler={this.handleSelect('statuses')}
               selected={statuses}
               clearable={true}
             />
@@ -101,7 +98,7 @@ export default class Filter extends React.PureComponent {
           <InputWrapper label="Prompts">
             <Prompts
               multi
-              handler={this.handleSelect("prompts")}
+              handler={this.handleSelect('prompts')}
               selected={prompts}
               clearable={true}
             />

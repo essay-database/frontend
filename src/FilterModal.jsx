@@ -1,4 +1,5 @@
-import React from "react";
+import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 
 const FilterModal = ({ id, title, children, onProceedText, forwardRef }) => (
   <div
@@ -25,7 +26,7 @@ const FilterModal = ({ id, title, children, onProceedText, forwardRef }) => (
           className="uk-button uk-button-primary uk-margin-small-left"
           type="submit"
           name="submit"
-          value={onProceedText || "submit"}
+          value={onProceedText || 'submit'}
           form="filter"
         />
       </div>
@@ -33,6 +34,14 @@ const FilterModal = ({ id, title, children, onProceedText, forwardRef }) => (
   </div>
 );
 
-export default React.forwardRef((props, ref) => {
+FilterModal.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  onProceedText: PropTypes.string.isRequired,
+  forwardRef: PropTypes.object.isRequired
+};
+
+export default forwardRef((props, ref) => {
   return <FilterModal forwardRef={ref} {...props} />;
 });

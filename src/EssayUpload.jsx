@@ -1,8 +1,7 @@
 import React from 'react';
 import UIkit from 'uikit';
-
 import { ACCEPTED_FILE_TYPES } from './constants';
-const uploadURL = 'http://localhost:4000/upload';
+const UPLOAD_URL = 'http://localhost:4000/upload';
 
 export default class EssayUpload extends React.Component {
   constructor(props) {
@@ -14,7 +13,7 @@ export default class EssayUpload extends React.Component {
     const bar = this.progressRef.current;
 
     UIkit.upload('.js-upload', {
-      url: uploadURL,
+      url: UPLOAD_URL,
       multiple: false,
 
       beforeSend: function() {
@@ -51,11 +50,11 @@ export default class EssayUpload extends React.Component {
       },
 
       completeAll: function() {
-        console.log('completeAll', arguments);
+        // console.log('completeAll', arguments);
         setTimeout(function() {
           bar.setAttribute('hidden', 'hidden');
         }, 1000);
-        // alert("Upload Completed");
+        alert('Upload Completed');
       }
     });
   };

@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import Icon from "./Icon";
-import "./styles/icons.css";
+import Icon from './Icon';
+import './styles/icons.css';
 
 function handleView() {
-  console.log("handleView()");
+  // console.log("handleView()");
 }
 
 function handleShowComments() {
-  console.log("handleShowComments()");
+  // console.log("handleShowComments()");
 }
 
 const ViewIcon = ({ countRight, countAbove, iconSize, isHorizontal }) => (
@@ -54,7 +54,7 @@ const FacebookIcon = ({ link, iconSize, isHorizontal }) => (
   />
 );
 
-export default ({ iconType = "views", ...restProps }) => (
+export default ({ iconType = 'views', ...restProps }) => (
   <div>
     {
       {
