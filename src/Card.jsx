@@ -1,15 +1,15 @@
 import React from 'react';
 import ClampLines from 'react-clamp-lines';
-
+import PropTypes from 'prop-types';
 import Icons from './Icons';
 import Image from './Image';
 import './styles/card.css';
 
-const iconSize = 1.25;
-const clampLines = 7;
-const debounceBy = 100;
+const ICON_SIZE = 1.25;
+const CLAMP_LINES = 7;
+const DEBOUNCE_RATE = 100;
 
-export default ({
+const Card = ({
   tag = 'new',
   text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec ullamcorper. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus. In fermentum et sollicitudin ac orci. Dignissim enim sit amet venenatis urna cursus eget nunc scelerisque. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Aenean et tortor at risus. Sit amet luctus venenatis lectus magna. Viverra nam libero justo laoreet sit amet cursus. Eu turpis egestas pretium aenean pharetra magna. Ac odio tempor orci dapibus ultrices.',
   views = 0,
@@ -35,10 +35,10 @@ export default ({
     <div className="uk-card-body uk-drag">
       <ClampLines
         text={text}
-        lines={clampLines}
+        lines={CLAMP_LINES}
         ellipsis="..."
         buttons={false}
-        debounce={debounceBy}
+        debounce={DEBOUNCE_RATE}
       />
     </div>
     <div className="uk-card-footer">
@@ -51,9 +51,19 @@ export default ({
           </p>
         </div>
         <div className="uk-text-meta">
-          <Icons isHorizontal iconSize={iconSize} countRight={views} />
+          <Icons isHorizontal iconSize={ICON_SIZE} countRight={views} />
         </div>
       </div>
     </div>
   </div>
 );
+
+Card.propTypes = {
+  tag: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  views: PropTypes.number.isRequired,
+  readMoreLink: PropTypes.string.isRequired,
+  imageNo: PropTypes.number.isRequired
+};
+
+export default Card;

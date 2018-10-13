@@ -1,21 +1,20 @@
-import React from "react";
-import moment from "moment";
-
-import { dateFormat } from "./constants";
-import "./styles/details.css";
+import React from 'react';
+import moment from 'moment';
+import { DATE_FORMAT } from './constants';
+import './styles/details.css';
 
 export default ({
-  name = "author",
-  country = "country",
+  name = 'author',
+  country = 'country',
   dateUploaded = moment(),
-  applicationStatus = "deferred",
+  applicationStatus = 'deferred',
   yearApplied = 1970,
-  college = "college",
-  linkBasedOnAuthor = "",
-  linkBasedOnYearApplied = "",
-  linkBasedOnCountry = "",
-  linkBasedOnApplicationStatus = "",
-  linkBasedOnCollege = ""
+  college = 'college',
+  linkBasedOnAuthor = '',
+  linkBasedOnYearApplied = '',
+  linkBasedOnCountry = '',
+  linkBasedOnApplicationStatus = '',
+  linkBasedOnCollege = ''
 }) => (
   <div className="uk-article-meta">
     <div className="uk-flex uk-flex-between">
@@ -24,7 +23,7 @@ export default ({
           <a href={linkBasedOnAuthor} className="uk-link-text link link">
             {name}
           </a>
-          {name && country && " | "}
+          {name && country && ' | '}
           <a href={linkBasedOnCountry} className="uk-link-text link">
             {country}
           </a>
@@ -32,7 +31,7 @@ export default ({
       </div>
       <div>
         <p className="uk-margin-remove-bottom">
-          {dateUploaded.format(dateFormat)}
+          {dateUploaded.format(DATE_FORMAT)}
         </p>
       </div>
     </div>
@@ -43,7 +42,7 @@ export default ({
           <a href={linkBasedOnCollege} className="uk-link-text link">
             {college}
           </a>
-          {college && yearApplied && " | "}
+          {college && yearApplied && ' | '}
           <a href={linkBasedOnYearApplied} className="uk-link-text link">
             {yearApplied}
           </a>

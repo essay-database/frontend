@@ -1,12 +1,9 @@
-// packages
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// components
 import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
 import StaticPages from './staticPages';
-// modules
 import essays from './seed/essays';
 import about from './seed/about';
 import './styles/app.css';

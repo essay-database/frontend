@@ -9,23 +9,24 @@ const convertToOptions = arr =>
     value: item
   }));
 
+// TODO convert to ALL CAPS
 // app info
-export const logo = "essayDB";
-export const copyright = `© ${new Date().getFullYear()} essayDB`;
-export const slogan = "A Global Collection of College Essays";
+export const LOGO = "essay database";
+export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
+export const SLOGAN = "A Global Collection of College Application Essays";
 
 // options
-export const tags = ["new", "popular", `editors' pick`, ''];
+export const TAGS = ["new", "popular", `editors' pick`, ''];
 
-export const statuses = [
+export const STATUSES = [
   "Pending",
   "Accepted",
   "Rejected",
   "Waitlisted"
 ];
-export const statusesOptions = convertToOptions(statuses);
+export const STATUSES_OPTIONS = convertToOptions(STATUSES);
 
-export const prompts = [
+export const PROMPTS = [
   "Some students have a background, identity, interest, or talent that is so meaningful they believe their application would be incomplete without it. If this sounds like you, then please share your story.",
   "The lessons we take from obstacles we encounter can be fundamental to later success. Recount a time when you faced a challenge, setback, or failure. How did it affect you, and what did you learn from the experience?",
   "Reflect on a time when you questioned or challenged a belief or idea. What prompted your thinking? What was the outcome?",
@@ -35,14 +36,14 @@ export const prompts = [
   "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
   "Other"
 ];
-export const promptsOptions = convertToOptions(prompts);
+export const PROMPTS_OPTIONS = convertToOptions(PROMPTS);
 
 // TODO
-export const authors = ((num = 10) =>
+export const AUTHORS = ((num = 10) =>
   Array.from(Array(num), () => faker.name.findName()))();
-export const authorsOptions = convertToOptions(authors);
+export const AUTHORS_OPTIONS = convertToOptions(AUTHORS);
 
-export const countriesOptions = countriesData()
+export const COUNTRIES_OPTIONS = countriesData()
   .getData()
   .map(country => ({
     value: country.code,
@@ -50,8 +51,7 @@ export const countriesOptions = countriesData()
   }));
 
 // TODO
-
-export const years = (function () {
+export const YEARS = (function () {
   const yearCount = 12;
   const years = [];
   let y = new Date().getFullYear();
@@ -61,9 +61,9 @@ export const years = (function () {
   }
   return [...years, `before ${y}`];
 })();
-export const yearsOptions = convertToOptions(years);
+export const YEARS_OPTIONS = convertToOptions(YEARS);
 
-export function searchCollegeOptions(name) {
+export function SEARCH_COLLEGE_OPTIONS(name) {
   if (!name) {
     return Promise.resolve({
       options: []
@@ -80,7 +80,8 @@ export function searchCollegeOptions(name) {
     .catch(err => console.log(err));
 }
 
-export const imageIDs = axios
+// TODO incase of failure
+export const IMAGE_IDS = axios
   .get("https://picsum.photos/list")
   .then(res => res.data)
   .then(images => images.map(i => i.id))
@@ -89,12 +90,12 @@ export const imageIDs = axios
   });
 
 // other
-export const emptyFunc = () => {};
-export const emptyObj = {};
-export const dateFormat = "MMM D YYYY";
-export const numGridArticles = 30;
-export const maxImages = 1084;
-export const acceptedFileTypes = [
+export const EMPTY_FUNC = () => {};
+export const EMPTY_OBJ = {};
+export const DATE_FORMAT = "MMM D YYYY";
+export const NUM_GRID_ARTICLES = 30;
+export const MAX_IMAGES = 1084;
+export const ACCEPTED_FILE_TYPES = [
   ".doc",
   ".docx",
   ".xml",
