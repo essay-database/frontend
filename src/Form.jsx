@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { PureComponent, createRef } from 'react';
 import UIkit from 'uikit';
-
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
 import InputWrapper from './InputWrapper';
 import { Prompts, Statuses, Countries, Years, Colleges } from './Selects';
 
-export default class Form extends React.PureComponent {
+export default class Form extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +18,7 @@ export default class Form extends React.PureComponent {
       college: '',
       year: -1
     };
-    this.formRef = React.createRef();
+    this.formRef = createRef();
   }
 
   handleUpload(file) {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import faker from "faker";
 import axios from "axios";
 import countriesData from "country-list";
@@ -104,3 +105,34 @@ export const ACCEPTED_FILE_TYPES = [
   "text/plain",
   "application/pdf"
 ].join(",");
+
+export const ESSAYS_SHAPE = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  meta: PropTypes.shape({
+    tag: PropTypes.string.isRequired,
+    prompt: PropTypes.string.isRequired,
+    college: PropTypes.string.isRequired,
+    yearApplied: PropTypes.number.isRequired,
+    applicationStatus: PropTypes.string.isRequired,
+    dateUploaded: PropTypes.object.isRequired,
+    views: PropTypes.number.isRequired,
+    commentsCount: PropTypes.number.isRequired,
+    imageNo: PropTypes.object.isRequired
+  }),
+  links: PropTypes.shape({
+    linkFacebookShare: PropTypes.string.isRequired,
+    linkTwitterShare: PropTypes.string.isRequired,
+    linkBasedOnAuthor: PropTypes.string.isRequired,
+    linkBasedOnYearApplied: PropTypes.string.isRequired,
+    linkBasedOnCountry: PropTypes.string.isRequired,
+    linkBasedOnApplicationStatus: PropTypes.string.isRequired,
+    linkBasedOnCollege: PropTypes.string.isRequired,
+    linkBasedOnPrompt: PropTypes.string.isRequired
+  }),
+  author: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired
+  }).isRequired
+}).isRequired;

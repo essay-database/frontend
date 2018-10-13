@@ -1,7 +1,8 @@
-import React from "react";
-
-import Card from "./Card";
-import Filter from "./Filter";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { ESSAYS_SHAPE } from './constants';
+import Card from './Card';
+import Filter from './Filter';
 
 const ToTop = () => (
   <div className="uk-text-right">
@@ -10,7 +11,7 @@ const ToTop = () => (
 );
 
 const FilterAndSort = () => (
-  <React.Fragment>
+  <Fragment>
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div className="uk-flex uk-flex-middle">
         <div className="uk-margin-small-right uk-text-meta uk-visible@s">
@@ -22,9 +23,6 @@ const FilterAndSort = () => (
           </li>
           <li uk-filter-control="[data-tag='new']">
             <a>New</a>
-          </li>
-          <li uk-filter-control="[data-tag='trending']">
-            <a>Trending</a>
           </li>
           <li uk-filter-control="[data-tag='popular']">
             <a>Popular</a>
@@ -57,10 +55,10 @@ const FilterAndSort = () => (
       </div>
     </div>
     <hr className="uk-margin-remove-top" />
-  </React.Fragment>
+  </Fragment>
 );
 
-export default ({ essays = [] }) => (
+const Grid = ({ essays = [] }) => (
   <div>
     <div uk-filter="target: .js-filter">
       <FilterAndSort />
@@ -74,12 +72,12 @@ export default ({ essays = [] }) => (
             <div
               key={id}
               data-tag={tag}
-              data-date={dateUploaded.format("YYYY MM DD")}
+              data-date={dateUploaded.format('YYYY MM DD')}
             >
               <Card
                 imageNo={imageNo}
                 tag={tag}
-                text={paragraphs.join(" ")}
+                text={paragraphs.join(' ')}
                 readMoreLink={`/essays/${id}`}
                 views={views}
               />
@@ -88,7 +86,12 @@ export default ({ essays = [] }) => (
         )}
       </div>
     </div>
-
     <ToTop />
   </div>
 );
+
+Grid.propTypes = {
+  essays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
+};
+
+export default Grid;

@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const imagePath =
-  "https://uploads.codesandbox.io/uploads/user/3d89acc0-54be-4e22-807f-2e48d756944d/9Fq5-pic1.jpg";
+const IMAGE_PATH =
+  'https://uploads.codesandbox.io/uploads/user/3d89acc0-54be-4e22-807f-2e48d756944d/9Fq5-pic1.jpg';
 
 const FormModal = ({ modalClass, title, children, forwardRef }) => (
   <div ref={forwardRef} className={`uk-modal-full ${modalClass}`} uk-modal="">
@@ -11,7 +12,6 @@ const FormModal = ({ modalClass, title, children, forwardRef }) => (
         type="button"
         uk-close=""
       />
-
       <div
         className="uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m uk-flex-middle"
         uk-grid=""
@@ -19,7 +19,7 @@ const FormModal = ({ modalClass, title, children, forwardRef }) => (
         <div className="uk-inline uk-visible@m">
           <div
             className="uk-background-cover"
-            style={{ backgroundImage: `url(${imagePath})` }}
+            style={{ backgroundImage: `url(${IMAGE_PATH})` }}
             uk-height-viewport=""
             uk-img=""
           />
@@ -52,6 +52,13 @@ const FormModal = ({ modalClass, title, children, forwardRef }) => (
     </div>
   </div>
 );
+
+FormModal.propTypes = {
+  modalClass: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  forwardRef: PropTypes.object.isRequired
+};
 
 export default React.forwardRef((props, ref) => {
   return <FormModal forwardRef={ref} {...props} />;

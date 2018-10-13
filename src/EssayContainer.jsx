@@ -4,6 +4,7 @@ import Essay from './Essay';
 import Iconsbar from './Iconsbar';
 import Sidebar from './Sidebar';
 import essayDefault from './seed/essay';
+import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({
   essay = essayDefault,
@@ -85,37 +86,6 @@ const EssayContainer = ({
     </div>
   );
 };
-
-const ESSAYS_SHAPE = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  meta: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-    prompt: PropTypes.string.isRequired,
-    college: PropTypes.string.isRequired,
-    yearApplied: PropTypes.number.isRequired,
-    applicationStatus: PropTypes.string.isRequired,
-    dateUploaded: PropTypes.object.isRequired,
-    views: PropTypes.number.isRequired,
-    commentsCount: PropTypes.number.isRequired,
-    imageNo: PropTypes.object.isRequired
-  }),
-  links: PropTypes.shape({
-    linkFacebookShare: PropTypes.string.isRequired,
-    linkTwitterShare: PropTypes.string.isRequired,
-    linkBasedOnAuthor: PropTypes.string.isRequired,
-    linkBasedOnYearApplied: PropTypes.string.isRequired,
-    linkBasedOnCountry: PropTypes.string.isRequired,
-    linkBasedOnApplicationStatus: PropTypes.string.isRequired,
-    linkBasedOnCollege: PropTypes.string.isRequired,
-    linkBasedOnPrompt: PropTypes.string.isRequired
-  }),
-  author: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    country: PropTypes.string.isRequired
-  }).isRequired
-}).isRequired;
 
 EssayContainer.propTypes = {
   essay: ESSAYS_SHAPE,
