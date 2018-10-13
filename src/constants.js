@@ -15,15 +15,13 @@ export const copyright = `© ${new Date().getFullYear()} essayDB`;
 export const slogan = "A Global Collection of College Essays";
 
 // options
-export const tags = ["new", "trending", "popular", `editors' pick`, ''];
+export const tags = ["new", "popular", `editors' pick`, ''];
 
 export const statuses = [
   "Pending",
   "Accepted",
   "Rejected",
-  "Deferred",
-  "Waitlisted",
-  "Other"
+  "Waitlisted"
 ];
 export const statusesOptions = convertToOptions(statuses);
 

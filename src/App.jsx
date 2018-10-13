@@ -1,25 +1,28 @@
-import React from 'react';
+// packages
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
+// components
 import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
-import StaticPages from './static';
-
+import StaticPages from './staticPages';
+// modules
 import essays from './seed/essays';
+import about from './seed/about';
 import './styles/app.css';
 
 const TermsAndPrivacy = () => (
-  <div>
+  <Fragment>
     <StaticPages.Terms />
     <StaticPages.Privacy />
-  </div>
+  </Fragment>
 );
 
 function WrappedEssayContainer({ match }) {
-  const essay = essays.find(e => e.id === match.params.id);
+  const essay = essays.find(e => e.id === parseInt(match.params.id, 10));
   if (!essay) {
-    console.error(`could not find essay`);
+    // TODO handle 404 with page?
+    throw new Error(`could not find essay`);
   }
 
   const relatedArticles = essays.slice(0, 3);
@@ -32,6 +35,7 @@ function WrappedEssayContainer({ match }) {
       relatedArticles={relatedArticles}
       mostViewedArticles={mostViewedArticles}
       mostCommentedArticles={mostCommentedArticles}
+      about={about}
     />
   );
 }

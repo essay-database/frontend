@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 export default class ErrorBoundary extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -12,7 +12,7 @@ export default class ErrorBoundary extends React.PureComponent {
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return <h1 className="uk-text-center">Something went wrong.</h1>;
     }
     return this.props.children;
   }

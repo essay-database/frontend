@@ -12,8 +12,7 @@ export default {
   ],
   meta: {
     tag: "trending",
-    prompt:
-      "Describe a place or environment where you are perfectly content. What do you do or experience there, and why is it meaningful to you?",
+    prompt: "Describe a place or environment where you are perfectly content. What do you do or experience there, and why is it meaningful to you?",
     college: "havard",
     yearApplied: 2013,
     applicationStatus: "accepted",
