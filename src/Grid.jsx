@@ -27,13 +27,20 @@ const FilterAndSort = () => (
           <li uk-filter-control="[data-tag='popular']">
             <a>Popular</a>
           </li>
-
           <li uk-filter-control="[data-tag='editors\' pick']">
             <a>Editors' Pick</a>
           </li>
-          <li>
+          {/* <li>
             <a uk-toggle="target: #modal-filter">Advanced</a>
             <Filter />
+          </li> */}
+          <li>
+            <a
+              href="#toggle-animation"
+              uk-toggle="target: #filter; animation: uk-animation-slide-top-small"
+            >
+              Filter
+            </a>
           </li>
         </ul>
       </div>
@@ -55,6 +62,13 @@ const FilterAndSort = () => (
       </div>
     </div>
     <hr className="uk-margin-remove-top" />
+    <div
+      id="filter"
+      className="uk-card uk-card-default uk-card-body uk-margin-remove"
+      hidden
+    >
+      filter options
+    </div>
   </Fragment>
 );
 
