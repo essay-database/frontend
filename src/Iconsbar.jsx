@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
+import Icons from './Icons';
 
-import Icons from "./Icons";
-
+// TODO add proptypes
 const iconSizeDefault = 1.5;
 const VerticalSocialbar = ({
   views = 0,
-  linkFacebookShare = "#",
-  linkTwitterShare = "#"
+  linkFacebookShare = '#',
+  linkTwitterShare = '#'
 }) => (
   <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-large-top uk-text-meta">
     <div className="uk-margin-small-bottom">
@@ -37,8 +37,8 @@ const VerticalSocialbar = ({
 
 const HorizontalSocialbar = ({
   views = 0,
-  linkFacebookShare = "#",
-  linkTwitterShare = "#",
+  linkFacebookShare = '#',
+  linkTwitterShare = '#',
   commentsCount = 0
 }) => (
   <div className="uk-flex uk-flex-between uk-text-meta">
@@ -84,7 +84,7 @@ const HorizontalSocialbar = ({
 
 export default ({ ori, ...restProps }) => (
   <div>
-    {ori === "h" ? (
+    {ori === 'h' ? (
       <HorizontalSocialbar {...restProps} />
     ) : (
       <VerticalSocialbar {...restProps} />

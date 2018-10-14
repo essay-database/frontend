@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
+import './styles/icon.css';
 
-import "./styles/icon.css";
-
+// TODO add proptypes
 export default function({
   link,
   handler,
-  iconClass = "fas fa-eye",
+  iconClass = 'fas fa-eye',
   id,
   blankTarget,
   iconSize,
@@ -13,14 +13,14 @@ export default function({
   countRight,
   isHorizontal
 }) {
-  let direction = "";
+  let direction = '';
   if (!isHorizontal) {
-    direction = "uk-flex-column";
+    direction = 'uk-flex-column';
   }
   return (
     <div
       className={`uk-flex uk-flex-middle ${direction} ${
-        isHorizontal ? "uk-margin-small-right" : ""
+        isHorizontal ? 'uk-margin-small-right' : ''
       }`}
     >
       <div>
@@ -28,7 +28,7 @@ export default function({
           <a
             href={link}
             onClick={handler}
-            target={blankTarget ? "_blank" : null}
+            target={blankTarget ? '_blank' : null}
           >
             <i
               id={id}
@@ -36,22 +36,22 @@ export default function({
               style={{
                 fontSize: `${iconSize}rem`
               }}
-            />{" "}
-          </a>{" "}
-        </p>{" "}
+            />{' '}
+          </a>{' '}
+        </p>{' '}
       </div>
       <div>
         <p
           className={`uk-margin-remove-bottom ${
-            isHorizontal && countRight >= 0 ? "uk-margin-small-left" : ""
+            isHorizontal && countRight >= 0 ? 'uk-margin-small-left' : ''
           }`}
         >
-          {countRight}{" "}
-        </p>{" "}
+          {countRight}{' '}
+        </p>{' '}
       </div>
       <div className="uk-flex-first">
-        <p className="uk-margin-remove-bottom"> {countAbove} </p>{" "}
-      </div>{" "}
+        <p className="uk-margin-remove-bottom"> {countAbove} </p>{' '}
+      </div>{' '}
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
-
 import Icon from './Icon';
 import './styles/icons.css';
+
+// TODO add proptypes
 
 function handleView() {
   // console.log("handleView()");

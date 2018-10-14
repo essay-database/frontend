@@ -20,8 +20,8 @@ const Card = ({
     <div className="uk-card-media-top">
       <div className="uk-inline">
         <Image
-          width="800"
-          height="400"
+          width={800}
+          height={400}
           essayLink={readMoreLink}
           imageNo={imageNo}
         />

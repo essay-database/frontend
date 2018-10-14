@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Image extends React.PureComponent {
+class Image extends React.PureComponent {
   state = {
     imageNo: null
   };
@@ -13,7 +14,8 @@ export default class Image extends React.PureComponent {
         });
       })
       .catch(err => {
-        console.error("error fetching image");
+        // TODO try again
+        console.error('error fetching image', err);
       });
   }
 
@@ -21,7 +23,7 @@ export default class Image extends React.PureComponent {
     const {
       width = 800,
       height = 400,
-      essayLink = "#",
+      essayLink = '#',
       className
     } = this.props;
     return (
@@ -37,3 +39,12 @@ export default class Image extends React.PureComponent {
     );
   }
 }
+
+Image.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  essayLink: PropTypes.string,
+  className: PropTypes.string
+};
+
+export default Image;

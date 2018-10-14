@@ -42,8 +42,8 @@ const Essay = ({
           tabIndex="0"
         >
           <Image
-            width="1600"
-            height="800"
+            width={1600}
+            height={800}
             className="uk-transition-scale-up uk-transition-opaque"
             imageNo={imageNo}
           />
