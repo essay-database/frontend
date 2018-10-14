@@ -15,7 +15,7 @@ const FilterAndSort = () => (
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div className="uk-flex uk-flex-middle">
         <div className="uk-margin-small-right uk-text-meta uk-visible@s">
-          Filter by:
+          Filter by:{' '}
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li className="uk-active" uk-filter-control="">
@@ -30,14 +30,14 @@ const FilterAndSort = () => (
           <li uk-filter-control="[data-tag='editors\' pick']">
             <a>Editors' Pick</a>
           </li>
-          {/* <li>
+          <li>
             <a uk-toggle="target: #modal-filter">Advanced</a>
             <Filter />
-          </li> */}
+          </li>
           <li>
             <a
-              href="#toggle-animation"
-              uk-toggle="target: #filter; animation: uk-animation-slide-top-small"
+              href="#filter"
+              uk-toggle="target: #filter; animation: uk-animation-slide-top-small; duration: 500; queued: true"
             >
               Filter
             </a>

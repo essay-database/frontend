@@ -4,14 +4,14 @@ import Essay from './Essay';
 import Iconsbar from './Iconsbar';
 import Sidebar from './Sidebar';
 import essayDefault from './data/essay';
-import { ESSAYS_SHAPE } from './constants';
+import { ESSAYS_SHAPE, ABOUT } from './constants';
 
 const EssayContainer = ({
   essay = essayDefault,
   relatedArticles = [],
   mostViewedArticles = [],
   mostCommentedArticles = [],
-  about = 'about essay database'
+  about = ABOUT
 }) => {
   const {
     links: {

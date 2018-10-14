@@ -5,7 +5,6 @@ import Grid from './Grid';
 import Nav from './Nav';
 import StaticPages from './staticPages';
 import essays from './data/essays';
-import about from './data/about';
 import './styles/app.css';
 
 const TermsAndPrivacy = () => (
@@ -29,7 +28,6 @@ function WrappedEssayContainer({ match }) {
       relatedArticles={relatedArticles}
       mostViewedArticles={mostViewedArticles}
       mostCommentedArticles={mostCommentedArticles}
-      about={about}
     />
   );
 }
