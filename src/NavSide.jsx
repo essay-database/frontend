@@ -1,4 +1,5 @@
 import React, { PureComponent, createRef } from 'react';
+import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import UIkit from 'uikit';
 import { COPYRIGHT } from './constants';
@@ -18,7 +19,13 @@ const RouteLink = ({ to, exact, children, ...restProps }) => (
   />
 );
 
-export default class NavSide extends PureComponent {
+RouteLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  exact: PropTypes.func,
+  children: PropTypes.node.isRequired
+};
+
+class NavSide extends PureComponent {
   constructor(props) {
     super(props);
     this.offCanvas = createRef();
@@ -69,3 +76,5 @@ export default class NavSide extends PureComponent {
     );
   }
 }
+
+export default NavSide;

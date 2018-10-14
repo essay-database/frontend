@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from './Form';
 import NavSide from './NavSide';
 import { LOGO, SLOGAN } from './constants';
-
 import './styles/nav.css';
 
 const mainNavIconSize = 1.2;
@@ -15,6 +15,13 @@ const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
     {children}
   </a>
 );
+
+NavIcon.propTypes = {
+  icon: PropTypes.string,
+  dataToggle: PropTypes.string.isRequired,
+  iconClass: PropTypes.string.isRequired,
+  children: PropTypes.node
+};
 
 export default () => (
   <div
