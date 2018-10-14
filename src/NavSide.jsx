@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { PureComponent, createRef } from 'react';
 import { Route, Link } from 'react-router-dom';
 import UIkit from 'uikit';
-
 import { COPYRIGHT } from './constants';
 import './styles/nav_side.css';
 
-const LinkCustom = ({ to, exact, children, ...restProps }) => (
+const RouteLink = ({ to, exact, children, ...restProps }) => (
   <Route
     path={to}
     exact={exact}
@@ -19,10 +18,10 @@ const LinkCustom = ({ to, exact, children, ...restProps }) => (
   />
 );
 
-export default class NavSide extends React.PureComponent {
+export default class NavSide extends PureComponent {
   constructor(props) {
     super(props);
-    this.offCanvas = React.createRef();
+    this.offCanvas = createRef();
   }
   handleClick = () => {
     UIkit.offcanvas(this.offCanvas.current).hide();
@@ -35,30 +34,30 @@ export default class NavSide extends React.PureComponent {
           <button className="uk-offcanvas-close " type="button" uk-close="" />
 
           <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <LinkCustom to="/about" onClick={this.handleClick}>
+            <RouteLink to="/about" onClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="info" />
               About Us
-            </LinkCustom>
+            </RouteLink>
 
-            <LinkCustom to="/contact" onClick={this.handleClick}>
+            <RouteLink to="/contact" onClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="mail" />
               Contact Us
-            </LinkCustom>
+            </RouteLink>
 
-            <LinkCustom to="/advertise" onClick={this.handleClick}>
+            <RouteLink to="/advertise" onClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="users" />
               Advertise
-            </LinkCustom>
+            </RouteLink>
 
-            <LinkCustom to="/terms" onClick={this.handleClick}>
+            <RouteLink to="/terms" onClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="user" />
               Terms & Privacy
-            </LinkCustom>
+            </RouteLink>
 
-            <LinkCustom to="/help" onClick={this.handleClick}>
+            <RouteLink to="/help" onClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="question" />
               Help
-            </LinkCustom>
+            </RouteLink>
 
             <li className="uk-nav-divider" />
             <li className="uk-margin-small">

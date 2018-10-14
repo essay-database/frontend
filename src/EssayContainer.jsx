@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Essay from './Essay';
 import Iconsbar from './Iconsbar';
 import Sidebar from './Sidebar';
-import essayDefault from './seed/essay';
+import essayDefault from './data/essay';
 import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({

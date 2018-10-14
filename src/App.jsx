@@ -4,8 +4,8 @@ import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
 import StaticPages from './staticPages';
-import essays from './seed/essays';
-import about from './seed/about';
+import essays from './data/essays';
+import about from './data/about';
 import './styles/app.css';
 
 const TermsAndPrivacy = () => (
