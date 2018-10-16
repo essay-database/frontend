@@ -14,8 +14,8 @@ const FilterAndSort = () => (
   <Fragment>
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div className="uk-flex uk-flex-middle">
-        <div className="uk-margin-small-right uk-text-meta uk-visible@s">
-          Filter by:{' '}
+        <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
+          Filter:{' '}
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li className="uk-active" uk-filter-control="">
@@ -45,8 +45,8 @@ const FilterAndSort = () => (
         </ul>
       </div>
       <div className="uk-flex uk-flex-middle">
-        <div className="uk-margin-small-right uk-text-meta uk-visible@s">
-          Sort by:
+        <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
+          Sort:{' '}
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li

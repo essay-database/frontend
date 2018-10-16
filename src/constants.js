@@ -14,7 +14,7 @@ const convertToOptions = arr =>
 // app info
 export const LOGO = "essay database";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
-export const SLOGAN = "global collection of college application essays";
+export const SLOGAN = "collection of college application essays";
 export const ABOUT = "loremIncididunt duis Lorem veniam anim consequat aliquip Lorem in nostrud officia. Consectetur proident aliquip sunt exercitation non id voluptate fugiat velit ut qui exercitation sunt non. Deserunt aliqua deserunt eu mollit do proident Lorem deserunt ullamco. Excepteur adipisicing nulla et mollit non exercitation fugiat proident quis. Nostrud ad veniam excepteur consectetur excepteur commodo. Dolore deserunt eiusmod enim amet ullamco labore in proident culpa. Elit velit fugiat consequat enim ipsum reprehenderit."
 
 // options
