@@ -7,13 +7,6 @@ import StaticPages from './staticPages';
 import essays from './data/essays';
 import './styles/app.css';
 
-const TermsAndPrivacy = () => (
-  <Fragment>
-    <StaticPages.Terms />
-    <StaticPages.Privacy />
-  </Fragment>
-);
-
 function WrappedEssayContainer({ match }) {
   const essay = essays.find(e => e.id === parseInt(match.params.id, 10));
   if (!essay) {
@@ -43,7 +36,8 @@ export default () => (
           <Route exact path="/about" component={StaticPages.About} />
           <Route exact path="/contact" component={StaticPages.Contact} />
           <Route exact path="/advertise" component={StaticPages.Advertise} />
-          <Route exact path="/terms" component={TermsAndPrivacy} />
+          <Route exact path="/terms" component={StaticPages.Terms} />
+          <Route exact path="/privacy" component={StaticPages.Privacy} />
           <Route exact path="/help" component={StaticPages.Help} />
         </Switch>
       </div>

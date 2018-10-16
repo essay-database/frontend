@@ -10,30 +10,13 @@ export default {
     "Because I am surrounded by transient images of family that beg questions to be asked, I am reminded to be grateful for the variety of my own family. In Maryland, my grandmother cooks all afternoon until the kitchen is thick with scents of oil and cumin, and their perfume flows under each room’s doorway. My cousins and I sift through the attic’s fascinating content until we are greeted by the familiar smell, telling us it is dinnertime. In New York, I wait for my mom to finish the Sunday Times, and then we take the 4 train to a film at MoMA. In Maryland, we watch Bollywood movies, I eat what I am served, and I hope that I am being a fun granddaughter and cousin. In New York, I forget to cap the toothpaste and die laughing when my mom tries to dance. I can never have both families at the same time, but I can appreciate my families and be any form of myself on the train. In its liminal space, I can exist as who I am. My experience on the train moves me toward growth. I can appreciate both of my families and my own strength.",
     "While riding the train, I have grown into my own independence. I am perfectly content between my two lives and proud of the resilience I have earned. Although I give up a part of myself each way, this loss has molded who I am. This loss has gifted me with strength. I am proud of my journey and myself. I am happy with who I am becoming and where I am going. I become stronger with every minute I push farther and closer to home."
   ],
-  meta: {
-    tag: "trending",
-    prompt: "Describe a place or environment where you are perfectly content. What do you do or experience there, and why is it meaningful to you?",
-    college: "havard",
-    yearApplied: 2013,
-    applicationStatus: "accepted",
-    dateUploaded: moment(),
-    views: 90,
-    commentsCount: 34,
-    imageNo: 1
-  },
-  links: {
-    linkFacebookShare: "facebook.com",
-    linkTwitterShare: "twitter.com",
-    linkBasedOnAuthor: "author",
-    linkBasedOnYearApplied: "year",
-    linkBasedOnCountry: "country",
-    linkBasedOnApplicationStatus: "status",
-    linkBasedOnCollege: "college",
-    linkBasedOnPrompt: "prompt"
-  },
-  author: {
-    name: "antonia burdick",
-    email: "email@gmail.com",
-    country: "United States"
-  }
+  tag: "trending",
+  prompt: "Describe a place or environment where you are perfectly content. What do you do or experience there, and why is it meaningful to you?",
+  college: "havard",
+  yearApplied: 2013,
+  applicationStatus: "accepted",
+  dateUploaded: moment(),
+  imageNo: 1,
+  author: "Joe Blogs",
+  email: "joeblogs@email.com"
 };

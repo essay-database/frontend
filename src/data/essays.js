@@ -16,14 +16,18 @@ import {
 export default Array.from(Array(NUM_GRID_ARTICLES), () =>
   Object.assign({}, essay, {
     id: ID(),
-    meta: {
-      ...essay.meta,
-      applicationStatus: selectRandom(STATUSES),
-      tag: selectRandom(TAGS),
-      dateUploaded: momentRandom(),
-      imageNo: IMAGE_IDS.then(ids => {
-        return selectRandom(ids);
-      })
-    }
+    paragraphs: essay.paragraphs,
+    prompt: "",
+    college: "",
+    yearApplied: "",
+    author: "Joe Blogs",
+    email: "joeblogs@email.com",
+    applicationStatus: selectRandom(STATUSES),
+    tag: selectRandom(TAGS),
+    dateUploaded: momentRandom(),
+    imageNo: IMAGE_IDS.then(ids => {
+      return selectRandom(ids);
+    })
+
   })
 );
