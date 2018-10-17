@@ -5,11 +5,11 @@ import NavSide from './NavSide';
 import { LOGO, SLOGAN } from './constants';
 import './styles/nav.css';
 
-const mainNavIconSize = 1.2;
+const MAIN_NAV_ICON_SIZE = 1.2;
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
   <a
     className={iconClass}
-    uk-icon={`icon: ${icon}; ratio: ${mainNavIconSize}`}
+    uk-icon={`icon: ${icon}; ratio: ${MAIN_NAV_ICON_SIZE}`}
     uk-toggle={dataToggle}
   >
     {children}

@@ -94,6 +94,7 @@ const Grid = ({ essays }) => (
                 text={paragraphs.join(' ')}
                 readMoreLink={`/essays/${id}`}
                 views={views}
+                linkEssay={`/essays/${essay.id}`}
               />
             </div>
           )
