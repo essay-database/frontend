@@ -21,9 +21,7 @@ export default class Form extends PureComponent {
     this.formRef = createRef();
   }
 
-  handleUpload(file) {
-    // console.log("handling upload");
-  }
+  handleUpload(file) {}
 
   submit() {}
 

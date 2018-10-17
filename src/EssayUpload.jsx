@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PureComponent, Fragment, createRef } from 'react';
 import UIkit from 'uikit';
 import { ACCEPTED_FILE_TYPES } from './constants';
 const UPLOAD_URL = 'http://localhost:4000/upload';
 
-export default class EssayUpload extends React.Component {
+export default class EssayUpload extends PureComponent {
   constructor(props) {
     super(props);
-    this.progressRef = React.createRef();
+    this.progressRef = createRef();
   }
 
   handleUpload = e => {
@@ -50,7 +50,6 @@ export default class EssayUpload extends React.Component {
       },
 
       completeAll: function() {
-        // console.log('completeAll', arguments);
         setTimeout(function() {
           bar.setAttribute('hidden', 'hidden');
         }, 1000);
@@ -60,7 +59,7 @@ export default class EssayUpload extends React.Component {
   };
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <div
           className="js-upload uk-placeholder uk-text-center"
           onClick={this.handleUpload}
@@ -84,7 +83,7 @@ export default class EssayUpload extends React.Component {
           max="100"
           hidden
         />
-      </React.Fragment>
+      </Fragment>
     );
   }
 }

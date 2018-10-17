@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 const IMAGE_PATH =
@@ -60,6 +60,6 @@ FormModal.propTypes = {
   forwardRef: PropTypes.object.isRequired
 };
 
-export default React.forwardRef((props, ref) => {
+export default forwardRef((props, ref) => {
   return <FormModal forwardRef={ref} {...props} />;
 });

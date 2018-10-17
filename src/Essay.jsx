@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Details from './Details';
-import Image from './Image';
 
 const Essay = ({
   paragraphs,
   prompt,
-  name,
+  author,
   college,
   country,
   dateUploaded,
@@ -26,15 +25,14 @@ const Essay = ({
           className="uk-margin uk-inline-clip uk-transition-toggle"
           tabIndex="0"
         >
-          <Image
-            width={1600}
-            height={800}
+          <img
+            src={imageLink}
             className="uk-transition-scale-up uk-transition-opaque"
-            imageNo={imageNo}
+            alt=""
           />
         </div>
         <Details
-          name={name}
+          name={author}
           college={college}
           country={country}
           dateUploaded={dateUploaded}
@@ -58,21 +56,13 @@ const Essay = ({
 
 Essay.propTypes = {
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  details: PropTypes.shape({
-    prompt: PropTypes.string.isRequired,
-    imageNo: PropTypes.object.isRequired,
-    name: PropTypes.string.isRequired,
-    country: PropTypes.string.isRequired,
-    dateUploaded: PropTypes.object.isRequired,
-    applicationStatus: PropTypes.string.isRequired,
-    yearApplied: PropTypes.number.isRequired,
-    college: PropTypes.string.isRequired,
-    linkBasedOnPrompt: PropTypes.string.isRequired,
-    linkBasedOnAuthor: PropTypes.string.isRequired,
-    linkBasedOnYearApplied: PropTypes.string.isRequired,
-    linkBasedOnCountry: PropTypes.string.isRequired,
-    linkBasedOnApplicationStatus: PropTypes.string.isRequired,
-    linkBasedOnCollege: PropTypes.string.isRequired
-  }).isRequired
+  prompt: PropTypes.string,
+  imageLink: PropTypes.object.isRequired,
+  author: PropTypes.string.isRequired,
+  college: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  dateUploaded: PropTypes.object.isRequired,
+  applicationStatus: PropTypes.string.isRequired,
+  yearApplied: PropTypes.number.isRequired
 };
 export default Essay;

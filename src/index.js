@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { render } from 'react-dom';
 import ErrorBoundary from './ErrorBoundary';
 import App from './App';
 
 const AppContainer = (
-  <React.StrictMode>
+  <StrictMode>
     <ErrorBoundary>
       <App />
     </ErrorBoundary>{' '}
-  </React.StrictMode>
+  </StrictMode>
 );
 
 render(AppContainer, document.getElementById('root'));

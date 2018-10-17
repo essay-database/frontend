@@ -1,95 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Essay from './Essay';
-import Iconsbar from './Iconsbar';
 import Sidebar from './Sidebar';
-import essayDefault from './data/essay';
 import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({
-  essay = essayDefault,
-  relatedArticles = [],
-  mostViewedArticles = [],
-  mostCommentedArticles = []
+  essay,
+  popularEssays,
+  latestEssays,
+  featuredEssays
 }) => {
   const {
-    links: {
-      linkTwitterShare,
-      linkFacebookShare,
-      linkBasedOnApplicationStatus,
-      linkBasedOnAuthor,
-      linkBasedOnYearApplied,
-      linkBasedOnCountry,
-      linkBasedOnCollege,
-      linkBasedOnPrompt
-    },
-    meta: {
-      prompt,
-      college,
-      dateUploaded,
-      yearApplied,
-      applicationStatus,
-      commentsCount,
-      views,
-      imageNo
-    },
+    prompt,
+    college,
+    dateUploaded,
+    yearApplied,
+    applicationStatus,
+    imageLink,
     paragraphs,
-    author: { name, country }
+    author
   } = essay;
   return (
     <div className="uk-grid" uk-grid="">
-      <div className="uk-width-auto uk-visible@m uk-margin-left">
-        <Iconsbar
-          ori="v"
-          views={views}
-          linkFacebookShare={linkFacebookShare}
-          linkTwitterShare={linkTwitterShare}
-        />
+      <div className="uk-width-1-6 uk-visible@m">
+        <Sidebar />
       </div>
-      <div className="uk-width-expand">
+      <div className="uk-width-2-3">
         <Essay
           paragraphs={paragraphs}
-          details={{
-            prompt,
-            imageNo,
-            name,
-            country,
-            dateUploaded,
-            applicationStatus,
-            yearApplied,
-            college,
-            linkBasedOnAuthor,
-            linkBasedOnYearApplied,
-            linkBasedOnCountry,
-            linkBasedOnApplicationStatus,
-            linkBasedOnCollege,
-            linkBasedOnPrompt
-          }}
+          prompt={prompt}
+          imageLink={imageLink}
+          author={author}
+          college={college}
+          country={country}
+          dateUploaded={dateUploaded}
+          applicationStatus={applicationStatus}
+          yearApplied={yearApplied}
         />
-        <Iconsbar
-          ori="h"
-          linkFacebookShare={linkFacebookShare}
-          linkTwitterShare={linkTwitterShare}
-          commentsCount={commentsCount}
-          views={views}
-        />
+        {[popularEssays, latestEssays, featuredEssays].map((essays, idx) => (
+          <Featured key={idx} essays={essays} />
+        ))}
       </div>
-      <div className="uk-width-1-1 uk-width-1-4@m">
-        <Sidebar
-          relatedArticles={relatedArticles}
-          mostViewedArticles={mostViewedArticles}
-          mostCommentedArticles={mostCommentedArticles}
-        />
-      </div>
+      {/* <div className="uk-width-1-6" /> */}
     </div>
   );
 };
 
 EssayContainer.propTypes = {
   essay: ESSAYS_SHAPE,
-  relatedArticles: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  mostViewedArticles: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  mostCommentedArticles: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
+  featuredEssays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
+  latestEssays: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
+  popularEssays: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
 };
 
 export default EssayContainer;

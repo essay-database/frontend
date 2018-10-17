@@ -10,16 +10,16 @@ import './styles/app.css';
 function getSideEssays(essays) {
   const featured = [];
   const popular = [];
-  const _new = [];
+  const latest = [];
   essays.forEach(essay => {
     const { tag } = essay;
-    if (tag === 'new') _new.push(essay);
+    if (tag === 'new') latest.push(essay);
     else if (tag === 'popular') popular.push(essay);
     else if (tag === 'featured') featured.push(essay);
   });
   return {
     featured,
-    _new,
+    latest,
     popular
   };
 }
@@ -29,13 +29,13 @@ function WrappedEssayContainer({ match }) {
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
-  const { featured, popular, _new } = getSideEssays(essays);
+  const { featured, popular, latest } = getSideEssays(essays);
   return (
     <EssayContainer
       essay={essay}
       feauturedEssays={featured}
       popularEssays={popular}
-      latestEssays={_new}
+      latestEssays={latest}
     />
   );
 }
