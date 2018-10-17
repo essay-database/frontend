@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const IMAGE_PATH =
-  'https://uploads.codesandbox.io/uploads/user/3d89acc0-54be-4e22-807f-2e48d756944d/9Fq5-pic1.jpg';
+const IMAGE_PATH = '';
 
 const FormModal = ({ modalClass, title, children, forwardRef }) => (
   <div ref={forwardRef} className={`uk-modal-full ${modalClass}`} uk-modal="">

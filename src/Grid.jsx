@@ -72,7 +72,7 @@ const FilterAndSort = () => (
   </Fragment>
 );
 
-const Grid = ({ essays = [] }) => (
+const Grid = ({ essays }) => (
   <div>
     <div uk-filter="target: .js-filter">
       <FilterAndSort />
