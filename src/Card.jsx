@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import faker from 'faker';
 import ClampLines from 'react-clamp-lines';
 import './styles/card.css';
 
@@ -10,9 +11,9 @@ const HEIGHT = (WIDTH * 2) / 3;
 
 export default ({
   tag = "new",
-  paragraph = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi ipsum faucibus vitae aliquet nec ullamcorper. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus. In fermentum et sollicitudin ac orci. Dignissim enim sit amet venenatis urna cursus eget nunc scelerisque. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Aenean et tortor at risus. Sit amet luctus venenatis lectus magna. Viverra nam libero justo laoreet sit amet cursus. Eu turpis egestas pretium aenean pharetra magna. Ac odio tempor orci dapibus ultrices.",
-  linkEssay = "#",
-  linkImage = `https://picsum.photos/${WIDTH}/${HEIGHT}/?image=998`,
+  paragraph,
+  linkEssay,
+  linkImage = faker.image.animals(),
   width = WIDTH,
   height = HEIGHT
 }) => (
