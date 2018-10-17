@@ -14,7 +14,7 @@ function getSideEssays(essays) {
   essays.forEach(essay => {
     const { tag } = essay;
     if (tag === 'new') _new.push(essay);
-    else if (tag === 'latest') latest.push(essay);
+    else if (tag === 'popular') popular.push(essay);
     else if (tag === 'featured') featured.push(essay);
   });
   return {

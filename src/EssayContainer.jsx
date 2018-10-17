@@ -4,14 +4,13 @@ import Essay from './Essay';
 import Iconsbar from './Iconsbar';
 import Sidebar from './Sidebar';
 import essayDefault from './data/essay';
-import { ESSAYS_SHAPE, ABOUT } from './constants';
+import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({
   essay = essayDefault,
   relatedArticles = [],
   mostViewedArticles = [],
-  mostCommentedArticles = [],
-  about = ABOUT
+  mostCommentedArticles = []
 }) => {
   const {
     links: {
@@ -80,7 +79,6 @@ const EssayContainer = ({
           relatedArticles={relatedArticles}
           mostViewedArticles={mostViewedArticles}
           mostCommentedArticles={mostCommentedArticles}
-          about={about}
         />
       </div>
     </div>
@@ -91,8 +89,7 @@ EssayContainer.propTypes = {
   essay: ESSAYS_SHAPE,
   relatedArticles: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
   mostViewedArticles: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  mostCommentedArticles: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  about: PropTypes.string.isRequired
+  mostCommentedArticles: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
 };
 
 export default EssayContainer;

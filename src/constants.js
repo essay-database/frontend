@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types';
-import faker from "faker";
 import axios from "axios";
-import countriesData from "country-list";
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
 export const DATE_FORMAT = "MMM D YYYY";
-export const NUM_GRID_ARTICLES = 30;
-const NUM_YEARS_BACK = 12;
-export const MAX_IMAGES = 1084;
+export const NUM_ARTICLES = 30;
+export const NUM_YEARS_BACK = 12;
 export const ACCEPTED_FILE_TYPES = [
   ".doc",
   ".docx",
@@ -18,13 +15,6 @@ export const ACCEPTED_FILE_TYPES = [
   "text/plain",
   "application/pdf"
 ].join(",");
-
-// helper
-const convertToOptions = arr =>
-  arr.map(item => ({
-    label: item,
-    value: item
-  }));
 
 // app info
 export const LOGO = "essay database";
@@ -40,67 +30,32 @@ export const STATUSES = [
   "rejected",
   "waitlisted"
 ];
-export const STATUSES_OPTIONS = convertToOptions(STATUSES);
 
-export const PROMPTS = [
-  "Some students have a background, identity, interest, or talent that is so meaningful they believe their application would be incomplete without it. If this sounds like you, then please share your story.",
-  "The lessons we take from obstacles we encounter can be fundamental to later success. Recount a time when you faced a challenge, setback, or failure. How did it affect you, and what did you learn from the experience?",
-  "Reflect on a time when you questioned or challenged a belief or idea. What prompted your thinking? What was the outcome?",
-  "Describe a problem you've solved or a problem you'd like to solve. It can be an intellectual challenge, a research query, an ethical dilemma - anything that is of personal importance, no matter the scale. Explain its significance to you and what steps you took or could be taken to identify a solution.",
-  "Discuss an accomplishment, event, or realization that sparked a period of personal growth and a new understanding of yourself or others.",
-  "Describe a topic, idea, or concept you find so engaging that it makes you lose all track of time. Why does it captivate you? What or who do you turn to when you want to learn more?",
-  "Share an essay on any topic of your choice. It can be one you've already written, one that responds to a different prompt, or one of your own design.",
-  "Other"
-];
-export const PROMPTS_OPTIONS = convertToOptions(PROMPTS);
+// TODO LEGACY
+// export function SEARCH_COLLEGE_OPTIONS(name) {
+//   if (!name) {
+//     return Promise.resolve({
+//       options: []
+//     });
+//   }
+//   return axios
+//     .get(`https://universities.hipolabs.com/search?name=${name}`)
+//     .then(res => JSON.parse(res))
+//     .then(data => data.data.map(c => c.name))
+//     .then(colleges => convertToOptions(colleges))
+//     .then(options => ({
+//       options
+//     }))
+//     .catch(err => console.error(err));
+// }
 
-export const AUTHORS = Array.from(Array(NUM_GRID_ARTICLES), () => faker.name.findName());
-export const AUTHORS_OPTIONS = convertToOptions(AUTHORS);
-
-export const COUNTRIES_OPTIONS = countriesData()
-  .getData()
-  .map(country => ({
-    value: country.code,
-    label: country.name
-  }));
-
-function getYears(yearCount) {
-  const years = [];
-  let y = new Date().getFullYear();
-  for (let i = 0; i < yearCount; i++) {
-    years.push(y.toString());
-    y -= 1;
-  }
-  return [...years, `before ${y}`];
-}
-export const YEARS = getYears(NUM_YEARS_BACK);
-export const YEARS_OPTIONS = convertToOptions(YEARS);
-
-export function SEARCH_COLLEGE_OPTIONS(name) {
-  if (!name) {
-    return Promise.resolve({
-      options: []
-    });
-  }
-  return axios
-    .get(`https://universities.hipolabs.com/search?name=${name}`)
-    .then(res => JSON.parse(res))
-    .then(data => data.data.map(c => c.name))
-    .then(colleges => convertToOptions(colleges))
-    .then(options => ({
-      options
-    }))
-    .catch(err => console.error(err));
-}
-
-// TODO handle failure instances
-export const IMAGE_IDS = axios
-  .get("https://picsum.photos/list")
-  .then(res => res.data)
-  .then(images => images.map(i => i.id))
-  .catch(function () {
-    console.error("error");
-  });
+// export const IMAGE_IDS = axios
+//   .get("https://picsum.photos/list")
+//   .then(res => res.data)
+//   .then(images => images.map(i => i.id))
+//   .catch(function () {
+//     console.error("error");
+//   });
 
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.number.isRequired,

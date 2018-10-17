@@ -1,33 +1,32 @@
-import essay from "./essay";
+import faker from 'faker';
+import momentRandom from "moment-random";
+
 import {
-  NUM_GRID_ARTICLES,
+  NUM_ARTICLES,
   STATUSES,
   TAGS,
   IMAGE_IDS
 } from "../constants";
-
-import momentRandom from "moment-random";
 
 import {
   ID,
   selectRandom
 } from "../utils";
 
-export default Array.from(Array(NUM_GRID_ARTICLES), () =>
-  Object.assign({}, essay, {
-    id: ID(),
-    paragraphs: essay.paragraphs,
-    prompt: "",
-    college: "",
-    yearApplied: "",
-    author: "Joe Blogs",
-    email: "joeblogs@email.com",
+export default Array.from(Array(NUM_ARTICLES), () =>
+  ({
+    id: faker.random.uuid(),
+    paragraphs: faker.lorem.paragraphs(),
+    prompt: faker.lorem.paragraph(),
+    college: selectRandom(),
+    yearApplied: faker.date.past(),
+    author: faker.name.findName(),
+    email: faker.internet.email(),
     applicationStatus: selectRandom(STATUSES),
     tag: selectRandom(TAGS),
-    dateUploaded: momentRandom(),
+    dateUploaded: faker.date.recent(),
     imageNo: IMAGE_IDS.then(ids => {
       return selectRandom(ids);
     })
 
-  })
-);
+  }))
