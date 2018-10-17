@@ -4,30 +4,15 @@ import Details from './Details';
 import Image from './Image';
 
 const Essay = ({
-  paragraphs = [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis.",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. But football vehicles sapien, but bananas worth it. Sed tempor tincidunt arcu. Aenean Vestibulum lorem egestas enim suscipit, to the porch of now vehicles. Before the very first basketball set their jaws grief and clinical care; Japan's largest soccer tour. Duis sollicitudin cursus magna, vitae mattis sapien bibendum ac. Clinical salad but it does not drink sauce and shredded. Clinical throat to start any deductible. Nullam aliquet facilisis purus, nec feugiat urna dignissim ut. Montes nibh justo faucibus rhoncus ipsum iaculis of the living beings. Now a manufacturing itself. Proin arcu dolor, molestie sit amet rhoncus vitae, blandit sed felis."
-  ],
-  details: {
-    prompt = 'Nice long essay prompt will go here?',
-    imageNo,
-    name,
-    country,
-    dateUploaded,
-    applicationStatus,
-    yearApplied,
-    college,
-    linkBasedOnPrompt,
-    linkBasedOnAuthor,
-    linkBasedOnYearApplied,
-    linkBasedOnCountry,
-    linkBasedOnApplicationStatus,
-    linkBasedOnCollege
-  } = {}
+  paragraphs,
+  prompt,
+  name,
+  college,
+  country,
+  dateUploaded,
+  applicationStatus,
+  yearApplied,
+  imageLink
 }) => {
   return (
     <div className="uk-padding-small">
@@ -50,18 +35,12 @@ const Essay = ({
         </div>
         <Details
           name={name}
+          college={college}
           country={country}
           dateUploaded={dateUploaded}
           applicationStatus={applicationStatus}
           yearApplied={yearApplied}
-          college={college}
-          linkBasedOnAuthor={linkBasedOnAuthor}
-          linkBasedOnYearApplied={linkBasedOnYearApplied}
-          linkBasedOnCountry={linkBasedOnCountry}
-          linkBasedOnApplicationStatus={linkBasedOnApplicationStatus}
-          linkBasedOnCollege={linkBasedOnCollege}
         />
-
         <div className="uk-text-justify">
           {paragraphs.map((paragraph, idx) => (
             <p

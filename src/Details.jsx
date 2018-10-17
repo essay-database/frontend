@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './styles/details.css';
 
 const Details = ({
-  author = 'author',
-  country = 'country',
-  dateUploaded = new Date(),
-  applicationStatus = 'deferred',
-  yearApplied = 1970,
-  college = 'college'
+  author,
+  country,
+  dateUploaded,
+  applicationStatus,
+  yearApplied,
+  college
 }) => (
   <div className="uk-article-meta">
     <div className="uk-flex uk-flex-between">
@@ -20,9 +20,7 @@ const Details = ({
         </p>
       </div>
       <div>
-        <p className="uk-margin-remove-bottom">
-          {dateUploaded.format(DATE_FORMAT)}
-        </p>
+        <p className="uk-margin-remove-bottom">{dateUploaded}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">

@@ -1,21 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import faker from 'faker';
 import ClampLines from 'react-clamp-lines';
 import './styles/card.css';
 
 const NUM_LINES = 7;
 const DEBOUNCE_RATE = 100;
-const WIDTH = 1800;
-const HEIGHT = (WIDTH * 2) / 3;
 
 export default ({
-  tag = "new",
+  tag,
   paragraph,
   linkEssay,
-  linkImage = faker.image.animals(),
-  width = WIDTH,
-  height = HEIGHT
+  linkImage,
+  width,
+  height
 }) => (
   <div className="uk-card uk-card-default">
     <div className="uk-card-media-top">
