@@ -18,6 +18,7 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     paragraphs: faker.lorem.paragraphs(),
     prompt: faker.lorem.paragraph(),
     college: selectRandom(COLLEGES),
+    country: faker.address.country(),
     yearApplied: faker.date.past(getRandomInt(0, NUM_YEARS_BACK)),
     author: faker.name.findName(),
     email: faker.internet.email(),
