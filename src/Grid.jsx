@@ -79,7 +79,6 @@ const Grid = ({ essays }) => (
       <div
         className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
         uk-grid=""
-        // uk-sortable="handle: .uk-card"
       >
         {essays.map(
           ({ id, paragraphs, meta: { views, tag, dateUploaded, imageNo } }) => (
