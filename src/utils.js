@@ -1,13 +1,10 @@
-import moment from "moment";
-
-export const getRelativeDate = (date = moment()) => date.fromNow();
-
-export const selectRandom = arr => arr[Math.floor(Math.random() * arr.length)];
-
-function* IDMaker() {
-  var index = 0;
-  while (true) yield index++;
+export function selectRandom(array) {
+  return array[getRandomInt(0, array.length)];
 }
 
-const gen = IDMaker();
-export const ID = () => gen.next().value;
+//The maximum is exclusive and the minimum is inclusive
+export function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}

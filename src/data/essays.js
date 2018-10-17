@@ -1,15 +1,13 @@
 import faker from 'faker';
-import momentRandom from "moment-random";
-
 import {
   NUM_ARTICLES,
   STATUSES,
   TAGS,
-  IMAGE_IDS
+  NUM_YEARS_BACK,
+  COLLEGES
 } from "../constants";
 
 import {
-  ID,
   selectRandom
 } from "../utils";
 
@@ -18,8 +16,8 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     id: faker.random.uuid(),
     paragraphs: faker.lorem.paragraphs(),
     prompt: faker.lorem.paragraph(),
-    college: selectRandom(),
-    yearApplied: faker.date.past(),
+    college: selectRandom(COLLEGES),
+    yearApplied: faker.date.past(Array.from(Array(NUM_YEARS_BACK).keys())),
     author: faker.name.findName(),
     email: faker.internet.email(),
     applicationStatus: selectRandom(STATUSES),

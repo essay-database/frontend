@@ -31,7 +31,7 @@ export const STATUSES = [
   "waitlisted"
 ];
 
-// TODO LEGACY
+// TODO LEGACY REFACTOR
 // export function SEARCH_COLLEGE_OPTIONS(name) {
 //   if (!name) {
 //     return Promise.resolve({
@@ -57,6 +57,7 @@ export const STATUSES = [
 //     console.error("error");
 //   });
 
+// TODO REFACTOR
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.number.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
