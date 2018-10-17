@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import EssayContainer from './EssayContainer';
 import Grid from './Grid';
@@ -7,20 +7,35 @@ import StaticPages from './staticPages';
 import essays from './data/essays';
 import './styles/app.css';
 
+function getSideEssays(essays) {
+  const featured = [];
+  const popular = [];
+  const _new = [];
+  essays.forEach(essay => {
+    const { tag } = essay;
+    if (tag === 'new') _new.push(essay);
+    else if (tag === 'latest') latest.push(essay);
+    else if (tag === 'featured') featured.push(essay);
+  });
+  return {
+    featured,
+    _new,
+    popular
+  };
+}
+
 function WrappedEssayContainer({ match }) {
   const essay = essays.find(e => e.id === parseInt(match.params.id, 10));
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
-  const relatedArticles = essays.slice(0, 3);
-  const mostViewedArticles = essays.slice(0, 3);
-  const mostCommentedArticles = essays.slice(0, 3);
+  const { featured, popular, _new } = getSideEssays(essays);
   return (
     <EssayContainer
       essay={essay}
-      relatedArticles={relatedArticles}
-      mostViewedArticles={mostViewedArticles}
-      mostCommentedArticles={mostCommentedArticles}
+      feauturedEssays={featured}
+      popularEssays={popular}
+      latestEssays={_new}
     />
   );
 }

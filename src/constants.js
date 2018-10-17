@@ -3,6 +3,22 @@ import faker from "faker";
 import axios from "axios";
 import countriesData from "country-list";
 
+export const EMPTY_FUNC = () => {};
+export const EMPTY_OBJ = {};
+export const DATE_FORMAT = "MMM D YYYY";
+export const NUM_GRID_ARTICLES = 30;
+const NUM_YEARS_BACK = 12;
+export const MAX_IMAGES = 1084;
+export const ACCEPTED_FILE_TYPES = [
+  ".doc",
+  ".docx",
+  ".xml",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "text/plain",
+  "application/pdf"
+].join(",");
+
 // helper
 const convertToOptions = arr =>
   arr.map(item => ({
@@ -10,21 +26,19 @@ const convertToOptions = arr =>
     value: item
   }));
 
-// TODO convert to ALL CAPS
 // app info
 export const LOGO = "essay database";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const SLOGAN = "collection of college application essays";
-export const ABOUT = "loremIncididunt duis Lorem veniam anim consequat aliquip Lorem in nostrud officia. Consectetur proident aliquip sunt exercitation non id voluptate fugiat velit ut qui exercitation sunt non. Deserunt aliqua deserunt eu mollit do proident Lorem deserunt ullamco. Excepteur adipisicing nulla et mollit non exercitation fugiat proident quis. Nostrud ad veniam excepteur consectetur excepteur commodo. Dolore deserunt eiusmod enim amet ullamco labore in proident culpa. Elit velit fugiat consequat enim ipsum reprehenderit."
 
 // options
-export const TAGS = ["new", "popular", `editors' pick`, ''];
+export const TAGS = ["new", "popular", "featured"];
 
 export const STATUSES = [
-  "Pending",
-  "Accepted",
-  "Rejected",
-  "Waitlisted"
+  "pending",
+  "accepted",
+  "rejected",
+  "waitlisted"
 ];
 export const STATUSES_OPTIONS = convertToOptions(STATUSES);
 
@@ -40,9 +54,7 @@ export const PROMPTS = [
 ];
 export const PROMPTS_OPTIONS = convertToOptions(PROMPTS);
 
-// TODO
-export const AUTHORS = ((num = 10) =>
-  Array.from(Array(num), () => faker.name.findName()))();
+export const AUTHORS = Array.from(Array(NUM_GRID_ARTICLES), () => faker.name.findName());
 export const AUTHORS_OPTIONS = convertToOptions(AUTHORS);
 
 export const COUNTRIES_OPTIONS = countriesData()
@@ -52,9 +64,7 @@ export const COUNTRIES_OPTIONS = countriesData()
     label: country.name
   }));
 
-// TODO
-export const YEARS = (function () {
-  const yearCount = 12;
+function getYears(yearCount) {
   const years = [];
   let y = new Date().getFullYear();
   for (let i = 0; i < yearCount; i++) {
@@ -62,7 +72,8 @@ export const YEARS = (function () {
     y -= 1;
   }
   return [...years, `before ${y}`];
-})();
+}
+export const YEARS = getYears(NUM_YEARS_BACK);
 export const YEARS_OPTIONS = convertToOptions(YEARS);
 
 export function SEARCH_COLLEGE_OPTIONS(name) {
@@ -79,10 +90,10 @@ export function SEARCH_COLLEGE_OPTIONS(name) {
     .then(options => ({
       options
     }))
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 }
 
-// TODO incase of failure
+// TODO handle failure instances
 export const IMAGE_IDS = axios
   .get("https://picsum.photos/list")
   .then(res => res.data)
@@ -90,22 +101,6 @@ export const IMAGE_IDS = axios
   .catch(function () {
     console.error("error");
   });
-
-// other
-export const EMPTY_FUNC = () => {};
-export const EMPTY_OBJ = {};
-export const DATE_FORMAT = "MMM D YYYY";
-export const NUM_GRID_ARTICLES = 30;
-export const MAX_IMAGES = 1084;
-export const ACCEPTED_FILE_TYPES = [
-  ".doc",
-  ".docx",
-  ".xml",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "text/plain",
-  "application/pdf"
-].join(",");
 
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.number.isRequired,
