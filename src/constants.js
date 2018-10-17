@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const DATE_FORMAT = "MMM D YYYY";
 export const NUM_ARTICLES = 500;
 export const NUM_YEARS_BACK = 100;
 export const ACCEPTED_FILE_TYPES = [
