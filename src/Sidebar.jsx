@@ -1,67 +1,93 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import ClampLines from 'react-clamp-lines';
-import essays from './data/essays';
-import { ESSAYS_SHAPE } from './constants';
-const debounceBy = 100;
-const numLines = 2;
+import Icons from './Icons';
 
-const ListArticles = ({ list }) => (
-  <div>
-    {list.map((essay, idx) => (
-      <div key={essay.id}>
-        <div className="uk-flex">
-          <div className="uk-margin-small-right uk-visible@l">
-            <p className="uk-text-large uk-text-muted">{idx + 1}</p>
-          </div>
-          <div className="uk-text-small uk-margin-small-bottom">
-            <a href={`/essays/${essay.id}`} className="uk-link-text">
-              <ClampLines
-                text={essay.paragraphs.join(' ')}
-                lines={numLines}
-                buttons={false}
-                debounce={debounceBy}
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-ListArticles.propTypes = {
-  list: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
-};
-
-const DEFAULT_ARTICLES = essays.slice(0, 3);
-
-const Sidebar = ({
-  relatedArticles = DEFAULT_ARTICLES,
-  mostCommentedArticles = DEFAULT_ARTICLES,
-  mostViewedArticles = DEFAULT_ARTICLES
+// TODO add proptypes
+const iconSizeDefault = 1.5;
+const VerticalSocialbar = ({
+  views = 0,
+  linkFacebookShare = '#',
+  linkTwitterShare = '#'
 }) => (
-  <div className="uk-margin-top uk-margin-bottom">
-    <div className="uk-margin">
-      <h3 className="uk-heading-divider">Related</h3>
-      <ListArticles list={relatedArticles} />
-    </div>
-    <div className="uk-margin">
-      <h3 className="uk-heading-divider">Most Views</h3>
-      <ListArticles list={mostViewedArticles} />
+  <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-large-top uk-text-meta">
+    <div className="uk-margin-small-bottom">
+      <Icons
+        iconType="views"
+        countAbove={views}
+        iconSize={iconSizeDefault * 2}
+      />
     </div>
 
-    <div className="uk-margin">
-      <h3 className="uk-heading-divider">Most Comments</h3>
-      <ListArticles list={mostCommentedArticles} />
+    <div className="uk-margin-small-bottom">
+      <Icons
+        iconType="twitter"
+        link={linkTwitterShare}
+        iconSize={iconSizeDefault}
+      />
+    </div>
+
+    <div className="uk-margin-small-bottom">
+      <Icons
+        iconType="facebook"
+        link={linkFacebookShare}
+        iconSize={iconSizeDefault}
+      />
     </div>
   </div>
 );
 
-Sidebar.propTypes = {
-  relatedArticles: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  mostCommentedArticles: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  mostViewedArticles: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
-};
+const HorizontalSocialbar = ({
+  views = 0,
+  linkFacebookShare = '#',
+  linkTwitterShare = '#',
+  commentsCount = 0
+}) => (
+  <div className="uk-flex uk-flex-between uk-text-meta">
+    <div>
+      <Icons
+        iconType="views"
+        isHorizontal
+        countRight={views}
+        iconSize={iconSizeDefault * 2}
+      />
+    </div>
 
-export default Sidebar;
+    <div className="uk-flex uk-flex-middle">
+      <div>
+        <Icons
+          iconType="comments"
+          isHorizontal
+          countRight={commentsCount}
+          iconSize={iconSizeDefault}
+        />
+      </div>
+
+      <div>
+        <Icons
+          iconType="twitter"
+          isHorizontal
+          link={linkTwitterShare}
+          iconSize={iconSizeDefault}
+        />
+      </div>
+
+      <div>
+        <Icons
+          iconType="facebook"
+          isHorizontal
+          link={linkFacebookShare}
+          iconSize={iconSizeDefault}
+        />
+      </div>
+    </div>
+  </div>
+);
+
+export default ({ ori, ...restProps }) => (
+  <div>
+    {ori === 'h' ? (
+      <HorizontalSocialbar {...restProps} />
+    ) : (
+      <VerticalSocialbar {...restProps} />
+    )}
+  </div>
+);
