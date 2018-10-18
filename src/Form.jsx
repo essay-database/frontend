@@ -1,5 +1,6 @@
 import React, { PureComponent, createRef } from 'react';
 import UIkit from 'uikit';
+import PropTypes from 'prop-types';
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
 
@@ -20,7 +21,6 @@ export default class Form extends PureComponent {
     super(props);
     this.state = {
       name: '',
-      isAnonymous: false,
       email: '',
       country: '',
       prompt: '',
@@ -70,16 +70,7 @@ export default class Form extends PureComponent {
   };
 
   render() {
-    const {
-      name,
-      email,
-      country,
-      prompt,
-      status,
-      college,
-      year,
-      isAnonymous
-    } = this.state;
+    const { name, email } = this.state;
 
     return (
       <FormModal
@@ -98,22 +89,8 @@ export default class Form extends PureComponent {
               value={name}
               onChange={this.handleChange}
               name="name"
-              disabled={isAnonymous}
             />
           </InputWrapper>
-
-          <div className="uk-margin">
-            <label>
-              <input
-                className="uk-checkbox uk-margin-small-right"
-                type="checkbox"
-                onChange={this.handleAnonymous}
-                name="isAnonymous"
-                checked={isAnonymous}
-              />
-              Anonymous
-            </label>
-          </div>
 
           <InputWrapper label="Email">
             <input
@@ -127,7 +104,7 @@ export default class Form extends PureComponent {
             />
           </InputWrapper>
 
-          <InputWrapper label="Country">
+          {/* <InputWrapper label="Country">
             <Countries
               handler={this.handleSelect('country')}
               selected={country}
@@ -155,7 +132,7 @@ export default class Form extends PureComponent {
 
           <InputWrapper label="Year submitted">
             <Years handler={this.handleSelect('year')} selected={year} />
-          </InputWrapper>
+          </InputWrapper> */}
         </form>
       </FormModal>
     );

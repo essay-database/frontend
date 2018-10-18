@@ -37,7 +37,7 @@ const MAX_TRIES = 5;
 export function GET_IMAGE(tries = 0) {
   return new Promise((resolve, reject) => {
     axios.get('https://source.unsplash.com/random').then(res => resolve(res.data)).catch(err => {
-      if (tries == MAX_TRIES) {
+      if (tries === MAX_TRIES) {
         return reject(err);
       }
       console.error(` error happened: ${err}. \n now retrying`);
