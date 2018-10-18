@@ -13,13 +13,13 @@ export default class extends React.Component {
     };
   }
 
-  isMobileBetween(width) {
+  isMobile(width) {
     return width > WIDTH && width < SMALL_BOUNDARY;
   }
 
   componentDidMount = () => {
     window.addEventListener('resize', () => {
-      if (this.isMobileBetween(window.innerWidth)) {
+      if (this.isMobile(window.innerWidth)) {
         this.setState({
           isMobileLarge: true
         });

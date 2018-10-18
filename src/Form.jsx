@@ -2,7 +2,18 @@ import React, { PureComponent, createRef } from 'react';
 import UIkit from 'uikit';
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
-import InputWrapper from './InputWrapper';
+
+const InputWrapper = ({ label, children }) => (
+  <div className="uk-margin">
+    <label className="uk-form-label">{label}</label>
+    <div className="uk-form-controls">{children}</div>
+  </div>
+);
+
+InputWrapper.propTypes = {
+  label: PropTypes.string.isRequired,
+  children: PropTypes.number.isRequired
+};
 
 export default class Form extends PureComponent {
   constructor(props) {
