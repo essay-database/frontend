@@ -41,16 +41,9 @@ export default () => (
 
       <div className="uk-navbar-center">
         <div className="uk-navbar-item">
-          <div className="uk-flex uk-flex-column uk-flex-middle">
-            <div>
-              <a href="/" className="uk-logo uk-text-link">
-                {LOGO}
-              </a>
-            </div>
-            <div className="uk-visible@s">
-              <p className="uk-text-meta"> {SLOGAN} </p>
-            </div>
-          </div>
+          <a href="/" className="uk-logo uk-link-text">
+            {LOGO}
+          </a>
         </div>
       </div>
 

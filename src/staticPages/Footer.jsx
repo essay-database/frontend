@@ -5,14 +5,10 @@ import {
   FACEBOOK_PAGE_LINK,
   TWITTER_PAGE_LINK
 } from '../constants';
-import '../styles/footer.css';
 import '../styles/social.css';
 
 export default () => (
-  <footer
-    id="footer"
-    className="uk-section uk-section-large uk-section-secondary uk-light"
-  >
+  <footer className="uk-section uk-section-large uk-section-secondary uk-light">
     <div className="uk-container">
       <div className="uk-child-width-1-2@s" uk-grid="">
         <div>

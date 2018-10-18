@@ -50,26 +50,37 @@ const FilterAndSort = () => (
 );
 
 const Grid = ({ essays }) => (
-  <div uk-filter="target: .js-filter">
-    <FilterAndSort />
-    <div
-      className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
-      uk-grid=""
-    >
-      {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
-        <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
-          <Card
-            width={CARD_WIDTH}
-            height={CARD_HEIGHT}
-            text={paragraphs[0]}
-            tag={tag}
-            linkImage={imageLink}
-            linkEssay={`/essays/${id}`}
-          />
+  <div>
+    {essays.length > 0 ? (
+      <div uk-filter="target: .js-filter">
+        <FilterAndSort />
+        <div
+          className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
+          uk-grid=""
+        >
+          {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
+            <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
+              <Card
+                width={CARD_WIDTH}
+                height={CARD_HEIGHT}
+                text={paragraphs[0]}
+                tag={tag}
+                linkImage={imageLink}
+                linkEssay={`/essays/${id}`}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-    <ToTop />
+        <ToTop />
+      </div>
+    ) : (
+      <div
+        className="uk-flex uk-flex-center uk-flex-middle"
+        uk-height-viewport="expand: true"
+      >
+        <p>nothing to show</p>
+      </div>
+    )}
   </div>
 );
 
