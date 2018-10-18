@@ -15,7 +15,7 @@ const RECENT_DAYS = 30;
 export default Array.from(Array(NUM_ARTICLES), () =>
   ({
     id: faker.random.uuid(),
-    paragraphs: faker.lorem.paragraphs(),
+    paragraphs: faker.lorem.paragraphs().split('. '),
     prompt: faker.lorem.paragraph(),
     college: selectRandom(COLLEGES),
     country: faker.address.country(),

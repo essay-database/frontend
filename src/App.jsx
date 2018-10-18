@@ -7,6 +7,8 @@ import StaticPages from './staticPages';
 import essays from './data/essays';
 import './styles/app.css';
 
+console.log(essays);
+
 function getSideEssays(essays) {
   const featured = [];
   const popular = [];

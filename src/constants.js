@@ -4,7 +4,7 @@ import US_COLLEGES_UNIVERSITIES from './data/universities.json';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const NUM_ARTICLES = 500;
+export const NUM_ARTICLES = 10;
 export const NUM_YEARS_BACK = 100;
 export const ACCEPTED_FILE_TYPES = [
   ".doc",

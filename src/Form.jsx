@@ -13,7 +13,7 @@ const InputWrapper = ({ label, children }) => (
 
 InputWrapper.propTypes = {
   label: PropTypes.string.isRequired,
-  children: PropTypes.number.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default class Form extends PureComponent {
