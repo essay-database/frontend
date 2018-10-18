@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ClampLines from 'react-clamp-lines';
 import './styles/card.css';
-
-const NUM_LINES = 7;
-const DEBOUNCE_RATE = 100;
 
 const Card = ({ tag, text, linkEssay, linkImage, width, height }) => (
   <div className="uk-card uk-card-default">
@@ -20,15 +16,6 @@ const Card = ({ tag, text, linkEssay, linkImage, width, height }) => (
       </div>
     </div>
     <div className="uk-card-body uk-padding-small">
-      {/* TODO */}
-      <ClampLines
-        text={text}
-        lines={NUM_LINES}
-        ellipsis="..."
-        buttons={false}
-        debounce={DEBOUNCE_RATE}
-      />
-      <hr />
       <p>
         <a href={linkEssay} className="uk-link-reset">
           {text}
