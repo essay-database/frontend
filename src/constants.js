@@ -58,7 +58,7 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   prompt: PropTypes.string.isRequired,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  yearApplied: PropTypes.number.isRequired,
+  yearApplied: PropTypes.instanceOf(Date),
   author: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   applicationStatus: PropTypes.string.isRequired,

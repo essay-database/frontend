@@ -30,7 +30,7 @@ export default () => (
         <div className="uk-navbar-item">
           <div className="uk-offcanvas-content">
             <NavIcon
-              iconclassName="uk-margin-small-left uk-icon-link"
+              iconClass="uk-margin-small-left uk-icon-link"
               icon="menu"
               dataToggle="target: #offcanvas-nav"
             />
@@ -58,7 +58,7 @@ export default () => (
         <div className="uk-navbar-item">
           <div className="uk-visible@m">
             <NavIcon
-              iconclassName="uk-button uk-button-danger"
+              iconClass="uk-button uk-button-danger"
               dataToggle="target: .modal-form"
             >
               Upload essay
@@ -69,7 +69,7 @@ export default () => (
             <NavIcon
               icon="upload"
               dataToggle="target: .modal-form"
-              iconclassName="uk-margin-small-right uk-icon-link"
+              iconClass="uk-margin-small-right uk-icon-link"
             />
           </div>
           <Form />

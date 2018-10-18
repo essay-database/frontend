@@ -53,7 +53,7 @@ class NavSide extends PureComponent {
             </RouteLink>
 
             <RouteLink to="/advertise" onClick={this.handleClick}>
-              <span className="uk-margin-small-right" uk-icon="users" />
+              <span className="uk-margin-small-right" />
               Advertise
             </RouteLink>
 

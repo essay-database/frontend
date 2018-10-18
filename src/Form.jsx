@@ -74,7 +74,7 @@ export default class Form extends PureComponent {
 
     return (
       <FormModal
-        modalclassName="modal-form"
+        modalClass="modal-form"
         title="Share with the world!"
         ref={this.formRef}
       >

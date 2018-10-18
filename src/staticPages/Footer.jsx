@@ -6,9 +6,11 @@ export default () => (
     <div className="uk-container">
       <div className="uk-child-width-1-2@s" uk-grid="">
         <div>
-          <h3 className="uk-text-uppercase uk-text-small">{COPYRIGHT}</h3>
+          <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
+            {COPYRIGHT}
+          </h3>
           <div className="uk-panel">
-            <p className="uk-text-muted">{ABOUT}</p>
+            <p>{ABOUT}</p>
             <p>
               <a
                 href="www.twitter.com/essaydatabase"
@@ -29,7 +31,9 @@ export default () => (
           </div>
         </div>
         <div className="uk-text-capitalize">
-          <h3 className="uk-text-uppercase uk-text-small">menu</h3>
+          <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
+            menu
+          </h3>
           <div className="uk-panel">
             <p className="uk-margin-remove-vertical">
               <a href="/about" className="uk-link-text">

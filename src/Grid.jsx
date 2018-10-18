@@ -60,7 +60,7 @@ const Grid = ({ essays }) => (
         <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
           <Card
             width={CARD_WIDTH}
-            heigh={CARD_HEIGHT}
+            height={CARD_HEIGHT}
             text={paragraphs[0]}
             tag={tag}
             linkImage={imageLink}
