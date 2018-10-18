@@ -14,6 +14,7 @@ const EssayContainer = ({
   const {
     prompt,
     college,
+    country,
     dateUploaded,
     yearApplied,
     applicationStatus,

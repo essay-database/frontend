@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Form from './Form';
-import NavSide from './NavSide';
+import NavSidebar from './NavSidebar';
 import { LOGO, SLOGAN } from './constants';
 import './styles/nav.css';
 
@@ -37,7 +37,7 @@ export default () => (
               icon="menu"
               dataToggle="target: #offcanvas-nav"
             />
-            <NavSide />
+            <NavSidebar />
           </div>
         </div>
       </div>

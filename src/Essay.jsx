@@ -17,9 +17,7 @@ const Essay = ({
     <div className="uk-padding-small">
       <article className="uk-article">
         <h2 className="uk-heading-primary">
-          <a href={linkBasedOnPrompt} className="uk-link-text">
-            {prompt}
-          </a>
+          <a className="uk-link-text">{prompt}</a>
         </h2>
         <div
           className="uk-margin uk-inline-clip uk-transition-toggle"

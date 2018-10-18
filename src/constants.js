@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import US_COLLEGES_UNIVERSITIES from './data/universities.json';
 
 export const EMPTY_FUNC = () => {};
@@ -40,14 +41,14 @@ export function GET_IMAGE(tries = 0) {
         return reject(err);
       }
       console.error(` error happened: ${err}. \n now retrying`);
-      return getImage(tries + 1);
+      return GET_IMAGE(tries + 1);
     })
   });
 }
 
 export async function GET_IMAGES() {
   return await Promise.all(
-    Array(NUM_ARTICLES).keys().map(idx => getImage())
+    Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE())
   );
 }
 

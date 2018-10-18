@@ -30,6 +30,7 @@ class NavSide extends PureComponent {
     super(props);
     this.offCanvas = createRef();
   }
+
   handleClick = () => {
     UIkit.offcanvas(this.offCanvas.current).hide();
   };
@@ -57,8 +58,13 @@ class NavSide extends PureComponent {
             </RouteLink>
 
             <RouteLink to="/terms" onClick={this.handleClick}>
-              <span className="uk-margin-small-right" uk-icon="user" />
-              Terms & Privacy
+              <span className="uk-margin-small-right" />
+              Terms
+            </RouteLink>
+
+            <RouteLink to="/privacy" onClick={this.handleClick}>
+              <span className="uk-margin-small-right" />
+              Privacy
             </RouteLink>
 
             <RouteLink to="/help" onClick={this.handleClick}>

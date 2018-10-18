@@ -4,6 +4,9 @@ import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
 import Filter from './Filter';
 
+const CARD_WIDTH = 400;
+const CARD_HEIGHT = (CARD_WIDTH * 2) / 3;
+
 const ToTop = () => (
   <div className="uk-text-right">
     <button uk-totop="" uk-scroll="" />
@@ -15,7 +18,7 @@ const FilterAndSort = () => (
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div className="uk-flex uk-flex-middle">
         <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
-          Filter:{' '}
+          {/* Filter:{' '} */}
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li className="uk-active" uk-filter-control="">
@@ -27,26 +30,14 @@ const FilterAndSort = () => (
           <li uk-filter-control="[data-tag='popular']">
             <a>Popular</a>
           </li>
-          <li uk-filter-control="[data-tag='editors\' pick']">
-            <a>Editors' Pick</a>
-          </li>
-          <li>
-            <a uk-toggle="target: #modal-filter">Advanced</a>
-            <Filter />
-          </li>
-          <li>
-            <a
-              href="#filter"
-              uk-toggle="target: #filter; animation: uk-animation-slide-top-small; duration: 500; queued: true"
-            >
-              Filter
-            </a>
+          <li uk-filter-control="[data-tag='featured']">
+            <a>Featured</a>
           </li>
         </ul>
       </div>
       <div className="uk-flex uk-flex-middle">
         <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
-          Sort:{' '}
+          {/* Sort:{' '} */}
         </div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li
@@ -62,13 +53,6 @@ const FilterAndSort = () => (
       </div>
     </div>
     <hr className="uk-margin-remove-top" />
-    <div
-      id="filter"
-      className="uk-card uk-card-default uk-card-body uk-margin-remove"
-      hidden
-    >
-      filter options
-    </div>
   </Fragment>
 );
 
@@ -80,24 +64,18 @@ const Grid = ({ essays }) => (
         className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
         uk-grid=""
       >
-        {essays.map(
-          ({ id, paragraphs, meta: { views, tag, dateUploaded, imageNo } }) => (
-            <div
-              key={id}
-              data-tag={tag}
-              data-date={dateUploaded.format('YYYY MM DD')}
-            >
-              <Card
-                imageNo={imageNo}
-                tag={tag}
-                text={paragraphs.join(' ')}
-                readMoreLink={`/essays/${id}`}
-                views={views}
-                linkEssay={`/essays/${essay.id}`}
-              />
-            </div>
-          )
-        )}
+        {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
+          <div key={id} data-tag={tag} data-date={dateUploaded}>
+            <Card
+              width={CARD_WIDTH}
+              heigh={CARD_HEIGHT}
+              text={paragraphs[0]}
+              tag={tag}
+              linkImage={imageLink}
+              linkEssay={`/essays/${id}`}
+            />
+          </div>
+        ))}
       </div>
     </div>
     <ToTop />

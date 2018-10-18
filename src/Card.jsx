@@ -6,14 +6,7 @@ import './styles/card.css';
 const NUM_LINES = 7;
 const DEBOUNCE_RATE = 100;
 
-export default ({
-  tag,
-  paragraph,
-  linkEssay,
-  linkImage,
-  width,
-  height
-}) => (
+const Card = ({ tag, text, linkEssay, linkImage, width, height }) => (
   <div className="uk-card uk-card-default">
     <div className="uk-card-media-top">
       <div className="uk-inline uk-cover-container">
@@ -27,18 +20,18 @@ export default ({
       </div>
     </div>
     <div className="uk-card-body uk-padding-small">
-    {/* TODO */}
-    <ClampLines
-        text={paragraph}
+      {/* TODO */}
+      <ClampLines
+        text={text}
         lines={NUM_LINES}
         ellipsis="..."
         buttons={false}
         debounce={DEBOUNCE_RATE}
       />
-      <hr/>
+      <hr />
       <p>
         <a href={linkEssay} className="uk-link-reset">
-          {paragraph}
+          {text}
         </a>
       </p>
     </div>
@@ -47,17 +40,17 @@ export default ({
 
 Card.propTypes = {
   tag: PropTypes.string.isRequired,
-  paragraph: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   linkEssay: PropTypes.string.isRequired,
   linkImage: PropTypes.string.isRequired,
   width: PropTypes.oneOfType([
     PropTypes.number.isRequired,
-    PropTypes.string.isRequired,
+    PropTypes.string.isRequired
   ]).isRequired,
   height: PropTypes.oneOfType([
     PropTypes.number.isRequired,
-    PropTypes.string.isRequired,
-  ]).isRequired,
+    PropTypes.string.isRequired
+  ]).isRequired
 };
 
 export default Card;
