@@ -16,9 +16,11 @@ export const ACCEPTED_FILE_TYPES = [
 ].join(",");
 
 // app info
-export const LOGO = "essay database";
+export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const SLOGAN = "collection of college application essays";
+export const ABOUT = ` Compiling a global collection of college application essays and personal statements.`;
+
 
 // options
 export const TAGS = ["new", "popular", "featured"];
@@ -46,10 +48,8 @@ export function GET_IMAGE(tries = 0) {
   });
 }
 
-export async function GET_IMAGES() {
-  return await Promise.all(
-    Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE())
-  );
+export function GET_IMAGES() {
+  return Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE());
 }
 
 export const ESSAYS_SHAPE = PropTypes.shape({

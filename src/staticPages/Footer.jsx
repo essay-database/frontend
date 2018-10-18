@@ -1,32 +1,28 @@
 import React from 'react';
+import { COPYRIGHT, ABOUT } from '../constants';
 
 export default () => (
-  <footer class="uk-section uk-section-large uk-section-secondary uk-light">
-    <div class="uk-container">
-      <div class="uk-child-width-1-2@s" uk-grid="">
+  <footer className="uk-section uk-section-large uk-section-secondary uk-light">
+    <div className="uk-container">
+      <div className="uk-child-width-1-2@s" uk-grid="">
         <div>
-          <h3 className="uk-text-uppercase uk-text-small">
-            &copy; essay database 2018
-          </h3>
-          <div class="uk-panel">
-            <p>
-              Compiling a global collection of college application essays and
-              personal statements.
-            </p>
+          <h3 className="uk-text-uppercase uk-text-small">{COPYRIGHT}</h3>
+          <div className="uk-panel">
+            <p className="uk-text-muted">{ABOUT}</p>
             <p>
               <a
                 href="www.twitter.com/essaydatabase"
-                class="uk-icon-button uk-margin-small-right"
+                className="uk-icon-button uk-margin-small-right"
                 uk-icon="twitter"
               />
               <a
                 href="www.facebook.com/essaydatabase"
-                class="uk-icon-button  uk-margin-small-right"
+                className="uk-icon-button  uk-margin-small-right"
                 uk-icon="facebook"
               />
               <a
                 href="www.linkedin.com/in/essaydatabase"
-                class="uk-icon-button"
+                className="uk-icon-button"
                 uk-icon="linkedin"
               />
             </p>
@@ -34,7 +30,7 @@ export default () => (
         </div>
         <div className="uk-text-capitalize">
           <h3 className="uk-text-uppercase uk-text-small">menu</h3>
-          <div class="uk-panel">
+          <div className="uk-panel">
             <p className="uk-margin-remove-vertical">
               <a href="/about" className="uk-link-text">
                 about us

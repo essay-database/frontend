@@ -9,12 +9,12 @@ const Sidebar = ({ facebookShareLink, twitterShareLink }) => (
   >
     <a
       href={facebookShareLink}
-      class="uk-icon-button"
+      className="uk-icon-button"
       uk-icon={`icon: twitter; ratio: ${ICON_SIZE_DEFAULT}`}
     />
     <a
       href={twitterShareLink}
-      class="uk-icon-button"
+      className="uk-icon-button"
       uk-icon={`icon: facebook; ratio: ${ICON_SIZE_DEFAULT}`}
     />
   </div>

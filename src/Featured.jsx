@@ -29,13 +29,13 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div class="uk-section">
-        <div class="uk-container uk-container-expand">
+      <div className="uk-section">
+        <div className="uk-container uk-container-expand">
           <div uk-slider="center: true; autoplay: true; autoplay-interval: 3000">
-            <div class="uk-position-relative">
-              <div class="uk-slider-container">
+            <div className="uk-position-relative">
+              <div className="uk-slider-container">
                 <ul
-                  class={`uk-slider-items uk-grid uk-grid-small ${
+                  className={`uk-slider-items uk-grid uk-grid-small ${
                     this.state.isMobileLarge
                       ? 'uk-child-width-1-2'
                       : 'uk-child-width-1-1'
@@ -53,26 +53,26 @@ export default class extends React.Component {
                 </ul>
                 <ul />
               </div>
-              <div class="uk-hidden@s uk-light">
+              <div className="uk-hidden@s uk-light">
                 <a
-                  class="uk-position-center-left uk-position-small"
+                  className="uk-position-center-left uk-position-small"
                   uk-slidenav-previous=""
                   uk-slider-item="previous"
                 />
                 <a
-                  class="uk-position-center-right uk-position-small"
+                  className="uk-position-center-right uk-position-small"
                   uk-slidenav-next=""
                   uk-slider-item="next"
                 />
               </div>
-              <div class="uk-visible@s">
+              <div className="uk-visible@s">
                 <a
-                  class="uk-position-center-left-out uk-position-small"
+                  className="uk-position-center-left-out uk-position-small"
                   uk-slidenav-previous=""
                   uk-slider-item="previous"
                 />
                 <a
-                  class="uk-position-center-right-out uk-position-small"
+                  className="uk-position-center-right-out uk-position-small"
                   uk-slidenav-next=""
                   uk-slider-item="next"
                 />
