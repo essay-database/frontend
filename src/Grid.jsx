@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
-import Filter from './Filter';
 
 const CARD_WIDTH = 400;
 const CARD_HEIGHT = (CARD_WIDTH * 2) / 3;

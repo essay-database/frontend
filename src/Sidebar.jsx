@@ -1,38 +1,30 @@
 import React from 'react';
-import Icons from './Icons';
+import PropTypes from 'prop-types';
 
-// TODO add proptypes
-const iconSizeDefault = 1.5;
-const Sidebar = ({
-  views = 0,
-  linkFacebookShare = '#',
-  linkTwitterShare = '#'
-}) => (
+const ICON_SIZE_DEFAULT = 1.5;
+const Sidebar = ({ linkFacebookShare = '#', linkTwitterShare = '#' }) => (
   <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-large-top uk-text-meta">
     <div className="uk-margin-small-bottom">
-      <Icons
-        iconType="views"
-        countAbove={views}
-        iconSize={iconSizeDefault * 2}
-      />
-    </div>
-
-    <div className="uk-margin-small-bottom">
-      <Icons
+      <span
         iconType="twitter"
         link={linkTwitterShare}
-        iconSize={iconSizeDefault}
+        iconSize={ICON_SIZE_DEFAULT}
       />
     </div>
 
     <div className="uk-margin-small-bottom">
-      <Icons
+      <span
         iconType="facebook"
         link={linkFacebookShare}
-        iconSize={iconSizeDefault}
+        iconSize={ICON_SIZE_DEFAULT}
       />
     </div>
   </div>
 );
+
+Sidebar.propTypes = {
+  linkFacebookShare: PropTypes.string.isRequired,
+  linkTwitterShare: PropTypes.string.isRequired
+};
 
 export default Sidebar;
