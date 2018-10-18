@@ -4,8 +4,10 @@ import US_COLLEGES_UNIVERSITIES from './data/us_colleges.json';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const NUM_ARTICLES = 10;
+export const NUM_ARTICLES = 0;
 export const NUM_YEARS_BACK = 100;
+export const FACEBOOK_PAGE_LINK = '';
+export const TWITTER_PAGE_LINK = '';
 export const ACCEPTED_FILE_TYPES = [
   ".doc",
   ".docx",

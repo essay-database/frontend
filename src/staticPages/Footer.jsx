@@ -1,8 +1,18 @@
 import React from 'react';
-import { COPYRIGHT, ABOUT } from '../constants';
+import {
+  COPYRIGHT,
+  ABOUT,
+  FACEBOOK_PAGE_LINK,
+  TWITTER_PAGE_LINK
+} from '../constants';
+import '../styles/footer.css';
+import '../styles/social.css';
 
 export default () => (
-  <footer className="uk-section uk-section-large uk-section-secondary uk-light">
+  <footer
+    id="footer"
+    className="uk-section uk-section-large uk-section-secondary uk-light"
+  >
     <div className="uk-container">
       <div className="uk-child-width-1-2@s" uk-grid="">
         <div>
@@ -13,19 +23,16 @@ export default () => (
             <p>{ABOUT}</p>
             <p>
               <a
-                href="www.twitter.com/essaydatabase"
-                className="uk-icon-button uk-margin-small-right"
-                uk-icon="twitter"
-              />
-              <a
-                href="www.facebook.com/essaydatabase"
-                className="uk-icon-button  uk-margin-small-right"
+                href={FACEBOOK_PAGE_LINK}
+                className="facebook uk-icon-button  uk-margin-small-right"
                 uk-icon="facebook"
+                target="_blank"
               />
               <a
-                href="www.linkedin.com/in/essaydatabase"
-                className="uk-icon-button"
-                uk-icon="linkedin"
+                href={TWITTER_PAGE_LINK}
+                className="twitter uk-icon-button uk-margin-small-right"
+                uk-icon="twitter"
+                target="_blank"
               />
             </p>
           </div>
