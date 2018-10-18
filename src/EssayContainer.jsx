@@ -52,7 +52,6 @@ const EssayContainer = ({
               <h3 className="uk-heading-divider">Most Views</h3>
               <Featured list={featuredEssays} />
             </div>
-
             <div className="uk-margin">
               <h3 className="uk-heading-divider">Most Comments</h3>
               <Featured list={latestEssays} />
