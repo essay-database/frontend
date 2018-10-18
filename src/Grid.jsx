@@ -15,10 +15,7 @@ const ToTop = () => (
 const FilterAndSort = () => (
   <Fragment>
     <div className="uk-flex uk-flex-between uk-flex-wrap">
-      <div className="uk-flex uk-flex-middle">
-        <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
-          {/* Filter:{' '} */}
-        </div>
+      <div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li className="uk-active" uk-filter-control="">
             <a>All</a>
@@ -34,10 +31,7 @@ const FilterAndSort = () => (
           </li>
         </ul>
       </div>
-      <div className="uk-flex uk-flex-middle">
-        <div className="uk-margin-small-right uk-text-meta uk-visible@s uk-text-uppercase">
-          {/* Sort:{' '} */}
-        </div>
+      <div>
         <ul className="uk-subnav uk-subnav-pill uk-margin-small">
           <li
             className="uk-active"
@@ -56,26 +50,24 @@ const FilterAndSort = () => (
 );
 
 const Grid = ({ essays }) => (
-  <div>
-    <div uk-filter="target: .js-filter">
-      <FilterAndSort />
-      <div
-        className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
-        uk-grid=""
-      >
-        {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
-          <div key={id} data-tag={tag} data-date={dateUploaded}>
-            <Card
-              width={CARD_WIDTH}
-              heigh={CARD_HEIGHT}
-              text={paragraphs[0]}
-              tag={tag}
-              linkImage={imageLink}
-              linkEssay={`/essays/${id}`}
-            />
-          </div>
-        ))}
-      </div>
+  <div uk-filter="target: .js-filter">
+    <FilterAndSort />
+    <div
+      className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
+      uk-grid=""
+    >
+      {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
+        <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
+          <Card
+            width={CARD_WIDTH}
+            heigh={CARD_HEIGHT}
+            text={paragraphs[0]}
+            tag={tag}
+            linkImage={imageLink}
+            linkEssay={`/essays/${id}`}
+          />
+        </div>
+      ))}
     </div>
     <ToTop />
   </div>

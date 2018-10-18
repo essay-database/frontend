@@ -6,7 +6,7 @@ const Card = ({ tag, text, linkEssay, linkImage, width, height }) => (
   <div className="uk-card uk-card-default">
     <div className="uk-card-media-top">
       <div className="uk-inline uk-cover-container">
-        <img data-src={linkImage} alt="" uk-cover="" uk-img="" />
+        <img src={linkImage} alt="" uk-cover="" />
         {tag && (
           <div className="uk-overlay uk-light uk-position-top-right">
             <p className="card uk-text-small uk-text-capitalize">{tag}</p>

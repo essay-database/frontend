@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div class="uk-section uk-section-large uk-section-secondary uk-light">
+  <footer class="uk-section uk-section-large uk-section-secondary uk-light">
     <div class="uk-container">
       <div class="uk-child-width-1-2@s" uk-grid="">
         <div>
@@ -69,5 +69,5 @@ export default () => (
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 );

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import US_COLLEGES_UNIVERSITIES from './data/universities.json';
+import US_COLLEGES_UNIVERSITIES from './data/us_colleges.json';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
