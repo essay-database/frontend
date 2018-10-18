@@ -9,7 +9,7 @@ export default class extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isMobile: false
+      isMobileLarge: false
     };
   }
 
@@ -21,7 +21,7 @@ export default class extends React.Component {
     window.addEventListener('resize', () => {
       if (this.isMobileBetween(window.innerWidth)) {
         this.setState({
-          isMobile: true
+          isMobileLarge: true
         });
       }
     });
@@ -36,7 +36,7 @@ export default class extends React.Component {
               <div class="uk-slider-container">
                 <ul
                   class={`uk-slider-items uk-grid uk-grid-small ${
-                    this.state.isMobile
+                    this.state.isMobileLarge
                       ? 'uk-child-width-1-2'
                       : 'uk-child-width-1-1'
                   } uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl`}

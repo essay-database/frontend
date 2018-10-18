@@ -24,10 +24,7 @@ NavIcon.propTypes = {
 };
 
 export default () => (
-  <div
-    uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar"
-    id="#top-nav"
-  >
+  <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;">
     <nav className="uk-navbar-container uk-margin" uk-navbar="">
       <div className="uk-navbar-left">
         <div className="uk-navbar-item">
@@ -46,7 +43,7 @@ export default () => (
         <div className="uk-navbar-item">
           <div className="uk-flex uk-flex-column uk-flex-middle">
             <div>
-              <a href="/" className="uk-logo">
+              <a href="/" className="uk-logo uk-text-link">
                 {LOGO}
               </a>
             </div>

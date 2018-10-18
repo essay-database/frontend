@@ -37,7 +37,7 @@ const Essay = ({
           applicationStatus={applicationStatus}
           yearApplied={yearApplied}
         />
-        <div className="uk-text-justify">
+        <div className="uk-text-left">
           {paragraphs.map((paragraph, idx) => (
             <p
               key={idx}

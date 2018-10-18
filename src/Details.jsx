@@ -10,29 +10,29 @@ const Details = ({
   yearApplied,
   college
 }) => (
-  <div className="uk-article-meta">
+  <div className="uk-article-meta uk-text-capitalize">
     <div className="uk-flex uk-flex-between">
       <div>
-        <p className="uk-margin-remove-bottom uk-text-capitalize">
+        <p>
           <span className="uk-link-text link link">{author}</span>
           {author && country && ' | '}
           <span className="uk-link-text link">{country}</span>
         </p>
       </div>
       <div>
-        <p className="uk-margin-remove-bottom">{dateUploaded}</p>
+        <p>{dateUploaded}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">
       <div>
-        <p className="uk-text-capitalize">
+        <p>
           <span className="uk-link-text link">{college}</span>
           {college && yearApplied && ' | '}
           <span className="uk-link-text link">{yearApplied}</span>
         </p>
       </div>
       <div>
-        <p className="uk-text-capitalize">
+        <p>
           <span className="uk-link-text link">{applicationStatus}</span>
         </p>
       </div>

@@ -1,20 +1,20 @@
-import React, { PureComponent, createRef } from "react";
-import UIkit from "uikit";
-import FormModal from "./FormModal";
-import EssayUpload from "./EssayUpload";
-import InputWrapper from "./InputWrapper";
+import React, { PureComponent, createRef } from 'react';
+import UIkit from 'uikit';
+import FormModal from './FormModal';
+import EssayUpload from './EssayUpload';
+import InputWrapper from './InputWrapper';
 
 export default class Form extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      name: '',
       isAnonymous: false,
-      email: "",
-      country: "",
-      prompt: "",
-      status: "",
-      college: "",
+      email: '',
+      country: '',
+      prompt: '',
+      status: '',
+      college: '',
       year: -1
     };
     this.formRef = createRef();
@@ -38,7 +38,7 @@ export default class Form extends PureComponent {
 
   handleChange = e => {
     const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [target.name]: value
     });
@@ -49,7 +49,7 @@ export default class Form extends PureComponent {
       const isAnonymous = !prevState.isAnonymous;
       let name = prevState.name;
       if (isAnonymous) {
-        name = "";
+        name = '';
       }
       return {
         name,
@@ -70,7 +70,7 @@ export default class Form extends PureComponent {
       isAnonymous
     } = this.state;
 
-    return {
+    return (
       <FormModal
         modalClass="modal-form"
         title="Share with the world!"
@@ -147,6 +147,6 @@ export default class Form extends PureComponent {
           </InputWrapper>
         </form>
       </FormModal>
-    };
+    );
   }
 }

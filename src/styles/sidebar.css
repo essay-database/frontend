@@ -1,0 +1,13 @@
+#facebook:hover,
+facebook:active {
+    color: #3b5998;
+}
+
+#twitter:hover,
+twitter:active {
+    color: #1da1f2;
+}
+
+.no-pointer {
+    cursor: default !important;
+}
