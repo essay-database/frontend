@@ -4,7 +4,6 @@ import Advertise from './Advertise';
 import Privacy from './Privacy';
 import Terms from './Terms';
 import Help from './Help';
-import Footer from './Footer';
 import PageNotFound from './404';
 
 export default {
@@ -14,6 +13,5 @@ export default {
   Privacy,
   Terms,
   Help,
-  Footer,
   PageNotFound
 };

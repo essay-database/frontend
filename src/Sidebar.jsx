@@ -1,28 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ICON_SIZE_DEFAULT = 1;
-const Sidebar = ({ facebookShareLink, twitterShareLink }) => (
-  <div
-    className="uk-flex uk-flex-column uk-flex-middle uk-flex-center"
-    uk-margin=""
-  >
-    <a
-      href={facebookShareLink}
-      className="uk-icon-button"
-      uk-icon={`icon: twitter; ratio: ${ICON_SIZE_DEFAULT}`}
-    />
-    <a
-      href={twitterShareLink}
-      className="uk-icon-button"
-      uk-icon={`icon: facebook; ratio: ${ICON_SIZE_DEFAULT}`}
-    />
-  </div>
+const ICON_SIZE = 1.5;
+
+const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
+  <ul class={`uk-iconnav ${!horizontal ? 'uk-iconnav-vertical' : ''}`}>
+    <li>
+      <a
+        href={facebookShareLink}
+        uk-icon={`icon: facebook; ratio: ${ICON_SIZE}`}
+      />
+    </li>
+    <li>
+      <a
+        href={twitterShareLink}
+        uk-icon={`icon: twitter; ratio: ${ICON_SIZE}`}
+      />
+    </li>
+  </ul>
 );
 
-Sidebar.propTypes = {
+const SHARED_PROPTYPES = {
   facebookShareLink: PropTypes.string.isRequired,
   twitterShareLink: PropTypes.string.isRequired
+};
+
+Sidebar.propTypes = {
+  ...SHARED_PROPTYPES,
+  horizontal: PropTypes.bool
 };
 
 export default Sidebar;

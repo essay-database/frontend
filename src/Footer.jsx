@@ -4,8 +4,8 @@ import {
   ABOUT,
   FACEBOOK_PAGE_LINK,
   TWITTER_PAGE_LINK
-} from '../constants';
-import '../styles/social.css';
+} from './constants';
+import './styles/social.css';
 
 export default () => (
   <footer className="uk-section uk-section-large uk-section-secondary uk-light">

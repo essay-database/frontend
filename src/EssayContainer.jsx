@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Essay from './Essay';
 import Featured from './Featured';
 import Sidebar from './Sidebar';
+import Footer from './Footer';
 import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({
@@ -24,36 +25,42 @@ const EssayContainer = ({
   featuredEssays
 }) => {
   return (
-    <div className="uk-grid" uk-grid="">
-      <div className="uk-width-1-6">
-        <Sidebar
-          facebookShareLink={facebookShareLink}
-          twitterShareLink={twitterShareLink}
-        />
+    <Fragment>
+      <div className="uk-grid" uk-grid="">
+        <div className="uk-width-1-6 uk-flex uk-flex-center uk-visible@m">
+          <Sidebar
+            facebookShareLink={facebookShareLink}
+            twitterShareLink={twitterShareLink}
+          />
+        </div>
+        <div className="uk-width-2-3">
+          <Essay
+            paragraphs={paragraphs}
+            prompt={prompt}
+            imageLink={imageLink}
+            author={author}
+            college={college}
+            country={country}
+            dateUploaded={dateUploaded}
+            applicationStatus={applicationStatus}
+            yearApplied={yearApplied}
+          />
+          <div className="uk-flex uk-flex-right uk-hidden@m">
+            <Sidebar
+              horizontal
+              facebookShareLink={facebookShareLink}
+              twitterShareLink={twitterShareLink}
+            />
+          </div>
+          {[popularEssays, latestEssays, featuredEssays].map((essays, idx) => (
+            <Featured key={idx} essays={essays} />
+          ))}
+        </div>
+        {/* <div className="uk-width-1-6" /> */}
       </div>
-      <div className="uk-width-2-3">
-        <Essay
-          paragraphs={paragraphs}
-          prompt={prompt}
-          imageLink={imageLink}
-          author={author}
-          college={college}
-          country={country}
-          dateUploaded={dateUploaded}
-          applicationStatus={applicationStatus}
-          yearApplied={yearApplied}
-        />
-        <Sidebar
-          horizontal
-          facebookShareLink={facebookShareLink}
-          twitterShareLink={twitterShareLink}
-        />
-        {[popularEssays, latestEssays, featuredEssays].map((essays, idx) => (
-          <Featured key={idx} essays={essays} />
-        ))}
-      </div>
-      {/* <div className="uk-width-1-6" /> */}
-    </div>
+      <div className="uk-text-center">comments go here</div>
+      <Footer />
+    </Fragment>
   );
 };
 

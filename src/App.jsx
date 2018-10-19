@@ -49,20 +49,18 @@ export default () => (
   <Router>
     <div>
       <Nav />
-      <div className="uk-padding-small">
-        <Switch>
-          <Route exact path="/" render={() => <Redirect to="/essays" />} />
-          <Route exact path="/essays" render={() => <Grid essays={essays} />} />
-          <Route exact path="/essays/:id" component={WrappedEssayContainer} />
-          <Route exact path="/about" component={StaticPages.About} />
-          <Route exact path="/contact" component={StaticPages.Contact} />
-          <Route exact path="/advertise" component={StaticPages.Advertise} />
-          <Route exact path="/terms" component={StaticPages.Terms} />
-          <Route exact path="/privacy" component={StaticPages.Privacy} />
-          <Route exact path="/help" component={StaticPages.Help} />
-          <Route component={StaticPages.PageNotFound} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to="/essays" />} />
+        <Route exact path="/essays" render={() => <Grid essays={essays} />} />
+        <Route exact path="/essays/:id" component={WrappedEssayContainer} />
+        <Route exact path="/about" component={StaticPages.About} />
+        <Route exact path="/contact" component={StaticPages.Contact} />
+        <Route exact path="/advertise" component={StaticPages.Advertise} />
+        <Route exact path="/terms" component={StaticPages.Terms} />
+        <Route exact path="/privacy" component={StaticPages.Privacy} />
+        <Route exact path="/help" component={StaticPages.Help} />
+        <Route component={StaticPages.PageNotFound} />
+      </Switch>
     </div>
   </Router>
 );
