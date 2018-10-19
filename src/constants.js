@@ -20,7 +20,7 @@ export const ACCEPTED_FILE_TYPES = [
 // app info
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
-export const SLOGAN = "collection of college application essays";
+// export const SLOGAN = "collection of college application essays";
 export const ABOUT = ` Compiling a global collection of college application essays and personal statements.`;
 
 
@@ -56,13 +56,15 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   prompt: PropTypes.string.isRequired,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  yearApplied: PropTypes.instanceOf(Date),
+  yearApplied: PropTypes.number.isRequired,
   author: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   applicationStatus: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   dateUploaded: PropTypes.instanceOf(Date),
   imageLink: PropTypes.string.isRequired,
+  facebookShareLink: PropTypes.string.isRequired,
+  twitterShareLink: PropTypes.string.isRequired,
 }).isRequired;
 
 // TODO LEGACY

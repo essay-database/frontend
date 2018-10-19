@@ -38,7 +38,7 @@ function WrappedEssayContainer({ match }) {
   return (
     <EssayContainer
       essay={essay}
-      feauturedEssays={featured}
+      featuredEssays={featured}
       popularEssays={popular}
       latestEssays={latest}
     />

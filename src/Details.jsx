@@ -20,7 +20,7 @@ const Details = ({
         </p>
       </div>
       <div>
-        <p>{dateUploaded}</p>
+        <p>{dateUploaded.toString()}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">

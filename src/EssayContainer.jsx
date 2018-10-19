@@ -15,7 +15,9 @@ const EssayContainer = ({
     applicationStatus,
     imageLink,
     paragraphs,
-    author
+    author,
+    facebookShareLink,
+    twitterShareLink
   },
   popularEssays,
   latestEssays,
@@ -24,7 +26,10 @@ const EssayContainer = ({
   return (
     <div className="uk-grid" uk-grid="">
       <div className="uk-width-1-6">
-        <Sidebar />
+        <Sidebar
+          facebookShareLink={facebookShareLink}
+          twitterShareLink={twitterShareLink}
+        />
       </div>
       <div className="uk-width-2-3">
         <Essay
