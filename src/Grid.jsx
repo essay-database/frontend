@@ -84,7 +84,7 @@ const Grid = ({ essays }) => (
               <Card
                 width={CARD_WIDTH}
                 height={CARD_HEIGHT}
-                text={paragraphs.slice(2).join(' ')}
+                text={paragraphs[0]}
                 tag={tag}
                 imageLink={imageLink}
                 linkEssay={`/essays/${id}`}

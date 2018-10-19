@@ -3,26 +3,25 @@ import PropTypes from 'prop-types';
 import './styles/card.css';
 
 const Card = ({ tag, text, linkEssay, imageLink, width, height }) => (
-  <div className="uk-card uk-card-default">
-    <div className="uk-card-media-top">
-      <div className="uk-inline uk-cover-container">
-        <img src={imageLink} uk-cover="" />
-        {tag && (
-          <div className="uk-overlay uk-light uk-position-top-right">
-            <p className="card uk-text-small uk-text-capitalize">{tag}</p>
-          </div>
-        )}
-        <canvas width={width} height={height} />
+  <a href={linkEssay} className="uk-link-reset">
+    <div className="uk-card uk-card-default">
+      <div className="uk-card-media-top">
+        <div className="uk-inline uk-cover-container">
+          <img src={imageLink} uk-cover="" alt="" />
+
+          {tag && (
+            <div className="uk-overlay uk-light uk-position-top-right">
+              <p className="card uk-text-small uk-text-capitalize">{tag}</p>
+            </div>
+          )}
+          <canvas width={width} height={height} />
+        </div>
+      </div>
+      <div className="uk-card-body uk-padding-small">
+        <p>{text}</p>
       </div>
     </div>
-    <div className="uk-card-body uk-padding-small">
-      <p>
-        <a href={linkEssay} className="uk-link-reset">
-          {text}
-        </a>
-      </p>
-    </div>
-  </div>
+  </a>
 );
 
 Card.propTypes = {

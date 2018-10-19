@@ -26,6 +26,7 @@ const Essay = ({
           <img
             src={imageLink}
             className="uk-transition-scale-up uk-transition-opaque"
+            alt=""
           />
         </div>
         <Details

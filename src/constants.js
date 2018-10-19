@@ -62,7 +62,7 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   applicationStatus: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   dateUploaded: PropTypes.instanceOf(Date),
-  imageLink: PropTypes.func.isRequired,
+  imageLink: PropTypes.string.isRequired,
 }).isRequired;
 
 // TODO LEGACY
