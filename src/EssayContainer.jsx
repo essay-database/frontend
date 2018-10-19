@@ -7,6 +7,10 @@ import Footer from './Footer';
 import CommentsPlaceholder from './CommentsPlaceholder';
 import { ESSAYS_SHAPE } from './constants';
 
+const FEATURED_HEADING = 'featured';
+const POPULAR_HEADING = 'popular';
+const LATEST_HEADING = 'latest';
+
 const EssayContainer = ({
   essay: {
     prompt,
@@ -53,8 +57,18 @@ const EssayContainer = ({
               twitterShareLink={twitterShareLink}
             />
           </div>
-          {[popularEssays, latestEssays, featuredEssays].map((essays, idx) => (
-            <Featured key={idx} essays={essays} />
+          {[
+            { essays: featuredEssays, heading: FEATURED_HEADING },
+            {
+              essays: popularEssays,
+              heading: POPULAR_HEADING
+            },
+            {
+              essays: latestEssays,
+              heading: LATEST_HEADING
+            }
+          ].map(({ essays, heading }, idx) => (
+            <Featured key={idx} essays={essays} heading={heading} />
           ))}
         </div>
         {/* <div className="uk-width-1-6" /> */}

@@ -15,7 +15,7 @@ const CommentsPlaceholder = () => {
                   <div className="uk-width-auto">
                     <img
                       className="uk-comment-avatar uk-border-circle"
-                      src={faker.image.people()}
+                      src={faker.image.people(80, 80)}
                       width="80"
                       height="80"
                       alt=""
@@ -52,7 +52,7 @@ const CommentsPlaceholder = () => {
                       <div className="uk-width-auto">
                         <img
                           className="uk-comment-avatar uk-border-circle"
-                          src={faker.image.people()}
+                          src={faker.image.people(80, 80)}
                           width="80"
                           height="80"
                           alt=""
@@ -90,7 +90,7 @@ const CommentsPlaceholder = () => {
                       <div className="uk-width-auto">
                         <img
                           className="uk-comment-avatar uk-border-circle"
-                          src={faker.image.people()}
+                          src={faker.image.people(80, 80)}
                           width="80"
                           height="80"
                           alt=""
