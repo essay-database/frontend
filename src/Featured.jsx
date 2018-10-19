@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
+import { ESSAYS_SHAPE } from './constants';
 
 const SMALL_BOUNDARY = 640;
 const WIDTH = 400;
 const HEIGHT = (WIDTH * 2) / 3;
 
-export default class extends React.Component {
+export default class Featured extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,15 +43,20 @@ export default class extends React.Component {
                       : 'uk-child-width-1-1'
                   } uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl`}
                 >
-                  {[...Array(10).keys()].map(i => (
-                    <li key={i}>
-                      <Card
-                        width={WIDTH}
-                        height={HEIGHT}
-                        paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                      />
-                    </li>
-                  ))}
+                  {this.props.essays.map(
+                    ({ id, paragraphs, tag, imageLink }) => (
+                      <li key={id}>
+                        <Card
+                          tag={tag}
+                          width={WIDTH}
+                          height={HEIGHT}
+                          text={paragraphs[0]}
+                          linkEssay={`/essays/${id}`}
+                          imageLink={imageLink}
+                        />
+                      </li>
+                    )
+                  )}
                 </ul>
                 <ul />
               </div>
@@ -84,3 +91,7 @@ export default class extends React.Component {
     );
   }
 }
+
+Featured.propTypes = {
+  essays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
+};

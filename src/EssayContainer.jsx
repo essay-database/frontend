@@ -43,7 +43,11 @@ const EssayContainer = ({
           applicationStatus={applicationStatus}
           yearApplied={yearApplied}
         />
-        <Sidebar horizontal />
+        <Sidebar
+          horizontal
+          facebookShareLink={facebookShareLink}
+          twitterShareLink={twitterShareLink}
+        />
         {[popularEssays, latestEssays, featuredEssays].map((essays, idx) => (
           <Featured key={idx} essays={essays} />
         ))}

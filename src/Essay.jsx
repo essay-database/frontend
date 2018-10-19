@@ -30,7 +30,7 @@ const Essay = ({
           />
         </div>
         <Details
-          name={author}
+          author={author}
           college={college}
           country={country}
           dateUploaded={dateUploaded}
