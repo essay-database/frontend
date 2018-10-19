@@ -4,7 +4,7 @@ import US_COLLEGES_UNIVERSITIES from './data/us_colleges.json';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const NUM_ARTICLES = 0;
+export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '';
 export const TWITTER_PAGE_LINK = '';
@@ -36,7 +36,7 @@ export const STATUSES = [
 
 export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(college => college.institution);
 
-const MAX_TRIES = 5;
+const MAX_TRIES = 3;
 
 export function GET_IMAGE(tries = 0) {
   return new Promise((resolve, reject) => {
@@ -50,9 +50,9 @@ export function GET_IMAGE(tries = 0) {
   });
 }
 
-export function GET_IMAGES() {
-  return Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE());
-}
+// export function GET_IMAGES() {
+//   return Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE());
+// }
 
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
@@ -66,7 +66,7 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   applicationStatus: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   dateUploaded: PropTypes.instanceOf(Date),
-  imageLink: PropTypes.string.isRequired,
+  imagePromise: PropTypes.func.isRequired,
 }).isRequired;
 
 // TODO LEGACY

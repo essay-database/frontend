@@ -4,7 +4,8 @@ import {
   STATUSES,
   TAGS,
   NUM_YEARS_BACK,
-  COLLEGES
+  COLLEGES,
+  GET_IMAGE
 } from "../constants";
 import {
   selectRandom,
@@ -25,5 +26,5 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     applicationStatus: selectRandom(STATUSES),
     tag: selectRandom(TAGS),
     dateUploaded: faker.date.recent(RECENT_DAYS),
-    imageLink: faker.image.people()
+    imagePromise: GET_IMAGE()
   }));

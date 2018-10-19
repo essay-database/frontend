@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
@@ -6,11 +6,31 @@ import Card from './Card';
 const CARD_WIDTH = 400;
 const CARD_HEIGHT = (CARD_WIDTH * 2) / 3;
 
-const ToTop = () => (
-  <div className="uk-text-right">
-    <button uk-totop="" uk-scroll="" />
-  </div>
-);
+class ToTop extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 'none'
+    };
+  }
+
+  componentDidMount() {
+    window.onscroll = () => {
+      this.setState({
+        display: 'block'
+      });
+    };
+  }
+
+  render() {
+    const { display } = this.state;
+    return (
+      <div className="uk-text-right" style={{ display }}>
+        <button uk-totop="" uk-scroll="" />
+      </div>
+    );
+  }
+}
 
 const FilterAndSort = () => (
   <Fragment>
@@ -57,15 +77,16 @@ const Grid = ({ essays }) => (
         <div
           className="js-filter uk-margin-bottom uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl"
           uk-grid=""
+          uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
         >
-          {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
+          {essays.map(({ id, paragraphs, tag, dateUploaded, imagePromise }) => (
             <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
               <Card
                 width={CARD_WIDTH}
                 height={CARD_HEIGHT}
-                text={paragraphs[0]}
+                text={paragraphs.slice(2).join(' ')}
                 tag={tag}
-                linkImage={imageLink}
+                imagePromise={imagePromise}
                 linkEssay={`/essays/${id}`}
               />
             </div>

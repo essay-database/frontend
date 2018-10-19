@@ -56,9 +56,6 @@ export default () => (
           <Route exact path="/help" component={StaticPages.Help} />
         </Switch>
       </div>
-      <div>
-        <StaticPages.Footer />
-      </div>
     </div>
   </Router>
 );
