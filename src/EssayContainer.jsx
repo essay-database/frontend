@@ -32,13 +32,13 @@ const EssayContainer = ({
   return (
     <Fragment>
       <div className="uk-grid" uk-grid="">
-        <div className="uk-width-1-6 uk-flex uk-flex-center uk-visible@m">
+        <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center ">
           <Sidebar
             facebookShareLink={facebookShareLink}
             twitterShareLink={twitterShareLink}
           />
         </div>
-        <div className="uk-width-2-3">
+        <div className="uk-width-2-3@m">
           <Essay
             paragraphs={paragraphs}
             prompt={prompt}
@@ -50,7 +50,7 @@ const EssayContainer = ({
             applicationStatus={applicationStatus}
             yearApplied={yearApplied}
           />
-          <div className="uk-flex uk-flex-right uk-hidden@m">
+          <div className="uk-hidden@m uk-flex uk-flex-right">
             <Sidebar
               horizontal
               facebookShareLink={facebookShareLink}
@@ -71,9 +71,14 @@ const EssayContainer = ({
             <Featured key={idx} essays={essays} heading={heading} />
           ))}
         </div>
-        {/* <div className="uk-width-1-6" /> */}
+        <div className="uk-visible@m uk-width-1-6@m" />
       </div>
-      <CommentsPlaceholder />
+      <div className="uk-section uk-section-muted">
+        <div className="uk-container uk-width-2-3@m uk-flex-center">
+          <h3 className="uk-text-capitalize">comments</h3>
+          <CommentsPlaceholder />
+        </div>
+      </div>
       <Footer />
     </Fragment>
   );

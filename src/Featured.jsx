@@ -10,7 +10,10 @@ const Featured = ({ essays, heading }) => (
       <div uk-slider="center: true; autoplay: true; autoplay-interval: 3000">
         <div className="uk-position-relative">
           <div className="uk-slider-container">
-            <ul className="uk-slider-items uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m">
+            <ul
+              className="uk-slider-items uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m"
+              uk-grid=""
+            >
               {essays.map(({ id, paragraphs, tag, imageLink }) => (
                 <li key={id}>
                   <Card
