@@ -52,7 +52,7 @@ const EssayContainer = ({
           <Featured key={idx} essays={essays} />
         ))}
       </div>
-      <div className="uk-width-1-6" />
+      {/* <div className="uk-width-1-6" /> */}
     </div>
   );
 };

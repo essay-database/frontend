@@ -4,6 +4,8 @@ import US_COLLEGES_UNIVERSITIES from './data/us_colleges.json';
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
+export const WIDTH = 1800;
+export const HEIGHT = WIDTH / 2;
 export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '';
@@ -22,7 +24,6 @@ export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 // export const SLOGAN = "collection of college application essays";
 export const ABOUT = ` Compiling a global collection of college application essays and personal statements.`;
-
 
 // options
 export const TAGS = ["new", "popular", "featured"];
