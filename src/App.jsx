@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
@@ -25,7 +30,7 @@ function getSideEssays(essays) {
 }
 
 function WrappedEssayContainer({ match }) {
-  const essay = essays.find(e => e.id === parseInt(match.params.id, 10));
+  const essay = essays.find(essay => essay.id === match.params.id);
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
@@ -46,7 +51,8 @@ export default () => (
       <Nav />
       <div className="uk-padding-small">
         <Switch>
-          <Route exact path="/" render={() => <Grid essays={essays} />} />
+          <Route exact path="/" render={() => <Redirect to="/essays" />} />
+          <Route exact path="/essays" render={() => <Grid essays={essays} />} />
           <Route exact path="/essays/:id" component={WrappedEssayContainer} />
           <Route exact path="/about" component={StaticPages.About} />
           <Route exact path="/contact" component={StaticPages.Contact} />
@@ -54,6 +60,7 @@ export default () => (
           <Route exact path="/terms" component={StaticPages.Terms} />
           <Route exact path="/privacy" component={StaticPages.Privacy} />
           <Route exact path="/help" component={StaticPages.Help} />
+          <Route component={StaticPages.PageNotFound} />
         </Switch>
       </div>
     </div>

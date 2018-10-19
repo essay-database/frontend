@@ -10,7 +10,7 @@ const Center = ({ children }) => (
   </div>
 );
 
-Center.PropTypes = {
+Center.propTypes = {
   children: PropTypes.node.isRequired
 };
 

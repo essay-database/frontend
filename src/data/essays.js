@@ -5,7 +5,6 @@ import {
   TAGS,
   NUM_YEARS_BACK,
   COLLEGES,
-  GET_IMAGE
 } from "../constants";
 import {
   selectRandom,
