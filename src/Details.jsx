@@ -14,26 +14,26 @@ const Details = ({
     <div className="uk-flex uk-flex-between">
       <div>
         <p>
-          <span className="uk-link-text link link">{author}</span>
+          <span>{author}</span>
           {author && country && ' | '}
-          <span className="uk-link-text link">{country}</span>
+          <span>{country}</span>
         </p>
       </div>
       <div>
-        <p>{dateUploaded.toString()}</p>
+        <p>{dateUploaded.toLocaleDateString('en-US')}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">
       <div>
         <p>
-          <span className="uk-link-text link">{college}</span>
+          <span>{college}</span>
           {college && yearApplied && ' | '}
-          <span className="uk-link-text link">{yearApplied}</span>
+          <span>{yearApplied}</span>
         </p>
       </div>
       <div>
         <p>
-          <span className="uk-link-text link">{applicationStatus}</span>
+          <span>{applicationStatus}</span>
         </p>
       </div>
     </div>

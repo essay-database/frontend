@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
 
-const CARD_WIDTH = 400;
-const CARD_HEIGHT = (CARD_WIDTH * 2) / 3;
-
 class ToTop extends PureComponent {
   constructor(props) {
     super(props);
@@ -82,8 +79,6 @@ const Grid = ({ essays }) => (
           {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
             <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
               <Card
-                width={CARD_WIDTH}
-                height={CARD_HEIGHT}
                 text={paragraphs[0]}
                 tag={tag}
                 imageLink={imageLink}
