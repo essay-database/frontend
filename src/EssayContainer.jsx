@@ -13,7 +13,7 @@ const EssayContainer = ({
     dateUploaded,
     yearApplied,
     applicationStatus,
-    imagePromise,
+    imageLink,
     paragraphs,
     author
   },
@@ -30,7 +30,7 @@ const EssayContainer = ({
         <Essay
           paragraphs={paragraphs}
           prompt={prompt}
-          imagePromise={imagePromise}
+          imageLink={imageLink}
           author={author}
           college={college}
           country={country}

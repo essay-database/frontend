@@ -26,5 +26,5 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     applicationStatus: selectRandom(STATUSES),
     tag: selectRandom(TAGS),
     dateUploaded: faker.date.recent(RECENT_DAYS),
-    imagePromise: GET_IMAGE()
+    imageLink: faker.image.people()
   }));

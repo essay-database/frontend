@@ -79,14 +79,14 @@ const Grid = ({ essays }) => (
           uk-grid=""
           uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
         >
-          {essays.map(({ id, paragraphs, tag, dateUploaded, imagePromise }) => (
+          {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
             <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
               <Card
                 width={CARD_WIDTH}
                 height={CARD_HEIGHT}
                 text={paragraphs.slice(2).join(' ')}
                 tag={tag}
-                imagePromise={imagePromise}
+                imageLink={imageLink}
                 linkEssay={`/essays/${id}`}
               />
             </div>

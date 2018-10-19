@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Details from './Details';
-import Image from './Image';
 
 const Essay = ({
   paragraphs,
@@ -12,7 +11,7 @@ const Essay = ({
   dateUploaded,
   applicationStatus,
   yearApplied,
-  imagePromise
+  imageLink
 }) => {
   return (
     <div className="uk-padding-small">
@@ -24,9 +23,9 @@ const Essay = ({
           className="uk-margin uk-inline-clip uk-transition-toggle"
           tabIndex="0"
         >
-          <Image
-            imagePromise={imagePromise}
-            classes="uk-transition-scale-up uk-transition-opaque"
+          <img
+            src={imageLink}
+            className="uk-transition-scale-up uk-transition-opaque"
           />
         </div>
         <Details
@@ -55,7 +54,7 @@ const Essay = ({
 Essay.propTypes = {
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   prompt: PropTypes.string,
-  imagePromise: PropTypes.func.isRequired,
+  imageLink: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,

@@ -50,10 +50,6 @@ export function GET_IMAGE(tries = 0) {
   });
 }
 
-// export function GET_IMAGES() {
-//   return Array(NUM_ARTICLES).keys().map(idx => GET_IMAGE());
-// }
-
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
@@ -66,7 +62,7 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   applicationStatus: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   dateUploaded: PropTypes.instanceOf(Date),
-  imagePromise: PropTypes.func.isRequired,
+  imageLink: PropTypes.func.isRequired,
 }).isRequired;
 
 // TODO LEGACY
