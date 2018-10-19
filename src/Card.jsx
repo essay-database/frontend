@@ -31,15 +31,7 @@ Card.propTypes = {
   tag: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   linkEssay: PropTypes.string.isRequired,
-  imageLink: PropTypes.string.isRequired,
-  width: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired
-  ]).isRequired,
-  height: PropTypes.oneOfType([
-    PropTypes.number.isRequired,
-    PropTypes.string.isRequired
-  ]).isRequired
+  imageLink: PropTypes.string.isRequired
 };
 
 export default Card;

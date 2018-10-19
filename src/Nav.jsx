@@ -23,7 +23,10 @@ NavIcon.propTypes = {
 };
 
 export default () => (
-  <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;">
+  <div
+    uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;"
+    className="uk-margin-bottom"
+  >
     <nav className="uk-navbar-container uk-margin" uk-navbar="">
       <div className="uk-navbar-left">
         <div className="uk-navbar-item">

@@ -62,7 +62,7 @@ const FilterAndSort = () => (
         </ul>
       </div>
     </div>
-    <hr className="uk-margin-remove-top" />
+    <hr />
   </Fragment>
 );
 

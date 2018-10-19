@@ -31,7 +31,7 @@ export default class Featured extends PureComponent {
 
   render() {
     return (
-      <div className="uk-section">
+      <div className="uk-section uk-section-small">
         <div className="uk-container uk-container-expand">
           <div uk-slider="center: true; autoplay: true; autoplay-interval: 3000">
             <div className="uk-position-relative">

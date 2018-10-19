@@ -4,6 +4,7 @@ import Essay from './Essay';
 import Featured from './Featured';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
+import CommentsPlaceholder from './CommentsPlaceholder';
 import { ESSAYS_SHAPE } from './constants';
 
 const EssayContainer = ({
@@ -58,7 +59,7 @@ const EssayContainer = ({
         </div>
         {/* <div className="uk-width-1-6" /> */}
       </div>
-      <div className="uk-text-center">comments go here</div>
+      <CommentsPlaceholder />
       <Footer />
     </Fragment>
   );

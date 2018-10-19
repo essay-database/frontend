@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ICON_SIZE = 1.5;
 
 const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
-  <ul class={`uk-iconnav ${!horizontal ? 'uk-iconnav-vertical' : ''}`}>
+  <ul className={`uk-iconnav ${!horizontal ? 'uk-iconnav-vertical' : ''}`}>
     <li>
       <a
         href={facebookShareLink}
