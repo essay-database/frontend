@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './styles/social.css';
 
 const ICON_SIZE = 1.5;
 
@@ -9,12 +10,14 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
       <a
         href={facebookShareLink}
         uk-icon={`icon: facebook; ratio: ${ICON_SIZE}`}
+        className="facebook uk-icon-button"
       />
     </li>
     <li>
       <a
         href={twitterShareLink}
         uk-icon={`icon: twitter; ratio: ${ICON_SIZE}`}
+        className="twitter uk-icon-button"
       />
     </li>
   </ul>

@@ -18,7 +18,7 @@ let idx = 0
 export default Array.from(Array(NUM_ARTICLES), () =>
   ({
     id: (idx++).toString(),
-    paragraphs: faker.lorem.paragraphs().split('. '),
+    paragraphs: faker.lorem.paragraphs(15).split('. '),
     prompt: faker.lorem.paragraph(),
     college: selectRandom(COLLEGES),
     country: faker.address.country(),
