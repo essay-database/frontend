@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles/card.css';
 
-const WIDTH = 400;
+const WIDTH = 640;
 const HEIGHT = (WIDTH * 2) / 3;
 
 const Card = ({ tag, text, linkEssay, imageLink }) => (

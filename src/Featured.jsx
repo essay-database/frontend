@@ -4,14 +4,16 @@ import Card from './Card';
 import { ESSAYS_SHAPE } from './constants';
 
 const Featured = ({ essays, heading }) => (
-  <div className="uk-section uk-section-small">
+  <div className="uk-section uk-padding-remove-vertical">
     <div className="uk-container uk-container-expand">
-      <h3 className="uk-text-capitalize">{heading}</h3>
+      <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+        {heading}
+      </h3>
       <div uk-slider="center: true; autoplay: true; autoplay-interval: 3000">
         <div className="uk-position-relative">
           <div className="uk-slider-container">
             <ul
-              className="uk-slider-items uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m"
+              className="uk-slider-items uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@l"
               uk-grid=""
             >
               {essays.map(({ id, paragraphs, tag, imageLink }) => (

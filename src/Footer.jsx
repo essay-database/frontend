@@ -11,7 +11,10 @@ import './styles/footer.css';
 export default () => (
   <footer className="uk-section uk-section-large uk-section-secondary uk-light">
     <div className="uk-container">
-      <div className="uk-child-width-1-2@s" uk-grid="">
+      <div
+        className="uk-child-width-1-2@s uk-text-center uk-text-left@s"
+        uk-grid=""
+      >
         <div>
           <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
             {COPYRIGHT}

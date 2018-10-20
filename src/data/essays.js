@@ -18,7 +18,7 @@ let idx = 0
 export default Array.from(Array(NUM_ARTICLES), () =>
   ({
     id: (idx++).toString(),
-    paragraphs: faker.lorem.paragraphs(15).split('. '),
+    paragraphs: denseParagraphs(faker.lorem.paragraphs(15).split('. '), 3),
     prompt: faker.lorem.paragraph(),
     college: selectRandom(COLLEGES),
     country: faker.address.country(),
@@ -32,3 +32,16 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     facebookShareLink: faker.internet.url(),
     twitterShareLink: faker.internet.url()
   }));
+
+
+function denseParagraphs(paragraphs, num) {
+  const result = []
+  for (let i = 0; i < paragraphs.length; i += num) {
+    let p = '';
+    for (let j = 0; j < num; j++) {
+      p += paragraphs[j] + '. ';
+    }
+    result.push(p);
+  }
+  return result;
+}

@@ -75,7 +75,9 @@ const EssayContainer = ({
       </div>
       <div id="comments" className="uk-section uk-section-muted">
         <div className="uk-container uk-width-2-3@m uk-flex-center">
-          <h3 className="uk-text-capitalize">comments</h3>
+          <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+            comments
+          </h3>
           <CommentsPlaceholder />
         </div>
       </div>
