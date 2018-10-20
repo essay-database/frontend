@@ -50,7 +50,7 @@ const EssayContainer = ({
             applicationStatus={applicationStatus}
             yearApplied={yearApplied}
           />
-          <div className="uk-hidden@m uk-flex uk-flex-right">
+          <div className="uk-hidden@m uk-flex uk-flex-right uk-padding">
             <Sidebar
               horizontal
               facebookShareLink={facebookShareLink}

@@ -14,11 +14,12 @@ import {
 } from "../utils";
 
 const RECENT_DAYS = 30;
+const NUM_PARAGRAPHS = 15;
 let idx = 0
 export default Array.from(Array(NUM_ARTICLES), () =>
   ({
     id: (idx++).toString(),
-    paragraphs: denseParagraphs(faker.lorem.paragraphs(15).split('. '), 3),
+    paragraphs: denseParagraphs(faker.lorem.paragraphs(NUM_PARAGRAPHS).split('. '), 4),
     prompt: faker.lorem.paragraph(),
     college: selectRandom(COLLEGES),
     country: faker.address.country(),

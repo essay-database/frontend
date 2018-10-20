@@ -9,7 +9,10 @@ import './styles/social.css';
 import './styles/footer.css';
 
 export default () => (
-  <footer className="uk-section uk-section-large uk-section-secondary uk-light">
+  <footer
+    className="uk-section uk-section-large uk-section-secondary uk-light"
+    style={{ paddingTop: 60 }}
+  >
     <div className="uk-container">
       <div
         className="uk-child-width-1-2@s uk-text-center uk-text-left@s"

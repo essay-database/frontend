@@ -1,26 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles/social.css';
+// import './styles/social.css';
 
 const ICON_SIZE = 1.5;
 
 const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
-  <ul className={`uk-iconnav ${!horizontal ? 'uk-iconnav-vertical' : ''}`}>
-    <li>
-      <a
-        href={facebookShareLink}
-        uk-icon={`icon: facebook; ratio: ${ICON_SIZE}`}
-        className="facebook uk-icon-button"
-      />
-    </li>
-    <li>
-      <a
-        href={twitterShareLink}
-        uk-icon={`icon: twitter; ratio: ${ICON_SIZE}`}
-        className="twitter uk-icon-button"
-      />
-    </li>
-  </ul>
+  <div
+    class={`uk-flex ${
+      !horizontal ? 'uk-flex-column' : ''
+    } uk-flex-middle uk-grid-small`}
+    uk-grid=""
+  >
+    <div>
+      <div class="uk-panel">
+        <a
+          href={facebookShareLink}
+          uk-icon={`icon: facebook; ratio: ${ICON_SIZE};`}
+          class="facebook uk-icon-button"
+        />
+      </div>
+    </div>
+    <div>
+      <div class="uk-panel">
+        <a
+          href={twitterShareLink}
+          uk-icon={`icon: twitter; ratio: ${ICON_SIZE};`}
+          class="twitter uk-icon-button"
+        />
+      </div>
+    </div>
+  </div>
 );
 
 const SHARED_PROPTYPES = {
