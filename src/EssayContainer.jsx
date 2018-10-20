@@ -33,7 +33,7 @@ const EssayContainer = ({
     <Fragment>
       <div className="uk-grid" uk-grid="">
         <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
-          <div uk-sticky="offset: 100;">
+          <div uk-sticky="offset: 150">
             <Sidebar
               facebookShareLink={facebookShareLink}
               twitterShareLink={twitterShareLink}
@@ -75,7 +75,7 @@ const EssayContainer = ({
         </div>
         <div className="uk-visible@m uk-width-1-6@m" />
       </div>
-      <div id="comments" className="uk-section uk-section-muted">
+      <div className="uk-section uk-section-muted">
         <div className="uk-container uk-width-2-3@m uk-flex-center">
           <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
             comments

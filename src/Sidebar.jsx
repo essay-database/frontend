@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './styles/social.css';
+import './styles/social.css';
 
 const ICON_SIZE = 1.5;
 

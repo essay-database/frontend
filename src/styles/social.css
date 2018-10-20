@@ -7,3 +7,8 @@
     color: #fff !important;
     background-color: #1da1f2 !important;
 }
+
+.twitter:hover,
+.facebook:hover {
+    opacity: 0.5;
+}

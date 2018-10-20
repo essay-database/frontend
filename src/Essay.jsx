@@ -16,7 +16,7 @@ const Essay = ({
   return (
     <div className="uk-padding-small">
       <article className="uk-article">
-        <h2 className="uk-heading-primary">{prompt}</h2>
+        <h2 className="uk-heading-primary uk-margin-small-bottom">{prompt}</h2>
         <div
           className="uk-margin uk-inline-clip uk-transition-toggle"
           tabIndex="0"
