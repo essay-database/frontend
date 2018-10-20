@@ -5,13 +5,13 @@ import {
   TAGS,
   NUM_YEARS_BACK,
   COLLEGES,
-  WIDTH,
-  HEIGHT,
+  IMAGE_PATH
 } from "../constants";
 import {
   selectRandom,
   getRandomInt
 } from "../utils";
+
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
@@ -29,7 +29,7 @@ export default Array.from(Array(NUM_ARTICLES), () =>
     applicationStatus: selectRandom(STATUSES),
     tag: selectRandom(TAGS),
     dateUploaded: faker.date.recent(RECENT_DAYS),
-    imageLink: faker.image.people(WIDTH, HEIGHT),
+    imageLink: IMAGE_PATH,
     facebookShareLink: faker.internet.url(),
     twitterShareLink: faker.internet.url()
   }));

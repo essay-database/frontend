@@ -10,6 +10,10 @@ export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '';
 export const TWITTER_PAGE_LINK = '';
+export {
+  default as IMAGE_PATH
+}
+from './images/pic7.jpg'
 export const ACCEPTED_FILE_TYPES = [
   ".doc",
   ".docx",
