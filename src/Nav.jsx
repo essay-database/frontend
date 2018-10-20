@@ -26,6 +26,7 @@ export default () => (
   <div
     uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;"
     className="uk-margin-bottom"
+    id="top-nav"
   >
     <nav className="uk-navbar-container uk-margin" uk-navbar="">
       <div className="uk-navbar-left">

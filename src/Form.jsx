@@ -4,18 +4,6 @@ import PropTypes from 'prop-types';
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
 
-const InputWrapper = ({ label, children }) => (
-  <div className="uk-margin">
-    <label className="uk-form-label">{label}</label>
-    <div className="uk-form-controls">{children}</div>
-  </div>
-);
-
-InputWrapper.propTypes = {
-  label: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-};
-
 export default class Form extends PureComponent {
   constructor(props) {
     super(props);
@@ -70,8 +58,16 @@ export default class Form extends PureComponent {
   };
 
   render() {
-    const { name, email } = this.state;
-
+    const {
+      name,
+      email,
+      state,
+      country,
+      prompt,
+      status,
+      college,
+      year
+    } = this.state;
     return (
       <FormModal
         modalClass="modal-form"
@@ -79,31 +75,33 @@ export default class Form extends PureComponent {
         ref={this.formRef}
       >
         <form id="essay-form" onSubmit={this.handleSubmit}>
-          <InputWrapper label="Name">
-            <input
-              className="uk-input"
-              type="text"
-              required
-              autoFocus
-              placeholder="Name"
-              value={name}
-              onChange={this.handleChange}
-              name="name"
-            />
-          </InputWrapper>
-
-          <InputWrapper label="Email">
-            <input
-              className="uk-input"
-              type="email"
-              required
-              placeholder="Email"
-              value={email}
-              onChange={this.handleChange}
-              name="email"
-            />
-          </InputWrapper>
-
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">name</label>
+            <div className="uk-form-controls">
+              <input
+                className="uk-input"
+                type="text"
+                autoFocus
+                placeholder="Name"
+                value={name}
+                onChange={this.handleChange}
+                name="name"
+              />
+            </div>
+          </div>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">email</label>
+            <div className="uk-form-controls">
+              <input
+                className="uk-input"
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={this.handleChange}
+                name="email"
+              />
+            </div>
+          </div>
           {/* <InputWrapper label="Country">
             <Countries
               handler={this.handleSelect('country')}

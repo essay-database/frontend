@@ -33,10 +33,12 @@ const EssayContainer = ({
     <Fragment>
       <div className="uk-grid" uk-grid="">
         <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
-          <Sidebar
-            facebookShareLink={facebookShareLink}
-            twitterShareLink={twitterShareLink}
-          />
+          <div uk-sticky="offset: 100;">
+            <Sidebar
+              facebookShareLink={facebookShareLink}
+              twitterShareLink={twitterShareLink}
+            />
+          </div>
         </div>
         <div className="uk-width-2-3@m">
           <Essay
