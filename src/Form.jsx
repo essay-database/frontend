@@ -84,114 +84,134 @@ export default class Form extends PureComponent {
           id="essay-form"
           onSubmit={this.handleSubmit}
         >
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">name</label>
-            <div className="uk-form-controls">
-              <input
-                className="uk-input"
-                type="text"
-                autoFocus
-                value={name}
-                onChange={this.handleChange}
-                name="name"
-              />
-            </div>
-          </div>
-
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">email</label>
-            <div className="uk-form-controls">
-              <input
-                className="uk-input"
-                type="text"
-                value={email}
-                onChange={this.handleChange}
-                name="email"
-              />
-            </div>
-          </div>
-
-          <div class="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">essay</label>
-            <div className="uk-form-controls">
-              <textarea
-                className="uk-textarea"
-                rows="5"
-                value={essay}
-                name="essay"
-                onChange={this.handleChange}
-              />
-            </div>
-          </div>
-
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">upload</label>
-            <div className="uk-form-controls">
-              <EssayUpload handleUpload={this.handleUpload} />
-            </div>
-          </div>
-
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">country</label>
-            <div className="uk-form-controls">
-              <select class="uk-select" select>
-                <option>Option 01</option>
-                <option>Option 02</option>
-              </select>
-            </div>
-          </div>
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">status</label>
-            <div className="uk-form-controls">
-              <select class="uk-select" select>
-                <option>Option 01</option>
-                <option>Option 02</option>
-              </select>
-            </div>
-          </div>
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">college</label>
-            <div className="uk-form-controls">
-              <select class="uk-select" select>
-                <option>Option 01</option>
-                <option>Option 02</option>
-              </select>
-            </div>
-          </div>
-          <div className="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">year</label>
-            <div className="uk-form-controls">
-              <select class="uk-select" select>
-                <option>Option 01</option>
-                <option>Option 02</option>
-              </select>
-            </div>
-          </div>
-
-          {country === 'United States' && (
-            <div className="uk-margin">
-              <label className="uk-form-label uk-text-capitalize">state</label>
+          <fieldset class="uk-fieldset">
+            <legend class="uk-legend">Essay</legend>
+            <div class="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">essay</label>
               <div className="uk-form-controls">
-                <select class="uk-select">
+                <textarea
+                  className="uk-textarea"
+                  rows="5"
+                  value={essay}
+                  name="essay"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">upload</label>
+              <div className="uk-form-controls">
+                <EssayUpload handleUpload={this.handleUpload} />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">prompt</label>
+              <div className="uk-form-controls">
+                <textarea
+                  className="uk-textarea"
+                  rows="3"
+                  value={essay}
+                  name="essay"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">
+                college
+              </label>
+              <div className="uk-form-controls">
+                <select class="uk-select" select>
                   <option>Option 01</option>
                   <option>Option 02</option>
                 </select>
               </div>
             </div>
-          )}
 
-          <div class="uk-margin">
-            <label className="uk-form-label uk-text-capitalize">prompt</label>
-            <div className="uk-form-controls">
-              <textarea
-                className="uk-textarea"
-                rows="5"
-                value={essay}
-                name="essay"
-                onChange={this.handleChange}
-              />
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">
+                year of application
+              </label>
+              <div className="uk-form-controls">
+                <select class="uk-select" select>
+                  <option>Option 01</option>
+                  <option>Option 02</option>
+                </select>
+              </div>
             </div>
-          </div>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">
+                application status
+              </label>
+              <div className="uk-form-controls">
+                <select class="uk-select" select>
+                  <option>Option 01</option>
+                  <option>Option 02</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="uk-fieldset">
+            <legend class="uk-legend">Author</legend>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">name</label>
+              <div className="uk-form-controls">
+                <input
+                  className="uk-input"
+                  type="text"
+                  autoFocus
+                  value={name}
+                  onChange={this.handleChange}
+                  name="name"
+                />
+              </div>
+            </div>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">email</label>
+              <div className="uk-form-controls">
+                <input
+                  className="uk-input"
+                  type="text"
+                  value={email}
+                  onChange={this.handleChange}
+                  name="email"
+                />
+              </div>
+            </div>
+
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">
+                country
+              </label>
+              <div className="uk-form-controls">
+                <select class="uk-select" select>
+                  <option>Option 01</option>
+                  <option>Option 02</option>
+                </select>
+              </div>
+            </div>
+
+            {country === 'United States' && (
+              <div className="uk-margin">
+                <label className="uk-form-label uk-text-capitalize">
+                  state
+                </label>
+                <div className="uk-form-controls">
+                  <select class="uk-select">
+                    <option>Option 01</option>
+                    <option>Option 02</option>
+                  </select>
+                </div>
+              </div>
+            )}
+          </fieldset>
         </form>
       </FormModal>
     );

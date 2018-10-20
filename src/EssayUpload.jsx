@@ -71,7 +71,7 @@ export default class EssayUpload extends PureComponent {
           <span className="uk-text-middle">Drag and Drop or </span>
           <div uk-form-custom="">
             <input type="file" accept={ACCEPTED_FILE_TYPES} />
-            <span className="uk-link"> Select </span>
+            <span className="uk-link"> Choose </span>
             <span>file </span>
           </div>
         </div>
