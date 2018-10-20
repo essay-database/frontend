@@ -6,26 +6,26 @@ const ICON_SIZE = 1.5;
 
 const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
   <div
-    class={`uk-flex ${
+    className={`uk-flex ${
       !horizontal ? 'uk-flex-column' : ''
     } uk-flex-middle uk-grid-small`}
     uk-grid=""
   >
     <div>
-      <div class="uk-panel">
+      <div className="uk-panel">
         <a
           href={facebookShareLink}
           uk-icon={`icon: facebook; ratio: ${ICON_SIZE};`}
-          class="facebook uk-icon-button"
+          className="facebook uk-icon-button"
         />
       </div>
     </div>
     <div>
-      <div class="uk-panel">
+      <div className="uk-panel">
         <a
           href={twitterShareLink}
           uk-icon={`icon: twitter; ratio: ${ICON_SIZE};`}
-          class="twitter uk-icon-button"
+          className="twitter uk-icon-button"
         />
       </div>
     </div>
