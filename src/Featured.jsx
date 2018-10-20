@@ -9,7 +9,7 @@ const Featured = ({ essays, heading }) => (
       <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
         {heading}
       </h3>
-      <div uk-slider="center: true; autoplay: true; autoplay-interval: 3000">
+      <div uk-slider="center: true; autoplay-interval: 3000">
         <div className="uk-position-relative">
           <div className="uk-slider-container">
             <ul

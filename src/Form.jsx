@@ -10,6 +10,9 @@ export default class Form extends PureComponent {
     this.state = {
       name: '',
       email: '',
+      essay: '',
+      fileName: '',
+      state: '',
       country: '',
       prompt: '',
       status: '',
@@ -61,6 +64,8 @@ export default class Form extends PureComponent {
     const {
       name,
       email,
+      essay,
+      fileName,
       state,
       country,
       prompt,
@@ -74,7 +79,11 @@ export default class Form extends PureComponent {
         title="Share with the world!"
         ref={this.formRef}
       >
-        <form id="essay-form" onSubmit={this.handleSubmit}>
+        <form
+          className="uk-form-stacked"
+          id="essay-form"
+          onSubmit={this.handleSubmit}
+        >
           <div className="uk-margin">
             <label className="uk-form-label uk-text-capitalize">name</label>
             <div className="uk-form-controls">
@@ -82,55 +91,107 @@ export default class Form extends PureComponent {
                 className="uk-input"
                 type="text"
                 autoFocus
-                placeholder="Name"
                 value={name}
                 onChange={this.handleChange}
                 name="name"
               />
             </div>
           </div>
+
           <div className="uk-margin">
             <label className="uk-form-label uk-text-capitalize">email</label>
             <div className="uk-form-controls">
               <input
                 className="uk-input"
                 type="text"
-                placeholder="Email"
                 value={email}
                 onChange={this.handleChange}
                 name="email"
               />
             </div>
           </div>
-          {/* <InputWrapper label="Country">
-            <Countries
-              handler={this.handleSelect('country')}
-              selected={country}
-            />
-          </InputWrapper>
 
-          <InputWrapper label="Upload Essay">
-            <EssayUpload handleUpload={this.handleUpload} />
-          </InputWrapper>
+          <div class="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">essay</label>
+            <div className="uk-form-controls">
+              <textarea
+                className="uk-textarea"
+                rows="5"
+                value={essay}
+                name="essay"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
 
-          <InputWrapper label="Prompt">
-            <Prompts handler={this.handleSelect('prompt')} selected={prompt} />
-          </InputWrapper>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">upload</label>
+            <div className="uk-form-controls">
+              <EssayUpload handleUpload={this.handleUpload} />
+            </div>
+          </div>
 
-          <InputWrapper label="Application Status">
-            <Statuses handler={this.handleSelect('status')} selected={status} />
-          </InputWrapper>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">country</label>
+            <div className="uk-form-controls">
+              <select class="uk-select" select>
+                <option>Option 01</option>
+                <option>Option 02</option>
+              </select>
+            </div>
+          </div>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">status</label>
+            <div className="uk-form-controls">
+              <select class="uk-select" select>
+                <option>Option 01</option>
+                <option>Option 02</option>
+              </select>
+            </div>
+          </div>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">college</label>
+            <div className="uk-form-controls">
+              <select class="uk-select" select>
+                <option>Option 01</option>
+                <option>Option 02</option>
+              </select>
+            </div>
+          </div>
+          <div className="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">year</label>
+            <div className="uk-form-controls">
+              <select class="uk-select" select>
+                <option>Option 01</option>
+                <option>Option 02</option>
+              </select>
+            </div>
+          </div>
 
-          <InputWrapper label="College submitted">
-            <Colleges
-              handler={this.handleSelect('college')}
-              selected={college}
-            />
-          </InputWrapper>
+          {country === 'United States' && (
+            <div className="uk-margin">
+              <label className="uk-form-label uk-text-capitalize">state</label>
+              <div className="uk-form-controls">
+                <select class="uk-select">
+                  <option>Option 01</option>
+                  <option>Option 02</option>
+                </select>
+              </div>
+            </div>
+          )}
 
-          <InputWrapper label="Year submitted">
-            <Years handler={this.handleSelect('year')} selected={year} />
-          </InputWrapper> */}
+          <div class="uk-margin">
+            <label className="uk-form-label uk-text-capitalize">prompt</label>
+            <div className="uk-form-controls">
+              <textarea
+                className="uk-textarea"
+                rows="5"
+                value={essay}
+                name="essay"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
         </form>
       </FormModal>
     );
