@@ -1,6 +1,5 @@
 import React, { PureComponent, createRef } from 'react';
 import UIkit from 'uikit';
-import PropTypes from 'prop-types';
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
 import {
@@ -91,11 +90,7 @@ export default class Form extends PureComponent {
       yearApplied
     } = this.state;
     return (
-      <FormModal
-        modalClass="modal-form"
-        title="Share with the world!"
-        ref={this.formRef}
-      >
+      <FormModal title="Share with the world!" ref={this.formRef}>
         <form
           className="uk-form-stacked"
           id="essay-form"

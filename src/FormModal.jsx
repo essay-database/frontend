@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const IMAGE_PATH = './images/form_upload.png';
 
-const FormModal = ({ modalClass, title, children, forwardRef }) => (
-  <div ref={forwardRef} className={`uk-modal-full ${modalClass}`} uk-modal="">
+const FormModal = ({ title, children, forwardRef }) => (
+  <div ref={forwardRef} className="uk-modal-full modal-form" uk-modal="">
     <div className="uk-modal-dialog" uk-height-viewport="">
       <button
         className="uk-modal-close-full uk-close-large"
