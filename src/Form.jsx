@@ -1,7 +1,6 @@
 import React, { PureComponent, createRef } from 'react';
 import UIkit from 'uikit';
 import FormModal from './FormModal';
-import EssayUpload from './EssayUpload';
 import {
   COLLEGES,
   NUM_YEARS_BACK,
@@ -10,17 +9,13 @@ import {
   STATES
 } from './constants';
 
-function getYears(NUM_YEARS_BACK) {
-  let year = new Date().getFullYear();
-  const result = [];
-  for (let i = year; i < NUM_YEARS_BACK; i--) {
-    result.push(year);
-    year -= 1;
-  }
-  return result;
-}
+const YEARS = Array.from(
+  Array(NUM_YEARS_BACK),
+  (elem, idx) => new Date().getFullYear() - idx
+);
 
-const YEARS = getYears(NUM_YEARS_BACK);
+const PROMPT_ROWS = 3;
+const ESSAY_ROWS = PROMPT_ROWS * 4;
 
 export default class Form extends PureComponent {
   constructor(props) {
@@ -34,7 +29,7 @@ export default class Form extends PureComponent {
       prompt: '',
       applicationStatus: '',
       college: '',
-      yearApplied: -1
+      yearApplied: ''
     };
     this.formRef = createRef();
   }
@@ -51,29 +46,11 @@ export default class Form extends PureComponent {
     }
   };
 
-  handleSelect = name => ({ _, value }) => {
-    this.setState({ [name]: value });
-  };
-
   handleChange = e => {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [target.name]: value
-    });
-  };
-
-  handleAnonymous = e => {
-    this.setState(prevState => {
-      const isAnonymous = !prevState.isAnonymous;
-      let name = prevState.name;
-      if (isAnonymous) {
-        name = '';
-      }
-      return {
-        name,
-        isAnonymous
-      };
     });
   };
 
@@ -103,7 +80,7 @@ export default class Form extends PureComponent {
               <div className="uk-form-controls">
                 <textarea
                   className="uk-textarea"
-                  rows="5"
+                  rows={ESSAY_ROWS}
                   value={essayText}
                   name="essayText"
                   onChange={this.handleChange}
@@ -112,18 +89,12 @@ export default class Form extends PureComponent {
             </div>
 
             <div className="uk-margin">
-              <label className="uk-form-label uk-text-capitalize">upload</label>
-              <div className="uk-form-controls">
-                <EssayUpload handleUpload={this.handleUpload} />
-              </div>
-            </div>
-
-            <div className="uk-margin">
               <label className="uk-form-label uk-text-capitalize">prompt</label>
               <div className="uk-form-controls">
                 <textarea
                   className="uk-textarea"
-                  rows="3"
+                  required
+                  rows={PROMPT_ROWS}
                   value={prompt}
                   name="prompt"
                   onChange={this.handleChange}
@@ -137,11 +108,14 @@ export default class Form extends PureComponent {
               </label>
               <div className="uk-form-controls">
                 <select
+                  required
                   className="uk-select"
                   value={college}
                   onChange={this.handleChange}
                   name="college"
                 >
+                  <option value="outside">Outside the US</option>
+                  <option disabled hidden value="" />
                   {COLLEGES.map((college, idx) => (
                     <option key={idx}>{college}</option>
                   ))}
@@ -150,9 +124,7 @@ export default class Form extends PureComponent {
             </div>
 
             <div className="uk-margin">
-              <label className="uk-form-label uk-text-capitalize">
-                year of application
-              </label>
+              <label className="uk-form-label">Year of Application</label>
               <div className="uk-form-controls">
                 <select
                   className="uk-select"
@@ -160,6 +132,7 @@ export default class Form extends PureComponent {
                   onChange={this.handleChange}
                   name="yearApplied"
                 >
+                  <option disabled hidden value="" />
                   {YEARS.map((year, idx) => (
                     <option key={idx}>{year}</option>
                   ))}
@@ -173,11 +146,13 @@ export default class Form extends PureComponent {
               </label>
               <div className="uk-form-controls">
                 <select
-                  className="uk-select"
+                  className="uk-select uk-text-capitalize"
                   value={applicationStatus}
                   onChange={this.handleChange}
                   name="applicationStatus"
+                  required
                 >
+                  <option disabled hidden value="" />
                   {STATUSES.map((status, idx) => (
                     <option key={idx}>{status}</option>
                   ))}
@@ -198,6 +173,7 @@ export default class Form extends PureComponent {
                   value={name}
                   onChange={this.handleChange}
                   name="name"
+                  required
                 />
               </div>
             </div>
@@ -211,6 +187,7 @@ export default class Form extends PureComponent {
                   value={email}
                   onChange={this.handleChange}
                   name="email"
+                  required
                 />
               </div>
             </div>
@@ -220,7 +197,14 @@ export default class Form extends PureComponent {
                 country
               </label>
               <div className="uk-form-controls">
-                <select className="uk-select" value={country} name="country">
+                <select
+                  className="uk-select"
+                  value={country}
+                  name="country"
+                  onChange={this.handleChange}
+                  required
+                >
+                  <option disabled hidden value="" />
                   {COUNTRIES.map((country, idx) => (
                     <option key={idx}>{country}</option>
                   ))}
@@ -234,7 +218,14 @@ export default class Form extends PureComponent {
                   state
                 </label>
                 <div className="uk-form-controls">
-                  <select className="uk-select" value={state} name="state">
+                  <select
+                    className="uk-select"
+                    value={state}
+                    name="state"
+                    required
+                    onChange={this.handleChange}
+                  >
+                    <option disabled hidden value="" />
                     {STATES.map((state, idx) => (
                       <option key={idx}>{state}</option>
                     ))}

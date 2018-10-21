@@ -32,20 +32,20 @@ export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT = ` Compiling a global collection of college application essays and personal statements.`;
 
 // options
-export const TAGS = ["new", "popular", "featured"];
+export const TAGS = ["new", "popular", "featured"].sort();
 
 export const STATUSES = [
   "pending",
   "accepted",
   "rejected",
   "waitlisted"
-];
+].sort();
 
-export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(college => college.institution);
+export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(college => college.institution).sort();
 
-export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name);
+export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name).sort();
 
-export const STATES = STATES_LIST.map(elem => elem.name);
+export const STATES = STATES_LIST.map(elem => elem.name).sort();
 
 
 const MAX_TRIES = 3;
