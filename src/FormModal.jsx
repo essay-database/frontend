@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-
-const IMAGE_PATH = './images/form_upload.png';
+import UPLOAD_IMAGE from './images/pic6.jpg';
 
 const FormModal = ({ title, children, forwardRef }) => (
   <div ref={forwardRef} className="uk-modal-full modal-form" uk-modal="">
@@ -11,27 +10,14 @@ const FormModal = ({ title, children, forwardRef }) => (
         type="button"
         uk-close=""
       />
-      <div
-        className="uk-grid-collapse uk-child-width-1-1 uk-child-width-1-2@m uk-flex-middle"
-        uk-grid=""
-      >
-        <div className="uk-inline uk-visible@m">
-          <div
-            className="uk-background-cover"
-            style={{ backgroundImage: `url(${IMAGE_PATH})` }}
-            uk-height-viewport=""
-            uk-img=""
-          />
-          <div className="uk-overlay-default uk-position-cover" />
-        </div>
-
-        <div>
-          <div className="uk-modal-header uk-padding-small">
-            <h2 className="uk-heading-primary uk-text-center">{title}</h2>
+      <div className="uk-grid-collapse uk-flex-middle" uk-grid="">
+        <div className="uk-width-2-3@m uk-width-1-2@xl">
+          <div className="uk-modal-header">
+            <h1>{title}</h1>
           </div>
 
-          <div className="uk-modal-body uk-padding-small">{children}</div>
-          <div className="uk-modal-footer uk-padding-small uk-text-right">
+          <div className="uk-modal-body">{children}</div>
+          <div className="uk-modal-footer uk-text-right">
             <button
               className="uk-button uk-button-default uk-modal-close"
               type="button"
@@ -47,13 +33,21 @@ const FormModal = ({ title, children, forwardRef }) => (
             />
           </div>
         </div>
+        <div className="uk-inline uk-visible@m">
+          <div
+            className="uk-background-cover"
+            style={{ backgroundImage: `url(${UPLOAD_IMAGE})` }}
+            uk-height-viewport=""
+            uk-img=""
+          />
+          <div className="uk-overlay-default uk-position-cover" />
+        </div>
       </div>
     </div>
   </div>
 );
 
 FormModal.propTypes = {
-  modalClass: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
   forwardRef: PropTypes.object.isRequired

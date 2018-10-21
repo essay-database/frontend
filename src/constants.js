@@ -12,6 +12,7 @@ export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '';
 export const TWITTER_PAGE_LINK = '';
+export const UPLOAD_IMAGE = '';
 export {
   default as IMAGE_PATH
 }

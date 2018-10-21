@@ -84,6 +84,7 @@ export default class Form extends PureComponent {
                   value={essayText}
                   name="essayText"
                   onChange={this.handleChange}
+                  required
                 />
               </div>
             </div>
@@ -131,6 +132,7 @@ export default class Form extends PureComponent {
                   value={yearApplied}
                   onChange={this.handleChange}
                   name="yearApplied"
+                  required
                 >
                   <option disabled hidden value="" />
                   {YEARS.map((year, idx) => (
