@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import US_COLLEGES_UNIVERSITIES from './data/us_colleges.json';
+import COUNTRIES_LIST from './data/countries.json';
+import US_COLLEGES_UNIVERSITIES from './data/us_colleges_univerisities.json';
+import STATES_LIST from './data/states.json'
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
@@ -40,6 +42,11 @@ export const STATUSES = [
 ];
 
 export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(college => college.institution);
+
+export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name);
+
+export const STATES = STATES_LIST.map(elem => elem.name);
+
 
 const MAX_TRIES = 3;
 

@@ -3,6 +3,25 @@ import UIkit from 'uikit';
 import PropTypes from 'prop-types';
 import FormModal from './FormModal';
 import EssayUpload from './EssayUpload';
+import {
+  COLLEGES,
+  NUM_YEARS_BACK,
+  STATUSES,
+  COUNTRIES,
+  STATES
+} from './constants';
+
+function getYears(NUM_YEARS_BACK) {
+  let year = new Date().getFullYear();
+  const result = [];
+  for (let i = year; i < NUM_YEARS_BACK; i--) {
+    result.push(year);
+    year -= 1;
+  }
+  return result;
+}
+
+const YEARS = getYears(NUM_YEARS_BACK);
 
 export default class Form extends PureComponent {
   constructor(props) {
@@ -10,14 +29,13 @@ export default class Form extends PureComponent {
     this.state = {
       name: '',
       email: '',
-      essay: '',
-      fileName: '',
+      essayText: '',
       state: '',
       country: '',
       prompt: '',
-      status: '',
+      applicationStatus: '',
       college: '',
-      year: -1
+      yearApplied: -1
     };
     this.formRef = createRef();
   }
@@ -64,14 +82,13 @@ export default class Form extends PureComponent {
     const {
       name,
       email,
-      essay,
-      fileName,
+      essayText,
       state,
       country,
       prompt,
-      status,
+      applicationStatus,
       college,
-      year
+      yearApplied
     } = this.state;
     return (
       <FormModal
@@ -84,16 +101,16 @@ export default class Form extends PureComponent {
           id="essay-form"
           onSubmit={this.handleSubmit}
         >
-          <fieldset class="uk-fieldset">
-            <legend class="uk-legend">Essay</legend>
-            <div class="uk-margin">
+          <fieldset className="uk-fieldset">
+            <legend className="uk-legend">Essay</legend>
+            <div className="uk-margin">
               <label className="uk-form-label uk-text-capitalize">essay</label>
               <div className="uk-form-controls">
                 <textarea
                   className="uk-textarea"
                   rows="5"
-                  value={essay}
-                  name="essay"
+                  value={essayText}
+                  name="essayText"
                   onChange={this.handleChange}
                 />
               </div>
@@ -106,14 +123,14 @@ export default class Form extends PureComponent {
               </div>
             </div>
 
-            <div class="uk-margin">
+            <div className="uk-margin">
               <label className="uk-form-label uk-text-capitalize">prompt</label>
               <div className="uk-form-controls">
                 <textarea
                   className="uk-textarea"
                   rows="3"
-                  value={essay}
-                  name="essay"
+                  value={prompt}
+                  name="prompt"
                   onChange={this.handleChange}
                 />
               </div>
@@ -124,9 +141,15 @@ export default class Form extends PureComponent {
                 college
               </label>
               <div className="uk-form-controls">
-                <select class="uk-select" select>
-                  <option>Option 01</option>
-                  <option>Option 02</option>
+                <select
+                  className="uk-select"
+                  value={college}
+                  onChange={this.handleChange}
+                  name="college"
+                >
+                  {COLLEGES.map((college, idx) => (
+                    <option key={idx}>{college}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -136,9 +159,15 @@ export default class Form extends PureComponent {
                 year of application
               </label>
               <div className="uk-form-controls">
-                <select class="uk-select" select>
-                  <option>Option 01</option>
-                  <option>Option 02</option>
+                <select
+                  className="uk-select"
+                  value={yearApplied}
+                  onChange={this.handleChange}
+                  name="yearApplied"
+                >
+                  {YEARS.map((year, idx) => (
+                    <option key={idx}>{year}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -148,16 +177,22 @@ export default class Form extends PureComponent {
                 application status
               </label>
               <div className="uk-form-controls">
-                <select class="uk-select" select>
-                  <option>Option 01</option>
-                  <option>Option 02</option>
+                <select
+                  className="uk-select"
+                  value={applicationStatus}
+                  onChange={this.handleChange}
+                  name="applicationStatus"
+                >
+                  {STATUSES.map((status, idx) => (
+                    <option key={idx}>{status}</option>
+                  ))}
                 </select>
               </div>
             </div>
           </fieldset>
 
-          <fieldset class="uk-fieldset">
-            <legend class="uk-legend">Author</legend>
+          <fieldset className="uk-fieldset">
+            <legend className="uk-legend">Author</legend>
 
             <div className="uk-margin">
               <label className="uk-form-label uk-text-capitalize">name</label>
@@ -165,7 +200,6 @@ export default class Form extends PureComponent {
                 <input
                   className="uk-input"
                   type="text"
-                  autoFocus
                   value={name}
                   onChange={this.handleChange}
                   name="name"
@@ -191,9 +225,10 @@ export default class Form extends PureComponent {
                 country
               </label>
               <div className="uk-form-controls">
-                <select class="uk-select" select>
-                  <option>Option 01</option>
-                  <option>Option 02</option>
+                <select className="uk-select" value={country} name="country">
+                  {COUNTRIES.map((country, idx) => (
+                    <option key={idx}>{country}</option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -204,9 +239,10 @@ export default class Form extends PureComponent {
                   state
                 </label>
                 <div className="uk-form-controls">
-                  <select class="uk-select">
-                    <option>Option 01</option>
-                    <option>Option 02</option>
+                  <select className="uk-select" value={state} name="state">
+                    {STATES.map((state, idx) => (
+                      <option key={idx}>{state}</option>
+                    ))}
                   </select>
                 </div>
               </div>
