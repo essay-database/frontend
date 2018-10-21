@@ -1,3 +1,3 @@
-div#footer>p>a.uk-link-text:hover {
+div#menu>p>a:hover {
     text-decoration: none !important;
 }

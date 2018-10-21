@@ -11,7 +11,6 @@ const Card = ({ tag, text, linkEssay, imageLink }) => (
       <a href={linkEssay} className="uk-link-reset">
         <div className="uk-inline uk-cover-container">
           <img src={imageLink} uk-cover="" alt="" />
-
           {tag && (
             <div className="uk-overlay uk-light uk-position-top-right">
               <p className="card uk-text-small uk-text-capitalize">{tag}</p>
@@ -32,7 +31,7 @@ const Card = ({ tag, text, linkEssay, imageLink }) => (
 );
 
 Card.propTypes = {
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.string,
   text: PropTypes.string.isRequired,
   linkEssay: PropTypes.string.isRequired,
   imageLink: PropTypes.string.isRequired

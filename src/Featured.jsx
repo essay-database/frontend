@@ -19,7 +19,6 @@ const Featured = ({ essays, heading }) => (
               {essays.map(({ id, paragraphs, tag, imageLink }) => (
                 <li key={id}>
                   <Card
-                    tag={tag}
                     text={paragraphs[0]}
                     linkEssay={`/essays/${id}`}
                     imageLink={imageLink}

@@ -44,7 +44,7 @@ export default () => (
           <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
             menu
           </h3>
-          <div className="uk-panel">
+          <div id="menu" className="uk-panel">
             <p className="uk-margin-remove-vertical">
               <a href="/about" className="uk-link-text">
                 about us
