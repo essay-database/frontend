@@ -33,7 +33,7 @@ const EssayContainer = ({
     <Fragment>
       <div className="uk-grid" uk-grid="">
         <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
-          <div uk-sticky="offset: 150">
+          <div uk-sticky="offset: 130">
             <Sidebar
               facebookShareLink={facebookShareLink}
               twitterShareLink={twitterShareLink}

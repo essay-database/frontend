@@ -34,14 +34,10 @@ export default class Form extends PureComponent {
     this.formRef = createRef();
   }
 
-  submit() {}
-
-  handleUpload(file) {}
-
   handleSubmit = e => {
     e.preventDefault();
     if (this.state.isUploadComplete) {
-      this.submit();
+      // this.submit();
       UIkit.modal(this.formRef.current).hide();
     }
   };
