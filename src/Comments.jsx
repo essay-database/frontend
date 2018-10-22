@@ -1,7 +1,7 @@
 import React from 'react';
 import { IMAGE_PATH } from './constants';
 
-const CommentsPlaceholder = () => {
+const Comments = () => {
   return (
     <ul className="uk-comment-list">
       <li>
@@ -121,4 +121,4 @@ const CommentsPlaceholder = () => {
   );
 };
 
-export default CommentsPlaceholder;
+export default Comments;

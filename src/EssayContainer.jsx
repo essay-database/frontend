@@ -4,7 +4,7 @@ import Essay from './Essay';
 import Featured from './Featured';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import CommentsPlaceholder from './CommentsPlaceholder';
+import Comments from './Comments';
 import { ESSAYS_SHAPE } from './constants';
 
 const FEATURED_HEADING = 'featured';
@@ -29,6 +29,17 @@ const EssayContainer = ({
   latestEssays,
   featuredEssays
 }) => {
+  const featuredCollection = [
+    { essays: featuredEssays, heading: FEATURED_HEADING },
+    {
+      essays: popularEssays,
+      heading: POPULAR_HEADING
+    },
+    {
+      essays: latestEssays,
+      heading: LATEST_HEADING
+    }
+  ];
   return (
     <Fragment>
       <div className="uk-grid" uk-grid="">
@@ -59,17 +70,7 @@ const EssayContainer = ({
               twitterShareLink={twitterShareLink}
             />
           </div>
-          {[
-            { essays: featuredEssays, heading: FEATURED_HEADING },
-            {
-              essays: popularEssays,
-              heading: POPULAR_HEADING
-            },
-            {
-              essays: latestEssays,
-              heading: LATEST_HEADING
-            }
-          ].map(({ essays, heading }, idx) => (
+          {featuredCollection.map(({ essays, heading }, idx) => (
             <Featured key={idx} essays={essays} heading={heading} />
           ))}
         </div>
@@ -80,7 +81,7 @@ const EssayContainer = ({
           <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
             comments
           </h3>
-          <CommentsPlaceholder />
+          <Comments />
         </div>
       </div>
       <Footer />
