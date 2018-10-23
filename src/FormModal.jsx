@@ -4,18 +4,17 @@ import UPLOAD_IMAGE from './images/pic6.jpg';
 
 const FormModal = ({ title, children, forwardRef }) => (
   <div ref={forwardRef} className="uk-modal-full modal-form" uk-modal="">
-    <div className="uk-modal-dialog" uk-height-viewport="">
+    <div className="uk-modal-dialog">
       <button
         className="uk-modal-close-full uk-close-large"
         type="button"
         uk-close=""
       />
       <div className="uk-grid-collapse uk-flex-middle" uk-grid="">
-        <div className="uk-width-2-3@m uk-width-1-2@xl">
+        <div className="uk-width-2-3@m uk-width-1-2@xl ">
           <div className="uk-modal-header">
             <h1>{title}</h1>
           </div>
-
           <div className="uk-modal-body">{children}</div>
           <div className="uk-modal-footer uk-text-right">
             <button
@@ -33,15 +32,11 @@ const FormModal = ({ title, children, forwardRef }) => (
             />
           </div>
         </div>
-        <div className="uk-inline uk-visible@m">
-          <div
-            className="uk-background-cover"
-            style={{ backgroundImage: `url(${UPLOAD_IMAGE})` }}
-            uk-height-viewport=""
-            uk-img=""
-          />
-          <div className="uk-overlay-default uk-position-cover" />
-        </div>
+        <div
+          className="uk-background-cover uk-visible@m uk-width-1-3@m uk-width-1-2@xl"
+          style={{ backgroundImage: `url(${UPLOAD_IMAGE})` }}
+          uk-height-viewport=""
+        />
       </div>
     </div>
   </div>

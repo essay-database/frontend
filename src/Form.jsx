@@ -75,6 +75,7 @@ export default class Form extends PureComponent {
               <label className="uk-form-label uk-text-capitalize">essay</label>
               <div className="uk-form-controls">
                 <textarea
+                  autoFocus
                   className="uk-textarea"
                   rows={ESSAY_ROWS}
                   value={essayText}
