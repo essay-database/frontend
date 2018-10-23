@@ -79,9 +79,9 @@ export default class Form extends PureComponent {
                   rows={ESSAY_ROWS}
                   value={essayText}
                   name="essayText"
-                  autofocus="true"
                   onChange={this.handleChange}
                   required
+                  autofocus="true"
                 />
               </div>
             </div>
@@ -164,7 +164,10 @@ export default class Form extends PureComponent {
             <legend className="uk-legend">Author</legend>
 
             <div className="uk-margin">
-              <label className="uk-form-label uk-text-capitalize">name</label>
+              <label className="uk-form-label uk-text-capitalize">
+                name
+                <small className="uk-text-muted"> (not required)</small>
+              </label>
               <div className="uk-form-controls">
                 <input
                   className="uk-input"
@@ -172,7 +175,6 @@ export default class Form extends PureComponent {
                   value={name}
                   onChange={this.handleChange}
                   name="name"
-                  required
                 />
               </div>
             </div>
