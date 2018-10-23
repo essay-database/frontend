@@ -11,7 +11,7 @@ const FormModal = ({ title, children, forwardRef }) => (
         uk-close=""
       />
       <div className="uk-grid-collapse uk-flex-middle" uk-grid="">
-        <div className="uk-width-2-3@m uk-width-1-2@xl ">
+        <div className="uk-width-1-2@m">
           <div className="uk-modal-header">
             <h1>{title}</h1>
           </div>
@@ -33,7 +33,7 @@ const FormModal = ({ title, children, forwardRef }) => (
           </div>
         </div>
         <div
-          className="uk-background-cover uk-visible@m uk-width-1-3@m uk-width-1-2@xl"
+          className="uk-background-cover uk-visible@m uk-width-1-2@m"
           style={{ backgroundImage: `url(${UPLOAD_IMAGE})` }}
           uk-height-viewport=""
         />
