@@ -16,7 +16,7 @@ const Featured = ({ essays, heading }) => (
               className="uk-slider-items uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
               uk-grid=""
             >
-              {essays.map(({ id, paragraphs, tag, imageLink }) => (
+              {essays.map(({ id, paragraphs, imageLink }) => (
                 <li key={id}>
                   <Card
                     text={paragraphs[0]}
