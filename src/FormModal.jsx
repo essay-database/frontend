@@ -39,8 +39,9 @@ const FormModal = ({ title, children, forwardRef }) => (
         <div className="uk-inline uk-flex-first">
           <div
             className="uk-background-cover uk-visible@m"
-            style={{ backgroundImage: `url(${UPLOAD_IMAGE})` }}
             uk-height-viewport=""
+            data-src={UPLOAD_IMAGE}
+            uk-img=""
           />
           <div className="uk-overlay uk-overlay-default uk-position-cover" />
         </div>

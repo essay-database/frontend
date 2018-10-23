@@ -22,9 +22,10 @@ const Essay = ({
           tabIndex="0"
         >
           <img
-            src={imageLink}
+            data-src={imageLink}
             className="uk-transition-scale-up uk-transition-opaque"
             alt=""
+            uk-img=""
           />
         </div>
         <Details
