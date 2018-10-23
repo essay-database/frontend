@@ -1,5 +1,4 @@
 import React, { PureComponent, createRef } from 'react';
-import UIkit from 'uikit';
 import FormModal from './FormModal';
 import {
   COLLEGES,
@@ -38,7 +37,7 @@ export default class Form extends PureComponent {
     e.preventDefault();
     if (this.state.isUploadComplete) {
       // this.submit();
-      UIkit.modal(this.formRef.current).hide();
+      window.UIkit.modal(this.formRef.current).hide();
     }
   };
 

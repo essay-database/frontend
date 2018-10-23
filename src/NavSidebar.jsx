@@ -1,7 +1,6 @@
 import React, { PureComponent, createRef } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
-import UIkit from 'uikit';
 import { COPYRIGHT } from './constants';
 import './styles/nav_side.css';
 
@@ -32,7 +31,7 @@ class NavSide extends PureComponent {
   }
 
   handleClick = () => {
-    UIkit.offcanvas(this.offCanvas.current).hide();
+    window.UIkit.offcanvas(this.offCanvas.current).hide();
   };
 
   render() {
