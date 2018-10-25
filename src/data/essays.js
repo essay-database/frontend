@@ -10,18 +10,23 @@ import {
   selectRandom,
   getRandomInt
 } from '../utils';
+import IMAGES from '../data/picsum.json'
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
-const RANDOM_CEILING = 300;
 
-const SEARCH_PHOTO = (...searches) => `https://source.unsplash.com/featured/?${searches.join(',')},sig=${getRandomInt(0, RANDOM_CEILING)}`;
-const RANDOM_PHOTO = () => `https://source.unsplash.com/random?sig=${getRandomInt(0, RANDOM_CEILING)}`;
-const LOREM_PICSUM = () => `https://picsum.photos/1920/1080/?random`;
+const WIDTH = 1920;
+const HEIGHT = 1080;
 
-
+function picsum() {
+  const images = IMAGES.map(img => img.id);
+  return function* selectImage() {
+    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${selectRandom(images)}`;
+  }
+}
 
 let idx = 0;
+const GET_IMAGE = picsum();
 export default Array.from(Array(NUM_ARTICLES), () => ({
   id: (idx++).toString(),
   paragraphs: denseParagraphs(
@@ -37,7 +42,7 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
   applicationStatus: selectRandom(STATUSES),
   tag: selectRandom(TAGS),
   dateUploaded: faker.date.recent(RECENT_DAYS),
-  imageLink: RANDOM_PHOTO(),
+  imageLink: GET_IMAGE().next().value,
   facebookShareLink: faker.internet.url(),
   twitterShareLink: faker.internet.url()
 }));
