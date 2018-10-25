@@ -4,7 +4,7 @@ import Details from './Details';
 import { HEIGHT_WIDTH_RATIO } from './constants';
 
 const WIDTH = 1920;
-const HEIGHT = WIDTH * HEIGHT_WIDTH_RATIO;
+const HEIGHT = 1080;
 
 const Essay = ({
   paragraphs,

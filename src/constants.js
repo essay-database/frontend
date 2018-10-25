@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import COUNTRIES_LIST from './data/countries.json';
 import US_COLLEGES_UNIVERSITIES from './data/us_colleges_univerisities.json';
 import STATES_LIST from './data/states.json'
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const DEFAULT_WIDTH = 1920;
-export const HEIGHT_WIDTH_RATIO = 1 / 3;
 export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
@@ -51,21 +48,6 @@ export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name).sort();
 
 export const STATES = STATES_LIST.map(elem => elem.name).sort();
 
-
-const MAX_TRIES = 3;
-
-export function GET_IMAGE(tries = 0) {
-  return new Promise((resolve, reject) => {
-    axios.get('https://source.unsplash.com/random').then(res => resolve(res.data)).catch(err => {
-      if (tries === MAX_TRIES) {
-        return reject(err);
-      }
-      console.error(` error happened: ${err}. \n now retrying`);
-      return GET_IMAGE(tries + 1);
-    })
-  });
-}
-
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
@@ -82,12 +64,3 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   facebookShareLink: PropTypes.string.isRequired,
   twitterShareLink: PropTypes.string.isRequired,
 }).isRequired;
-
-function _getImages() {
-  axios
-    .get("https://picsum.photos/list")
-    .then(res => res.data)
-    .catch(function () {
-      console.error("error");
-    });
-}

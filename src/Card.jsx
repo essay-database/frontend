@@ -4,7 +4,8 @@ import { HEIGHT_WIDTH_RATIO } from './constants';
 import './styles/card.css';
 
 const WIDTH = 640;
-const HEIGHT = WIDTH * HEIGHT_WIDTH_RATIO;
+const RATIO = 1 / 2;
+const HEIGHT = WIDTH * RATIO;
 
 const Card = ({ tag, text, linkEssay, imageLink }) => (
   <div className="uk-card uk-card-default uk-box-shadow-hover-large">
@@ -28,7 +29,7 @@ const Card = ({ tag, text, linkEssay, imageLink }) => (
         </a>
       </p>
     </div>
-    <div class="uk-card-footer uk-padding-small">
+    <div className="uk-card-footer uk-padding-small">
       <div className="uk-flex uk-flex-between uk-flex-middle">
         <div>status</div>
         <div>college</div>

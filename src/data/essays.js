@@ -4,9 +4,7 @@ import {
   STATUSES,
   TAGS,
   NUM_YEARS_BACK,
-  COLLEGES,
-  HEIGHT_WIDTH_RATIO,
-  DEFAULT_WIDTH
+  COLLEGES
 } from '../constants';
 import {
   selectRandom,
@@ -15,6 +13,9 @@ import {
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
+const SEARCH_PHOTO = (search) => `https://source.unsplash.com/featured/?${search},sig=${getRandomInt(0, 1000)}`;
+const RANDOM_PHOTO = `https://source.unsplash.com/random?sig=${getRandomInt(0, 1000)}`
+
 let idx = 0;
 export default Array.from(Array(NUM_ARTICLES), () => ({
   id: (idx++).toString(),
@@ -31,12 +32,12 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
   applicationStatus: selectRandom(STATUSES),
   tag: selectRandom(TAGS),
   dateUploaded: faker.date.recent(RECENT_DAYS),
-  imageLink: `https://picsum.photos/${DEFAULT_WIDTH}/${
-    DEFAULT_WIDTH * HEIGHT_WIDTH_RATIO
-  }/?random`,
+  imageLink: SEARCH_PHOTO('college'),
   facebookShareLink: faker.internet.url(),
   twitterShareLink: faker.internet.url()
 }));
+
+
 
 function denseParagraphs(paragraphs, num) {
   const result = [];
