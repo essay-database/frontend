@@ -36,9 +36,16 @@ const Card = ({
       </p>
     </div>
     <div className="uk-card-footer uk-padding-small">
-      <div className="uk-flex uk-flex-between uk-flex-middle uk-overflow-hidden uk-text-small">
-        <div>{applicationStatus}</div>
-        <div>{college}</div>
+      <div
+        className="uk-flex uk-flex-between uk-flex-middle uk-text-small"
+        uk-margin=""
+      >
+        <div className="uk-margin-small-right">
+          <p className="uk-margin-remove">{applicationStatus}</p>
+        </div>
+        <div>
+          <p className="uk-margin-remove">{college}</p>
+        </div>
       </div>
     </div>
   </div>
