@@ -11,7 +11,7 @@ import './styles/footer.css';
 export default () => (
   <footer
     className="uk-section uk-section-large uk-section-secondary uk-light"
-    style={{ paddingTop: 100 }}
+    style={{ paddingTop: 92 }}
   >
     <div className="uk-container">
       <div

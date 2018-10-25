@@ -14,9 +14,10 @@ import {
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
 const RANDOM_CEILING = 300;
-// const SEARCH_PHOTO = (search) => `https://source.unsplash.com/featured/?${search},sig=${getRandomInt(0, RANDOM_CEILING)}`;
-// const SEARCH_PHOTO_ADVANCED = (...searches) => `https://source.unsplash.com/featured/?${searches.join(',')},sig=${getRandomInt(0, RANDOM_CEILING)}`;
+const SEARCH_PHOTO = (search) => `https://source.unsplash.com/featured/?${search},sig=${getRandomInt(0, RANDOM_CEILING)}`;
+const SEARCH_PHOTO_ADVANCED = (...searches) => `https://source.unsplash.com/featured/?${searches.join(',')},sig=${getRandomInt(0, RANDOM_CEILING)}`;
 const RANDOM_PHOTO = `https://source.unsplash.com/random?sig=${getRandomInt(0, RANDOM_CEILING)}`;
+const LOREM_PICSUM = `https://picsum.photos/19020/1080/?random`;
 
 let idx = 0;
 export default Array.from(Array(NUM_ARTICLES), () => ({
