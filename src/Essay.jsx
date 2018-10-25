@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Details from './Details';
+import { HEIGHT_WIDTH_RATIO } from './constants';
+
+const WIDTH = 1920;
+const HEIGHT = WIDTH * HEIGHT_WIDTH_RATIO;
 
 const Essay = ({
   paragraphs,
@@ -21,12 +25,16 @@ const Essay = ({
           className="uk-margin uk-inline-clip uk-transition-toggle"
           tabIndex="0"
         >
-          <img
-            data-src={imageLink}
-            className="uk-transition-scale-up uk-transition-opaque"
-            alt=""
-            uk-img=""
-          />
+          <div className="uk-cover-container">
+            <canvas width={WIDTH} height={HEIGHT} />
+            <img
+              data-src={imageLink}
+              alt=""
+              className="uk-transition-scale-up uk-transition-opaque"
+              uk-cover=""
+              uk-img=""
+            />
+          </div>
         </div>
         <Details
           author={author}

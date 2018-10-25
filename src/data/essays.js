@@ -5,9 +5,13 @@ import {
   TAGS,
   NUM_YEARS_BACK,
   COLLEGES,
-  IMAGE_PATH
+  HEIGHT_WIDTH_RATIO,
+  DEFAULT_WIDTH
 } from '../constants';
-import { selectRandom, getRandomInt } from '../utils';
+import {
+  selectRandom,
+  getRandomInt
+} from '../utils';
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
@@ -27,7 +31,9 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
   applicationStatus: selectRandom(STATUSES),
   tag: selectRandom(TAGS),
   dateUploaded: faker.date.recent(RECENT_DAYS),
-  imageLink: `https://source.unsplash.com/random`,
+  imageLink: `https://picsum.photos/${DEFAULT_WIDTH}/${
+    DEFAULT_WIDTH * HEIGHT_WIDTH_RATIO
+  }/?random`,
   facebookShareLink: faker.internet.url(),
   twitterShareLink: faker.internet.url()
 }));

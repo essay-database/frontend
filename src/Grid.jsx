@@ -31,7 +31,7 @@ class ToTop extends PureComponent {
 
 const FilterAndSort = () => (
   <Fragment>
-    <div className="uk-flex uk-flex-between uk-flex-wrap">
+    <div className="uk-flex uk-flex-between uk-flex-wrap uk-padding-small">
       <div>
         <ul className="uk-subnav uk-subnav-pill uk-margin">
           <li className="uk-active" uk-filter-control="">

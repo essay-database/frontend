@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { HEIGHT_WIDTH_RATIO } from './constants';
 import './styles/card.css';
 
 const WIDTH = 640;
-const HEIGHT = (WIDTH * 2) / 3;
+const HEIGHT = WIDTH * HEIGHT_WIDTH_RATIO;
 
 const Card = ({ tag, text, linkEssay, imageLink }) => (
   <div className="uk-card uk-card-default uk-box-shadow-hover-large">

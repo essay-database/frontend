@@ -6,8 +6,8 @@ import STATES_LIST from './data/states.json'
 
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
-export const WIDTH = 1800;
-export const HEIGHT = WIDTH / 2;
+export const DEFAULT_WIDTH = 1920;
+export const HEIGHT_WIDTH_RATIO = 1 / 2;
 export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
