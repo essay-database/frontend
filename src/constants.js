@@ -7,7 +7,7 @@ import STATES_LIST from './data/states.json'
 export const EMPTY_FUNC = () => {};
 export const EMPTY_OBJ = {};
 export const DEFAULT_WIDTH = 1920;
-export const HEIGHT_WIDTH_RATIO = 1 / 2;
+export const HEIGHT_WIDTH_RATIO = 1 / 3;
 export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
@@ -83,28 +83,11 @@ export const ESSAYS_SHAPE = PropTypes.shape({
   twitterShareLink: PropTypes.string.isRequired,
 }).isRequired;
 
-// TODO LEGACY
-// function getSearchResults(collegeName) {
-//   if (!collegeName) {
-//     return Promise.resolve({
-//       options: []
-//     });
-//   }
-//   return axios
-//     .get(`https://universities.hipolabs.com/search?name=${collegeName}`)
-//     .then(res => JSON.parse(res))
-//     .then(data => data.data.map(c => c.name))
-//     .then(options => ({
-//       options
-//     }))
-//     .catch(err => console.error(err));
-// }
-
-// function _getImages() {
-//   axios
-//     .get("https://picsum.photos/list")
-//     .then(res => res.data)
-//     .catch(function () {
-//       console.error("error");
-//     });
-// }
+function _getImages() {
+  axios
+    .get("https://picsum.photos/list")
+    .then(res => res.data)
+    .catch(function () {
+      console.error("error");
+    });
+}

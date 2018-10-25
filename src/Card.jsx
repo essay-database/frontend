@@ -28,6 +28,12 @@ const Card = ({ tag, text, linkEssay, imageLink }) => (
         </a>
       </p>
     </div>
+    <div class="uk-card-footer uk-padding-small">
+      <div className="uk-flex uk-flex-between uk-flex-middle">
+        <div>status</div>
+        <div>college</div>
+      </div>
+    </div>
   </div>
 );
 
