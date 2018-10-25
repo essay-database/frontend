@@ -25,15 +25,9 @@ const Essay = ({
           className="uk-margin uk-inline-clip uk-transition-toggle"
           tabIndex="0"
         >
-          <div className="uk-cover-container">
+          <div className="uk-cover-container uk-transition-scale-up uk-transition-opaque">
+            <img data-src={imageLink} alt="" uk-cover="" uk-img="" />
             <canvas width={WIDTH} height={HEIGHT} />
-            <img
-              data-src={imageLink}
-              alt=""
-              className="uk-transition-scale-up uk-transition-opaque"
-              uk-cover=""
-              uk-img=""
-            />
           </div>
         </div>
         <Details
