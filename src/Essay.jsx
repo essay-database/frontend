@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Details from './Details';
-import { HEIGHT_WIDTH_RATIO } from './constants';
 
 const WIDTH = 1920;
 const HEIGHT = 1080;

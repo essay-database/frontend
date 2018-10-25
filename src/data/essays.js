@@ -13,8 +13,10 @@ import {
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
-const SEARCH_PHOTO = (search) => `https://source.unsplash.com/featured/?${search},sig=${getRandomInt(0, 1000)}`;
-const RANDOM_PHOTO = `https://source.unsplash.com/random?sig=${getRandomInt(0, 1000)}`
+const RANDOM_CEILING = 300;
+// const SEARCH_PHOTO = (search) => `https://source.unsplash.com/featured/?${search},sig=${getRandomInt(0, RANDOM_CEILING)}`;
+// const SEARCH_PHOTO_ADVANCED = (...searches) => `https://source.unsplash.com/featured/?${searches.join(',')},sig=${getRandomInt(0, RANDOM_CEILING)}`;
+const RANDOM_PHOTO = `https://source.unsplash.com/random?sig=${getRandomInt(0, RANDOM_CEILING)}`;
 
 let idx = 0;
 export default Array.from(Array(NUM_ARTICLES), () => ({
@@ -32,12 +34,10 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
   applicationStatus: selectRandom(STATUSES),
   tag: selectRandom(TAGS),
   dateUploaded: faker.date.recent(RECENT_DAYS),
-  imageLink: SEARCH_PHOTO('college'),
+  imageLink: RANDOM_PHOTO,
   facebookShareLink: faker.internet.url(),
   twitterShareLink: faker.internet.url()
 }));
-
-
 
 function denseParagraphs(paragraphs, num) {
   const result = [];

@@ -76,16 +76,28 @@ const Grid = ({ essays }) => (
           uk-grid=""
           uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
         >
-          {essays.map(({ id, paragraphs, tag, dateUploaded, imageLink }) => (
-            <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
-              <Card
-                text={paragraphs[0]}
-                tag={tag}
-                imageLink={imageLink}
-                linkEssay={`/essays/${id}`}
-              />
-            </div>
-          ))}
+          {essays.map(
+            ({
+              id,
+              paragraphs,
+              tag,
+              dateUploaded,
+              imageLink,
+              college,
+              applicationStatus
+            }) => (
+              <div key={id} data-tag={tag} data-date={dateUploaded.valueOf()}>
+                <Card
+                  text={paragraphs[0]}
+                  tag={tag}
+                  imageLink={imageLink}
+                  linkEssay={`/essays/${id}`}
+                  college={college}
+                  applicationStatus={applicationStatus}
+                />
+              </div>
+            )
+          )}
         </div>
         <div className="uk-padding-small uk-margin-small-bottom">
           <ToTop />
