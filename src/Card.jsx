@@ -6,6 +6,32 @@ const WIDTH = 640;
 const RATIO = 1 / 2;
 const HEIGHT = WIDTH * RATIO;
 
+const selectLabel = status => {
+  let classname = 'uk-label-';
+  switch (status) {
+    case 'accepted':
+      classname += 'success';
+      break;
+    case 'rejected':
+      classname += 'danger';
+      break;
+    case 'waitlisted':
+      classname += 'warning';
+      break;
+    case 'pending':
+      classname += 'default';
+      break;
+    default:
+      classname += 'default';
+      break;
+  }
+  return classname;
+};
+
+const LABEL_LIMIT = 35;
+const truncate = label =>
+  label.length > LABEL_LIMIT ? label.substring(0, LABEL_LIMIT) + '...' : label;
+
 const Card = ({
   tag,
   text,
@@ -41,14 +67,22 @@ const Card = ({
           className="uk-flex uk-flex-between uk-flex-middle uk-text-small"
           uk-margin=""
         >
-          <div className="uk-margin-small-right">
-            <p className="uk-margin-remove uk-text-capitalize">
-              {applicationStatus}
-            </p>
-          </div>
-          <div>
-            <p className="uk-margin-remove">{college}</p>
-          </div>
+          {applicationStatus && (
+            <div className="uk-margin-small-right">
+              <p
+                className={`uk-margin-remove uk-text-capitalize uk-label ${selectLabel(
+                  applicationStatus
+                )}`}
+              >
+                {applicationStatus}
+              </p>
+            </div>
+          )}
+          {college && (
+            <div>
+              <p className="uk-margin-remove uk-badge">{truncate(college)}</p>
+            </div>
+          )}
         </div>
       </div>
     )}
