@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Details from './Details';
 
 const WIDTH = 1920;
-const HEIGHT = 1080;
+const HEIGHT = (WIDTH * 1) / 2;
 
 const Essay = ({
   paragraphs,

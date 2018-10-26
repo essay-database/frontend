@@ -3,12 +3,12 @@ import COUNTRIES_LIST from './data/countries.json';
 import US_COLLEGES_UNIVERSITIES from './data/us_colleges_univerisities.json';
 import STATES_LIST from './data/states.json';
 
-export const NUM_ARTICLES = 10;
+export const NUM_ARTICLES = 22;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
 export const TWITTER_PAGE_LINK = '#'
 
-const files = require.context('./images/edited/', false, /\.(jpg|jpeg|png)$/g);
+const files = require.context('./images/edited/', false, );
 export const UPLOAD_IMAGE = files[0];
 
 

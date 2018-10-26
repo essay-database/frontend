@@ -62,7 +62,6 @@ const FilterAndSort = () => (
         </ul>
       </div>
     </div>
-    <hr className="uk-margin-remove-top" />
   </Fragment>
 );
 
@@ -99,8 +98,14 @@ const Grid = ({ essays }) => (
             )
           )}
         </div>
-        <div className="uk-padding-small uk-section-secondary">
-          <ToTop />
+        <div>
+          <div class="uk-section uk-section-muted uk-section-xsmall" />
+          <div class="uk-container" />
+        </div>
+        <div class="uk-section uk-section-secondary uk-section-small">
+          <div class="uk-container">
+            <ToTop />
+          </div>
         </div>
       </div>
     ) : (

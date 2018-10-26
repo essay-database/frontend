@@ -28,7 +28,7 @@ const selectLabel = status => {
   return classname;
 };
 
-const LABEL_LIMIT = 35;
+const LABEL_LIMIT = 30;
 const truncate = label =>
   label.length > LABEL_LIMIT ? label.substring(0, LABEL_LIMIT) + '...' : label;
 
