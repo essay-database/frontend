@@ -22,8 +22,15 @@ class ToTop extends PureComponent {
   render() {
     const { display } = this.state;
     return (
-      <div className="uk-text-right" style={{ display }}>
-        <button uk-totop="" uk-scroll="" />
+      <div
+        className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
+        style={{ display }}
+      >
+        <div className="uk-container uk-container-expand">
+          <div className="uk-flex uk-flex-right">
+            <button uk-totop="" uk-scroll="" />
+          </div>
+        </div>
       </div>
     );
   }
@@ -71,7 +78,7 @@ const Grid = ({ essays }) => (
       <div uk-filter="target: .js-filter">
         <FilterAndSort />
         <div
-          className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-default"
+          className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
           uk-grid=""
           uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
         >
@@ -99,13 +106,9 @@ const Grid = ({ essays }) => (
           )}
         </div>
         <div>
-          <div className="uk-section uk-section-default uk-section-xsmall" />
+          <div className="uk-section uk-section-muted uk-section-xsmall" />
           <div className="uk-container" />
-        </div>
-        <div className="uk-section uk-section-default uk-section-xsmall">
-          <div className="uk-container">
-            <ToTop />
-          </div>
+          <ToTop />
         </div>
       </div>
     ) : (

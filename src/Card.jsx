@@ -29,8 +29,11 @@ const selectLabel = status => {
 };
 
 const LABEL_LIMIT = 30;
+const ELLIPSIS = '..';
 const truncate = label =>
-  label.length > LABEL_LIMIT ? label.substring(0, LABEL_LIMIT) + '...' : label;
+  label.length > LABEL_LIMIT
+    ? label.substring(0, LABEL_LIMIT) + ELLIPSIS
+    : label;
 
 const Card = ({
   tag,
