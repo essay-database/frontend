@@ -6,17 +6,18 @@ import {
   selectRandom
 } from './utils'
 
-export const NUM_ARTICLES = 22;
+export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
 export const TWITTER_PAGE_LINK = '#'
 
 const IMAGES = [];
 
+importAll(require.context('./images/edited', true, /\.jpg$/));
+
 function importAll(r) {
   r.keys().forEach(key => IMAGES.push(r(key)));
 }
-importAll(require.context('./images/edited', true, /\.jpg$/));
 export const UPLOAD_IMAGE = selectRandom(IMAGES);
 
 // app info
