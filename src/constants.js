@@ -2,14 +2,22 @@ import PropTypes from 'prop-types';
 import COUNTRIES_LIST from './data/countries.json';
 import US_COLLEGES_UNIVERSITIES from './data/us_colleges_univerisities.json';
 import STATES_LIST from './data/states.json';
+import {
+  selectRandom
+} from './utils'
 
 export const NUM_ARTICLES = 22;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
 export const TWITTER_PAGE_LINK = '#'
-export const UPLOAD_IMAGE = '';
 
-const files = require.context('./images/edited', false, /\.jpg$/);
+const IMAGES = [];
+
+function importAll(r) {
+  r.keys().forEach(key => IMAGES.push(r(key)));
+}
+importAll(require.context('./images/edited', true, /\.jpg$/));
+export const UPLOAD_IMAGE = selectRandom(IMAGES);
 
 // app info
 export const LOGO = "essay db";
