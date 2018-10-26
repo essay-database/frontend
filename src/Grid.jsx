@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, createRef } from 'react';
 import PropTypes from 'prop-types';
+import UIkit from 'uikit';
 import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
 
@@ -12,15 +13,34 @@ const Empty = () => (
   </div>
 );
 
-const ToTop = () => (
-  <div className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal">
-    <div className="uk-container uk-container-expand">
-      <div className="uk-flex uk-flex-right">
-        <button uk-totop="" uk-scroll="" />
+class ToTop extends React.Component {
+  constructor(props) {
+    super(props);
+    this.ref = createRef();
+  }
+
+  componentDidMount() {
+    UIkit.util.on(this.ref.current, 'beforeFilter', function() {
+      console.log(this.ref.current);
+    });
+  }
+
+  render() {
+    return (
+      <div
+        className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
+        ref={this.ref}
+        id="to-top"
+      >
+        <div className="uk-container uk-container-expand">
+          <div className="uk-flex uk-flex-right">
+            <button uk-totop="" uk-scroll="" />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 const FilterAndSort = () => (
   <Fragment>
