@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMAGE_PATH } from './constants';
+import faker from 'faker';
 
 const Comments = () => {
   return (
@@ -11,7 +11,7 @@ const Comments = () => {
               <div className="uk-width-auto">
                 <img
                   className="uk-comment-avatar uk-border-circle"
-                  src={IMAGE_PATH}
+                  src={faker.image.avatar()}
                   width="80"
                   height="80"
                   alt=""
@@ -48,7 +48,7 @@ const Comments = () => {
                   <div className="uk-width-auto">
                     <img
                       className="uk-comment-avatar uk-border-circle"
-                      src={IMAGE_PATH}
+                      src={faker.image.avatar()}
                       width="80"
                       height="80"
                       alt=""
@@ -85,7 +85,7 @@ const Comments = () => {
                   <div className="uk-width-auto">
                     <img
                       className="uk-comment-avatar uk-border-circle"
-                      src={IMAGE_PATH}
+                      src={faker.image.avatar()}
                       width="80"
                       height="80"
                       alt=""

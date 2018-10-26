@@ -1,30 +1,16 @@
 import PropTypes from 'prop-types';
 import COUNTRIES_LIST from './data/countries.json';
 import US_COLLEGES_UNIVERSITIES from './data/us_colleges_univerisities.json';
-import STATES_LIST from './data/states.json'
+import STATES_LIST from './data/states.json';
 
-export const EMPTY_FUNC = () => {};
-export const EMPTY_OBJ = {};
-export const NUM_ARTICLES = 100;
+export const NUM_ARTICLES = 10;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
-export const TWITTER_PAGE_LINK = '#';
-export {
-  default as UPLOAD_IMAGE
-}
-from './images/edited/pic5.jpg';
-export {
-  default as IMAGE_PATH
-}
-from './images/pic7.jpg'
-export const ACCEPTED_FILE_TYPES = [
-  ".doc",
-  ".docx",
-  "application/msword",
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  "text/plain",
-  "application/pdf"
-].join(",");
+export const TWITTER_PAGE_LINK = '#'
+
+const files = require.context('./images/edited/', false, /\.(jpg|jpeg|png)$/g);
+export const UPLOAD_IMAGE = files[0];
+
 
 // app info
 export const LOGO = "essay db";
