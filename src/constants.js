@@ -6,10 +6,10 @@ import {
   selectRandom
 } from './utils'
 
-export const NUM_ARTICLES = 5;
+export const NUM_ARTICLES = 4;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
-export const TWITTER_PAGE_LINK = '#'
+export const TWITTER_PAGE_LINK = '#';
 
 const IMAGES = [];
 

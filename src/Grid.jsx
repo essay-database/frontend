@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import { ESSAYS_SHAPE } from './constants';
 import Card from './Card';
 
+const Empty = () => (
+  <div
+    className="uk-flex uk-flex-center uk-flex-middle"
+    uk-height-viewport="expand: true"
+  >
+    <p>nothing to show</p>
+  </div>
+);
+
 const ToTop = () => (
   <div className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal">
     <div className="uk-container uk-container-expand">
@@ -52,7 +61,10 @@ const FilterAndSort = () => (
 const Grid = ({ essays }) => (
   <div>
     {essays.length > 0 ? (
-      <div uk-filter="target: .js-filter">
+      <div
+        uk-filter="target: .js-filter"
+        className="uk-flex uk-flex-column uk-flex-between uk-flex-center"
+      >
         <FilterAndSort />
         <div
           className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
@@ -90,12 +102,7 @@ const Grid = ({ essays }) => (
         </div>
       </div>
     ) : (
-      <div
-        className="uk-flex uk-flex-center uk-flex-middle"
-        uk-height-viewport="expand: true"
-      >
-        <p>nothing to show</p>
-      </div>
+      <Empty />
     )}
   </div>
 );
