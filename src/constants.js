@@ -7,10 +7,9 @@ export const NUM_ARTICLES = 22;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = '#';
 export const TWITTER_PAGE_LINK = '#'
+export const UPLOAD_IMAGE = '';
 
-const files = require.context('./images/edited/', false, );
-export const UPLOAD_IMAGE = files[0];
-
+const files = require.context('./images/edited', false, /\.jpg$/);
 
 // app info
 export const LOGO = "essay db";

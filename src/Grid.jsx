@@ -99,11 +99,11 @@ const Grid = ({ essays }) => (
           )}
         </div>
         <div>
-          <div class="uk-section uk-section-muted uk-section-xsmall" />
-          <div class="uk-container" />
+          <div className="uk-section uk-section-muted uk-section-xsmall" />
+          <div className="uk-container" />
         </div>
-        <div class="uk-section uk-section-secondary uk-section-small">
-          <div class="uk-container">
+        <div className="uk-section uk-section-secondary uk-section-small">
+          <div className="uk-container">
             <ToTop />
           </div>
         </div>
