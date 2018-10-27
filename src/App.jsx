@@ -9,8 +9,10 @@ import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
 import StaticPages from './staticPages';
-import essays from './data/essays';
+import GET_ESSAYS from './data/essays';
 import './styles/app.css';
+
+const ESSAYS = GET_ESSAYS();
 
 function getSideEssays(essays) {
   const featured = [];
@@ -30,11 +32,11 @@ function getSideEssays(essays) {
 }
 
 function WrappedEssayContainer({ match }) {
-  const essay = essays.find(essay => essay.id === match.params.id);
+  const essay = ESSAYS.find(essay => essay.id === match.params.id);
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
-  const { featured, popular, latest } = getSideEssays(essays);
+  const { featured, popular, latest } = getSideEssays(ESSAYS);
   return (
     <EssayContainer
       essay={essay}
@@ -51,7 +53,7 @@ export default () => (
       <Nav />
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/essays" />} />
-        <Route exact path="/essays" render={() => <Grid essays={essays} />} />}
+        <Route exact path="/essays" render={() => <Grid essays={ESSAYS} />} />}
         />
         <Route
           exact
