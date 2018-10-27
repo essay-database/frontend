@@ -9,10 +9,8 @@ import EssayContainer from './EssayContainer';
 import Grid from './Grid';
 import Nav from './Nav';
 import StaticPages from './staticPages';
-import GET_ESSAYS from './data/essays';
+import ESSAYS from './data/essays';
 import './styles/app.css';
-
-const ESSAYS = GET_ESSAYS();
 
 function getSideEssays(essays) {
   const featured = [];

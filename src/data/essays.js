@@ -26,28 +26,26 @@ function picsum() {
 }
 
 const GET_IMAGE = picsum();
-const GET_ESSAYS = () =>
-  Array.from(Array(NUM_ARTICLES), () => ({
-    id: faker.random.uuid(),
-    paragraphs: denseParagraphs(
-      faker.lorem.paragraphs(NUM_PARAGRAPHS).split('. '),
-      4
-    ),
-    prompt: faker.lorem.paragraph(),
-    college: selectRandom(COLLEGES),
-    country: faker.address.country(),
-    yearApplied: faker.date.past(getRandomInt(0, NUM_YEARS_BACK)).getFullYear(),
-    author: faker.name.findName(),
-    email: faker.internet.email(),
-    applicationStatus: selectRandom(STATUSES),
-    tag: selectRandom(TAGS),
-    dateUploaded: faker.date.recent(RECENT_DAYS),
-    imageLink: GET_IMAGE().next().value,
-    facebookShareLink: faker.internet.url(),
-    twitterShareLink: faker.internet.url()
-  }));
-
-export default GET_ESSAYS;
+faker.seed(123);
+export default Array.from(Array(NUM_ARTICLES), () => ({
+  id: faker.random.uuid(),
+  paragraphs: denseParagraphs(
+    faker.lorem.paragraphs(NUM_PARAGRAPHS).split('. '),
+    4
+  ),
+  prompt: faker.lorem.paragraph(),
+  college: selectRandom(COLLEGES),
+  country: faker.address.country(),
+  yearApplied: faker.date.past(getRandomInt(0, NUM_YEARS_BACK)).getFullYear(),
+  author: faker.name.findName(),
+  email: faker.internet.email(),
+  applicationStatus: selectRandom(STATUSES),
+  tag: selectRandom(TAGS),
+  dateUploaded: faker.date.recent(RECENT_DAYS),
+  imageLink: GET_IMAGE().next().value,
+  facebookShareLink: faker.internet.url(),
+  twitterShareLink: faker.internet.url()
+}));
 
 function denseParagraphs(paragraphs, num) {
   const result = [];
