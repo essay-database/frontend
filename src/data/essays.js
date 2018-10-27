@@ -25,10 +25,9 @@ function picsum() {
   }
 }
 
-let idx = 0;
 const GET_IMAGE = picsum();
 export default Array.from(Array(NUM_ARTICLES), () => ({
-  id: (idx++).toString(),
+  id: faker.random.uuid(),
   paragraphs: denseParagraphs(
     faker.lorem.paragraphs(NUM_PARAGRAPHS).split('. '),
     4

@@ -47,12 +47,17 @@ function WrappedEssayContainer({ match }) {
 
 export default () => (
   <Router>
-    <div>
+    <div id="app">
       <Nav />
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/essays" />} />
-        <Route exact path="/essays" render={() => <Grid essays={essays} />} />
-        <Route exact path="/essays/:id" component={WrappedEssayContainer} />
+        <Route exact path="/essays" render={() => <Grid essays={essays} />} />}
+        />
+        <Route
+          exact
+          path="/essays/:id"
+          render={props => <WrappedEssayContainer {...props} />}
+        />
         <Route exact path="/about" component={StaticPages.About} />
         <Route exact path="/contact" component={StaticPages.Contact} />
         <Route exact path="/advertise" component={StaticPages.Advertise} />
