@@ -67,7 +67,7 @@ class Grid extends PureComponent {
     super(props);
     this.toTop = createRef();
     this.state = {
-      isVisible: false
+      isVisible: true
     };
   }
 
