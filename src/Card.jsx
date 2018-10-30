@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import "./styles/card.css";
 
 const WIDTH = 640;
-const RATIO = 1 / 2;
+const RATIO = 1 / 3;
 const HEIGHT = WIDTH * RATIO;
-const LABEL_LIMIT = 30;
+const LABEL_LIMIT = 25;
 const ELLIPSIS = "..";
 
 const truncate = label =>
@@ -43,7 +43,7 @@ const Card = ({
   applicationStatus,
   college
 }) => (
-  <div className="uk-card uk-card-default uk-box-shadow-hover-large">
+  <div className="uk-card uk-card-small uk-card-default uk-box-shadow-hover-large">
     <div className="uk-card-media-top">
       <a href={linkEssay} className="uk-link-reset">
         <div className="uk-inline uk-cover-container">
@@ -57,15 +57,15 @@ const Card = ({
         </div>
       </a>
     </div>
-    <div className="uk-card-body uk-padding-small">
-      <p>
+    <div className="uk-card-body">
+      <p className="uk-dropcap">
         <a href={linkEssay} className="uk-link-reset">
           {text}
         </a>
       </p>
     </div>
     {(applicationStatus || college) && (
-      <div className="uk-card-footer uk-padding-small">
+      <div className="uk-card-footer">
         <div
           className="uk-flex uk-flex-between uk-flex-middle uk-text-small"
           uk-margin=""

@@ -48,20 +48,19 @@ export default () => (
     <div id="app">
       <Nav />
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/essays" />} />
-        <Route exact path="/essays" render={() => <Grid essays={ESSAYS} />} />}
-        />
-        <Route
-          exact
-          path="/essays/:id"
-          render={props => <EssayContainerWrapper {...props} essays={ESSAYS} />}
-        />
+        <Route exact path="/" render={() => <Grid essays={ESSAYS} />} />} />
         <Route exact path="/about" component={StaticPages.About} />
         <Route exact path="/contact" component={StaticPages.Contact} />
         <Route exact path="/advertise" component={StaticPages.Advertise} />
         <Route exact path="/terms" component={StaticPages.Terms} />
         <Route exact path="/privacy" component={StaticPages.Privacy} />
         <Route exact path="/help" component={StaticPages.Help} />
+        <Route exact path="/essays" render={() => <Redirect to="/" />} />
+        <Route
+          exact
+          path="/:id"
+          render={props => <EssayContainerWrapper {...props} essays={ESSAYS} />}
+        />
         <Route component={StaticPages.PageNotFound} />
       </Switch>
     </div>

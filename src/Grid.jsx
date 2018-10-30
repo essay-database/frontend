@@ -131,7 +131,7 @@ class Grid extends PureComponent {
                       text={paragraphs[0]}
                       tag={tag}
                       imageLink={imageLink}
-                      linkEssay={`/essays/${id}`}
+                      linkEssay={`/${id}`}
                       college={college}
                       applicationStatus={applicationStatus}
                     />

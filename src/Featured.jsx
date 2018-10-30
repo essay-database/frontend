@@ -4,8 +4,8 @@ import Card from "./Card";
 import { ESSAYS_SHAPE } from "./constants";
 
 const Featured = ({ essays, heading }) => (
-  <div className="uk-section uk-padding-remove-vertical">
-    <div className="uk-container uk-container-expand">
+  <div className="uk-section uk-section-xsmall">
+    <div className="uk-container">
       <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
         {heading}
       </h3>
@@ -20,7 +20,7 @@ const Featured = ({ essays, heading }) => (
                 <li key={id}>
                   <Card
                     text={paragraphs[0]}
-                    linkEssay={`/essays/${id}`}
+                    linkEssay={`/${id}`}
                     imageLink={imageLink}
                   />
                 </li>

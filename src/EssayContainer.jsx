@@ -103,12 +103,12 @@ class EssayContainer extends PureComponent {
                 twitterShareLink={twitterShareLink}
               />
             </div>
-            {featuredCollection.map(({ essays, heading }, idx) => (
-              <Featured key={idx} essays={essays} heading={heading} />
-            ))}
           </div>
           {/* <div className="uk-visible@m uk-width-1-6@m" /> */}
         </div>
+        {featuredCollection.map(({ essays, heading }, idx) => (
+          <Featured key={idx} essays={essays} heading={heading} />
+        ))}
         <div className="uk-section uk-section-muted">
           <div className="uk-container uk-width-2-3@m uk-flex-center">
             <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">

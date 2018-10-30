@@ -23,7 +23,7 @@ const Essay = ({
             alt=""
             uk-img=""
             uk-scrollspy="cls: uk-animation-kenburns; repeat: true"
-            class="uk-animation-reverse uk-transform-origin-top-right"
+            className="uk-animation-reverse uk-transform-origin-top-right"
           />
         </div>
 
