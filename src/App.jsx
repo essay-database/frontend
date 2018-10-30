@@ -29,11 +29,9 @@ function getSideEssays(essays) {
   };
 }
 
-function WrappedEssayContainer({ match, essays }) {
+function EssayContainerWrapper({ match, essays }) {
   const essay = essays.find(essay => essay.id === match.params.id);
-  if (!essay) {
-    return <StaticPages.PageNotFound />;
-  }
+  if (!essay) return <StaticPages.PageNotFound />;
   const { featured, popular, latest } = getSideEssays(essays);
   return (
     <EssayContainer
@@ -56,7 +54,7 @@ export default () => (
         <Route
           exact
           path="/essays/:id"
-          render={props => <WrappedEssayContainer {...props} essays={ESSAYS} />}
+          render={props => <EssayContainerWrapper {...props} essays={ESSAYS} />}
         />
         <Route exact path="/about" component={StaticPages.About} />
         <Route exact path="/contact" component={StaticPages.Contact} />

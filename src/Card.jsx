@@ -5,6 +5,13 @@ import "./styles/card.css";
 const WIDTH = 640;
 const RATIO = 1 / 2;
 const HEIGHT = WIDTH * RATIO;
+const LABEL_LIMIT = 30;
+const ELLIPSIS = "..";
+
+const truncate = label =>
+  label.length > LABEL_LIMIT
+    ? label.substring(0, LABEL_LIMIT) + ELLIPSIS
+    : label;
 
 const selectLabel = status => {
   let classname = "uk-label-";
@@ -27,13 +34,6 @@ const selectLabel = status => {
   }
   return classname;
 };
-
-const LABEL_LIMIT = 30;
-const ELLIPSIS = "..";
-const truncate = label =>
-  label.length > LABEL_LIMIT
-    ? label.substring(0, LABEL_LIMIT) + ELLIPSIS
-    : label;
 
 const Card = ({
   tag,

@@ -8,10 +8,12 @@ import {
 import "./styles/social.css";
 import "./styles/footer.css";
 
+const PADDING_TOP = 88;
+
 export default () => (
   <footer
     className="uk-section uk-section-large uk-section-secondary uk-light"
-    style={{ paddingTop: 88 }}
+    style={{ paddingTop: PADDING_TOP }}
   >
     <div className="uk-container">
       <div

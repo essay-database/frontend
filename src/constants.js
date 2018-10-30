@@ -6,9 +6,12 @@ import { selectRandom } from "./utils";
 
 export const NUM_ARTICLES = 4;
 export const NUM_YEARS_BACK = 100;
+export const YEARS = Array.from(
+  Array(NUM_YEARS_BACK),
+  (elem, idx) => new Date().getFullYear() - idx
+);
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
-
 const IMAGES = [];
 importAll(require.context("./images/edited", true, /\.jpg$/));
 function importAll(r) {

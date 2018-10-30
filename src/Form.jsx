@@ -1,17 +1,6 @@
 import React, { PureComponent, createRef } from "react";
 import FormModal from "./FormModal";
-import {
-  COLLEGES,
-  NUM_YEARS_BACK,
-  STATUSES,
-  COUNTRIES,
-  STATES
-} from "./constants";
-
-const YEARS = Array.from(
-  Array(NUM_YEARS_BACK),
-  (elem, idx) => new Date().getFullYear() - idx
-);
+import { COLLEGES, YEARS, STATUSES, COUNTRIES, STATES } from "./constants";
 
 const PROMPT_ROWS = 3;
 const ESSAY_ROWS = PROMPT_ROWS * 4;
@@ -35,10 +24,7 @@ export default class Form extends PureComponent {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.isUploadComplete) {
-      // this.submit();
-      window.UIkit.modal(this.formRef.current).hide();
-    }
+    window.UIkit.modal(this.formRef.current).hide();
   };
 
   handleChange = e => {
