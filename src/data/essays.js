@@ -26,7 +26,7 @@ function picsum() {
 }
 
 const GET_IMAGE = picsum();
-faker.seed(123);
+// faker.seed(123);
 export default Array.from(Array(NUM_ARTICLES), () => ({
   id: faker.random.uuid(),
   paragraphs: denseParagraphs(
