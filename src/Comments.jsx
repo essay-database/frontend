@@ -1,5 +1,5 @@
-import React from 'react';
-import faker from 'faker';
+import React from "react";
+import faker from "faker";
 
 const Comments = () => {
   return (

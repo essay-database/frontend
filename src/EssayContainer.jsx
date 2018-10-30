@@ -1,15 +1,15 @@
-import React, { PureComponent, Fragment, createRef } from 'react';
-import PropTypes from 'prop-types';
-import Essay from './Essay';
-import Featured from './Featured';
-import Sidebar from './Sidebar';
-import Footer from './Footer';
-import Comments from './Comments';
-import { ESSAYS_SHAPE } from './constants';
+import React, { PureComponent, Fragment, createRef } from "react";
+import PropTypes from "prop-types";
+import Essay from "./Essay";
+import Featured from "./Featured";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
+import Comments from "./Comments";
+import { ESSAYS_SHAPE } from "./constants";
 
-const FEATURED_HEADING = 'featured';
-const POPULAR_HEADING = 'popular';
-const LATEST_HEADING = 'latest';
+const FEATURED_HEADING = "featured";
+const POPULAR_HEADING = "popular";
+const LATEST_HEADING = "latest";
 const SIDEBAR_OFFSET = 130;
 
 class EssayContainer extends PureComponent {
@@ -75,7 +75,7 @@ class EssayContainer extends PureComponent {
           <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
             <div
               uk-sticky={`offset: ${SIDEBAR_OFFSET};`}
-              className={this.state.invisisble ? 'uk-invisible' : ''}
+              className={this.state.invisisble ? "uk-invisible" : ""}
             >
               <Sidebar
                 facebookShareLink={facebookShareLink}

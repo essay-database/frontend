@@ -1,12 +1,12 @@
-import React, { PureComponent, createRef } from 'react';
-import FormModal from './FormModal';
+import React, { PureComponent, createRef } from "react";
+import FormModal from "./FormModal";
 import {
   COLLEGES,
   NUM_YEARS_BACK,
   STATUSES,
   COUNTRIES,
   STATES
-} from './constants';
+} from "./constants";
 
 const YEARS = Array.from(
   Array(NUM_YEARS_BACK),
@@ -20,15 +20,15 @@ export default class Form extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      essayText: '',
-      state: '',
-      country: '',
-      prompt: '',
-      applicationStatus: '',
-      college: '',
-      yearApplied: ''
+      name: "",
+      email: "",
+      essayText: "",
+      state: "",
+      country: "",
+      prompt: "",
+      applicationStatus: "",
+      college: "",
+      yearApplied: ""
     };
     this.formRef = createRef();
   }
@@ -43,7 +43,7 @@ export default class Form extends PureComponent {
 
   handleChange = e => {
     const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     this.setState({
       [target.name]: value
     });
@@ -212,7 +212,7 @@ export default class Form extends PureComponent {
               </div>
             </div>
 
-            {country === 'United States' && (
+            {country === "United States" && (
               <div className="uk-margin">
                 <label className="uk-form-label uk-text-capitalize">
                   state

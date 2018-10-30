@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './styles/social.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./styles/social.css";
 
 const ICON_SIZE = 1.5;
 
 const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
   <div
     className={`uk-flex ${
-      !horizontal ? 'uk-flex-column' : ''
+      !horizontal ? "uk-flex-column" : ""
     } uk-flex-middle uk-grid-small`}
     uk-grid=""
   >

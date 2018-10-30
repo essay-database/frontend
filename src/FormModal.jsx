@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import { UPLOAD_IMAGE } from './constants';
+import React, { forwardRef } from "react";
+import PropTypes from "prop-types";
+import { UPLOAD_IMAGE } from "./constants";
 
 const FormModal = ({ title, children, forwardRef }) => (
   <div ref={forwardRef} className="uk-modal-full modal-form" uk-modal="">

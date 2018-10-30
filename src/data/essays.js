@@ -1,16 +1,13 @@
-import faker from 'faker';
+import faker from "faker";
 import {
   NUM_ARTICLES,
   STATUSES,
   TAGS,
   NUM_YEARS_BACK,
   COLLEGES
-} from '../constants';
-import {
-  selectRandom,
-  getRandomInt
-} from '../utils';
-import IMAGES from '../data/picsum.json'
+} from "../constants";
+import { selectRandom, getRandomInt } from "../utils";
+import IMAGES from "../data/picsum.json";
 
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
@@ -22,8 +19,10 @@ faker.seed(321);
 function picsum() {
   const images = IMAGES.map(img => img.id);
   return function* selectImage() {
-    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${images[faker.random.number(images.length - 1)]}`;
-  }
+    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${
+      images[faker.random.number(images.length - 1)]
+    }`;
+  };
 }
 
 const GET_IMAGE = picsum();
@@ -31,7 +30,7 @@ faker.seed(123);
 export default Array.from(Array(NUM_ARTICLES), () => ({
   id: faker.random.uuid(),
   paragraphs: denseParagraphs(
-    faker.lorem.paragraphs(NUM_PARAGRAPHS).split('. '),
+    faker.lorem.paragraphs(NUM_PARAGRAPHS).split(". "),
     4
   ),
   prompt: faker.lorem.paragraph(),
@@ -51,9 +50,9 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
 function denseParagraphs(paragraphs, num) {
   const result = [];
   for (let i = 0; i < paragraphs.length; i += num) {
-    let p = '';
+    let p = "";
     for (let j = 0; j < num; j++) {
-      p += paragraphs[j] + '. ';
+      p += paragraphs[j] + ". ";
     }
     result.push(p);
   }

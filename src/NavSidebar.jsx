@@ -1,15 +1,15 @@
-import React, { PureComponent, createRef } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Link } from 'react-router-dom';
-import { COPYRIGHT } from './constants';
-import './styles/nav_side.css';
+import React, { PureComponent, createRef } from "react";
+import PropTypes from "prop-types";
+import { Route, Link } from "react-router-dom";
+import { COPYRIGHT } from "./constants";
+import "./styles/nav_side.css";
 
 const RouteLink = ({ to, exact, children, ...restProps }) => (
   <Route
     path={to}
     exact={exact}
     children={({ match }) => (
-      <li className={match ? 'uk-active' : null}>
+      <li className={match ? "uk-active" : null}>
         <Link to={to} {...restProps}>
           {children}
         </Link>

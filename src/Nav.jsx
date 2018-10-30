@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Form from './Form';
-import NavSidebar from './NavSidebar';
-import { LOGO } from './constants';
+import React from "react";
+import PropTypes from "prop-types";
+import Form from "./Form";
+import NavSidebar from "./NavSidebar";
+import { LOGO } from "./constants";
 
 const MAIN_NAV_ICON_SIZE = 1.2;
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (

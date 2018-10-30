@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Details = ({
   author,
@@ -14,19 +14,19 @@ const Details = ({
       <div>
         <p>
           <span>{author}</span>
-          {author && country && ' | '}
+          {author && country && " | "}
           <span>{country}</span>
         </p>
       </div>
       <div>
-        <p>{dateUploaded.toLocaleDateString('en-US')}</p>
+        <p>{dateUploaded.toLocaleDateString("en-US")}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">
       <div>
         <p>
           <span>{college}</span>
-          {college && yearApplied && ' | '}
+          {college && yearApplied && " | "}
           <span>{yearApplied}</span>
         </p>
       </div>

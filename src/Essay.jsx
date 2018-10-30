@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Details from './Details';
+import React from "react";
+import PropTypes from "prop-types";
+import Details from "./Details";
 
 const WIDTH = 1920;
 const HEIGHT = (WIDTH * 1) / 2;
@@ -41,7 +41,7 @@ const Essay = ({
           {paragraphs.map((paragraph, idx) => (
             <p
               key={idx}
-              className={idx === 0 ? 'uk-dropcap uk-text-lead' : null}
+              className={idx === 0 ? "uk-dropcap uk-text-lead" : null}
             >
               {paragraph}
             </p>

@@ -1,7 +1,7 @@
-import React from 'react';
-import Center from '../Center';
+import React from "react";
+import Center from "../Center";
 
-export default ({ message = '' }) => {
+export default ({ message = "" }) => {
   return (
     <Center>
       <div className="uk-text-center">

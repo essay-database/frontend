@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   COPYRIGHT,
   ABOUT,
   FACEBOOK_PAGE_LINK,
   TWITTER_PAGE_LINK
-} from './constants';
-import './styles/social.css';
-import './styles/footer.css';
+} from "./constants";
+import "./styles/social.css";
+import "./styles/footer.css";
 
 export default () => (
   <footer

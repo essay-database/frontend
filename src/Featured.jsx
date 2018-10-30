@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Card from './Card';
-import { ESSAYS_SHAPE } from './constants';
+import React from "react";
+import PropTypes from "prop-types";
+import Card from "./Card";
+import { ESSAYS_SHAPE } from "./constants";
 
 const Featured = ({ essays, heading }) => (
   <div className="uk-section uk-padding-remove-vertical">
