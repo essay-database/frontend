@@ -1,7 +1,7 @@
-import React, { Fragment, createRef, PureComponent, forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import { ESSAYS_SHAPE } from './constants';
-import Card from './Card';
+import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
+import PropTypes from "prop-types";
+import { ESSAYS_SHAPE } from "./constants";
+import Card from "./Card";
 
 const Empty = () => (
   <div
@@ -144,7 +144,7 @@ class Grid extends PureComponent {
               <div className="uk-container" />
               <ToTop
                 ref={this.toTop}
-                classes={this.state.isVisible ? '' : `uk-invisible`}
+                classes={this.state.isVisible ? "" : `uk-invisible`}
               />
             </div>
           </div>

@@ -24,7 +24,6 @@ class EssayContainer extends PureComponent {
   componentDidMount() {
     window.onscroll = () => {
       const offsetTop = this.socialLimit.current.offsetTop;
-      console.log(this.socialLimit.current.offsetHeight);
       if (window.scrollY + SIDEBAR_OFFSET > offsetTop) {
         this.setState({
           invisisble: true
