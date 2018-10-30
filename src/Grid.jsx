@@ -26,15 +26,11 @@ export const ToTop = forwardRef((props, ref) => (
   </div>
 ));
 
-const FilterSort = forwardRef((props, ref) => (
+const FilterSort = ({ handleFilter }) => (
   <Fragment>
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div>
-        <ul
-          ref={ref}
-          onClick={props.handleFilter}
-          className="uk-subnav uk-subnav-pill"
-        >
+        <ul onClick={handleFilter} className="uk-subnav uk-subnav-pill">
           <li className="uk-active" uk-filter-control="">
             <a>All</a>
           </li>
@@ -64,17 +60,34 @@ const FilterSort = forwardRef((props, ref) => (
       </div>
     </div>
   </Fragment>
-));
+);
 
 class Grid extends PureComponent {
   constructor(props) {
     super(props);
-    this.filterSort = createRef();
     this.toTop = createRef();
+    this.state = {
+      isVisible: false
+    };
   }
 
+  componentDidMount = () => {
+    this.handleFilter();
+  };
+
   handleFilter = () => {
-    this.toTop.current;
+    const offsetTop = this.toTop.current.offsetTop;
+    if (offsetTop + window.scrollY > window.innerHeight) {
+      this.setState({
+        isVisible: true
+      });
+    } else {
+      if (this.state.isVisible) {
+        this.setState({
+          isVisible: false
+        });
+      }
+    }
   };
 
   render() {
@@ -86,10 +99,7 @@ class Grid extends PureComponent {
             uk-filter="target: .js-filter"
             className="uk-flex uk-flex-column uk-flex-between uk-flex-center"
           >
-            <FilterSort
-              handleFilter={this.handleFilter}
-              ref={this.filterSort}
-            />
+            <FilterSort handleFilter={this.handleFilter} />
             <div
               className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
               uk-grid=""
@@ -126,7 +136,7 @@ class Grid extends PureComponent {
             <div>
               <div className="uk-section uk-section-muted uk-section-xsmall" />
               <div className="uk-container" />
-              <ToTop ref={this.toTop} />
+              {this.state.isVisible && <ToTop ref={this.toTop} />}
             </div>
           </div>
         ) : (
