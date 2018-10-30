@@ -18,15 +18,16 @@ const NUM_PARAGRAPHS = 15;
 const WIDTH = 1920;
 const HEIGHT = 1080;
 
+faker.seed(321);
 function picsum() {
   const images = IMAGES.map(img => img.id);
   return function* selectImage() {
-    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${selectRandom(images)}`;
+    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${images[faker.random.number(images.length - 1)]}`;
   }
 }
 
 const GET_IMAGE = picsum();
-// faker.seed(123);
+faker.seed(123);
 export default Array.from(Array(NUM_ARTICLES), () => ({
   id: faker.random.uuid(),
   paragraphs: denseParagraphs(

@@ -20,9 +20,8 @@ class ToTop extends React.Component {
   }
 
   componentDidMount() {
-    UIkit.util.on(this.ref.current, 'beforeFilter', function() {
-      console.log(this.ref.current);
-    });
+    UIkit.filter(this.ref.current, {});
+    // UIkit.util.on(this.ref.current, 'beforeFilter', function() {});
   }
 
   render() {
