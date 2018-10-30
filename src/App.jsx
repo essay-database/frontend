@@ -34,7 +34,7 @@ function WrappedEssayContainer({ match, essays }) {
   if (!essay) {
     return <StaticPages.PageNotFound />;
   }
-  const { featured, popular, latest } = getSideEssays(ESSAYS);
+  const { featured, popular, latest } = getSideEssays(essays);
   return (
     <EssayContainer
       essay={essay}

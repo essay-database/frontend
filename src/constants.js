@@ -12,14 +12,11 @@ export const FACEBOOK_PAGE_LINK = '#';
 export const TWITTER_PAGE_LINK = '#';
 
 const IMAGES = [];
-
 importAll(require.context('./images/edited', true, /\.jpg$/));
-
 function importAll(r) {
   r.keys().forEach(key => IMAGES.push(r(key)));
 }
 export const UPLOAD_IMAGE = selectRandom(IMAGES);
-
 // app info
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;

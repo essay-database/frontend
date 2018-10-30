@@ -13,33 +13,19 @@ const Empty = () => (
   </div>
 );
 
-class ToTop extends React.Component {
-  constructor(props) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount() {
-    UIkit.filter(this.ref.current, {});
-    // UIkit.util.on(this.ref.current, 'beforeFilter', function() {});
-  }
-
-  render() {
-    return (
-      <div
-        className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
-        ref={this.ref}
-        id="to-top"
-      >
-        <div className="uk-container uk-container-expand">
-          <div className="uk-flex uk-flex-right">
-            <button uk-totop="" uk-scroll="" />
-          </div>
-        </div>
+export const ToTop = () => (
+  <div
+    className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
+    ref={this.ref}
+    id="to-top"
+  >
+    <div className="uk-container uk-container-expand">
+      <div className="uk-flex uk-flex-right">
+        <button uk-totop="" uk-scroll="" />
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
 
 const FilterAndSort = () => (
   <Fragment>
