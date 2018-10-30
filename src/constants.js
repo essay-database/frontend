@@ -18,28 +18,22 @@ export const UPLOAD_IMAGE = selectRandom(IMAGES);
 // app info
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
-// export const SLOGAN = "collection of college application essays";
+export const SLOGAN = "collection of college application essays";
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
-
 // options
 export const TAGS = ["new", "popular", "featured"].sort();
-
 export const STATUSES = [
   "pending",
   "accepted",
   "rejected",
   "waitlisted"
 ].sort();
-
 export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(
   college => college.institution
 ).sort();
-
 export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name).sort();
-
 export const STATES = STATES_LIST.map(elem => elem.name).sort();
-
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

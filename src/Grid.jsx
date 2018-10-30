@@ -1,4 +1,4 @@
-import React, { Fragment, createRef, PureComponent } from "react";
+import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import PropTypes from "prop-types";
 import { ESSAYS_SHAPE } from "./constants";
 import Card from "./Card";
@@ -12,10 +12,10 @@ const Empty = () => (
   </div>
 );
 
-export const ToTop = () => (
+export const ToTop = forwardRef((props, ref) => (
   <div
     className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
-    ref={this.ref}
+    ref={ref}
     id="to-top"
   >
     <div className="uk-container uk-container-expand">
@@ -24,13 +24,17 @@ export const ToTop = () => (
       </div>
     </div>
   </div>
-);
+));
 
-const FilterAndSort = () => (
+const FilterSort = forwardRef((props, ref) => (
   <Fragment>
     <div className="uk-flex uk-flex-between uk-flex-wrap">
       <div>
-        <ul className="uk-subnav uk-subnav-pill">
+        <ul
+          ref={ref}
+          onClick={props.handleFilter}
+          className="uk-subnav uk-subnav-pill"
+        >
           <li className="uk-active" uk-filter-control="">
             <a>All</a>
           </li>
@@ -60,18 +64,21 @@ const FilterAndSort = () => (
       </div>
     </div>
   </Fragment>
-);
+));
 
 class Grid extends PureComponent {
   constructor(props) {
     super(props);
+    this.filterSort = createRef();
+    this.toTop = createRef();
   }
 
-  componentDidMount() {}
+  handleFilter = () => {
+    this.toTop.current;
+  };
 
   render() {
     const { essays } = this.props;
-
     return (
       <div>
         {essays.length > 0 ? (
@@ -79,7 +86,10 @@ class Grid extends PureComponent {
             uk-filter="target: .js-filter"
             className="uk-flex uk-flex-column uk-flex-between uk-flex-center"
           >
-            <FilterAndSort />
+            <FilterSort
+              handleFilter={this.handleFilter}
+              ref={this.filterSort}
+            />
             <div
               className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
               uk-grid=""
@@ -116,7 +126,7 @@ class Grid extends PureComponent {
             <div>
               <div className="uk-section uk-section-muted uk-section-xsmall" />
               <div className="uk-container" />
-              <ToTop />
+              <ToTop ref={this.toTop} />
             </div>
           </div>
         ) : (
