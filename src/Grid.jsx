@@ -1,7 +1,7 @@
-import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
-import PropTypes from "prop-types";
-import { ESSAYS_SHAPE } from "./constants";
-import Card from "./Card";
+import React, { Fragment, createRef, PureComponent, forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import { ESSAYS_SHAPE } from './constants';
+import Card from './Card';
 
 const Empty = () => (
   <div
@@ -14,7 +14,9 @@ const Empty = () => (
 
 export const ToTop = forwardRef((props, ref) => (
   <div
-    className="uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal"
+    className={`uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal ${
+      props.classes
+    }`}
     ref={ref}
     id="to-top"
   >
@@ -75,9 +77,13 @@ class Grid extends PureComponent {
     this.handleFilter();
   };
 
+  componentDidUpdate = (prevProps, prevState) => {
+    this.handleFilter();
+  };
+
   handleFilter = () => {
     const offsetTop = this.toTop.current.offsetTop;
-    if (offsetTop + window.scrollY > window.innerHeight) {
+    if (offsetTop > window.innerHeight) {
       this.setState({
         isVisible: true
       });
@@ -136,7 +142,10 @@ class Grid extends PureComponent {
             <div>
               <div className="uk-section uk-section-muted uk-section-xsmall" />
               <div className="uk-container" />
-              {this.state.isVisible && <ToTop ref={this.toTop} />}
+              <ToTop
+                ref={this.toTop}
+                classes={this.state.isVisible ? '' : `uk-invisible`}
+              />
             </div>
           </div>
         ) : (
