@@ -12,7 +12,7 @@ import IMAGES from "../data/picsum.json";
 const RECENT_DAYS = 30;
 const NUM_PARAGRAPHS = 15;
 const WIDTH = 1920;
-const HEIGHT = 1080;
+const HEIGHT = WIDTH / 2;
 
 faker.seed(321);
 function picsum() {

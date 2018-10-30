@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Details from "./Details";
 
-const WIDTH = 1920;
-const HEIGHT = (WIDTH * 1) / 2;
-
 const Essay = ({
   paragraphs,
   prompt,
@@ -20,15 +17,16 @@ const Essay = ({
     <div className="uk-padding-small">
       <article className="uk-article">
         <h2 className="uk-heading-primary uk-margin-small-bottom">{prompt}</h2>
-        <div
-          className="uk-margin uk-inline-clip uk-transition-toggle"
-          tabIndex="0"
-        >
-          <div className="uk-cover-container uk-transition-scale-up uk-transition-opaque">
-            <img data-src={imageLink} alt="" uk-cover="" uk-img="" />
-            <canvas width={WIDTH} height={HEIGHT} />
-          </div>
+        <div className=" uk-overflow-hidden">
+          <img
+            data-src={imageLink}
+            alt=""
+            uk-img=""
+            uk-scrollspy="cls: uk-animation-kenburns; repeat: true"
+            class="uk-animation-reverse uk-transform-origin-top-right"
+          />
         </div>
+
         <Details
           author={author}
           college={college}
