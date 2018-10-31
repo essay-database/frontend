@@ -12,7 +12,7 @@ const Empty = () => (
   </div>
 );
 
-export const ToTop = forwardRef((props, ref) => (
+const ToTop = forwardRef((props, ref) => (
   <div
     className={`uk-section uk-section-secondary uk-section-xsmall uk-padding-remove-horizontal ${
       props.classes

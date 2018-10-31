@@ -1,15 +1,9 @@
 import PropTypes from "prop-types";
-import COUNTRIES_LIST from "./data/countries.json";
 import US_COLLEGES_UNIVERSITIES from "./data/us_colleges_univerisities.json";
-import STATES_LIST from "./data/states.json";
 import { selectRandom } from "./utils";
 
 export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
-export const YEARS = Array.from(
-  Array(NUM_YEARS_BACK),
-  (elem, idx) => new Date().getFullYear() - idx
-);
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
 const IMAGES = [];
@@ -21,7 +15,6 @@ export const UPLOAD_IMAGE = selectRandom(IMAGES);
 // app info
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
-export const SLOGAN = "collection of college application essays";
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
 // options
@@ -35,8 +28,6 @@ export const STATUSES = [
 export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(
   college => college.institution
 ).sort();
-export const COUNTRIES = COUNTRIES_LIST.map(elem => elem.name).sort();
-export const STATES = STATES_LIST.map(elem => elem.name).sort();
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

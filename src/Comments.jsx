@@ -1,6 +1,8 @@
 import React from "react";
 import faker from "faker";
 
+faker.seed(667);
+
 const Comments = () => {
   return (
     <ul className="uk-comment-list">
