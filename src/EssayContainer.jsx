@@ -22,7 +22,6 @@ class EssayContainer extends PureComponent {
   componentDidMount() {
     window.onscroll = () => {
       const offsetTop = this.socialLimit.current.offsetTop;
-
       const heightBottom = this.socialBar.current.getBoundingClientRect()
         .bottom;
       if (window.scrollY + heightBottom > offsetTop) {
