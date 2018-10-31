@@ -16,12 +16,16 @@ class EssayContainer extends PureComponent {
       invisisble: false
     };
     this.socialLimit = createRef();
+    this.socialBar = createRef();
   }
 
   componentDidMount() {
     window.onscroll = () => {
       const offsetTop = this.socialLimit.current.offsetTop;
-      if (window.scrollY + SIDEBAR_OFFSET > offsetTop) {
+
+      const heightBottom = this.socialBar.current.getBoundingClientRect()
+        .bottom;
+      if (window.scrollY + heightBottom > offsetTop) {
         this.setState({
           invisisble: true
         });
@@ -61,6 +65,7 @@ class EssayContainer extends PureComponent {
               id="social_side"
               uk-sticky={`offset: ${SIDEBAR_OFFSET};`}
               className={this.state.invisisble ? "uk-invisible" : ""}
+              ref={this.socialBar}
             >
               <Sidebar
                 facebookShareLink={facebookShareLink}
