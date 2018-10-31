@@ -29,7 +29,6 @@ class Form extends PureComponent {
 
   render() {
     const { width, height } = this.state;
-
     return (
       <div className="uk-modal-full modal-form" uk-modal="">
         <div className="uk-modal-dialog">

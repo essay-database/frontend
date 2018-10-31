@@ -47,7 +47,7 @@ export default () => (
 
       <div className="uk-navbar-center">
         <div className="uk-navbar-item">
-          <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+          <div className="uk-inline-clip uk-transition-toggle">
             <a href="/" className="uk-logo uk-link-text">
               <img
                 className="uk-transition-scale-up uk-transition-opaque"
