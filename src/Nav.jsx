@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Form from "./Form";
+import FormModal from "./FormModal";
 import NavSidebar from "./NavSidebar";
 import { LOGO } from "./constants";
 
@@ -70,7 +70,7 @@ export default () => (
               iconClass="uk-margin-small-right uk-icon-link"
             />
           </div>
-          <Form />
+          <FormModal />
         </div>
       </div>
     </nav>

@@ -1,9 +1,8 @@
-import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { UPLOAD_IMAGE } from "./constants";
 
-const FormModal = ({ title, children, forwardRef }) => (
-  <div ref={forwardRef} className="uk-modal-full modal-form" uk-modal="">
+const FormModal = () => (
+  <div className="uk-modal-full modal-form" uk-modal="">
     <div className="uk-modal-dialog">
       <button
         className="uk-modal-close-full uk-close-large"
@@ -11,28 +10,22 @@ const FormModal = ({ title, children, forwardRef }) => (
         uk-close=""
       />
       <div className="uk-modal-header">
-        <h1 className="uk-text-center">{title}</h1>
+        <h1 className="uk-text-center">Share with the world!</h1>
       </div>
       <div
         className="uk-grid-collapse uk-flex-middle uk-child-width-1-2@m"
         uk-grid=""
       >
         <div>
-          <div className="uk-modal-body">{children}</div>
-          <div className="uk-modal-footer uk-text-right">
-            <button
-              className="uk-button uk-button-default uk-modal-close"
-              type="button"
+          <div className="uk-modal-body">
+            <iframe
+              uk-responsive=""
+              width="640"
+              height="845"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSd2KZfeAHiZ_UcxLtzs-3gwzP0mXPN_4HCTQKZ6aiB5764BOg/viewform?embedded=true"
             >
-              Cancel
-            </button>
-            <input
-              className="uk-button uk-button-primary uk-margin-small-left"
-              type="submit"
-              name="submit"
-              value="submit"
-              form="essay-form"
-            />
+              Loading...
+            </iframe>
           </div>
         </div>
 
@@ -50,12 +43,4 @@ const FormModal = ({ title, children, forwardRef }) => (
   </div>
 );
 
-FormModal.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
-  forwardRef: PropTypes.object.isRequired
-};
-
-export default forwardRef((props, ref) => {
-  return <FormModal forwardRef={ref} {...props} />;
-});
+export default FormModal;
