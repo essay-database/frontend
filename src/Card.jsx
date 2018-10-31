@@ -50,7 +50,7 @@ const Card = ({
           <img data-src={imageLink} uk-cover="" alt="" uk-img="" />
           {tag && (
             <div className="uk-overlay uk-light uk-position-top-right">
-              <p className="card uk-text-small uk-text-capitalize">{tag}</p>
+              <p className="tag uk-text-small uk-text-capitalize">{tag}</p>
             </div>
           )}
           <canvas width={WIDTH} height={HEIGHT} />

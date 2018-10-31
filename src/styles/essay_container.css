@@ -1,0 +1,3 @@
+div#social_side {
+  transition: visibility 0s ease-in-out 300ms, opacity 300ms;
+}

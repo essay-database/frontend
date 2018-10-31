@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import Comments from "./Comments";
 import { ESSAYS_SHAPE } from "./constants";
+import "./styles/essay_container.css";
 
 const SIDEBAR_OFFSET = 130;
 class EssayContainer extends PureComponent {
@@ -57,6 +58,7 @@ class EssayContainer extends PureComponent {
         <div className="uk-grid" uk-grid="">
           <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
             <div
+              id="social_side"
               uk-sticky={`offset: ${SIDEBAR_OFFSET};`}
               className={this.state.invisisble ? "uk-invisible" : ""}
             >
