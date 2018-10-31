@@ -4,7 +4,7 @@ import US_COLLEGES_UNIVERSITIES from "./data/us_colleges_univerisities.json";
 import STATES_LIST from "./data/states.json";
 import { selectRandom } from "./utils";
 
-export const NUM_ARTICLES = 22;
+export const NUM_ARTICLES = 40;
 export const NUM_YEARS_BACK = 100;
 export const YEARS = Array.from(
   Array(NUM_YEARS_BACK),

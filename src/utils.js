@@ -7,3 +7,7 @@ export function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+const shuffle = array => array.sort(() => 0.5 - Math.random());
+const select = (shuffled, n) => shuffled.slice(0, n);
+export const shuffleSelect = (array, n) => select(shuffle(array), n);
