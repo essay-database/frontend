@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Form from "./Form";
 import NavSidebar from "./NavSidebar";
-import { LOGO } from "./constants";
+import { LOGO, LOGO_IMAGE, LOGO_WIDTH } from "./constants";
 
 const MAIN_NAV_ICON_SIZE = 1.2;
+
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
   <a
     className={iconClass}
@@ -46,9 +47,16 @@ export default () => (
 
       <div className="uk-navbar-center">
         <div className="uk-navbar-item">
-          <a href="/" className="uk-logo uk-link-text">
-            {LOGO}
-          </a>
+          <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+            <a href="/" className="uk-logo uk-link-text">
+              <img
+                className="uk-transition-scale-up uk-transition-opaque"
+                src={LOGO_IMAGE}
+                alt={LOGO}
+                width={LOGO_WIDTH}
+              />
+            </a>
+          </div>
         </div>
       </div>
 

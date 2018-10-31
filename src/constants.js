@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import US_COLLEGES_UNIVERSITIES from "./data/us_colleges_univerisities.json";
 import { selectRandom } from "./utils";
 
-export const NUM_ARTICLES = 40;
+export const NUM_ARTICLES = 12;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
@@ -13,6 +13,9 @@ function importAll(r) {
 }
 export const UPLOAD_IMAGE = selectRandom(IMAGES);
 // app info
+export { default as LOGO_IMAGE } from "./icons/logo.png";
+export { default as LOGO_IMAGE_LIGHT } from "./icons/logo-white.png";
+export const LOGO_WIDTH = 180;
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
