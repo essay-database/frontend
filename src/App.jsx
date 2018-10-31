@@ -12,35 +12,11 @@ import StaticPages from "./staticPages";
 import ESSAYS from "./data/essays";
 import "./styles/app.css";
 
-function getSideEssays(essays) {
-  const featured = [];
-  const popular = [];
-  const latest = [];
-  essays.forEach(essay => {
-    const { tag } = essay;
-    if (tag === "new") latest.push(essay);
-    else if (tag === "popular") popular.push(essay);
-    else if (tag === "featured") featured.push(essay);
-  });
-  return {
-    featured,
-    latest,
-    popular
-  };
-}
-
 function EssayContainerWrapper({ match, essays }) {
   const essay = essays.find(essay => essay.id === match.params.id);
   if (!essay) return <StaticPages.PageNotFound />;
-  const { featured, popular, latest } = getSideEssays(essays);
-  return (
-    <EssayContainer
-      essay={essay}
-      featuredEssays={featured}
-      popularEssays={popular}
-      latestEssays={latest}
-    />
-  );
+  const featuredEssays = essays.filter(essay => essay.tag === "featured");
+  return <EssayContainer essay={essay} featuredEssays={featuredEssays} />;
 }
 
 export default () => (

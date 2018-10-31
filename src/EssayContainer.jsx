@@ -1,17 +1,13 @@
 import React, { PureComponent, Fragment, createRef } from "react";
 import PropTypes from "prop-types";
 import Essay from "./Essay";
-import Featured from "./Featured";
+import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import Comments from "./Comments";
 import { ESSAYS_SHAPE } from "./constants";
 
-const FEATURED_HEADING = "featured";
-const POPULAR_HEADING = "popular";
-const LATEST_HEADING = "latest";
 const SIDEBAR_OFFSET = 130;
-
 class EssayContainer extends PureComponent {
   constructor(props) {
     super(props);
@@ -53,22 +49,9 @@ class EssayContainer extends PureComponent {
         facebookShareLink,
         twitterShareLink
       },
-      popularEssays,
-      latestEssays,
       featuredEssays
     } = this.props;
 
-    const featuredCollection = [
-      { essays: featuredEssays, heading: FEATURED_HEADING },
-      {
-        essays: popularEssays,
-        heading: POPULAR_HEADING
-      },
-      {
-        essays: latestEssays,
-        heading: LATEST_HEADING
-      }
-    ];
     return (
       <Fragment>
         <div className="uk-grid" uk-grid="">
@@ -104,11 +87,30 @@ class EssayContainer extends PureComponent {
               />
             </div>
           </div>
-          {/* <div className="uk-visible@m uk-width-1-6@m" /> */}
         </div>
-        {featuredCollection.map(({ essays, heading }, idx) => (
-          <Featured key={idx} essays={essays} heading={heading} />
-        ))}
+
+        <div className="uk-section uk-section-small">
+          <div className="uk-container">
+            <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+              featured
+            </h3>
+            <div
+              className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
+              uk-grid=""
+            >
+              {featuredEssays.map(({ id, paragraphs, imageLink }) => (
+                <div key={id}>
+                  <Card
+                    text={paragraphs[0]}
+                    linkEssay={`/${id}`}
+                    imageLink={imageLink}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="uk-section uk-section-muted">
           <div className="uk-container uk-width-2-3@m uk-flex-center">
             <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
@@ -125,9 +127,7 @@ class EssayContainer extends PureComponent {
 
 EssayContainer.propTypes = {
   essay: ESSAYS_SHAPE,
-  featuredEssays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  latestEssays: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired,
-  popularEssays: PropTypes.PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
+  featuredEssays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
 };
 
 export default EssayContainer;
