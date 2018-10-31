@@ -1,7 +1,7 @@
 import React from "react";
 import { UPLOAD_IMAGE } from "./constants";
 
-const FormModal = () => (
+const Form = () => (
   <div className="uk-modal-full modal-form" uk-modal="">
     <div className="uk-modal-dialog">
       <button
@@ -19,6 +19,7 @@ const FormModal = () => (
         <div>
           <div className="uk-modal-body">
             <iframe
+              title="submit your essay"
               uk-responsive=""
               width="640"
               height="845"
@@ -43,4 +44,4 @@ const FormModal = () => (
   </div>
 );
 
-export default FormModal;
+export default Form;

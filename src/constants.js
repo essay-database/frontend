@@ -7,7 +7,7 @@ export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
 const IMAGES = [];
-importAll(require.context("./images/edited", true, /\.jpg$/));
+importAll(require.context("./images", true, /\.jpg$/));
 function importAll(r) {
   r.keys().forEach(key => IMAGES.push(r(key)));
 }
