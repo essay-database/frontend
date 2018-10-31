@@ -17,6 +17,7 @@ export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
+export const UPLOAD_TITLE = "Share your essay with the world!";
 // options
 export const TAGS = ["new", "popular", "featured"].sort();
 export const STATUSES = [

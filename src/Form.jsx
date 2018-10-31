@@ -1,5 +1,5 @@
 import React from "react";
-import { UPLOAD_IMAGE } from "./constants";
+import { UPLOAD_IMAGE, UPLOAD_TITLE } from "./constants";
 
 const Form = () => (
   <div className="uk-modal-full modal-form" uk-modal="">
@@ -10,7 +10,7 @@ const Form = () => (
         uk-close=""
       />
       <div className="uk-modal-header">
-        <h1 className="uk-text-center">Share with the world!</h1>
+        <h1 className="uk-text-center">{UPLOAD_TITLE}</h1>
       </div>
       <div
         className="uk-grid-collapse uk-flex-middle uk-child-width-1-2@m"
@@ -22,7 +22,7 @@ const Form = () => (
               title="submit your essay"
               uk-responsive=""
               width="640"
-              height="845"
+              height="800"
               src="https://docs.google.com/forms/d/e/1FAIpQLSd2KZfeAHiZ_UcxLtzs-3gwzP0mXPN_4HCTQKZ6aiB5764BOg/viewform?embedded=true"
             >
               Loading...
