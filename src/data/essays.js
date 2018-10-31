@@ -30,7 +30,7 @@ export default Array.from(Array(NUM_ARTICLES), () => ({
   id: faker.random.uuid(),
   paragraphs: denseParagraphs(
     faker.lorem.paragraphs(NUM_PARAGRAPHS).split(". "),
-    6
+    5
   ),
   prompt: faker.lorem.paragraph(),
   college: selectRandom(COLLEGES),
