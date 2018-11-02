@@ -1,6 +1,7 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import PropTypes from "prop-types";
-import { ESSAYS_SHAPE } from "./constants";
+import axios from "axios";
+import { ESSAYS_SHAPE, ESSAYS_INDEX } from "./constants";
 import Card from "./Card";
 
 const Empty = () => (
@@ -73,7 +74,14 @@ class Grid extends PureComponent {
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
+    let essays;
+    try {
+      essays = await axios.get(ESSAYS_INDEX);
+    } catch (error) {
+      console.error(error);
+      essays = [];
+    }
     this.handleFilter();
   };
 
