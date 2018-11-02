@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { selectRandom } from "./utils";
 
 export const FACEBOOK_PAGE_LINK = "#";
@@ -21,20 +20,3 @@ export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
 export const UPLOAD_TITLE = "Share with the world!";
-
-export const ESSAYS_SHAPE = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  prompt: PropTypes.string.isRequired,
-  college: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  yearApplied: PropTypes.number.isRequired,
-  author: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  applicationStatus: PropTypes.string.isRequired,
-  tag: PropTypes.string.isRequired,
-  dateUploaded: PropTypes.instanceOf(Date),
-  imageLink: PropTypes.string.isRequired,
-  facebookShareLink: PropTypes.string.isRequired,
-  twitterShareLink: PropTypes.string.isRequired
-}).isRequired;

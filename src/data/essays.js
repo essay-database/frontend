@@ -5,14 +5,11 @@ const RECENT_DAYS = 30;
 const WIDTH = 1920;
 const HEIGHT = WIDTH / 2;
 
-// faker.seed(321);
-function picsum() {
+function* picsum() {
   const images = IMAGES.map(img => img.id);
-  return function* selectImage() {
-    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${
-      images[faker.random.number(images.length - 1)]
-    }`;
-  };
+  yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${
+    images[faker.random.number(images.length - 1)]
+  }`;
 }
 
 function getTag(essay) {
@@ -26,7 +23,7 @@ const getImage = picsum();
 export function formatEssay(essay) {
   return Object.assign(essay, {
     tag: getTag(essay),
-    imageLink: getImage().next().value,
+    imageLink: getImage.next().value,
     facebookShareLink: "#",
     twitterShareLink: "#"
   });
