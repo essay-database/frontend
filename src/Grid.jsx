@@ -70,7 +70,8 @@ class Grid extends PureComponent {
     super(props);
     this.toTop = createRef();
     this.state = {
-      isVisible: true
+      isVisible: true,
+      essays: this.props.essays
     };
   }
 
@@ -82,11 +83,13 @@ class Grid extends PureComponent {
       console.error(error);
       essays = [];
     }
-    this.handleFilter();
+    this.setState({
+      essays
+    });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    this.handleFilter();
+    // this.handleFilter();
   };
 
   handleFilter = () => {
@@ -105,7 +108,7 @@ class Grid extends PureComponent {
   };
 
   render() {
-    const { essays } = this.props;
+    const { essays } = this.state;
     return (
       <div>
         {essays.length > 0 ? (

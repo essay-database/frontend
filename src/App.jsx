@@ -11,9 +11,8 @@ import Nav from "./Nav";
 import StaticPages from "./staticPages";
 import { shuffleSelect } from "./utils";
 import ESSAYS from "./data/essays";
+import { NUM_FEATURED } from "./constants";
 import "./styles/app.css";
-
-const NUM_FEATURED = 3;
 
 function EssayContainerWrapper({ match, essays }) {
   const essay = essays.find(essay => essay.id === match.params.id);

@@ -6,7 +6,8 @@ export const NUM_ARTICLES = 12;
 export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
-export const ESSAYS_INDEX = "localhost:4000/essays";
+export const ESSAYS_INDEX = "/essays";
+export const NUM_FEATURED = 3;
 
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
