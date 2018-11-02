@@ -1,7 +1,7 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
-import { ESSAYS_SHAPE, ESSAYS_INDEX } from "./constants";
+import { ESSAYS_INDEX } from "./constants";
+import { formatEssay } from "./data/essays";
 import Card from "./Card";
 
 const Empty = () => (
@@ -71,25 +71,24 @@ class Grid extends PureComponent {
     this.toTop = createRef();
     this.state = {
       isVisible: true,
-      essays: this.props.essays
+      essays: []
     };
   }
 
   componentDidMount = async () => {
-    let essays;
+    let { essays } = this.state;
     try {
-      essays = await axios.get(ESSAYS_INDEX);
+      ({ data: essays } = await axios.get(ESSAYS_INDEX));
     } catch (error) {
       console.error(error);
-      essays = [];
     }
-    this.setState({
-      essays
-    });
-  };
-
-  componentDidUpdate = (prevProps, prevState) => {
-    // this.handleFilter();
+    essays = essays.map(formatEssay);
+    this.setState(
+      {
+        essays
+      },
+      this.handleFilter
+    );
   };
 
   handleFilter = () => {
@@ -166,9 +165,5 @@ class Grid extends PureComponent {
     );
   }
 }
-
-Grid.propTypes = {
-  essays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
-};
 
 export default Grid;

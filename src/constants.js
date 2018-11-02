@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
-import US_COLLEGES_UNIVERSITIES from "./data/us_colleges_univerisities.json";
 import { selectRandom } from "./utils";
 
-export const NUM_ARTICLES = 12;
-export const NUM_YEARS_BACK = 100;
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
 export const ESSAYS_INDEX = "/essays";
@@ -24,17 +21,7 @@ export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
 export const UPLOAD_TITLE = "Share with the world!";
-// options
-export const TAGS = ["new", "popular", "featured"].sort();
-export const STATUSES = [
-  "pending",
-  "accepted",
-  "rejected",
-  "waitlisted"
-].sort();
-export const COLLEGES = US_COLLEGES_UNIVERSITIES.map(
-  college => college.institution
-).sort();
+
 export const ESSAYS_SHAPE = PropTypes.shape({
   id: PropTypes.string.isRequired,
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,

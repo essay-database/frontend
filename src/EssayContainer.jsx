@@ -1,11 +1,12 @@
 import React, { PureComponent, Fragment, createRef } from "react";
-import PropTypes from "prop-types";
+import axios from "axios";
 import Essay from "./Essay";
 import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
+import StaticPages from "./staticPages";
 import Comments from "./Comments";
-import { ESSAYS_SHAPE } from "./constants";
+import { ESSAYS_INDEX } from "./constants";
 import "./styles/essay_container.css";
 
 const SIDEBAR_OFFSET = 130;
@@ -13,29 +14,45 @@ class EssayContainer extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      essay: null,
+      featuredEssays: [],
       invisisble: false
     };
     this.socialLimit = createRef();
     this.socialBar = createRef();
   }
 
-  componentDidMount() {
-    window.onscroll = () => {
-      const offsetTop = this.socialLimit.current.offsetTop;
-      const heightBottom = this.socialBar.current.getBoundingClientRect()
-        .bottom;
-      if (window.scrollY + heightBottom > offsetTop) {
+  handleScroll = () => {
+    const offsetTop = this.socialLimit.current.offsetTop;
+    const heightBottom = this.socialBar.current.getBoundingClientRect().bottom;
+    if (window.scrollY + heightBottom > offsetTop) {
+      this.setState({
+        invisisble: true
+      });
+    } else {
+      if (this.state.invisisble) {
         this.setState({
-          invisisble: true
+          invisisble: false
         });
-      } else {
-        if (this.state.invisisble) {
-          this.setState({
-            invisisble: false
-          });
-        }
       }
-    };
+    }
+  };
+
+  async componentDidMount() {
+    let { essay, featuredEssays } = this.state;
+    try {
+      ({ data: essay } = await axios.get(
+        `${ESSAYS_INDEX}:${this.props.match.params.id}`
+      ));
+      ({ data: featuredEssays } = await axios.get(ESSAYS_INDEX + "/featured"));
+    } catch (error) {
+      console.error(error);
+    }
+    this.setState({
+      essay,
+      featuredEssays
+    });
+    window.onscroll = this.handleScroll;
   }
 
   render() {
@@ -54,9 +71,9 @@ class EssayContainer extends PureComponent {
         twitterShareLink
       },
       featuredEssays
-    } = this.props;
+    } = this.state;
 
-    return (
+    return this.state.essay ? (
       <Fragment>
         <div className="uk-grid" uk-grid="">
           <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
@@ -127,13 +144,10 @@ class EssayContainer extends PureComponent {
         </div>
         <Footer />
       </Fragment>
+    ) : (
+      <StaticPages.PageNotFound />
     );
   }
 }
-
-EssayContainer.propTypes = {
-  essay: ESSAYS_SHAPE,
-  featuredEssays: PropTypes.arrayOf(ESSAYS_SHAPE).isRequired
-};
 
 export default EssayContainer;
