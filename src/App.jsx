@@ -16,15 +16,15 @@ export default () => (
     <div id="app">
       <Nav />
       <Switch>
-        <Route exact path="/" component={Grid} />
+        <Route exact path="/" render={() => <Redirect to="/" />} />
+        <Route exact path="/essays" component={Grid} />
+        <Route exact path="/essays/:id" component={EssayContainer} />
         <Route exact path="/about" component={StaticPages.About} />
         <Route exact path="/contact" component={StaticPages.Contact} />
         <Route exact path="/advertise" component={StaticPages.Advertise} />
         <Route exact path="/terms" component={StaticPages.Terms} />
         <Route exact path="/privacy" component={StaticPages.Privacy} />
         <Route exact path="/help" component={StaticPages.Help} />
-        <Route exact path="/essays" render={() => <Redirect to="/" />} />
-        <Route exact path="/:id" component={EssayContainer} />
         <Route component={StaticPages.PageNotFound} />
       </Switch>
     </div>

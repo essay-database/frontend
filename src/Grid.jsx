@@ -92,16 +92,18 @@ class Grid extends PureComponent {
   };
 
   handleFilter = () => {
-    const offsetTop = this.toTop.current.offsetTop;
-    if (offsetTop > window.innerHeight) {
-      this.setState({
-        isVisible: true
-      });
-    } else {
-      if (this.state.isVisible) {
+    if (this.state.essays.length > 0) {
+      const offsetTop = this.toTop.current.offsetTop;
+      if (offsetTop > window.innerHeight) {
         this.setState({
-          isVisible: false
+          isVisible: true
         });
+      } else {
+        if (this.state.isVisible) {
+          this.setState({
+            isVisible: false
+          });
+        }
       }
     }
   };
@@ -141,7 +143,7 @@ class Grid extends PureComponent {
                       text={paragraphs[0]}
                       tag={tag}
                       imageLink={imageLink}
-                      linkEssay={`/${id}`}
+                      linkEssay={`${ESSAYS_INDEX + "/" + id}`}
                       college={college}
                       applicationStatus={applicationStatus}
                     />

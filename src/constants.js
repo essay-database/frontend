@@ -14,7 +14,7 @@ export const UPLOAD_IMAGE = selectRandom(IMAGES);
 // app info
 export { default as LOGO_IMAGE } from "./icons/logo.png";
 export { default as LOGO_IMAGE_LIGHT } from "./icons/logo-white.png";
-export const LOGO_WIDTH = 150;
+export const LOGO_WIDTH = 140;
 export const LOGO = "essay db";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =

@@ -1,4 +1,4 @@
-import faker from "faker";
+import { selectRandom } from "../utils";
 import IMAGES from "../data/picsum.json";
 
 const RECENT_DAYS = 30;
@@ -8,7 +8,7 @@ const HEIGHT = WIDTH / 2;
 function* picsum() {
   const images = IMAGES.map(img => img.id);
   yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${
-    images[faker.random.number(images.length - 1)]
+    images[selectRandom(images.length - 1)]
   }`;
 }
 

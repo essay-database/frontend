@@ -42,7 +42,7 @@ class EssayContainer extends PureComponent {
     let { essay, featuredEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
-        `${ESSAYS_INDEX}:${this.props.match.params.id}`
+        `${ESSAYS_INDEX}/${this.props.match.params.id}`
       ));
       ({ data: featuredEssays } = await axios.get(ESSAYS_INDEX + "/featured"));
     } catch (error) {
