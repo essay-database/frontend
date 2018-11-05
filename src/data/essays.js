@@ -7,8 +7,8 @@ const HEIGHT = WIDTH / 2;
 
 function picsum() {
   const images = IMAGES.map(img => img.id);
-  return function*() {
-    yield `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${selectRandom(
+  return function() {
+    return `https://picsum.photos/${WIDTH}/${HEIGHT}?image=${selectRandom(
       images
     )}`;
   };
@@ -25,7 +25,7 @@ export function formatEssay(essay) {
   return {
     ...essay,
     tag: getTag(essay),
-    imageLink: getImage().next().value,
+    imageLink: getImage(),
     facebookShareLink: "#",
     twitterShareLink: "#"
   };

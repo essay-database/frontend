@@ -8,6 +8,7 @@ import StaticPages from "./staticPages";
 import Comments from "./Comments";
 import { ESSAYS_INDEX } from "./constants";
 import "./styles/essay_container.css";
+import { formatEssay } from "./data/essays";
 
 const SIDEBAR_OFFSET = 130;
 class EssayContainer extends PureComponent {
@@ -40,7 +41,6 @@ class EssayContainer extends PureComponent {
 
   async componentDidMount() {
     let { essay, featuredEssays } = this.state;
-
     try {
       ({ data: essay } = await axios.get(
         `${ESSAYS_INDEX}/${this.props.match.params.id}`
@@ -50,8 +50,8 @@ class EssayContainer extends PureComponent {
       console.error(error);
     }
     this.setState({
-      essay,
-      featuredEssays
+      essay: formatEssay(essay),
+      featuredEssays: featuredEssays.map(essay => formatEssay(essay))
     });
     window.onscroll = this.handleScroll;
   }
