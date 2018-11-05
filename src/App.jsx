@@ -16,7 +16,7 @@ export default () => (
     <div id="app">
       <Nav />
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/" />} />
+        <Route exact path="/" render={() => <Redirect to="/essays" />} />
         <Route exact path="/essays" component={Grid} />
         <Route exact path="/essays/:id" component={EssayContainer} />
         <Route exact path="/about" component={StaticPages.About} />

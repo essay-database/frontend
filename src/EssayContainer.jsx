@@ -40,6 +40,7 @@ class EssayContainer extends PureComponent {
 
   async componentDidMount() {
     let { essay, featuredEssays } = this.state;
+
     try {
       ({ data: essay } = await axios.get(
         `${ESSAYS_INDEX}/${this.props.match.params.id}`
@@ -56,57 +57,42 @@ class EssayContainer extends PureComponent {
   }
 
   render() {
-    const {
-      essay: {
-        prompt,
-        college,
-        country,
-        dateUploaded,
-        yearApplied,
-        applicationStatus,
-        imageLink,
-        paragraphs,
-        author,
-        facebookShareLink,
-        twitterShareLink
-      },
-      featuredEssays
-    } = this.state;
+    const { essay, featuredEssays, invisisble } = this.state;
 
-    return this.state.essay ? (
+    return essay ? (
       <Fragment>
         <div className="uk-grid" uk-grid="">
           <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
             <div
               id="social_side"
               uk-sticky={`offset: ${SIDEBAR_OFFSET};`}
-              className={this.state.invisisble ? "uk-invisible" : ""}
+              className={invisisble ? "uk-invisible" : ""}
               ref={this.socialBar}
             >
               <Sidebar
-                facebookShareLink={facebookShareLink}
-                twitterShareLink={twitterShareLink}
+                facebookShareLink={essay.facebookShareLink}
+                twitterShareLink={essay.twitterShareLink}
               />
             </div>
           </div>
           <div className="uk-width-2-3@m">
             <Essay
-              paragraphs={paragraphs}
-              prompt={prompt}
-              imageLink={imageLink}
-              author={author}
-              college={college}
-              country={country}
-              dateUploaded={dateUploaded}
-              applicationStatus={applicationStatus}
-              yearApplied={yearApplied}
+              paragraphs={essay.paragraphs}
+              prompt={essay.prompt}
+              imageLink={essay.imageLink}
+              author={essay.author}
+              college={essay.college}
+              country={essay.country}
+              dateUploaded={essay.dateUploaded}
+              applicationStatus={essay.applicationStatus}
+              yearApplied={essay.yearApplied}
             />
             <div ref={this.socialLimit} />
             <div className="uk-hidden@m uk-flex uk-flex-right uk-padding">
               <Sidebar
                 horizontal
-                facebookShareLink={facebookShareLink}
-                twitterShareLink={twitterShareLink}
+                facebookShareLink={essay.facebookShareLink}
+                twitterShareLink={essay.twitterShareLink}
               />
             </div>
           </div>

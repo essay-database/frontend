@@ -70,7 +70,7 @@ class Grid extends PureComponent {
     super(props);
     this.toTop = createRef();
     this.state = {
-      isVisible: true,
+      isVisible: false,
       essays: []
     };
   }
@@ -82,10 +82,9 @@ class Grid extends PureComponent {
     } catch (error) {
       console.error(error);
     }
-    essays = essays.map(formatEssay);
     this.setState(
       {
-        essays
+        essays: essays.map(essay => formatEssay(essay))
       },
       this.handleFilter
     );
