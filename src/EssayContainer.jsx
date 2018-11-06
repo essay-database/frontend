@@ -4,9 +4,10 @@ import Essay from "./Essay";
 import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import StaticPages from "./staticPages";
 import Comments from "./Comments";
-import { ESSAYS_INDEX } from "./constants";
+import { ESSAYS_INDEX, LOADING_DELAY, NUM_FEATURED } from "./constants";
+import { shuffleSelect } from "./utils";
+import { Loading, PageNotFound } from "./staticPages/";
 import "./styles/essay_container.css";
 
 const SIDEBAR_OFFSET = 130;
@@ -16,7 +17,8 @@ class EssayContainer extends PureComponent {
     this.state = {
       essay: null,
       featuredEssays: [],
-      invisisble: false
+      invisisble: false,
+      isLoading: true
     };
     this.socialLimit = createRef();
     this.socialBar = createRef();
@@ -48,16 +50,19 @@ class EssayContainer extends PureComponent {
     } catch (error) {
       console.error(error);
     }
-    this.setState({
-      essay,
-      featuredEssays
-    });
+    setTimeout(() => {
+      this.setState({
+        essay,
+        featuredEssays: shuffleSelect(featuredEssays, NUM_FEATURED),
+        isLoading: false
+      });
+    }, LOADING_DELAY);
     window.onscroll = this.handleScroll;
   }
 
   render() {
-    const { essay, featuredEssays, invisisble } = this.state;
-
+    const { essay, featuredEssays, invisisble, isLoading } = this.state;
+    if (isLoading) return <Loading />;
     return essay ? (
       <Fragment>
         <div className="uk-grid" uk-grid="">
@@ -130,7 +135,7 @@ class EssayContainer extends PureComponent {
         <Footer />
       </Fragment>
     ) : (
-      <StaticPages.PageNotFound />
+      <PageNotFound />
     );
   }
 }

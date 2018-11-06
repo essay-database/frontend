@@ -20,3 +20,4 @@ export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Compiling a global collection of college application essays and personal statements.";
 export const UPLOAD_TITLE = "Share with the world!";
+export const LOADING_DELAY = 600;

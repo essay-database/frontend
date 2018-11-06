@@ -58,7 +58,7 @@ class Form extends PureComponent {
                 uk-img=""
                 uk-height-viewport=""
               />
-              <div className="uk-overlay uk-overlay-default uk-position-cover" />
+              <div className="uk-visible@m uk-overlay uk-overlay-default uk-position-cover" />
             </div>
           </div>
         </div>

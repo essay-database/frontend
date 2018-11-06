@@ -4,14 +4,20 @@ import Advertise from "./Advertise";
 import Privacy from "./Privacy";
 import Terms from "./Terms";
 import Help from "./Help";
+import Center from "./Center";
+import Loading from "./Loading";
 import PageNotFound from "./404";
+import Empty from "./Empty";
 
-export default {
+export {
   Contact,
   About,
   Advertise,
   Privacy,
   Terms,
   Help,
-  PageNotFound
+  PageNotFound,
+  Center,
+  Loading,
+  Empty
 };

@@ -14,19 +14,18 @@ const Essay = ({
   imageLink
 }) => {
   return (
-    <div className="uk-padding-small">
-      <article className="uk-article">
-        <h2 className="uk-heading-primary uk-margin-small-bottom">{prompt}</h2>
-        <div className=" uk-overflow-hidden">
-          <img
-            data-src={imageLink}
-            alt=""
-            uk-img=""
-            uk-scrollspy="cls: uk-animation-kenburns; repeat: true"
-            className="uk-animation-reverse uk-transform-origin-top-right"
-          />
-        </div>
-
+    <article className="uk-article">
+      <h2 className="uk-heading-primary uk-margin-small-bottom">{prompt}</h2>
+      <div className=" uk-overflow-hidden">
+        <img
+          data-src={imageLink}
+          alt=""
+          uk-img=""
+          uk-scrollspy="cls: uk-animation-kenburns; repeat: true"
+          className="uk-animation-reverse uk-transform-origin-top-right"
+        />
+      </div>
+      <div className="uk-padding-small">
         <Details
           author={author}
           college={college}
@@ -45,8 +44,8 @@ const Essay = ({
             </p>
           ))}
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 };
 
@@ -54,10 +53,10 @@ Essay.propTypes = {
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   prompt: PropTypes.string,
   imageLink: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  dateUploaded: PropTypes.object.isRequired,
+  dateUploaded: PropTypes.string.isRequired,
   applicationStatus: PropTypes.string.isRequired,
   yearApplied: PropTypes.number.isRequired
 };

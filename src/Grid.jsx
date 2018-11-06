@@ -1,8 +1,8 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import axios from "axios";
-import { ESSAYS_INDEX } from "./constants";
+import { ESSAYS_INDEX, LOADING_DELAY } from "./constants";
 import Card from "./Card";
-import Empty from "./staticPages/Empty";
+import { Empty, Loading } from "./staticPages";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -22,7 +22,7 @@ const ToTop = forwardRef((props, ref) => (
 
 const FilterSort = ({ handleFilter }) => (
   <Fragment>
-    <div className="uk-flex uk-flex-between uk-flex-wrap">
+    <div className="uk-flex uk-flex-between uk-flex-wrap uk-margin-top">
       <div>
         <ul onClick={handleFilter} className="uk-subnav uk-subnav-pill">
           <li className="uk-active" uk-filter-control="">
@@ -62,7 +62,8 @@ class Grid extends PureComponent {
     this.toTop = createRef();
     this.state = {
       isVisible: false,
-      essays: []
+      essays: [],
+      isLoading: true
     };
   }
 
@@ -73,12 +74,15 @@ class Grid extends PureComponent {
     } catch (error) {
       console.error(error);
     }
-    this.setState(
-      {
-        essays
-      },
-      this.handleFilter
-    );
+    setTimeout(() => {
+      this.setState(
+        {
+          essays,
+          isLoading: false
+        },
+        this.handleFilter
+      );
+    }, LOADING_DELAY / 2);
   };
 
   handleFilter = () => {
@@ -99,7 +103,8 @@ class Grid extends PureComponent {
   };
 
   render() {
-    const { essays } = this.state;
+    const { essays, isLoading } = this.state;
+    if (isLoading) return <Loading />;
     return (
       <div>
         {essays.length > 0 ? (

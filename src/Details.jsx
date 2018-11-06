@@ -40,7 +40,7 @@ const Details = ({
 );
 
 Details.propTypes = {
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   dateUploaded: PropTypes.string.isRequired,
