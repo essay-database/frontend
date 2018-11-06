@@ -6,7 +6,7 @@ import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import Comments from "./Comments";
-import { ESSAYS_INDEX, LOADING_DELAY, NUM_FEATURED } from "./constants";
+import { FETCH_URL, LOADING_DELAY, NUM_FEATURED } from "./constants";
 import { shuffleSelect } from "./utils";
 import { Loading, PageNotFound } from "./staticPages/";
 import "./styles/essay_container.css";
@@ -52,9 +52,9 @@ class EssayContainer extends PureComponent {
     let { essay, featuredEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
-        `${ESSAYS_INDEX}/${this.props.match.params.id}`
+        `${FETCH_URL}/${this.props.match.params.id}`
       ));
-      ({ data: featuredEssays } = await axios.get(ESSAYS_INDEX + "/featured"));
+      ({ data: featuredEssays } = await axios.get(FETCH_URL + "/featured"));
     } catch (error) {
       console.error(error);
     }
@@ -129,7 +129,7 @@ class EssayContainer extends PureComponent {
                 <div key={id}>
                   <Card
                     text={paragraphs[0]}
-                    linkEssay={`${ESSAYS_INDEX}/${id}`}
+                    linkEssay={`/essays/${id}`}
                     imageLink={imageLink}
                   />
                 </div>

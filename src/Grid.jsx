@@ -1,7 +1,7 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import { withRouter } from "react-router";
 import axios from "axios";
-import { ESSAYS_INDEX, LOADING_DELAY } from "./constants";
+import { FETCH_URL, LOADING_DELAY } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
 
@@ -96,7 +96,7 @@ class Grid extends PureComponent {
   componentDidMount = async () => {
     let { essays } = this.state;
     try {
-      ({ data: essays } = await axios.get(ESSAYS_INDEX));
+      ({ data: essays } = await axios.get(FETCH_URL));
     } catch (error) {
       console.error(error);
     }
@@ -152,7 +152,7 @@ class Grid extends PureComponent {
                       text={paragraphs[0]}
                       tag={tag}
                       imageLink={imageLink}
-                      linkEssay={`${ESSAYS_INDEX + "/" + id}`}
+                      linkEssay={`/essays/${id}`}
                       college={college}
                       applicationStatus={applicationStatus}
                     />

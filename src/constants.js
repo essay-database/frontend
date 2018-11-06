@@ -2,7 +2,8 @@ import { selectRandom } from "./utils";
 
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
-export const ESSAYS_INDEX = "/essays";
+
+export const FETCH_URL = "https://cryptic-anchorage-38373.herokuapp.com/essays";
 export const NUM_FEATURED = 3;
 
 const IMAGES = [];

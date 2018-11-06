@@ -35,7 +35,6 @@
     "name": "",
     "url": ""
   },
-  "proxy": "http://localhost:4000/",
   "private": true,
   "license": "UNLICENCED"
 }
