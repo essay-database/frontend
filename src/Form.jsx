@@ -18,7 +18,10 @@ class Form extends PureComponent {
   handleDimensions = () => {
     this.setState({
       width: getWidth(),
-      height: window.innerHeight - this.ref.current.offsetHeight
+      height:
+        window.innerHeight -
+        this.ref.current.offsetHeight +
+        (window.innerWidth > 960 ? 100 : 0)
     });
   };
 

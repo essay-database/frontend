@@ -19,7 +19,10 @@ const Details = ({
         </p>
       </div>
       <div>
-        <p>{Date.parse(dateUploaded)}</p>
+        <p>
+          {new Date(Date.parse(dateUploaded)).toLocaleDateString("en") ||
+            new Date()}
+        </p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">

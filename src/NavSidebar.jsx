@@ -1,7 +1,7 @@
 import React, { PureComponent, createRef } from "react";
 import PropTypes from "prop-types";
 import { Route, Link } from "react-router-dom";
-import { COPYRIGHT, LOGO, LOGO_IMAGE_LIGHT, LOGO_WIDTH } from "./constants";
+import { COPYRIGHT } from "./constants";
 import "./styles/nav_side.css";
 
 const RouteLink = ({ to, exact, children, ...restProps }) => (
@@ -39,21 +39,6 @@ class NavSide extends PureComponent {
       <div id="offcanvas-nav" uk-offcanvas="" ref={this.offCanvas}>
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
           <button className="uk-offcanvas-close " type="button" uk-close="" />
-
-          <div className="uk-flex uk-flex-center uk-light">
-            <a
-              href="/"
-              className="uk-logo uk-link-text"
-              onClick={this.handleClick}
-            >
-              <img
-                className="uk-transition-scale-up uk-transition-opaque uk-logo-inverse"
-                src={LOGO_IMAGE_LIGHT}
-                alt={LOGO}
-                width={(LOGO_WIDTH / 3) * 2}
-              />
-            </a>
-          </div>
 
           <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <RouteLink to="/about" onClick={this.handleClick}>

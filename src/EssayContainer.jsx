@@ -115,7 +115,7 @@ class EssayContainer extends PureComponent {
                 <div key={id}>
                   <Card
                     text={paragraphs[0]}
-                    linkEssay={`/${id}`}
+                    linkEssay={`${ESSAYS_INDEX}/${id}`}
                     imageLink={imageLink}
                   />
                 </div>
