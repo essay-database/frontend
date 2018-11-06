@@ -1,17 +1,8 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import axios from "axios";
 import { ESSAYS_INDEX } from "./constants";
-import { formatEssay } from "./data/essays";
 import Card from "./Card";
-
-const Empty = () => (
-  <div
-    className="uk-flex uk-flex-center uk-flex-middle"
-    uk-height-viewport="expand: true"
-  >
-    <p>nothing to show</p>
-  </div>
-);
+import Empty from "./staticPages/Empty";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -84,7 +75,7 @@ class Grid extends PureComponent {
     }
     this.setState(
       {
-        essays: essays.map(essay => formatEssay(essay))
+        essays
       },
       this.handleFilter
     );

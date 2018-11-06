@@ -19,7 +19,7 @@ const Details = ({
         </p>
       </div>
       <div>
-        <p>{dateUploaded && dateUploaded.toLocaleDateString("en-US")}</p>
+        <p>{Date.parse(dateUploaded)}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">
@@ -43,7 +43,7 @@ Details.propTypes = {
   author: PropTypes.string.isRequired,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  dateUploaded: PropTypes.instanceOf(Date).isRequired,
+  dateUploaded: PropTypes.string.isRequired,
   applicationStatus: PropTypes.string.isRequired,
   yearApplied: PropTypes.number.isRequired
 };

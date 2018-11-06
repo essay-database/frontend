@@ -8,7 +8,6 @@ import StaticPages from "./staticPages";
 import Comments from "./Comments";
 import { ESSAYS_INDEX } from "./constants";
 import "./styles/essay_container.css";
-import { formatEssay } from "./data/essays";
 
 const SIDEBAR_OFFSET = 130;
 class EssayContainer extends PureComponent {
@@ -50,8 +49,8 @@ class EssayContainer extends PureComponent {
       console.error(error);
     }
     this.setState({
-      essay: formatEssay(essay),
-      featuredEssays: featuredEssays.map(essay => formatEssay(essay))
+      essay,
+      featuredEssays
     });
     window.onscroll = this.handleScroll;
   }
