@@ -5,7 +5,6 @@ import Essay from "./Essay";
 import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import Comments from "./Comments";
 import { FETCH_URL, LOADING_DELAY, NUM_FEATURED } from "./constants";
 import { shuffleSelect } from "./utils";
 import { Loading, PageNotFound } from "./staticPages/";
@@ -48,6 +47,19 @@ class EssayContainer extends PureComponent {
       this.props.history.goForward();
   };
 
+  loadComments() {
+    (function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src =
+        "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=1298099583680280&autoLogAppEvents=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+  }
+
   async componentDidMount() {
     let { essay, featuredEssays } = this.state;
     try {
@@ -67,6 +79,7 @@ class EssayContainer extends PureComponent {
     }, LOADING_DELAY);
     window.onpopstate = this.handlePopState;
     window.onscroll = this.handleScroll;
+    this.loadComments();
   }
 
   componentWillUnmount() {
@@ -143,7 +156,11 @@ class EssayContainer extends PureComponent {
             <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
               comments
             </h3>
-            <Comments />
+            <div
+              className="fb-comments"
+              data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+              data-numposts="5"
+            />
           </div>
         </div>
         <Footer />
