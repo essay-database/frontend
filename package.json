@@ -6,6 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "axios": "^0.18.0",
+    "faker": "^4.1.0",
     "prop-types": "^15.6.2",
     "react": "16.3.2",
     "react-dom": "16.3.2",
@@ -16,24 +17,22 @@
   "devDependencies": {
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "faker": "^4.1.0",
     "prettier": "^1.14.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "health": "depcheck; shrimpit src; npm-check;"
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/essayDB/client.git"
   },
   "author": {
-    "email": "",
-    "name": "",
-    "url": ""
+    "email": "info@essaydatabase.org",
+    "name": "essaydatabase",
+    "url": "essaydatabase.org"
   },
   "private": true,
   "license": "UNLICENCED"
