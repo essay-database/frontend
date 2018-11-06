@@ -67,7 +67,30 @@ class Grid extends PureComponent {
     };
   }
 
+  handleFilter = () => {
+    if (this.state.essays.length > 0) {
+      const offsetTop = this.toTop.current.offsetTop;
+      if (offsetTop > window.innerHeight) {
+        this.setState({
+          isVisible: true
+        });
+      } else {
+        if (this.state.isVisible) {
+          this.setState({
+            isVisible: false
+          });
+        }
+      }
+    }
+  };
+
+  handlePopState = e => {
+    e.preventDefault();
+    this.props.history.goBack();
+  };
+
   componentDidMount = async () => {
+    window.onpopstate = this.handlePopState;
     let { essays } = this.state;
     try {
       ({ data: essays } = await axios.get(ESSAYS_INDEX));
@@ -85,22 +108,9 @@ class Grid extends PureComponent {
     }, LOADING_DELAY / 2);
   };
 
-  handleFilter = () => {
-    if (this.state.essays.length > 0) {
-      const offsetTop = this.toTop.current.offsetTop;
-      if (offsetTop > window.innerHeight) {
-        this.setState({
-          isVisible: true
-        });
-      } else {
-        if (this.state.isVisible) {
-          this.setState({
-            isVisible: false
-          });
-        }
-      }
-    }
-  };
+  componentWillUnmount() {
+    window.onpopstate = null;
+  }
 
   render() {
     const { essays, isLoading } = this.state;

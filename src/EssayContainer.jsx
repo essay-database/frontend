@@ -40,7 +40,13 @@ class EssayContainer extends PureComponent {
     }
   };
 
+  handlePopState = e => {
+    e.preventDefault();
+    this.props.history.goBack();
+  };
+
   async componentDidMount() {
+    window.onpopstate = this.handlePopState;
     let { essay, featuredEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
@@ -58,6 +64,11 @@ class EssayContainer extends PureComponent {
       });
     }, LOADING_DELAY);
     window.onscroll = this.handleScroll;
+  }
+
+  componentWillUnmount() {
+    window.onscroll = null;
+    window.onpopstate = null;
   }
 
   render() {

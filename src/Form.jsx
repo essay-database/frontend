@@ -30,6 +30,10 @@ class Form extends PureComponent {
     window.onresize = this.handleDimensions;
   };
 
+  componentWillUnmount() {
+    window.onresize = null;
+  }
+
   render() {
     const { width, height } = this.state;
     return (
