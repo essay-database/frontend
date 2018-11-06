@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment, createRef } from "react";
+import { withRouter } from "react-router";
 import axios from "axios";
 import Essay from "./Essay";
 import Card from "./Card";
@@ -42,11 +43,12 @@ class EssayContainer extends PureComponent {
 
   handlePopState = e => {
     e.preventDefault();
-    this.props.history.goBack();
+    if (this.props.history.action === "POP") this.props.history.goBack();
+    else if (this.props.history.action === "PUSH")
+      this.props.history.goForward();
   };
 
   async componentDidMount() {
-    window.onpopstate = this.handlePopState;
     let { essay, featuredEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
@@ -63,6 +65,7 @@ class EssayContainer extends PureComponent {
         isLoading: false
       });
     }, LOADING_DELAY);
+    window.onpopstate = this.handlePopState;
     window.onscroll = this.handleScroll;
   }
 
@@ -151,4 +154,4 @@ class EssayContainer extends PureComponent {
   }
 }
 
-export default EssayContainer;
+export default withRouter(EssayContainer);

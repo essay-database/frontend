@@ -1,4 +1,5 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
+import { withRouter } from "react-router";
 import axios from "axios";
 import { ESSAYS_INDEX, LOADING_DELAY } from "./constants";
 import Card from "./Card";
@@ -86,11 +87,13 @@ class Grid extends PureComponent {
 
   handlePopState = e => {
     e.preventDefault();
-    this.props.history.goBack();
+
+    if (this.props.history.action === "POP") this.props.history.goBack();
+    else if (this.props.history.action === "PUSH")
+      this.props.history.goForward();
   };
 
   componentDidMount = async () => {
-    window.onpopstate = this.handlePopState;
     let { essays } = this.state;
     try {
       ({ data: essays } = await axios.get(ESSAYS_INDEX));
@@ -106,6 +109,7 @@ class Grid extends PureComponent {
         this.handleFilter
       );
     }, LOADING_DELAY / 2);
+    window.onpopstate = this.handlePopState;
   };
 
   componentWillUnmount() {
@@ -173,4 +177,4 @@ class Grid extends PureComponent {
   }
 }
 
-export default Grid;
+export default withRouter(Grid);
