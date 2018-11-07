@@ -6,6 +6,13 @@ export const TWITTER_PAGE_LINK = "#";
 export const FETCH_URL = "https://essaydb-backend.herokuapp.com/essays";
 export const NUM_FEATURED = 3;
 
+// TODO add redirect URL: redirect_uri=https://www.essaydatabase.org
+export const FACEBOOK_SHARE_LINK = `https://www.facebook.com/dialog/share?app_id=1298099583680280&href=www.essaydatabase.org&quote=checkout%20essaydb%20for%20college%20application%20essays
+`;
+
+export const TWITTER_SHARE_LINK = `https://twitter.com/intent/tweet?url=www.essaydatabase.org&text=checkout%20essaydb%20for%20college%20application%20essays&hashtags=essaydb
+`;
+
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
 function importAll(r) {

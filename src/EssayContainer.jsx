@@ -5,7 +5,13 @@ import Essay from "./Essay";
 import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import { FETCH_URL, LOADING_DELAY, NUM_FEATURED } from "./constants";
+import {
+  FETCH_URL,
+  LOADING_DELAY,
+  NUM_FEATURED,
+  FACEBOOK_SHARE_LINK,
+  TWITTER_SHARE_LINK
+} from "./constants";
 import { shuffleSelect } from "./utils";
 import { Loading, PageNotFound } from "./staticPages/";
 import "./styles/essay_container.css";
@@ -101,8 +107,8 @@ class EssayContainer extends PureComponent {
               ref={this.socialBar}
             >
               <Sidebar
-                facebookShareLink={essay.facebookShareLink}
-                twitterShareLink={essay.twitterShareLink}
+                facebookShareLink={FACEBOOK_SHARE_LINK}
+                twitterShareLink={TWITTER_SHARE_LINK}
               />
             </div>
           </div>
@@ -158,7 +164,7 @@ class EssayContainer extends PureComponent {
             </h3>
             <div
               className="fb-comments"
-              data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+              data-href="www.essaydatabase.org"
               data-numposts="5"
             />
           </div>
