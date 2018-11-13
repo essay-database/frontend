@@ -66,6 +66,7 @@ class EssayContainer extends PureComponent {
     })(document, "script", "facebook-jssdk");
   }
 
+  // TODO make requests parallel
   async componentDidMount() {
     let { essay, featuredEssays } = this.state;
     try {
@@ -161,6 +162,7 @@ class EssayContainer extends PureComponent {
           <div className="uk-container uk-width-2-3@m uk-flex-center">
             <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
               comments
+              <span>does not appear on your facebook feed</span>
             </h3>
             <div
               className="fb-comments"
