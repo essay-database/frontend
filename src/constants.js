@@ -3,7 +3,7 @@ import { selectRandom } from "./utils";
 export const FACEBOOK_PAGE_LINK = "#";
 export const TWITTER_PAGE_LINK = "#";
 
-export const FETCH_URL = "https://essaydb-backend.herokuapp.com/essays";
+export const FETCH_URL = "http://backend";
 export const NUM_FEATURED = 3;
 
 // TODO add redirect URL: redirect_uri=https://www.essaydatabase.org
