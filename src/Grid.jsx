@@ -27,16 +27,16 @@ const FilterSort = ({ handleFilter }) => (
       <div>
         <ul onClick={handleFilter} className="uk-subnav uk-subnav-pill">
           <li className="uk-active" uk-filter-control="">
-            <a>All</a>
+            <a href="#">All</a>
           </li>
           <li uk-filter-control="[data-tag='new']">
-            <a>New</a>
+            <a href="#">New</a>
           </li>
           <li uk-filter-control="[data-tag='popular']">
-            <a>Popular</a>
+            <a href="#">Popular</a>
           </li>
           <li uk-filter-control="[data-tag='featured']">
-            <a>Featured</a>
+            <a href="#">Featured</a>
           </li>
         </ul>
       </div>
@@ -46,10 +46,10 @@ const FilterSort = ({ handleFilter }) => (
             className="uk-active"
             uk-filter-control="sort: data-date; order: desc"
           >
-            <a>Most recent</a>
+            <a href="#">Most recent</a>
           </li>
           <li uk-filter-control="sort: data-date">
-            <a>Least recent</a>
+            <a href="#">Least recent</a>
           </li>
         </ul>
       </div>

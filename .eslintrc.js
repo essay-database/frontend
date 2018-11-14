@@ -11,5 +11,8 @@ module.exports = {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
-    "rules":{}
+    "rules":{
+        "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/anchor-has-content": 0
+    }
 };

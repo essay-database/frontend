@@ -32,12 +32,14 @@ export default () => (
                 className="facebook uk-icon-button  uk-margin-small-right"
                 uk-icon="facebook"
                 target="_blank"
+                rel="noopener noreferrer"
               />
               <a
                 href={TWITTER_PAGE_LINK}
                 className="twitter uk-icon-button uk-margin-small-right"
                 uk-icon="twitter"
                 target="_blank"
+                rel="noopener noreferrer"
               />
             </p>
           </div>
