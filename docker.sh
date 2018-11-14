@@ -1,6 +1,6 @@
 #!/bin/bash
-imageName=essaydb-frontend:1.0.0
-containerName=essaydb-frontend
+imageName=essaydb-frontend:latest
+containerName=essaydb-frontend-latest
 
 echo building image...
 docker build -t $imageName -f Dockerfile  .

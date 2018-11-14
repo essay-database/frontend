@@ -162,7 +162,7 @@ class EssayContainer extends PureComponent {
           <div className="uk-container uk-width-2-3@m uk-flex-center">
             <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
               comments
-              <span>does not appear on your facebook feed</span>
+              <span> (does not post on your facebook account)</span>
             </h3>
             <div
               className="fb-comments"
