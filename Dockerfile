@@ -6,6 +6,4 @@ COPY package*.json ./
 RUN npm install --only=prod
 COPY . .
 RUN npm run build
-# default serve package port
-EXPOSE 5000
 CMD ["serve", "-s", "build"]

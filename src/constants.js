@@ -7,7 +7,10 @@ export const FACEBOOK_SHARE_LINK = `https://www.facebook.com/dialog/share?app_id
 export const TWITTER_SHARE_LINK = `https://twitter.com/intent/tweet?url=www.essaydatabase.org&text=checkout%20essaydb%20for%20college%20application%20essays&hashtags=essaydb
 `;
 
-export const FETCH_URL = process.env.REACT_APP_FETCH_URL;
+export const API_URL =
+  (process.env.REACT_APP_API_URL
+    ? process.env.REACT_APP_API_URL
+    : "http://essaydb-backend") + "/essays";
 export const NUM_FEATURED = 3;
 
 const IMAGES = [];
@@ -19,7 +22,7 @@ function importAll(r) {
 export const UPLOAD_IMAGE = selectRandom(IMAGES);
 export { default as LOGO_IMAGE } from "./icons/logo.png";
 export const LOGO_WIDTH = 140;
-export const LOGO = "essay db";
+export const LOGO = "essaydb";
 export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Collection of college application essays and personal statements.";

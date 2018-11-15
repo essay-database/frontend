@@ -1,7 +1,7 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import { withRouter } from "react-router";
 import axios from "axios";
-import { FETCH_URL, LOADING_DELAY } from "./constants";
+import { API_URL, LOADING_DELAY } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
 
@@ -95,7 +95,7 @@ class Grid extends PureComponent {
   componentDidMount = async () => {
     let { essays } = this.state;
     try {
-      ({ data: essays } = await axios.get(FETCH_URL));
+      ({ data: essays } = await axios.get(API_URL));
     } catch (error) {
       console.error(error);
     }

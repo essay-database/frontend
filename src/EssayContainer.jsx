@@ -6,7 +6,7 @@ import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import {
-  FETCH_URL,
+  API_URL,
   LOADING_DELAY,
   NUM_FEATURED,
   FACEBOOK_SHARE_LINK,
@@ -71,9 +71,9 @@ class EssayContainer extends PureComponent {
     let { essay, featuredEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
-        `${FETCH_URL}/${this.props.match.params.id}`
+        `${API_URL}/${this.props.match.params.id}`
       ));
-      ({ data: featuredEssays } = await axios.get(FETCH_URL + "/featured"));
+      ({ data: featuredEssays } = await axios.get(API_URL + "/featured"));
     } catch (error) {
       console.error(error);
     }

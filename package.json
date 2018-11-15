@@ -18,7 +18,7 @@
     "prettier": "^1.15.2"
   },
   "scripts": {
-    "start": "REACT_APP_FETCH_URL=http://localhost:8080/essays react-scripts start",
+    "start": "REACT_APP_API_URL=http://localhost:8080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
@@ -30,7 +30,7 @@
   "author": {
     "email": "info@essaydatabase.org",
     "name": "essaydatabase",
-    "url": "https://www.essaydatabase.org"
+    "url": "http://www.essaydatabase.org"
   },
   "private": true,
   "license": "UNLICENCED",
