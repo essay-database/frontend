@@ -11,6 +11,7 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
     } uk-flex-middle uk-grid-small`}
     uk-grid=""
   >
+    {/* eslint jsx-a11y/anchor-has-content: 0 */}
     <div>
       <div className="uk-panel">
         <a
@@ -32,13 +33,9 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
   </div>
 );
 
-const SHARED_PROPTYPES = {
-  facebookShareLink: PropTypes.string.isRequired,
-  twitterShareLink: PropTypes.string.isRequired
-};
-
 Sidebar.propTypes = {
-  ...SHARED_PROPTYPES,
+  facebookShareLink: PropTypes.string.isRequired,
+  twitterShareLink: PropTypes.string.isRequired,
   horizontal: PropTypes.bool
 };
 

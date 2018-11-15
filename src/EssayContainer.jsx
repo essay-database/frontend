@@ -129,8 +129,8 @@ class EssayContainer extends PureComponent {
             <div className="uk-hidden@m uk-flex uk-flex-right uk-padding">
               <Sidebar
                 horizontal
-                facebookShareLink={essay.facebookShareLink}
-                twitterShareLink={essay.twitterShareLink}
+                facebookShareLink={FACEBOOK_SHARE_LINK}
+                twitterShareLink={TWITTER_SHARE_LINK}
               />
             </div>
           </div>
@@ -159,15 +159,16 @@ class EssayContainer extends PureComponent {
         </div>
 
         <div className="uk-section uk-section-muted">
-          <div className="uk-container uk-width-2-3@m uk-flex-center">
-            <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
-              comments
+          <div className="uk-container">
+            <h3 className="uk-text-uppercase uk-text-small uk-heading-divider">
+              <span className="uk-text-bold">comments</span>
               <span> (does not post on your facebook account)</span>
             </h3>
             <div
               className="fb-comments"
               data-href="www.essaydatabase.org"
               data-numposts="5"
+              data-width="700"
             />
           </div>
         </div>

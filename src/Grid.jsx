@@ -27,16 +27,16 @@ const FilterSort = ({ handleFilter }) => (
       <div>
         <ul onClick={handleFilter} className="uk-subnav uk-subnav-pill">
           <li className="uk-active" uk-filter-control="">
-            <a href="#">All</a>
+            <a href="#all">All</a>
           </li>
           <li uk-filter-control="[data-tag='new']">
-            <a href="#">New</a>
+            <a href="#new">New</a>
           </li>
           <li uk-filter-control="[data-tag='popular']">
-            <a href="#">Popular</a>
+            <a href="#popular">Popular</a>
           </li>
           <li uk-filter-control="[data-tag='featured']">
-            <a href="#">Featured</a>
+            <a href="#featured">Featured</a>
           </li>
         </ul>
       </div>
@@ -46,10 +46,10 @@ const FilterSort = ({ handleFilter }) => (
             className="uk-active"
             uk-filter-control="sort: data-date; order: desc"
           >
-            <a href="#">Most recent</a>
+            <a href="#most-recent">Most recent</a>
           </li>
           <li uk-filter-control="sort: data-date">
-            <a href="#">Least recent</a>
+            <a href="#least-recent">Least recent</a>
           </li>
         </ul>
       </div>
@@ -87,7 +87,6 @@ class Grid extends PureComponent {
 
   handlePopState = e => {
     e.preventDefault();
-
     if (this.props.history.action === "POP") this.props.history.goBack();
     else if (this.props.history.action === "PUSH")
       this.props.history.goForward();

@@ -13,7 +13,7 @@ const truncate = label =>
     ? label.substring(0, LABEL_LIMIT) + ELLIPSIS
     : label;
 
-const selectLabel = status => {
+const selectStatusLabel = status => {
   let classname = "uk-label-";
   switch (status) {
     case "accepted":
@@ -73,7 +73,7 @@ const Card = ({
           {applicationStatus && (
             <div className="uk-margin-small-right">
               <p
-                className={`uk-margin-remove uk-text-capitalize uk-label ${selectLabel(
+                className={`uk-margin-remove uk-text-capitalize uk-label ${selectStatusLabel(
                   applicationStatus
                 )}`}
               >

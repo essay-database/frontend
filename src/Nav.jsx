@@ -11,6 +11,7 @@ const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
     className={iconClass}
     uk-icon={`icon: ${icon}; ratio: ${MAIN_NAV_ICON_SIZE}`}
     uk-toggle={dataToggle}
+    href="#navicon"
   >
     {children}
   </a>

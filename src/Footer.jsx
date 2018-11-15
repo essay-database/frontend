@@ -27,6 +27,7 @@ export default () => (
           <div className="uk-panel">
             <p>{ABOUT}</p>
             <p>
+              {/* eslint jsx-a11y/anchor-has-content: 0 */}
               <a
                 href={FACEBOOK_PAGE_LINK}
                 className="facebook uk-icon-button  uk-margin-small-right"

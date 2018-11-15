@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const Details = ({
   author,
   country,
-  dateUploaded,
+  dateUploaded = new Date(),
   applicationStatus,
   yearApplied,
   college
@@ -19,10 +19,7 @@ const Details = ({
         </p>
       </div>
       <div>
-        <p>
-          {new Date(Date.parse(dateUploaded)).toLocaleDateString("en") ||
-            new Date()}
-        </p>
+        <p>{new Date(Date.parse(dateUploaded)).toLocaleDateString("en")}</p>
       </div>
     </div>
     <div className="uk-flex uk-flex-between">
