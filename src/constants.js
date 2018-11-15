@@ -10,7 +10,7 @@ export const TWITTER_SHARE_LINK = `https://twitter.com/intent/tweet?url=www.essa
 export const API_URL =
   (process.env.REACT_APP_API_URL
     ? process.env.REACT_APP_API_URL
-    : "http://essaydb-backend") + "/essays";
+    : "http://essaydatase.org:8080") + "/essays";
 export const NUM_FEATURED = 3;
 
 const IMAGES = [];
