@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LinesEllipsis from "react-lines-ellipsis";
+import { NUM_LINES } from "./constants";
 import "./styles/card.css";
 
 const WIDTH = 640;
@@ -36,11 +37,6 @@ const selectStatusLabel = status => {
   return classname;
 };
 
-const handleReflow = props => {
-  console.log("handling reflow");
-  console.log(props);
-};
-
 const Card = ({
   tag,
   text,
@@ -65,15 +61,14 @@ const Card = ({
     </div>
     <div className="uk-card-body">
       <p className="uk-dropcap">
-        <a href={linkEssay} className="uk-link-reset">
+        <a href={linkEssay} className="uk-link-reset textSize">
           <LinesEllipsis
             text={text}
-            maxLine="3"
+            maxLine={NUM_LINES}
             ellipsis="..."
             trimRight
             basedOn="words"
             component="p"
-            onReflow={handleReflow}
           />
         </a>
       </p>

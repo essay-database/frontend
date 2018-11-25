@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Details from "./Details";
+import "./styles/essay.css";
 
 const Essay = ({
   paragraphs,
@@ -38,7 +39,11 @@ const Essay = ({
           {paragraphs.map((paragraph, idx) => (
             <p
               key={idx}
-              className={idx === 0 ? "uk-dropcap uk-text-lead" : null}
+              className={
+                idx === 0
+                  ? "uk-dropcap uk-text-lead"
+                  : "uk-text-justify textSize"
+              }
             >
               {paragraph}
             </p>

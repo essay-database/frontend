@@ -7,14 +7,13 @@ import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import {
   API_URL,
-  LOADING_DELAY,
   NUM_FEATURED,
   FACEBOOK_SHARE_LINK,
   TWITTER_SHARE_LINK
 } from "./constants";
 import { shuffleSelect } from "./utils";
 import { Loading, PageNotFound } from "./staticPages/";
-import "./styles/essay_container.css";
+import "./styles/essayContainer.css";
 
 const SIDEBAR_OFFSET = 130;
 
@@ -78,13 +77,11 @@ class EssayContainer extends PureComponent {
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => {
-      this.setState({
-        essay,
-        featuredEssays: shuffleSelect(featuredEssays, NUM_FEATURED),
-        isLoading: false
-      });
-    }, LOADING_DELAY);
+    this.setState({
+      essay,
+      featuredEssays: shuffleSelect(featuredEssays, NUM_FEATURED),
+      isLoading: false
+    });
     window.onpopstate = this.handlePopState;
     window.onscroll = this.handleScroll;
     this.loadComments();
@@ -103,7 +100,7 @@ class EssayContainer extends PureComponent {
         <div className="uk-grid" uk-grid="">
           <div className="uk-visible@m uk-width-1-6@m uk-flex uk-flex-center">
             <div
-              id="social_side"
+              id="socialSide"
               uk-sticky={`offset: ${SIDEBAR_OFFSET};`}
               className={invisisble ? "uk-invisible" : ""}
               ref={this.socialBar}
@@ -149,7 +146,7 @@ class EssayContainer extends PureComponent {
               {featuredEssays.map(({ id, paragraphs, imageLink }) => (
                 <div key={id}>
                   <Card
-                    text={paragraphs[0]}
+                    text={paragraphs.slice(0, 3).join(" ")}
                     linkEssay={`/essays/${id}`}
                     imageLink={imageLink}
                   />

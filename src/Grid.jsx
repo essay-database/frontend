@@ -1,10 +1,9 @@
 import React, { Fragment, createRef, PureComponent, forwardRef } from "react";
 import { withRouter } from "react-router";
 import axios from "axios";
-import { API_URL, LOADING_DELAY } from "./constants";
+import { API_URL } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
-import { NUM_LINES } from "./constants";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -100,15 +99,13 @@ class Grid extends PureComponent {
     } catch (error) {
       console.error(error);
     }
-    setTimeout(() => {
-      this.setState(
-        {
-          essays,
-          isLoading: false
-        },
-        this.handleFilter
-      );
-    }, LOADING_DELAY / 2);
+    this.setState(
+      {
+        essays,
+        isLoading: false
+      },
+      this.handleFilter
+    );
     window.onpopstate = this.handlePopState;
   };
 
@@ -129,7 +126,7 @@ class Grid extends PureComponent {
             <FilterSort handleFilter={this.handleFilter} />
             <div
               className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
-              uk-grid="masonry: true"
+              uk-grid="masonry: false"
               uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
               ref={this.grid}
             >
@@ -149,7 +146,7 @@ class Grid extends PureComponent {
                     data-date={dateUploaded.valueOf()}
                   >
                     <Card
-                      text={paragraphs.slice(0, NUM_LINES).join(" ")}
+                      text={paragraphs.slice(0, 3).join(" ")}
                       tag={tag}
                       imageLink={imageLink}
                       linkEssay={`/essays/${id}`}

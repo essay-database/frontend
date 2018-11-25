@@ -14,7 +14,7 @@ export const API_URL =
 
 export const NUM_FEATURED = 3;
 
-export const NUM_LINES = 5;
+export const NUM_LINES = 6;
 
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
@@ -30,4 +30,3 @@ export const COPYRIGHT = `© ${new Date().getFullYear()} ${LOGO}`;
 export const ABOUT =
   "Collection of college application essays and personal statements.";
 export const UPLOAD_TITLE = "Share with the world!";
-export const LOADING_DELAY = 500;

@@ -2,7 +2,7 @@ import React, { PureComponent, createRef } from "react";
 import PropTypes from "prop-types";
 import { Route, Link } from "react-router-dom";
 import { COPYRIGHT } from "./constants";
-import "./styles/nav_side.css";
+import "./styles/navSide.css";
 
 const RouteLink = ({ to, exact, children }) => (
   <Route
