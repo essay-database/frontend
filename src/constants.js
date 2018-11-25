@@ -11,6 +11,7 @@ export const API_URL =
   (process.env.REACT_APP_API_URL
     ? process.env.REACT_APP_API_URL
     : "http://essaydatabase.org:8080") + "/essays";
+
 export const NUM_FEATURED = 3;
 
 const IMAGES = [];

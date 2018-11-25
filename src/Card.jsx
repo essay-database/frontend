@@ -60,7 +60,7 @@ const Card = ({
     <div className="uk-card-body">
       <p className="uk-dropcap">
         <a href={linkEssay} className="uk-link-reset">
-          {text}
+          {text + "..."}
         </a>
       </p>
     </div>
