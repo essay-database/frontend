@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_URL, LOADING_DELAY } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
+import { NUM_LINES } from "./constants";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -148,7 +149,7 @@ class Grid extends PureComponent {
                     data-date={dateUploaded.valueOf()}
                   >
                     <Card
-                      text={paragraphs[0]}
+                      text={paragraphs.slice(0, NUM_LINES).join(" ")}
                       tag={tag}
                       imageLink={imageLink}
                       linkEssay={`/essays/${id}`}

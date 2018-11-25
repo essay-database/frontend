@@ -17,6 +17,7 @@ import { Loading, PageNotFound } from "./staticPages/";
 import "./styles/essay_container.css";
 
 const SIDEBAR_OFFSET = 130;
+
 class EssayContainer extends PureComponent {
   constructor(props) {
     super(props);

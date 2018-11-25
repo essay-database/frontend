@@ -14,6 +14,8 @@ export const API_URL =
 
 export const NUM_FEATURED = 3;
 
+export const NUM_LINES = 5;
+
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
 function importAll(r) {
