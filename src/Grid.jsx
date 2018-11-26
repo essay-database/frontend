@@ -40,19 +40,6 @@ const FilterSort = ({ handleFilter }) => (
           </li>
         </ul>
       </div>
-      <div>
-        <ul className="uk-subnav uk-subnav-pill">
-          <li
-            className="uk-active"
-            uk-filter-control="sort: data-date; order: desc"
-          >
-            <a href="#most-recent">Most recent</a>
-          </li>
-          <li uk-filter-control="sort: data-date">
-            <a href="#least-recent">Least recent</a>
-          </li>
-        </ul>
-      </div>
     </div>
   </Fragment>
 );
@@ -115,7 +102,6 @@ class Grid extends PureComponent {
 
   render() {
     const { essays, isLoading } = this.state;
-    console.log(essays[0]);
     if (isLoading) return <Loading />;
     return (
       <div>

@@ -23,6 +23,8 @@ class EssayContainer extends PureComponent {
     this.state = {
       essay: null,
       featuredEssays: [],
+      newEssays: [],
+      popularEssays: [],
       invisisble: false,
       isLoading: true
     };
@@ -66,20 +68,23 @@ class EssayContainer extends PureComponent {
     })(document, "script", "facebook-jssdk");
   }
 
-  // TODO make requests parallel
   async componentDidMount() {
-    let { essay, featuredEssays } = this.state;
+    let { essay, featuredEssays, newEssays, popularEssays } = this.state;
     try {
       ({ data: essay } = await axios.get(
         `${API_URL}/${this.props.match.params.id}`
       ));
-      ({ data: featuredEssays } = await axios.get(API_URL + "/featured"));
+      ({ data: featuredEssays } = await axios.get(`${API_URL}?tag=featured`));
+      ({ data: newEssays } = await axios.get(`${API_URL}?tag=new`));
+      ({ data: popularEssays } = await axios.get(`${API_URL}?tag=popular`));
     } catch (error) {
       console.error(error);
     }
     this.setState({
       essay,
       featuredEssays: shuffleSelect(featuredEssays, NUM_FEATURED),
+      newEssays: shuffleSelect(newEssays, NUM_FEATURED),
+      popularEssays: shuffleSelect(popularEssays, NUM_FEATURED),
       isLoading: false
     });
     window.onpopstate = this.handlePopState;
@@ -93,7 +98,14 @@ class EssayContainer extends PureComponent {
   }
 
   render() {
-    const { essay, featuredEssays, invisisble, isLoading } = this.state;
+    const {
+      essay,
+      featuredEssays,
+      newEssays,
+      popularEssays,
+      invisisble,
+      isLoading
+    } = this.state;
     if (isLoading) return <Loading />;
     return essay ? (
       <Fragment>
@@ -134,39 +146,89 @@ class EssayContainer extends PureComponent {
           </div>
         </div>
 
-        <div className="uk-section uk-section-small">
-          <div className="uk-container">
-            <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
-              featured
-            </h3>
-            <div
-              className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
-              uk-grid=""
-            >
-              {featuredEssays.map(({ id, paragraphs, smallImageURL }) => (
-                <div key={id}>
-                  <Card
-                    text={paragraphs.slice(0, 3).join(" ")}
-                    essayURL={`/essays/${id}`}
-                    smallImageURL={smallImageURL}
-                  />
-                </div>
-              ))}
+        {featuredEssays.length > 0 && (
+          <div className="uk-section uk-section-xsmall">
+            <div className="uk-container">
+              <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+                featured
+              </h3>
+              <div
+                className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
+                uk-grid=""
+              >
+                {featuredEssays.map(({ id, paragraphs, smallImageURL }) => (
+                  <div key={id}>
+                    <Card
+                      text={paragraphs.slice(0, 3).join(" ")}
+                      essayURL={`/essays/${id}`}
+                      smallImageURL={smallImageURL}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
+        {newEssays.length > 0 && (
+          <div className="uk-section uk-section-xsmall">
+            <div className="uk-container">
+              <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+                new
+              </h3>
+              <div
+                className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
+                uk-grid=""
+              >
+                {newEssays.map(({ id, paragraphs, smallImageURL }) => (
+                  <div key={id}>
+                    <Card
+                      text={paragraphs.slice(0, 3).join(" ")}
+                      essayURL={`/essays/${id}`}
+                      smallImageURL={smallImageURL}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {popularEssays.length > 0 && (
+          <div className="uk-section uk-section-xsmall">
+            <div className="uk-container">
+              <h3 className="uk-text-uppercase uk-text-small uk-text-bold uk-heading-divider">
+                popular
+              </h3>
+              <div
+                className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
+                uk-grid=""
+              >
+                {popularEssays.map(({ id, paragraphs, smallImageURL }) => (
+                  <div key={id}>
+                    <Card
+                      text={paragraphs.slice(0, 3).join(" ")}
+                      essayURL={`/essays/${id}`}
+                      smallImageURL={smallImageURL}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="uk-section uk-section-muted">
           <div className="uk-container">
             <h3 className="uk-text-uppercase uk-text-small uk-heading-divider">
               <span className="uk-text-bold">comments</span>
-              <span> (does not post on your facebook account)</span>
+              <span> (does not post on facebook)</span>
             </h3>
             <div
               className="fb-comments"
-              data-href="www.essaydatabase.org"
               data-numposts="5"
               data-width="700"
+              data-href="essaydatabase.org"
             />
           </div>
         </div>
