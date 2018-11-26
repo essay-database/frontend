@@ -40,16 +40,16 @@ const selectStatusLabel = status => {
 const Card = ({
   tag,
   text,
-  linkEssay,
-  imageLink,
+  essayURL,
+  smallImageURL,
   applicationStatus,
   college
 }) => (
   <div className="uk-card uk-card-small uk-card-default uk-box-shadow-hover-large">
     <div className="uk-card-media-top">
-      <a href={linkEssay} className="uk-link-reset">
+      <a href={essayURL} className="uk-link-reset">
         <div className="uk-inline uk-cover-container">
-          <img data-src={imageLink} uk-cover="" alt="" uk-img="" />
+          <img data-src={smallImageURL} uk-cover="" alt="" uk-img="" />
           {tag && (
             <div className="uk-overlay uk-light uk-position-top-right">
               <p className="tag uk-text-small uk-text-capitalize">{tag}</p>
@@ -61,7 +61,7 @@ const Card = ({
     </div>
     <div className="uk-card-body">
       <p className="uk-dropcap">
-        <a href={linkEssay} className="uk-link-reset textSize">
+        <a href={essayURL} className="uk-link-reset textSize">
           <LinesEllipsis
             text={text}
             maxLine={NUM_LINES}
@@ -104,8 +104,8 @@ const Card = ({
 Card.propTypes = {
   tag: PropTypes.string,
   text: PropTypes.string.isRequired,
-  linkEssay: PropTypes.string.isRequired,
-  imageLink: PropTypes.string.isRequired,
+  essayURL: PropTypes.string.isRequired,
+  smallImageURL: PropTypes.string.isRequired,
   college: PropTypes.string,
   applicationStatus: PropTypes.string
 };

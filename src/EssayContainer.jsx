@@ -115,7 +115,7 @@ class EssayContainer extends PureComponent {
             <Essay
               paragraphs={essay.paragraphs}
               prompt={essay.prompt}
-              imageLink={essay.imageLink}
+              largeImageURL={essay.largeImageURL}
               author={essay.author}
               college={essay.college}
               country={essay.country}
@@ -143,12 +143,12 @@ class EssayContainer extends PureComponent {
               className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
               uk-grid=""
             >
-              {featuredEssays.map(({ id, paragraphs, imageLink }) => (
+              {featuredEssays.map(({ id, paragraphs, smallImageURL }) => (
                 <div key={id}>
                   <Card
                     text={paragraphs.slice(0, 3).join(" ")}
-                    linkEssay={`/essays/${id}`}
-                    imageLink={imageLink}
+                    essayURL={`/essays/${id}`}
+                    smallImageURL={smallImageURL}
                   />
                 </div>
               ))}

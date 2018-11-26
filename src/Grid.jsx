@@ -115,6 +115,7 @@ class Grid extends PureComponent {
 
   render() {
     const { essays, isLoading } = this.state;
+    console.log(essays[0]);
     if (isLoading) return <Loading />;
     return (
       <div>
@@ -127,7 +128,7 @@ class Grid extends PureComponent {
             <div
               className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
               uk-grid="masonry: false"
-              uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 500;"
+              uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 200;"
               ref={this.grid}
             >
               {essays.map(
@@ -136,7 +137,7 @@ class Grid extends PureComponent {
                   paragraphs,
                   tag,
                   dateUploaded,
-                  imageLink,
+                  smallImageURL,
                   college,
                   applicationStatus
                 }) => (
@@ -148,8 +149,8 @@ class Grid extends PureComponent {
                     <Card
                       text={paragraphs.slice(0, 3).join(" ")}
                       tag={tag}
-                      imageLink={imageLink}
-                      linkEssay={`/essays/${id}`}
+                      smallImageURL={smallImageURL}
+                      essayURL={`/essays/${id}`}
                       college={college}
                       applicationStatus={applicationStatus}
                     />
