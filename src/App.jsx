@@ -18,6 +18,7 @@ import {
   PageNotFound
 } from "./staticPages";
 import "./styles/app.css";
+import "./axios";
 
 export default () => (
   <Router>

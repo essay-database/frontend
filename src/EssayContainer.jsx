@@ -228,7 +228,7 @@ class EssayContainer extends PureComponent {
               className="fb-comments"
               data-numposts="5"
               data-width="700"
-              data-href="essaydatabase.org"
+              data-href="www.essaydatabase.org"
             />
           </div>
         </div>
