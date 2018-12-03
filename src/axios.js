@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// TODO test request
 axios.interceptors.response.use(
   config => config,
   error => {

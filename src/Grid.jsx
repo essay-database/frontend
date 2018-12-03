@@ -112,7 +112,7 @@ class Grid extends PureComponent {
           >
             <FilterSort handleFilter={this.handleFilter} />
             <div
-              className="js-filter uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@xl uk-section-muted"
+              className="js-filter uk-grid uk-grid-small uk-child-width-1-1 uk-section-default"
               uk-grid="masonry: false"
               uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-card; delay: 200;"
               ref={this.grid}
@@ -124,6 +124,7 @@ class Grid extends PureComponent {
                   tag,
                   dateUploaded,
                   smallImageURL,
+                  prompt,
                   college,
                   applicationStatus
                 }) => (
@@ -134,12 +135,14 @@ class Grid extends PureComponent {
                   >
                     <Card
                       text={paragraphs.slice(0, 3).join(" ")}
+                      prompt={prompt}
                       tag={tag}
                       smallImageURL={smallImageURL}
                       essayURL={`/essays/${id}`}
                       college={college}
                       applicationStatus={applicationStatus}
                     />
+                    <hr />
                   </div>
                 )
               )}
