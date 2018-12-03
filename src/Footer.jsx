@@ -12,7 +12,7 @@ const PADDING_TOP = 88;
 
 export default () => (
   <footer
-    className="uk-section uk-section-large uk-section-secondary uk-light"
+    className="uk-section uk-section-large uk-section-secondary"
     style={{ paddingTop: PADDING_TOP }}
   >
     <div className="uk-container">

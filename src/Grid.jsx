@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_URL } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
+import "./styles/grid.css";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -22,11 +23,14 @@ const ToTop = forwardRef((props, ref) => (
 ));
 
 const Filter = ({ handleToggleFilter }) => (
-  <div class="uk-section uk-section-xsmall">
+  <div
+    class="uk-section uk-section-primary uk-section-xsmall"
+    uk-sticky="offset: 110"
+  >
     <div class="uk-container uk-container-expand">
       <ul
         onClick={handleToggleFilter}
-        className="uk-flex uk-flex-center uk-subnav uk-subnav-pill"
+        className="uk-flex uk-flex-center uk-subnav uk-subnav-pill textWhite"
       >
         <li className="uk-active" uk-filter-control="">
           <a href="#all">All</a>
@@ -59,13 +63,13 @@ const Main = ({ essays }) => (
             paragraphs,
             tag,
             smallImageURL,
-            prompt,
             college,
-            applicationStatus
+            applicationStatus,
+            prompt
           }) => (
             <div key={id} data-tag={tag}>
               <Card
-                text={paragraphs.slice(0, 2).join(" ")}
+                text={paragraphs.slice(0, 3).join(" ")}
                 prompt={prompt}
                 tag={tag}
                 smallImageURL={smallImageURL}

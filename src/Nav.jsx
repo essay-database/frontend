@@ -4,14 +4,14 @@ import Form from "./Form";
 import NavSidebar from "./NavSidebar";
 import { LOGO, LOGO_IMAGE, LOGO_WIDTH } from "./constants";
 
-const MAIN_NAV_ICON_SIZE = 1.2;
+const NAV_ICON_SIZE = 1.2;
 
 const NavIcon = ({ icon = null, dataToggle, iconClass, children }) => (
   <a
     className={iconClass}
-    uk-icon={`icon: ${icon}; ratio: ${MAIN_NAV_ICON_SIZE}`}
+    uk-icon={`icon: ${icon}; ratio: ${NAV_ICON_SIZE}`}
     uk-toggle={dataToggle}
-    href="#navicon"
+    href="#navIcon"
   >
     {children}
   </a>
@@ -43,7 +43,7 @@ export default () => (
       <div className="uk-navbar-center">
         <div className="uk-navbar-item">
           <div className="uk-inline-clip uk-transition-toggle">
-            <a href="/" className="uk-logo uk-link-text">
+            <a href="/" className="uk-logo">
               <img
                 className="uk-transition-scale-up uk-transition-opaque"
                 src={LOGO_IMAGE}
@@ -65,7 +65,6 @@ export default () => (
               Upload essay
             </NavIcon>
           </div>
-
           <div className="uk-hidden@m">
             <NavIcon
               icon="upload"

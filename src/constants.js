@@ -13,8 +13,8 @@ export const API_URL =
     : "http://essaydatabase.org:8080") + "/essays";
 
 export const NUM_FEATURED = 3;
-export const NUM_LINES = 3;
 export const IMAGE_POSITION = "right";
+export const SHOW_PROMPTS = false;
 
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
