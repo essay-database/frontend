@@ -12,7 +12,7 @@ import {
   TWITTER_SHARE_LINK
 } from "./constants";
 import { shuffleSelect } from "./utils";
-import { Loading, PageNotFound } from "./staticPages/";
+import { Loading, PageNotFound } from "./staticPages";
 import "./styles/essayContainer.css";
 
 const SIDEBAR_OFFSET = 130;

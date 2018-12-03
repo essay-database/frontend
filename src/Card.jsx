@@ -1,40 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LinesEllipsis from "react-lines-ellipsis";
-import { NUM_LINES } from "./constants";
+import { NUM_LINES, IMAGE_POSITION } from "./constants";
 import "./styles/card.css";
 
 const WIDTH = 300;
 const HEIGHT = 200;
-const LABEL_LIMIT = 25;
-const ELLIPSIS = "..";
+const TEXT_LIMIT = 500;
+const ELLIPSIS = "...";
 
 const truncate = label =>
-  label.length > LABEL_LIMIT
-    ? label.substring(0, LABEL_LIMIT) + ELLIPSIS
-    : label;
-
-const selectStatusLabel = status => {
-  let classname = "uk-label-";
-  switch (status) {
-    case "accepted":
-      classname += "success";
-      break;
-    case "rejected":
-      classname += "danger";
-      break;
-    case "waitlisted":
-      classname += "warning";
-      break;
-    case "pending":
-      classname += "default";
-      break;
-    default:
-      classname += "default";
-      break;
-  }
-  return classname;
-};
+  label.length > TEXT_LIMIT ? label.substring(0, TEXT_LIMIT) + ELLIPSIS : label;
 
 const Card = ({
   tag,
@@ -43,25 +19,21 @@ const Card = ({
   smallImageURL,
   applicationStatus,
   college,
-  prompt,
-  imagePos = "right"
+  prompt
 }) => (
-  <div
-    className="uk-card uk-card-small uk-grid-collapse uk-margin uk-box-shadow-hover-small"
-    uk-grid=""
-  >
+  <div className="uk-card uk-card-small uk-grid-collapse" uk-grid="">
     <div
       className={`${
-        imagePos === "right"
-          ? "uk-flex-last@s uk-card-media-right"
+        IMAGE_POSITION === "right"
+          ? "uk-card-media-right uk-flex-last@m"
           : "uk-card-media-left"
-      } uk-cover-container uk-height-medium uk-visible@m`}
+      } uk-cover-container uk-visible@m`}
     >
       <a href={essayURL} className="uk-link-reset">
         <div className="uk-inline uk-cover-container">
           <img data-src={smallImageURL} uk-cover="" alt="" uk-img="" />
           {tag && (
-            <div className="uk-overlay uk-light uk-position-top-right">
+            <div className="uk-overlay uk-position-bottom-right">
               <p className="tag uk-text-small uk-text-capitalize">{tag}</p>
             </div>
           )}
@@ -70,35 +42,32 @@ const Card = ({
       </a>
     </div>
     <div className="uk-width-expand">
-      <div className="uk-card-body uk-padding-small">
+      <div className="uk-card-body uk-padding-remove-vertical">
         <h3 className="uk-card-title">{prompt}</h3>
-        <div className="uk-flex uk-flex-between uk-flex-middle uk-text-small uk-margin">
+        <div className="uk-flex uk-flex-between uk-flex-middle uk-text-small">
           {college && (
             <div>
-              <p className="uk-margin-remove uk-badge">{truncate(college)}</p>
+              <p className="uk-margin-remove uk-text-capitalize">{college}</p>
             </div>
           )}
           {applicationStatus && (
-            <div className="uk-margin-small-right">
-              <p
-                className={`uk-margin-remove uk-text-capitalize uk-label ${selectStatusLabel(
-                  applicationStatus
-                )}`}
-              >
+            <div>
+              <p className="uk-margin-remove uk-text-capitalize">
                 {applicationStatus}
               </p>
             </div>
           )}
         </div>
         <p className="uk-dropcap">
-          <a href={essayURL} className="uk-link-reset textSize">
+          <a href={essayURL} className="uk-link-reset textSize uk-dropcap">
+            {/* {truncate(text)} */}
             <LinesEllipsis
               text={text}
-              maxLine={9}
+              maxLine={2}
               ellipsis="..."
               trimRight
-              basedOn="letters"
-              component="p"
+              basedOn="words"
+              component="span"
             />
           </a>
         </p>
