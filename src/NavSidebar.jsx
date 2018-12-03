@@ -4,12 +4,12 @@ import { Route, Link } from "react-router-dom";
 import { COPYRIGHT } from "./constants";
 import "./styles/navSide.css";
 
-const RouteLink = ({ to, exact, children }) => (
+const RouteLink = ({ to, exact, children, handleClick }) => (
   <Route
     path={to}
     exact={exact}
     children={({ match }) => (
-      <li className={match ? "uk-active" : null}>
+      <li className={match ? "uk-active" : null} onClick={handleClick}>
         <Link to={to}>{children}</Link>
       </li>
     )}
@@ -39,32 +39,32 @@ class NavSide extends PureComponent {
           <button className="uk-offcanvas-close " type="button" uk-close="" />
 
           <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <RouteLink to="/about" onClick={this.handleClick}>
+            <RouteLink to="/about" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="info" />
               About Us
             </RouteLink>
 
-            <RouteLink to="/contact" onClick={this.handleClick}>
+            <RouteLink to="/contact" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="mail" />
               Contact Us
             </RouteLink>
 
-            <RouteLink to="/advertise" onClick={this.handleClick}>
+            <RouteLink to="/advertise" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" />
               Advertise
             </RouteLink>
 
-            <RouteLink to="/terms" onClick={this.handleClick}>
+            <RouteLink to="/terms" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" />
               Terms
             </RouteLink>
 
-            <RouteLink to="/privacy" onClick={this.handleClick}>
+            <RouteLink to="/privacy" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" />
               Privacy
             </RouteLink>
 
-            <RouteLink to="/help" onClick={this.handleClick}>
+            <RouteLink to="/help" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="question" />
               Help
             </RouteLink>

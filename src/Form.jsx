@@ -46,9 +46,9 @@ class Form extends PureComponent {
           />
           <div className="uk-grid-collapse uk-child-width-1-2@m" uk-grid="">
             <div>
-              <div className="uk-modal-header" ref={this.ref}>
-                <h1 className="uk-text-center">{UPLOAD_TITLE}</h1>
-              </div>
+              <h1 className="uk-text-center" ref={this.ref}>
+                {UPLOAD_TITLE}
+              </h1>
               <iframe
                 title="submit your essay"
                 width={width}

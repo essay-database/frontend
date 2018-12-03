@@ -4,7 +4,6 @@ import axios from "axios";
 import { API_URL } from "./constants";
 import Card from "./Card";
 import { Empty, Loading } from "./staticPages";
-import "./styles/grid.css";
 
 const ToTop = forwardRef((props, ref) => (
   <div
@@ -24,13 +23,13 @@ const ToTop = forwardRef((props, ref) => (
 
 const Filter = ({ handleToggleFilter }) => (
   <div
-    class="uk-section uk-section-primary uk-section-xsmall"
+    className="uk-section uk-section-default uk-section-xsmall"
     uk-sticky="offset: 110"
   >
-    <div class="uk-container uk-container-expand">
+    <div className="uk-container uk-container-expand">
       <ul
         onClick={handleToggleFilter}
-        className="uk-flex uk-flex-center uk-subnav uk-subnav-pill textWhite"
+        className="uk-flex uk-flex-center uk-subnav uk-subnav-pill"
       >
         <li className="uk-active" uk-filter-control="">
           <a href="#all">All</a>
@@ -50,8 +49,8 @@ const Filter = ({ handleToggleFilter }) => (
 );
 
 const Main = ({ essays }) => (
-  <div class="uk-section uk-section-default">
-    <div class="uk-container">
+  <div className="uk-section uk-section-default uk-section-small">
+    <div className="uk-container">
       <div
         className="js-filter uk-grid uk-child-width-1-1"
         uk-grid=""
@@ -150,6 +149,7 @@ class Grid extends PureComponent {
         {essays.length > 0 ? (
           <div uk-filter="target: .js-filter">
             <Filter handleToggleFilter={this.handleToggleFilter} />
+
             <Main essays={essays} />
             <ToTop
               ref={this.toTop}
