@@ -4,7 +4,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 import { statusClass } from "./utils";
 import "./styles/card.css";
 
-const WIDTH = 400;
+const WIDTH = 640;
 const HEIGHT = 300;
 
 const CardFeatured = ({

@@ -26,22 +26,24 @@ const Essay = ({
           className="uk-animation-reverse uk-transform-origin-top-right"
         />
       </div>
-      <Details
-        author={author}
-        college={college}
-        country={country}
-        dateUploaded={dateUploaded}
-        applicationStatus={applicationStatus}
-        yearApplied={yearApplied}
-      />
-      {paragraphs.map((paragraph, idx) => (
-        <p
-          key={idx}
-          className={idx === 0 ? "uk-dropcap uk-text-lead" : "textSize"}
-        >
-          {paragraph}
-        </p>
-      ))}
+      <div className="uk-padding-small">
+        <Details
+          author={author}
+          college={college}
+          country={country}
+          dateUploaded={dateUploaded}
+          applicationStatus={applicationStatus}
+          yearApplied={yearApplied}
+        />
+        {paragraphs.map((paragraph, idx) => (
+          <p
+            key={idx}
+            className={idx === 0 ? "uk-dropcap uk-text-lead" : "textSize"}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </article>
   );
 };
