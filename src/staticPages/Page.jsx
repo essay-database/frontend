@@ -23,7 +23,16 @@ class Page extends PureComponent {
 
   render() {
     const { text } = this.state;
-    return <div>{text}</div>;
+    const { page } = this.props;
+    console.log(this.state, this.props);
+    return (
+      <div className="uk-section uk-section-default">
+        <div className="uk-container">
+          <h3>{page}</h3>
+          {text}
+        </div>
+      </div>
+    );
   }
 }
 
