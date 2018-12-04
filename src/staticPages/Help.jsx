@@ -1,4 +1,4 @@
 import React from "react";
 import Page from "./Page";
 
-export default () => <Page text="help" />;
+export default () => <Page page="help" />;

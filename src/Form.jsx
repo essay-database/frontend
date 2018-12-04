@@ -1,10 +1,6 @@
 import React, { PureComponent, createRef } from "react";
 import { UPLOAD_IMAGE, UPLOAD_TITLE } from "./constants";
 
-function getWidth() {
-  return window.innerWidth > 960 ? window.innerWidth / 2 : window.innerWidth;
-}
-
 class Form extends PureComponent {
   constructor(props) {
     super(props);
@@ -15,9 +11,12 @@ class Form extends PureComponent {
     };
   }
 
+  getWidth = () =>
+    window.innerWidth > 960 ? window.innerWidth / 2 : window.innerWidth;
+
   handleDimensions = () => {
     this.setState({
-      width: getWidth(),
+      width: this.getWidth(),
       height:
         window.innerHeight -
         this.ref.current.offsetHeight +

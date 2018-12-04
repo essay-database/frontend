@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LinesEllipsis from "react-lines-ellipsis";
-import { IMAGE_POSITION, SHOW_PROMPTS } from "./constants";
 import { statusClass } from "./utils";
 import "./styles/card.css";
 
@@ -18,13 +17,7 @@ const Card = ({
   prompt
 }) => (
   <div className="uk-card uk-card-small" uk-grid="">
-    <div
-      className={`${
-        IMAGE_POSITION === "right"
-          ? "uk-card-media-right uk-flex-last@m"
-          : "uk-card-media-left"
-      } uk-visible@m`}
-    >
+    <div className="uk-card-media-right uk-flex-last@m uk-visible@m">
       <a href={essayURL} className="uk-link-reset">
         <div className="uk-inline uk-cover-container">
           <img data-src={smallImageURL} uk-cover="" alt="" uk-img="" />
@@ -39,7 +32,7 @@ const Card = ({
     </div>
     <div className="uk-width-expand">
       <div className="uk-card-body uk-padding-remove">
-        {SHOW_PROMPTS && <h3 className="uk-card-title">{prompt}</h3>}
+        <h3 className="uk-card-title">{prompt}</h3>
         <div className="uk-flex uk-flex-between uk-flex-middle uk-text-small">
           <div>
             <p className="uk-margin-remove uk-text-primary uk-text-emphasis">

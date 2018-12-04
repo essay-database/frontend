@@ -1,4 +1,4 @@
 import React from "react";
 import Page from "./Page";
 
-export default () => <Page text="terms" />;
+export default () => <Page page="terms" />;

@@ -13,10 +13,6 @@ const BASE_URL = process.env.REACT_APP_API_URL
 export const API_URL = BASE_URL + "/essays";
 export const PAGE_URL = BASE_URL + "/pages";
 
-export const NUM_FEATURED = 3;
-export const IMAGE_POSITION = "right";
-export const SHOW_PROMPTS = false;
-
 const IMAGES = [];
 importAll(require.context("./images", true, /\.jpg$/));
 function importAll(r) {

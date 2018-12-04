@@ -38,7 +38,6 @@ const CardFeatured = ({
           </p>
         </div>
       </div>
-
       <div>
         <p className="uk-dropcap">
           <a href={essayURL} className="uk-link-reset textSize">

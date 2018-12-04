@@ -24,8 +24,8 @@ export default () => (
           <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
             {COPYRIGHT}
           </h3>
-          <div className="uk-panel">
-            <p className="textWhite">{ABOUT}</p>
+          <div>
+            <p>{ABOUT}</p>
             <p>
               {/* eslint-disable jsx-a11y/anchor-has-content */}
               <a
@@ -46,12 +46,11 @@ export default () => (
             </p>
           </div>
         </div>
-
         <div className="uk-text-capitalize">
           <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
             menu
           </h3>
-          <div id="menu" className="uk-panel">
+          <div id="menu">
             <p className="uk-margin-remove-vertical">
               <a href="/about" className="uk-link-text">
                 about us
@@ -69,7 +68,7 @@ export default () => (
             </p>
             <p className="uk-margin-remove-vertical">
               <a href="/terms" className="uk-link-text">
-                terms &amp; conditions
+                terms of service
               </a>
             </p>
             <p className="uk-margin-remove-vertical">

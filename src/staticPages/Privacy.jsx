@@ -1,4 +1,4 @@
 import React from "react";
 import Page from "./Page";
 
-export default () => <Page text="privacy" />;
+export default () => <Page page="privacy" />;

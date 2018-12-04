@@ -5,17 +5,13 @@ import Essay from "./Essay";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import CardFeatured from "./CardFeatured";
-import {
-  API_URL,
-  NUM_FEATURED,
-  FACEBOOK_SHARE_LINK,
-  TWITTER_SHARE_LINK
-} from "./constants";
+import { API_URL, FACEBOOK_SHARE_LINK, TWITTER_SHARE_LINK } from "./constants";
 import { shuffleSelect } from "./utils";
 import { Loading, PageNotFound } from "./staticPages";
 import "./styles/essayContainer.css";
 
 const SIDEBAR_OFFSET = 130;
+const NUM_FEATURED = 3;
 
 const Featured = ({ essays, heading }) => (
   <div className="uk-section uk-section-xsmall">

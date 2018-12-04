@@ -9,12 +9,12 @@ class Page extends PureComponent {
   };
 
   async componentDidMount() {
-    const { text } = this.props;
+    const { page } = this.props;
     let content;
     try {
-      ({ data: content } = await axios.get(`${PAGE_URL}/${text}`));
+      ({ data: content } = await axios.get(`${PAGE_URL}/${page}`));
     } catch (error) {
-      console.error(`could not fetch page ${text}: ${error}`);
+      console.error(`could not fetch page ${page}: ${error}`);
     }
     this.setState({
       content
@@ -23,12 +23,12 @@ class Page extends PureComponent {
 
   render() {
     const { content } = this.state;
-    const { text } = this.props;
+    const { page } = this.props;
 
     return (
       <div className="uk-section uk-section-default">
         <div className="uk-container">
-          <h2 className="uk-text-capitalize">{text}</h2>
+          <h2 className="uk-text-capitalize">{page}</h2>
           <div>
             <p>{content}</p>
           </div>

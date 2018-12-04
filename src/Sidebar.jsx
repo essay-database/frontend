@@ -14,7 +14,7 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
     <p className="uk-text-muted">share</p>
     {/* eslint-disable jsx-a11y/anchor-has-content */}
     <div>
-      <div className="uk-panel">
+      <div>
         <a
           href={facebookShareLink}
           uk-icon={`icon: facebook; ratio: ${ICON_SIZE};`}
@@ -23,7 +23,7 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
       </div>
     </div>
     <div>
-      <div className="uk-panel">
+      <div>
         <a
           href={twitterShareLink}
           uk-icon={`icon: twitter; ratio: ${ICON_SIZE};`}

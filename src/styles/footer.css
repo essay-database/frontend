@@ -1,7 +1,3 @@
 div#menu>p>a:hover {
     text-decoration: none !important;
 }
-
-.textWhite {
-    color: white;
-}
