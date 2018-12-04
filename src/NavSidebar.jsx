@@ -37,7 +37,6 @@ class NavSide extends PureComponent {
       <div id="offcanvas-nav" uk-offcanvas="" ref={this.offCanvas}>
         <div className="uk-offcanvas-bar uk-flex uk-flex-column">
           <button className="uk-offcanvas-close " type="button" uk-close="" />
-
           <ul className="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <RouteLink to="/about" handleClick={this.handleClick}>
               <span className="uk-margin-small-right" uk-icon="info" />
@@ -68,7 +67,6 @@ class NavSide extends PureComponent {
               <span className="uk-margin-small-right" uk-icon="question" />
               Help
             </RouteLink>
-
             <li className="uk-nav-divider" />
             <li className="uk-margin-small">
               <p id="copyright">{COPYRIGHT}</p>

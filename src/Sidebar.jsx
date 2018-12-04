@@ -11,7 +11,8 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
     } uk-flex-middle uk-grid-small`}
     uk-grid=""
   >
-    {/* eslint jsx-a11y/anchor-has-content: 0 */}
+    <p className="uk-text-muted">share</p>
+    {/* eslint-disable jsx-a11y/anchor-has-content */}
     <div>
       <div className="uk-panel">
         <a
@@ -30,6 +31,7 @@ const Sidebar = ({ facebookShareLink, twitterShareLink, horizontal }) => (
         />
       </div>
     </div>
+    {/* eslint-enable jsx-a11y/anchor-has-content */}
   </div>
 );
 

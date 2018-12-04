@@ -149,7 +149,6 @@ class Grid extends PureComponent {
         {essays.length > 0 ? (
           <div uk-filter="target: .js-filter">
             <Filter handleToggleFilter={this.handleToggleFilter} />
-
             <Main essays={essays} />
             <ToTop
               ref={this.toTop}

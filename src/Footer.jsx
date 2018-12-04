@@ -8,13 +8,8 @@ import {
 import "./styles/social.css";
 import "./styles/footer.css";
 
-const PADDING_TOP = 88;
-
 export default () => (
-  <footer
-    className="uk-section uk-section-large uk-section-secondary"
-    style={{ paddingTop: PADDING_TOP }}
-  >
+  <footer className="uk-section uk-section-secondary">
     <div className="uk-container">
       <div
         className="uk-child-width-1-2@s uk-text-center uk-text-left@s"
@@ -25,9 +20,9 @@ export default () => (
             {COPYRIGHT}
           </h3>
           <div className="uk-panel">
-            <p>{ABOUT}</p>
+            <p className="textWhite">{ABOUT}</p>
             <p>
-              {/* eslint jsx-a11y/anchor-has-content: 0 */}
+              {/* eslint-disable jsx-a11y/anchor-has-content */}
               <a
                 href={FACEBOOK_PAGE_LINK}
                 className="facebook uk-icon-button  uk-margin-small-right"
@@ -42,9 +37,11 @@ export default () => (
                 target="_blank"
                 rel="noopener noreferrer"
               />
+              {/* eslint-enable jsx-a11y/anchor-has-content */}
             </p>
           </div>
         </div>
+
         <div className="uk-text-capitalize">
           <h3 className="uk-text-uppercase uk-text-small uk-text-muted">
             menu

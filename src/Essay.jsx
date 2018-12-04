@@ -16,8 +16,14 @@ const Essay = ({
 }) => {
   return (
     <article className="uk-article">
-      <h2 className="uk-heading-primary uk-margin-small-bottom">{prompt}</h2>
-      <div className=" uk-overflow-hidden">
+      <h2
+        className={`${
+          prompt ? "uk-margin-small-bottom" : "uk-margin-remove-bottom"
+        } uk-heading-primary`}
+      >
+        {prompt}
+      </h2>
+      <div className="uk-overflow-hidden">
         <img
           data-src={largeImageURL}
           alt=""
@@ -26,7 +32,7 @@ const Essay = ({
           className="uk-animation-reverse uk-transform-origin-top-right"
         />
       </div>
-      <div className="uk-padding-small">
+      <div className="uk-padding">
         <Details
           author={author}
           college={college}
@@ -35,15 +41,11 @@ const Essay = ({
           applicationStatus={applicationStatus}
           yearApplied={yearApplied}
         />
-        <div className="uk-text-left">
+        <div>
           {paragraphs.map((paragraph, idx) => (
             <p
               key={idx}
-              className={
-                idx === 0
-                  ? "uk-dropcap uk-text-lead"
-                  : "uk-text-justify textSize"
-              }
+              className={idx === 0 ? "uk-dropcap uk-text-lead" : "textSize"}
             >
               {paragraph}
             </p>
@@ -57,8 +59,8 @@ const Essay = ({
 Essay.propTypes = {
   paragraphs: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   prompt: PropTypes.string,
-  largeImageURL: PropTypes.string.isRequired,
   author: PropTypes.string,
+  largeImageURL: PropTypes.string.isRequired,
   college: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
   dateUploaded: PropTypes.string.isRequired,
