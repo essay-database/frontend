@@ -2,9 +2,9 @@ import React, { PureComponent, createRef } from "react";
 import { withRouter } from "react-router";
 import axios from "axios";
 import Essay from "./Essay";
-import Card from "./Card";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
+import CardFeatured from "./CardFeatured";
 import {
   API_URL,
   NUM_FEATURED,
@@ -27,15 +27,19 @@ const Featured = ({ essays, heading }) => (
         className="uk-grid uk-grid-small uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@l"
         uk-grid=""
       >
-        {essays.map(({ id, paragraphs, smallImageURL }) => (
-          <div key={id}>
-            <Card
-              text={paragraphs.slice(0, 3).join(" ")}
-              essayURL={`/essays/${id}`}
-              smallImageURL={smallImageURL}
-            />
-          </div>
-        ))}
+        {essays.map(
+          ({ id, paragraphs, smallImageURL, applicationStatus, college }) => (
+            <div key={id}>
+              <CardFeatured
+                text={paragraphs.slice(0, 3).join(" ")}
+                essayURL={`/essays/${id}`}
+                applicationStatus={applicationStatus}
+                smallImageURL={smallImageURL}
+                college={college}
+              />
+            </div>
+          )
+        )}
       </div>
     </div>
   </div>

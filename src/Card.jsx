@@ -2,32 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import LinesEllipsis from "react-lines-ellipsis";
 import { IMAGE_POSITION, SHOW_PROMPTS } from "./constants";
+import { statusClass } from "./utils";
 import "./styles/card.css";
 
 const WIDTH = 300;
 const HEIGHT = 200;
-
-const statusClass = status => {
-  let classname = "uk-label-";
-  switch (status) {
-    case "accepted":
-      classname += "success";
-      break;
-    case "rejected":
-      classname += "danger";
-      break;
-    case "waitlisted":
-      classname += "warning";
-      break;
-    case "pending":
-      classname += "default";
-      break;
-    default:
-      classname += "default";
-      break;
-  }
-  return classname;
-};
 
 const Card = ({
   tag,
@@ -81,7 +60,7 @@ const Card = ({
           <a href={essayURL} className="uk-link-reset textSize">
             <LinesEllipsis
               text={text}
-              maxLine={3}
+              maxLine={2}
               ellipsis="..."
               trimRight
               basedOn="words"
