@@ -143,22 +143,19 @@ class Grid extends PureComponent {
 
   render() {
     const { essays, isLoading } = this.state;
-    if (isLoading) return <Loading />;
-    return (
-      <div>
-        {essays.length > 0 ? (
-          <div uk-filter="target: .js-filter">
-            <Filter handleToggleFilter={this.handleToggleFilter} />
-            <Main essays={essays} />
-            <ToTop
-              ref={this.toTop}
-              classes={this.state.isVisible ? "" : `uk-invisible`}
-            />
-          </div>
-        ) : (
-          <Empty />
-        )}
+    return isLoading ? (
+      <Loading />
+    ) : essays.length > 0 ? (
+      <div uk-filter="target: .js-filter">
+        <Filter handleToggleFilter={this.handleToggleFilter} />
+        <Main essays={essays} />
+        <ToTop
+          ref={this.toTop}
+          classes={this.state.isVisible ? "" : `uk-invisible`}
+        />
       </div>
+    ) : (
+      <Empty />
     );
   }
 }

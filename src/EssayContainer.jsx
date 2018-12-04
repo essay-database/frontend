@@ -43,17 +43,18 @@ const Featured = ({ essays, heading }) => (
 
 const Comments = () => (
   <div className="uk-section uk-section-muted">
-    <div className="uk-container" />
-    <h3 className="uk-text-uppercase uk-text-small uk-heading-divider">
-      <span className="uk-text-bold">comments</span>
-      <span> (does not post on facebook)</span>
-    </h3>
-    <div
-      className="fb-comments"
-      data-numposts="5"
-      data-width="700"
-      data-href="www.essaydatabase.org"
-    />
+    <div className="uk-container">
+      <h3 className="uk-text-uppercase uk-text-small uk-heading-divider">
+        <span className="uk-text-bold">comments</span>
+        <span> (does not post on facebook)</span>
+      </h3>
+      <div
+        className="fb-comments"
+        data-numposts="5"
+        data-width="700"
+        data-href="www.essaydatabase.org"
+      />
+    </div>
   </div>
 );
 

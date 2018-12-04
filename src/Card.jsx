@@ -38,7 +38,7 @@ const Card = ({
   college,
   prompt
 }) => (
-  <div className="uk-card uk-card-small uk-grid-collapse" uk-grid="">
+  <div className="uk-card uk-card-small" uk-grid="">
     <div
       className={`${
         IMAGE_POSITION === "right"
@@ -59,7 +59,7 @@ const Card = ({
       </a>
     </div>
     <div className="uk-width-expand">
-      <div className="uk-card-body uk-padding-remove-vertical">
+      <div className="uk-card-body uk-padding-remove">
         {SHOW_PROMPTS && <h3 className="uk-card-title">{prompt}</h3>}
         <div className="uk-flex uk-flex-between uk-flex-middle uk-text-small">
           <div>

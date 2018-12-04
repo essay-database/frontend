@@ -16,14 +16,8 @@ const Essay = ({
 }) => {
   return (
     <article className="uk-article">
-      <h2
-        className={`${
-          prompt ? "uk-margin-small-bottom" : "uk-margin-remove-bottom"
-        } uk-heading-primary`}
-      >
-        {prompt}
-      </h2>
-      <div className="uk-overflow-hidden">
+      <h2 className="uk-heading-primary">{prompt}</h2>
+      <div className="uk-overflow-hidden uk-margin">
         <img
           data-src={largeImageURL}
           alt=""
@@ -32,26 +26,22 @@ const Essay = ({
           className="uk-animation-reverse uk-transform-origin-top-right"
         />
       </div>
-      <div className="uk-padding">
-        <Details
-          author={author}
-          college={college}
-          country={country}
-          dateUploaded={dateUploaded}
-          applicationStatus={applicationStatus}
-          yearApplied={yearApplied}
-        />
-        <div>
-          {paragraphs.map((paragraph, idx) => (
-            <p
-              key={idx}
-              className={idx === 0 ? "uk-dropcap uk-text-lead" : "textSize"}
-            >
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      </div>
+      <Details
+        author={author}
+        college={college}
+        country={country}
+        dateUploaded={dateUploaded}
+        applicationStatus={applicationStatus}
+        yearApplied={yearApplied}
+      />
+      {paragraphs.map((paragraph, idx) => (
+        <p
+          key={idx}
+          className={idx === 0 ? "uk-dropcap uk-text-lead" : "textSize"}
+        >
+          {paragraph}
+        </p>
+      ))}
     </article>
   );
 };
