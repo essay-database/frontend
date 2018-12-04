@@ -7,10 +7,11 @@ export const FACEBOOK_SHARE_LINK = `https://www.facebook.com/dialog/share?app_id
 export const TWITTER_SHARE_LINK = `https://twitter.com/intent/tweet?url=www.essaydatabase.org&text=checkout%20essaydb%20for%20college%20application%20essays&hashtags=essaydb
 `;
 
-export const API_URL =
-  (process.env.REACT_APP_API_URL
-    ? process.env.REACT_APP_API_URL
-    : "http://essaydatabase.org:8080") + "/essays";
+const BASE_URL = process.env.REACT_APP_API_URL
+  ? process.env.REACT_APP_API_URL
+  : "http://essaydatabase.org:8080";
+export const API_URL = BASE_URL + "/essays";
+export const PAGE_URL = BASE_URL + "/pages";
 
 export const NUM_FEATURED = 3;
 export const IMAGE_POSITION = "right";

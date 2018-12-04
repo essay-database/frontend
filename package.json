@@ -1,7 +1,7 @@
 {
-  "name": "essaydb-client",
+  "name": "essaydb-frontend",
   "version": "1.0.0",
-  "description": "essaydb client",
+  "description": "essaydb frontend",
   "main": "src/index.js",
   "dependencies": {
     "axios": "^0.18.0",

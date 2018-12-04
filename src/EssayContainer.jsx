@@ -46,7 +46,7 @@ const Featured = ({ essays, heading }) => (
 );
 
 const Comments = () => (
-  <div className="uk-section uk-section-muted">
+  <div className="uk-section uk-section-muted uk-flex uk-flex-center">
     <div className="uk-container">
       <h3 className="uk-text-uppercase uk-text-small uk-heading-divider">
         <span className="uk-text-bold">comments</span>

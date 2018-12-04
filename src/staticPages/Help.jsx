@@ -1,2 +1,4 @@
 import React from "react";
-export default () => <div>Help</div>;
+import Page from "./Contact";
+
+export default () => <Page text="help" />;
