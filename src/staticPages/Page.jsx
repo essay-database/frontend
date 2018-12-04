@@ -5,31 +5,33 @@ import { PAGE_URL } from "../../src/constants";
 
 class Page extends PureComponent {
   state = {
-    text: ""
+    content: ""
   };
 
   async componentDidMount() {
-    const page = this.props.page;
-    let text;
+    const { text } = this.props;
+    let content;
     try {
-      ({ data: text } = await axios.get(`${PAGE_URL}/${page}`));
+      ({ data: content } = await axios.get(`${PAGE_URL}/${text}`));
     } catch (error) {
-      console.error(`could not fetch page ${page}: ${error}`);
+      console.error(`could not fetch page ${text}: ${error}`);
     }
     this.setState({
-      text
+      content
     });
   }
 
   render() {
-    const { text } = this.state;
-    const { page } = this.props;
-    console.log(this.state, this.props);
+    const { content } = this.state;
+    const { text } = this.props;
+
     return (
       <div className="uk-section uk-section-default">
         <div className="uk-container">
-          <h3>{page}</h3>
-          {text}
+          <h2 className="uk-text-capitalize">{text}</h2>
+          <div>
+            <p>{content}</p>
+          </div>
         </div>
       </div>
     );
@@ -37,7 +39,7 @@ class Page extends PureComponent {
 }
 
 Page.propTypes = {
-  children: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired
 };
 
 export default Page;
